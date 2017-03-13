@@ -1,0 +1,1225 @@
+@import "vars"
+@import "mixins"
+
+html
+	font-size: 62.5%
+
+body
+	+font-normal
+	font-size: $font-size
+	line-height: $line-height
+	height: 100%
+	color: $color-text
+	background-color: $color-bg
+	min-width: 320px
+
+h1, h2, h3, h4, h5, h6
+	margin: 0
+	padding: 0
+	+font-title
+	color: $color-title
+
+h1
+	font-size: 4.0rem
+	line-height: 1.2
+	font-weight: 700
+	margin-bottom: $space-bottom
+	overflow: hidden
+
+h2
+	font-size: 3.6rem
+	line-height: 1.2
+	margin-bottom: $space-bottom
+
+h3
+	font-size: 2.8rem
+	line-height: 1.2
+	margin-bottom: $space-bottom
+
+h4
+	font-size: 2.2rem
+	line-height: 1.2
+	margin-bottom: $space-bottom
+
+h5
+	font-size: 2.0rem
+	line-height: 1.2
+	margin-bottom: $space-bottom
+
+h6
+	font-size: $font-size
+	line-height: $line-height
+	margin-bottom: $space-bottom
+
+p
+	padding: 0
+	margin: 0 0 $space-bottom
+
+hr
+	line-height: 1px
+	height: 0
+	border: none
+	background: none
+	border-bottom: 1px solid $color-border
+	margin-bottom: $space-bottom
+
+a
+	color: $color-link
+	text-decoration: underline
+	cursor: default
+	outline: none
+
+	&:link
+		cursor: pointer
+
+	.no-touchevents &:hover
+		text-decoration: none
+
+	&[href^="tel"],
+	.no-touchevents &[href^="tel"]:hover
+		text-decoration: none !important
+		color: inherit
+		cursor: default
+
+	&[href^="javascript:"]
+		cursor: default
+
+img
+	border: none
+	vertical-align: top
+	max-width: 100%
+
+	table &
+		max-width: none
+
+b, strong, th
+	+font-bold
+//font-family: 'fontNameBold'
+//font-weight: normal
+
+i, em
+	+font-italic
+//font-family: 'fontNameItalic'
+//font-style: normal
+
+i b, i strong, em b, em strong, b i, b em, strong i, strong em
+	+font-bold-italic
+//font-family: 'fontNameBoldItalic'
+//font-weight: normal
+//font-style: normal
+
+.mark
+	color: $color-text-mark
+	font-style: inherit
+	font-weight: inherit
+
+.text-color-alt
+	color: $color-text-alt
+
+.align-center
+	text-align: center
+
+.align-left
+	text-align: left
+
+.align-right
+	text-align: right
+
+.float-left
+	float: left
+
+.float-right
+	float: right
+
+.nobr
+	white-space: nowrap
+
+/*btn*/
+[class|="btn"],
+[class*=" btn-"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button
+	display: inline-block
+	vertical-align: top
+	position: relative
+	text-align: center
+	text-decoration: none
+	box-sizing: border-box
+	cursor: pointer
+
+[class|="btn"],
+[class*=" btn-"]
+	& input[type="submit"],
+	& input[type="button"],
+	& input[type="reset"]
+		background: url("../img/empty.png") repeat
+		display: block
+		height: 100%
+		padding: 0
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		z-index: 99
+		border: 0
+		opacity: 0
+
+/*btn-default*/
+[class*="btn-default"]
+	position: relative
+	+font-title
+	font-size: 1.6rem
+	line-height: 24px
+	color: $color-btn-text
+	padding: 12px 25px
+	border: 1px solid transparent
+	background: $color-btn-bg
+	box-shadow: none
+	-webkit-transition-property: background-color
+	transition-property: background-color
+	-webkit-transition-duration: $animation-speed
+	transition-duration: $animation-speed
+	+btn-hover
+	+btn-active
+
+/*btn-default end*/
+
+/*btn-default-alt*/
+.btn-default-alt
+	color: $color-btn-bg
+	border: 2px solid $color-btn-bg
+	background: $color-btn-text
+
+	.no-touchevents &:hover
+		background: $color-btn-bg-hover
+		color: $color-btn-text
+
+/*btn-default-alt end*/
+/*btn end*/
+
+.#{$user-content}
+	@each $tags in h2, h3, h4, h5
+		p + #{$tags},
+		ul + #{$tags},
+		ol + #{$tags}
+			padding-top: 10px
+
+/*list*/
+.#{$user-content}
+	//list
+	ul, ol
+		margin: $space-bottom 0
+		//padding: 0 0 $space-bottom
+		padding: 0
+		list-style: none
+
+	ul li,
+	ol li
+		//padding: $space-bottom/2 0 0 30px
+		padding-left: 30px
+		margin: #{$space-bottom/2} 0
+		position: relative
+
+	//ul li:first-child,
+	//ol > li:first-child
+	//	padding-top: 0
+
+	//ol ul > li:first-child:before,
+	ul > li:before
+		content: ''
+		position: absolute
+		left: 0
+		top: 9px
+		height: 0
+		width: 0
+		border: solid transparent
+		border-width: 5px 9px
+		border-left-color: $color-text-mark
+		box-sizing: border-box
+
+	//ul > li:first-child:before
+	//	top: 7px
+
+	ol
+		counter-reset: section
+
+		& > li
+			counter-increment: section
+			height: 1%
+			overflow: hidden
+
+		& > li:before
+			position: relative
+			display: inline-block
+			text-align: left
+			@include font-title
+			color: $color-text-mark
+			content: counter(section)
+			padding: 0 4px 0 0
+			min-width: 30px
+			margin-left: -30px
+			box-sizing: border-box
+
+	//ol > li > ul
+	ul ul,
+	ul ol,
+	ol ul
+		//padding-bottom: 0
+		//padding-left: 20px
+		margin: $space-bottom/2 0
+
+	//ul ul > li:before,
+	//ul ul > li:first-child:before,
+	//ol ul ul > li:before,
+	//ol ul ul > li:first-child:before
+	//	height: 0
+	//	width: 10px
+	//	border-width: 2px 0
+	//	border-radius: 0
+	//	top: 23px
+
+	//ul ul li:first-child,
+	//ul ol li:first-child,
+	//ol ol li:first-child,
+	//ol ul li:first-child
+		//padding-top: $space-bottom/2
+
+	//ul ul ul > li:before,
+	//ul ul ul > li:first-child:before,
+	//ul ol ul > li:before,
+	//ul ol ul > li:first-child:before
+	//	height: 8px
+	//	width: 8px
+	//	top: 21px
+	//	border-width: 4px
+	//	border-radius: 50%
+
+	//list reset
+	.list-reset
+		list-style: none
+		margin: 0
+
+		li,
+		li:first-child
+			padding: 0
+
+			&:before,
+			&:first-child:before
+				content: none
+/*list end*/
+
+/*table*/
+.table-auto
+	position: relative
+	overflow: auto
+	max-width: 100%
+	-webkit-overflow-scrolling: touch
+	margin: 0 0 $space-bottom
+
+	table
+		margin-bottom: 0
+		width: auto
+		min-width: 100%
+
+table
+	border-collapse: collapse
+	border-spacing: 0
+	width: auto
+
+	td, th
+		font-size: 1.4rem
+		line-height: 1.3
+		color: $color-table-text
+		padding: 8px 10px
+		box-sizing: border-box
+		border-color: black
+
+.#{$user-content}
+	table
+		margin-bottom: $space-bottom
+
+	.table-auto table
+		margin-bottom: 0
+
+	.tbl
+		border: none
+
+		td,
+		th
+			color: $color-table-text
+			background-color: $color-table-bg
+			border: 0 solid $color-table-border
+			font-size: 1.4rem
+			line-height: 1.2
+
+			&:first-child,
+			&:first-child
+				border-left-width: 1px
+
+			&:last-child,
+			&:last-child
+				border-right-width: 1px
+
+		td
+			border-top-width: 1px
+
+		tbody tr:first-child td
+			border-top-width: 0
+
+		tbody tr:nth-child(even) td
+			background: $color-table-bg-alt
+			color: $color-table-text-alt
+
+		th,
+		thead td
+			@include font-bold
+			font-size: 1.6rem
+			text-align: left
+
+		th,
+		thead td,
+		tfoot td
+			background: $color-table-bg-alt
+			color: $color-table-text-alt
+			border-color: $color-table-bg-alt
+			border-top-width: 0
+/*table end*/
+
+/*blockquote*/
+.#{$user-content}
+	.blockquote
+		padding: 0 0 30px
+
+	blockquote
+		display: block
+		margin: 0
+		background-color: #f5f5f5
+		border-left: 4px solid $color-text-alt
+		padding: 18px 32px 28px 42px
+
+		q
+			display: block
+			margin: 0
+			padding: 0 0 10px
+			font-size: $font-size
+			line-height: $line-height
+			color: $color-text
+
+			&:before,
+			&:after
+				content: ''
+				display: block
+				font-size: 2.4rem
+				line-height: 1.2
+
+			&:before
+				content: '«'
+				padding-left: 17%
+				padding-bottom: 10px
+
+			&:after
+				content: '»'
+				text-align: right
+				padding-right: 18.5%
+				padding-top: 8px
+
+		cite
+			text-align: right
+			display: block
+			margin-left: auto
+			+font-title
+			font-size: $font-size
+			line-height: $line-height
+			color: $color-text
+
+/*blockquote end*/
+
+/*content img*/
+.imgc
+	text-align: center
+	padding-bottom: $space-bottom
+	clear: both
+
+.imgl
+	text-align: left
+	float: left
+	margin: 0 $space-bottom $space-bottom 0
+	max-width: 50%
+
+.imgr
+	text-align: right
+	float: right
+	margin: 0 0 $space-bottom $space-bottom
+	max-width: 50%
+
+@media only screen and (max-width: 767px)
+	.imgl, .imgr
+		float: none
+		display: block
+		margin-left: auto
+		margin-right: auto
+		max-width: none
+
+/*content img end*/
+
+/*FORM STYLES*/
+/*form layout*/
+.form-row, .input-wrap
+	padding-bottom: $space-bottom-form
+
+.form-row
+	margin: 0 -15px
+	font-size: 0
+	letter-spacing: -4px
+
+.form-row .input-wrap
+	display: inline-block
+	vertical-align: top
+	width: 49.98%
+	padding: 0 15px
+	box-sizing: border-box
+
+	font-size: $font-size
+	letter-spacing: normal
+
+	@media only screen and (max-width: 639px)
+		display: block
+		width: auto
+		margin-bottom: $space-bottom-form
+
+.label-holder
+	padding: 0 0 10px
+
+.label-holder, label
+	font-size: inherit
+	line-height: inherit
+	color: $color-text
+
+.form-mark
+	display: inline-block
+	vertical-align: top
+	color: $color-text-alt
+
+/*form layout end*/
+
+/*form common*/
+input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
+	display: block
+	height: 50px
+	width: 100%
+	padding: 12px 18px
+	margin: 0 0 $space-bottom-form
+	font:
+		family: $font-norm
+		size: 16px
+	line-height: 24px
+	letter-spacing: normal
+	color: $color-form-text
+	background: $color-form-bg
+	box-shadow: none
+	border: 1px solid $color-form-border
+	-webkit-transition-property: border-color
+	transition-property: border-color
+	-webkit-transition: $animation-speed
+	transition: $animation-speed
+	box-sizing: border-box
+
+	.input-wrap &
+		margin: 0
+
+	//form hover
+	.no-touchevents &:hover
+		border-color: $color-form-border-focus
+
+	//form focus
+	&:focus
+		border-color: $color-form-border-focus
+
+	//form error
+	&.error, .error > &, .no-touchevents &.error, .no-touchevents .error > &
+		color: $color-form-error
+		border-color: $color-form-error
+		box-shadow: 0 0 5px rgba($color-form-error, 0.4)
+
+textarea
+	padding: 12px 18px
+	min-height: 114px
+	height: 114px
+	resize: vertical
+
+.error-note
+	display: block
+	position: relative
+	float: left
+	font-size: 1.2rem
+	line-height: 1.8
+	color: $color-form-error
+	height: 1.8em
+	width: 100%
+	margin-bottom: -1.8em
+	overflow: hidden
+	-ms-text-overflow: ellipsis
+	text-overflow: ellipsis
+	white-space: nowrap
+
+.success-text
+	font-weight: bold
+	color: $color-form-success
+	padding: 0 0 20px
+	text-align: center
+
+/*form common end*/
+
+/*form placeholder*/
+input,
+textarea
+	&::-webkit-input-placeholder
+		color: $color-form-placeholder
+		transition: $animation-speed
+		-webkit-transition: $animation-speed
+
+	&:-moz-placeholder
+		color: $color-form-placeholder
+		transition: $animation-speed
+		-webkit-transition: $animation-speed
+
+	&::-moz-placeholder
+		color: $color-form-placeholder
+		transition: $animation-speed
+		-webkit-transition: $animation-speed
+		opacity: 1
+
+	&:-ms-input-placeholder
+		color: $color-form-placeholder
+		transition: $animation-speed
+		-webkit-transition: $animation-speed
+		opacity: 1
+
+	&.placeholder
+		color: $color-form-placeholder
+		transition: $animation-speed
+		-webkit-transition: $animation-speed
+		opacity: 1
+
+	//form placeholder hide
+	&:focus
+		&::-webkit-input-placeholder
+			color: transparent !important
+
+		&:-moz-placeholder
+			color: transparent !important
+
+		&::-moz-placeholder
+			color: transparent !important
+
+		&:-ms-input-placeholder
+			color: transparent !important
+
+	&.placeholder:focus
+		color: transparent !important
+
+	//form error placeholder
+	&.error
+		&::-webkit-input-placeholder
+			color: $color-form-error
+
+		&:-moz-placeholder
+			color: $color-form-error
+
+		&::-moz-placeholder
+			color: $color-form-error
+			opacity: 1
+
+		&:-ms-input-placeholder
+			color: $color-form-error
+			opacity: 1
+
+		&.placeholder
+			color: $color-form-error
+			opacity: 1
+/*form placeholder end*/
+
+/*form checkbox and radiobutton*/
+input[type="checkbox"] + label,
+input[type="radio"] + label,
+.check-label,
+.radio-label
+	display: inline-block
+	vertical-align: top
+	color: #000
+	text-transform: none
+	cursor: pointer
+	position: relative
+
+input[type="checkbox"] + label:before,
+.check-label > span > i:before
+	content: ''
+	height: 18px
+	width: 18px
+	position: absolute
+	left: 0
+	top: 50%
+	margin-top: -9px
+	border-radius: 0
+	border: 1px solid $color-text-alt
+	box-sizing: border-box
+
+input[type="checkbox"] + label > span,
+input[type="radio"] + label > span,
+input[type="checkbox"] + span,
+input[type="radio"] + span
+	display: inline-block
+	vertical-align: top
+	position: relative
+	padding: 2px 0 2px 34px
+	z-index: 2
+
+//checkbox
+input[type="checkbox"]
+	width: 16px
+	height: 16px
+	padding: 0
+	margin: 0
+	display: none
+
+	& + label:after,
+	& + span > i:after
+		content: ''
+		height: 16px
+		width: 16px
+		position: absolute
+		left: 1px
+		top: 50%
+		margin-top: -8px
+		border-radius: 0
+		background: none
+		-webkit-transition-property: opacity
+		transition-property: opacity
+		-webkit-transition-duration: $animation-speed
+		transition-duration: $animation-speed
+
+	& + label > span:before,
+	& + label > span:after,
+	& + span:before,
+	& + span:after
+		content: ''
+		position: absolute
+		height: 3px
+		width: 0
+		left: 0
+		top: 50%
+		border-radius: 2px
+		background: $color-text-alt
+		-webkit-transition-property: opacity
+		transition-property: opacity
+		-webkit-transition-duration: $animation-speed
+		transition-duration: $animation-speed
+		-webkit-transition-timing-function: linear
+		transition-timing-function: linear
+
+	& + label > span:before,
+	& + span:before
+		transform: rotate(45deg)
+		transform-origin: 0 7px
+		z-index: 1
+
+	& + label > span:after,
+	& + span:after
+		transform: rotate(-50deg)
+		transform-origin: 0 10px
+		left: 22px
+
+	// checkbox checked
+	&:checked
+		& + label > span:before,
+		& + span:before
+			width: 7px
+			margin: -4px 0 0 0
+			-webkit-transition-property: width
+			transition-property: width
+			-webkit-transition-duration: 0.1s
+			transition-duration: 0.1s
+			-webkit-backface-visibility: hidden
+			backface-visibility: hidden
+
+		& + label > span:after,
+		& + span:after
+			width: 11px
+			margin: 0 0 0 -8px
+			-webkit-transition-property: width
+			transition-property: width
+			-webkit-transition-duration: 0.1s
+			transition-duration: 0.1s
+			-webkit-transition-delay: 0.1s
+			transition-delay: 0.1s
+			-webkit-backface-visibility: hidden
+			backface-visibility: hidden
+
+	// checkbox disabled
+	&:disabled
+		& + label,
+		& + span > i
+			color: #bdbdbd
+
+		& + label:before,
+		& + span > i:before
+			border-color: #d6d6d6
+
+		& + label > span:before,
+		& + label > span:after,
+		& + span:before,
+		& + span:after
+			background: #b9b9b9
+
+// radio
+input[type="radio"]
+	float: left
+	height: 16px
+	width: 16px
+	margin: 0
+	padding: 0
+	display: none
+
+	& + label:before,
+	& + span:before
+		content: ''
+		height: 18px
+		width: 18px
+		position: absolute
+		left: 0
+		top: 50%
+		margin-top: -9px
+		border-radius: 50px
+		border: 1px solid $color-text-alt
+		box-sizing: border-box
+
+	& + label:after,
+	& + span:after
+		content: ''
+		height: 16px
+		width: 16px
+		position: absolute
+		left: 1px
+		top: 50%
+		margin-top: -8px
+		border-radius: 50px
+		background: none
+		-webkit-transition-property: opacity
+		transition-property: opacity
+		-webkit-transition-duration: $animation-speed
+		transition-duration: $animation-speed
+
+	& + label > span:after,
+	& + span > i:after
+		content: ''
+		width: 10px
+		height: 10px
+		position: absolute
+		top: 50%
+		left: 4px
+		margin-top: -5px
+		border-radius: 50%
+		overflow: hidden
+		background: $color-text-alt
+		-webkit-animation: bounceout 0s
+		-webkit-animation-iteration-count: 1
+		-webkit-animation-fill-mode: forwards
+		animation: bounceout 0s
+		animation-iteration-count: 1
+		animation-fill-mode: forwards
+		opacity: 0
+
+	// radio checked
+	&:checked + label > span:after,
+	&:checked + span > i:after
+		-webkit-animation: bounce 0.3s
+		-webkit-animation-iteration-count: 1
+		animation: bounce 0.3s
+		animation-iteration-count: 1
+		opacity: 1
+
+		@-webkit-keyframes bounce
+			0%
+				-webkit-transform: scale(0.8)
+				opacity: 0.4
+
+			50%
+				-webkit-transform: scale(1.4)
+				opacity: 1
+
+			100%
+				-webkit-transform: scale(1)
+				opacity: 1
+
+		@keyframes bounce
+			0%
+				transform: scale(0.8)
+				opacity: 0.4
+
+			50%
+				transform: scale(1.4)
+				opacity: 1
+
+			100%
+				transform: scale(1)
+				opacity: 1
+
+		@-webkit-keyframes bounceout
+			0%
+				-webkit-transform: scale(0)
+				opacity: 1
+
+			50%
+				-webkit-transform: scale(1.4)
+				opacity: 1
+
+			100%
+				-webkit-transform: scale(0)
+				opacity: 0.4
+
+		@keyframes bounceout
+			0%
+				transform: scale(0)
+				opacity: 1
+
+			50%
+				transform: scale(1.4)
+				opacity: 1
+
+			100%
+				transform: scale(0)
+				opacity: 0.4
+
+	// radio disabled
+	&:disabled
+		& + label,
+		& + span
+			color: #bdbdbd
+
+		& + label:before,
+		& + span:before
+			border-color: #d6d6d6
+
+		& + label > span:after,
+		& + span > i:after
+			background: #b9b9b9
+
+/*form checkbox and radiobutton end*/
+
+/*select*/
+// select overall
+.select
+	position: relative
+	margin: 0 0 $space-bottom-form
+	width: 100%
+
+	.input-wrap &
+		margin-bottom: 0
+
+	.cselect
+		width: 100%
+
+	select,
+	button.cselect .select-inner
+		display: block
+		overflow: hidden
+		text-overflow: ''
+		cursor: pointer
+		padding: 13px 40px 13px 18px
+		white-space: nowrap
+		text-indent: 0
+		width: 100%
+		border: 1px solid $color-form-border
+		border-radius: 0
+		background: $color-form-bg
+		-webkit-font-smoothing: antialiased
+		-webkit-appearance: none
+		-moz-appearance: none
+		box-shadow: none
+		-webkit-transition-property: background, border, color, box-shadow
+		transition-property: background, border, color, box-shadow
+		-webkit-transition-duration: $animation-speed
+		transition-duration: $animation-speed
+		box-sizing: border-box
+		outline: none
+
+	select,
+	button.cselect,
+	button.cselect .select-inner
+		@include font-normal
+		font-size: 16px
+		line-height: 22px
+		text-transform: none
+		color: $color-form-text
+
+	select
+		height: 50px
+		padding-right: 40px
+
+	button.cselect
+		z-index: 2
+
+	select:focus,
+	button.cselect:focus .select-inner,
+	button.cselect.ui-state-active .select-inner
+		color: $color-form-text
+		border-color: $color-form-border-focus
+
+	&:before,
+	&:after,
+	button.cselect .ui-icon .arrow-select:before,
+	button.cselect .ui-icon .arrow-select:after
+		content: ''
+		position: absolute
+		right: 22px
+		top: 50%
+		width: 10px
+		height: 3px
+		background: $color-form-border-focus
+		border-radius: 2px
+		margin-top: -1px
+		box-sizing: border-box
+		z-index: 1
+
+	&:before,
+	button.cselect .ui-icon .arrow-select:before
+		-webkit-transform: rotate(45deg)
+		-ms-transform: rotate(45deg)
+		transform: rotate(45deg)
+
+	&:after,
+	button.cselect .ui-icon .arrow-select:after
+		-webkit-transform: rotate(-45deg)
+		-ms-transform: rotate(-45deg)
+		transform: rotate(-45deg)
+		right: 17px
+
+	// multiselect button
+	button.cselect
+		display: block
+		position: relative
+		padding: 0
+		margin: 0
+		border: none
+		border-radius: 0
+		background: none
+
+		.ui-icon
+			position: absolute
+			right: 0
+			top: 0
+			height: 100%
+			width: 45px
+			display: block
+			background: none
+
+		.ui-icon .arrow-select
+			position: absolute
+			right: 0
+			top: 0
+			height: 100%
+			width: 45px
+
+		.select-text
+			display: block
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
+			min-height: 20px
+
+/*multiselect menu*/
+div.cselect
+	&.ui-multiselect-menu
+		padding: 2px 0
+		margin: 0
+
+	.ui-multiselect-checkboxes
+		padding: 0
+		margin: 0
+		list-style-type: none
+		height: auto !important
+		max-height: 322px
+		overflow: auto
+		border-radius: 4px
+		background-color: $color-form-bg
+		border: 1px solid $color-form-border-focus
+
+	.ui-multiselect-checkboxes li
+		padding: 0
+		overflow: hidden
+
+	.ui-multiselect-checkboxes li:first-child
+		border-radius: 4px 4px 0 0
+
+	.ui-multiselect-checkboxes li:last-child
+		border-radius: 0 0 4px 4px
+
+	.ui-multiselect-checkboxes label input
+		position: absolute
+		left: -9999px
+
+	.ui-multiselect-checkboxes label
+		display: block
+		cursor: pointer
+		@include font-normal
+		font: 16px/22px 'Roboto', sans-serif
+		font-size: 16px
+		line-height: 22px
+		text-transform: none
+		color: $color-form-text
+		font-weight: normal
+		padding: 13px 18px
+		border: none
+		background-color: $color-form-bg
+		-webkit-transition-property: background, color
+		transition-property: background, color
+		-webkit-transition-duration: $animation-speed
+		transition-duration: $animation-speed
+
+	.desktop .ui-multiselect-checkboxes label:hover
+		background-color: #eaeaea
+		color: $color-form-text
+
+	.ui-multiselect-checkboxes label.ui-state-active
+		background-color: #f3f3f3
+		color: $color-form-text
+
+	.ui-multiselect-checkboxes input[type="radio"] + span
+		padding-left: 0
+
+	.ui-multiselect-checkboxes input[type="radio"] + span:before,
+	.ui-multiselect-checkboxes input[type="radio"] + span:after
+		content: none
+
+/*multiselect menu end*/
+/*select end*/
+/*FORM STYLE end*/
+
+/*download files items*/
+/*depict files*/
+[class|="depict-files"],
+[class*=" depict-files-"]
+	background: url(../img/sprite-files.png) 0 0 no-repeat
+	display: inline-block
+	vertical-align: top
+
+.depict-files
+	&-pdf
+		background-position: 0 0
+		width: 39px
+		height: 46px
+
+	&-xls
+		background-position: 0 -66px
+		width: 39px
+		height: 46px
+
+	&-doc
+		background-position: 0 -132px
+		width: 39px
+		height: 46px
+
+	&-zip
+		background-position: 0 -198px
+		width: 39px
+		height: 46px
+
+	&-jpg
+		background-position: 0 -264px
+		width: 39px
+		height: 46px
+
+/*depict files end*/
+
+/*files item*/
+.files
+	padding: 0 0 20px
+	margin-left: -30px
+	font-size: 0
+	line-height: 1
+	letter-spacing: -4px
+
+	&-item
+		font-size: $font-size
+		line-height: $line-height
+		letter-spacing: normal
+
+	& .files-item
+		display: inline-block
+		vertical-align: top
+		width: 33.29%
+		padding: 0 0 48px 30px
+
+.file
+	font-size: 14px
+	line-height: 18px
+	padding: 0 0 0 53px
+	position: relative
+	min-height: 46px
+
+	&__title
+		padding: 5px 0 7px
+
+	&__title a
+		text-decoration: none
+		margin: 0 0 0 -53px
+		display: inline-block
+		padding: 0 0 0 53px
+
+	&__title a span
+		padding-top: 5px
+		text-decoration: underline
+
+	.no-touchevents & a:hover span
+		text-decoration: none
+
+	& [class*="depict-files-"]
+		position: absolute
+		left: 0
+		top: 0
+
+	&__info
+		color: #666
+
+/*files item end*/
+/*download files items end*/
+
+/*view print*/
+.view-print
+	float: right
+	padding: 6px 12px
+	background: #f9f9f9
+	line-height: 1
+	color: #000
+	text-decoration: none
+	margin-left: 30px
+	-webkit-transition-property: background
+	transition-property: background
+	-webkit-transition-duration: $animation-speed
+	transition-duration: $animation-speed
+
+	.no-touchevents &:hover
+		background-color: #eaeaea
+
+	svg
+		vertical-align: middle
+		width: 16px
+		margin-right: 5px
+
+	span
+		display: inline-block
+		vertical-align: middle
+
+	@media only screen and (max-width: 979px)
+		font-size: 14px
+
+	@media only screen and (max-width: 639px)
+		& svg
+			vertical-align: top
+			margin-right: 0
+
+		& span
+			display: none
+/*view print end*/

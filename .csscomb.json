@@ -1,0 +1,12 @@
+{
+  "block-indent": "\t",
+  "color-shorthand": true,
+  "eof-newline": false,
+  "leading-zero": true,
+  "quotes": "double",
+  "sort-order-fallback": "abc",
+  "space-after-selector-delimiter": "\n",
+  "space-before-closing-brace": "\n",
+  "space-before-opening-brace": "",
+  "unitless-zero": false
+}

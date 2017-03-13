@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Главная</title>
+	<!--Mobile optimized-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!--Theme color-->
+	<meta name="theme-color" content="#fff">
+	<!--The Open Graph protocol-->
+	<meta property="og:url" content="http://localhost:3000/">
+	<meta property="og:title" content="Name">
+	<meta property="og:image" content="http://localhost:3000/img/logo.png">
+	<meta property="og:description" content="Описание">
+	<meta property="og:site_name" content="http://localhost:3000/">
+	<!--Favicon-->
+	<link href="favicon.ico" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!--Style-->
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<!--Modernizr-->
+	<script src="js/modernizr.min.js"></script>
+</head>
+
+<body>
+	<!--[if lt IE 9]> <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
+	<!-- >>> head.tpl END <<< -->
+	<div class="wrapper">
+		<!--HEADER-->
+		<header class="header">
+			<div class="layout">
+				<div class="header__holder">
+					<!--logo-->
+					<strong class="logo"><a href="index.html">Project Name</a><img style="display: none;" src="img/logo.png" alt="Project Name"></strong>
+					<!--logo end-->
+					<!--main navigation-->
+					<div class="main-nav">
+						<nav class="nav">
+							<ul class="nav__list">
+								<li class="has-drop">
+									<a href="about.html"><span>About</span></a>
+									<div class="nav__drop js-nav-drop">
+										<ul class="sub1-nav__list">
+											<li><a href="#"><span>Item 1.1</span></a></li>
+											<li class="has-drop">
+												<a href="#" class="selected"><span>Item 1.2</span><i class="nav__angle"></i></a>
+												<div class="sub1-nav__drop js-nav-drop">
+													<ul class="sub2-nav__list">
+														<li class="has-drop">
+															<a href="#" class="selected"><span>Item 1.2.1</span><i class="nav__angle"></i></a>
+															<div class="sub2-nav__drop js-nav-drop">
+																<ul class="sub3-nav__list">
+																	<li><a href="#"><span>Item 1.2.1.1</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.2</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.3</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.4</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.5</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.6</span></a></li>
+																</ul>
+															</div>
+														</li>
+														<li><a href="#"><span>Item 1.2.2</span></a></li>
+														<li><a href="#"><span>Item 1.2.3</span></a></li>
+														<li><a href="#"><span>Item 1.2.4</span></a> </li>
+													</ul>
+												</div>
+											</li>
+											<li><a href="#"><span>Item 1.3</span></a></li>
+											<li><a href="#"><span>Item 1.4</span></a></li>
+											<li><a href="#"><span>Item 1.5</span></a></li>
+											<li><a href="#"><span>Item 1.6</span></a></li>
+											<li><a href="#"><span>Item 1.7</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="has-drop">
+									<a href="news.html"><span>News</span></a>
+									<div class="nav__drop js-nav-drop">
+										<ul class="sub1-nav__list">
+											<li><a href="#"><span>Item 1.1</span></a></li>
+											<li class="has-drop">
+												<a href="#" class="selected"><span>Item 1.2</span><i class="nav__angle"></i></a>
+												<div class="sub1-nav__drop js-nav-drop">
+													<ul class="sub2-nav__list">
+														<li class="has-drop">
+															<a href="#" class="selected"><span>Item 1.2.1</span><i class="nav__angle"></i></a>
+															<div class="sub2-nav__drop js-nav-drop">
+																<ul class="sub3-nav__list">
+																	<li><a href="#"><span>Item 1.2.1.1</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.2</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.3</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.4</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.5</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.6</span></a></li>
+																</ul>
+															</div>
+														</li>
+														<li><a href="#"><span>Item 1.2.2</span></a></li>
+														<li><a href="#"><span>Item 1.2.3</span></a></li>
+														<li><a href="#"><span>Item 1.2.4</span></a> </li>
+													</ul>
+												</div>
+											</li>
+											<li><a href="#"><span>Item 1.3</span></a></li>
+											<li><a href="#"><span>Item 1.4</span></a></li>
+											<li><a href="#"><span>Item 1.5</span></a></li>
+											<li><a href="#"><span>Item 1.6</span></a></li>
+											<li><a href="#"><span>Item 1.7</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="has-drop">
+									<a href="contact.html"><span>Contact</span></a>
+									<div class="nav__drop js-nav-drop">
+										<ul class="sub1-nav__list">
+											<li><a href="#"><span>Item 1.1</span></a></li>
+											<li class="has-drop">
+												<a href="#" class="selected"><span>Item 1.2</span><i class="nav__angle"></i></a>
+												<div class="sub1-nav__drop js-nav-drop">
+													<ul class="sub2-nav__list">
+														<li class="has-drop">
+															<a href="#" class="selected"><span>Item 1.2.1</span><i class="nav__angle"></i></a>
+															<div class="sub2-nav__drop js-nav-drop">
+																<ul class="sub3-nav__list">
+																	<li><a href="#"><span>Item 1.2.1.1</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.2</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.3</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.4</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.5</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.6</span></a></li>
+																</ul>
+															</div>
+														</li>
+														<li><a href="#"><span>Item 1.2.2</span></a></li>
+														<li><a href="#"><span>Item 1.2.3</span></a></li>
+														<li><a href="#"><span>Item 1.2.4</span></a> </li>
+													</ul>
+												</div>
+											</li>
+											<li><a href="#"><span>Item 1.3</span></a></li>
+											<li><a href="#"><span>Item 1.4</span></a></li>
+											<li><a href="#"><span>Item 1.5</span></a></li>
+											<li><a href="#"><span>Item 1.6</span></a></li>
+											<li><a href="#"><span>Item 1.7</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="has-drop">
+									<a href="photos.html"><span>Photos</span></a>
+									<div class="nav__drop js-nav-drop">
+										<ul class="sub1-nav__list">
+											<li><a href="#"><span>Item 1.1</span></a></li>
+											<li class="has-drop">
+												<a href="#" class="selected"><span>Item 1.2</span><i class="nav__angle"></i></a>
+												<div class="sub1-nav__drop js-nav-drop">
+													<ul class="sub2-nav__list">
+														<li class="has-drop">
+															<a href="#" class="selected"><span>Item 1.2.1</span><i class="nav__angle"></i></a>
+															<div class="sub2-nav__drop js-nav-drop">
+																<ul class="sub3-nav__list">
+																	<li><a href="#"><span>Item 1.2.1.1</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.2</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.3</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.4</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.5</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.6</span></a></li>
+																</ul>
+															</div>
+														</li>
+														<li><a href="#"><span>Item 1.2.2</span></a></li>
+														<li><a href="#"><span>Item 1.2.3</span></a></li>
+														<li><a href="#"><span>Item 1.2.4</span></a> </li>
+													</ul>
+												</div>
+											</li>
+											<li><a href="#"><span>Item 1.3</span></a></li>
+											<li><a href="#"><span>Item 1.4</span></a></li>
+											<li><a href="#"><span>Item 1.5</span></a></li>
+											<li><a href="#"><span>Item 1.6</span></a></li>
+											<li><a href="#"><span>Item 1.7</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="has-drop">
+									<a href="faq.html"><span>FAQ</span></a>
+									<div class="nav__drop js-nav-drop">
+										<ul class="sub1-nav__list">
+											<li><a href="#"><span>Item 1.1</span></a></li>
+											<li class="has-drop">
+												<a href="#" class="selected"><span>Item 1.2</span><i class="nav__angle"></i></a>
+												<div class="sub1-nav__drop js-nav-drop">
+													<ul class="sub2-nav__list">
+														<li class="has-drop">
+															<a href="#" class="selected"><span>Item 1.2.1</span><i class="nav__angle"></i></a>
+															<div class="sub2-nav__drop js-nav-drop">
+																<ul class="sub3-nav__list">
+																	<li><a href="#"><span>Item 1.2.1.1</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.2</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.3</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.4</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.5</span></a></li>
+																	<li><a href="#"><span>Item 1.2.1.6</span></a></li>
+																</ul>
+															</div>
+														</li>
+														<li><a href="#"><span>Item 1.2.2</span></a></li>
+														<li><a href="#"><span>Item 1.2.3</span></a></li>
+														<li><a href="#"><span>Item 1.2.4</span></a> </li>
+													</ul>
+												</div>
+											</li>
+											<li><a href="#"><span>Item 1.3</span></a></li>
+											<li><a href="#"><span>Item 1.4</span></a></li>
+											<li><a href="#"><span>Item 1.5</span></a></li>
+											<li><a href="#"><span>Item 1.6</span></a></li>
+											<li><a href="#"><span>Item 1.7</span></a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<!--main navigation end-->
+				</div>
+			</div>
+		</header>
+		<!--HEADER end-->
+		<!--MAIN-->
+		<div class="main">
+			<div class="layout">
+				<div class="main__holder">
+					<!--CONTENT-->
+					<div class="content-wrap">
+						<div class="content">
+							<!--breadcrumbs-->
+							<div class="breadcrumbs">
+								<ul class="breadcrumbs-list">
+									<li><a href="#">Главная</a></li>
+									<li><a href="#">Категории</a></li>
+									<li>Подкатегории</li>
+								</ul>
+							</div>
+							<!--breadcrumbs end-->
+
+							<!--datetime-->
+							<time class="datetime" datetime="2017-03-22T13:42">22 марта 2017, 13:42</time>
+							<!--datetime end-->
+							<a href="#" class="view-print">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 295.1 280.4" style="enable-background:new 0 0 295.1 280.4;"> <path d="M218.4,236.1H76.7c-1.5,0-3,1.5-3,3v38.4c0,1.5,1.5,3,3,3h141.7c1.5,0,3-1.5,3-3V239C221.3,237.6,219.9,236.1,218.4,236.1z   M280.4,88.5h-44.3V14.8c0-8.9-5.9-14.8-14.8-14.8H73.8C64.9,0,59,5.9,59,14.8v73.8H14.8C5.9,88.5,0,94.4,0,103.3v162.3  c0,8.9,5.9,14.8,14.8,14.8h29.5v-73.8c0-8.9,5.9-14.8,14.8-14.8h177.1c8.9,0,14.8,5.9,14.8,14.8v73.8h29.5c8.9,0,14.8-5.9,14.8-14.8  V103.3C295.1,94.4,289.2,88.5,280.4,88.5z M191.8,162.3c-8.9,0-14.8-5.9-14.8-14.8s5.9-14.8,14.8-14.8s14.8,5.9,14.8,14.8  S200.7,162.3,191.8,162.3z M206.6,88.5h-118v-59h118V88.5z M243.5,162.3c-11.8,0-22.1-10.3-22.1-22.1s10.3-22.1,22.1-22.1  s22.1,10.3,22.1,22.1S255.3,162.3,243.5,162.3z"/> </svg>
+								<span>Версия для печати</span>
+							</a>
+							<h1>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.
+								<span class="mark">(h1)</span></h1>
+							<div class="print-hidden" style="float: right; margin: 0 0 20px 40px; font-size: 13px; line-height: 18px;">
+								<h3>Use color</h3>
+								<div>
+									<div style="width: 70px; height: 18px; float: left; background: #f00;"></div>
+									&nbsp;&ndash;&nbsp;<em>#f00</em>
+									<div style="clear: both;"></div>
+									<div style="width: 70px; height: 18px; float: left; background: #ffa500;"></div>
+									&nbsp;&ndash;&nbsp;<em>#ffa500</em>
+									<div style="clear: both;"></div>
+									<div style="width: 70px; height: 18px; float: left; background: #ff0;"></div>
+									&nbsp;&ndash;&nbsp;<em>#ff0</em>
+									<div style="clear: both;"></div>
+									<div style="width: 70px; height: 18px; float: left; background: #008000;"></div>
+									&nbsp;&ndash;&nbsp;<em>#008000</em>
+									<div style="clear: both;"></div>
+									<div style="width: 70px; height: 18px; float: left; background: #0ff;"></div>
+									&nbsp;&ndash;&nbsp;<em>#0ff</em>
+									<div style="clear: both;"></div>
+									<div style="width: 70px; height: 18px; float: left; background: #00f;"></div>
+									&nbsp;&ndash;&nbsp;<em>#00f</em>
+									<div style="clear: both;"></div>
+									<div style="width: 70px; height: 18px; float: left; background: #ee82ee;"></div>
+									&nbsp;&ndash;&nbsp;<em>#ee82ee</em>
+									<div style="clear: both;"></div>
+									<br />
+								</div>
+							</div>
+							<p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что
+								искусство мое страдает от этого.</p>
+							<p>Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных
+								былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего,
+								судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах!</p>
+							<hr>
+							<h2>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.
+								<span class="mark">(h2)</span>
+							</h2>
+							<p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я.</p>
+							<h3>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.
+								<span class="mark">(h3)</span>
+							</h3>
+							<p>Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты.</p>
+							<h3>
+								<span class="mark">Italic</span>
+							</h3>
+							<p><i>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!</i></p>
+							<h3>
+								<span class="mark">Bold</span>
+							</h3>
+							<p><b>. . Но нет! Мне не под силу это, меня подавляет величие этих явлений. Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.</b></p>
+							<h3>
+								<span class="mark">Bold & Italic</span>
+							</h3>
+							<p><b><i>Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого.</i></b></p>
+							<hr>
+							<h4>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога! " Друг мой. . . Но нет!
+								<span class="mark">(h4)</span>
+							</h4>
+							<p>Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его</p>
+							<h5>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога! " Друг мой. . . Но нет!
+								<span class="mark">(h5)</span>
+							</h5>
+							<p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что
+								искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты.</p>
+							<hr>
+							<h3>
+								<span class="mark">Неупорядоченный список</span>
+							</h3>
+							<ul>
+								<li>Ни одного штриха не мог бы я сделать
+									<ul>
+										<li>Когда от милой моей долины поднимается пар</li>
+										<li>Солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его
+											<ul>
+												<li>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!</li>
+												<li>Душа моя озарена неземной радостью</li>
+												<li>Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я.</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>Чудесные весенние утра</li>
+								<li>Мой друг, так упоен ощущением покоя, что искусство мое страдает от этого.</li>
+								<li>Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты.</li>
+							</ul>
+							<h3>
+								<span class="mark">Упорядоченный список</span>
+							</h3>
+							<ol>
+								<li>Душа моя озарена;</li>
+								<li>Неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг;</li>
+								<li>Так упоен;</li>
+								<li>Ощущением покоя;</li>
+								<li>Что искусство мое страдает;</li>
+								<li>От этого;</li>
+							</ol>
+							<h3>
+								<span class="mark">Сложный список</span>
+							</h3>
+							<ol>
+								<li>Душа моя озарена неземной радостью
+									<ul>
+										<li>Ни одного штриха не мог бы я сделать
+											<ul>
+												<li>Когда от милой моей долины поднимается пар</li>
+												<li>Солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его
+													<ul>
+														<li>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!</li>
+														<li>Душа моя озарена неземной радостью</li>
+														<li>Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я.</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li>Чудесные весенние утра</li>
+										<li>Мой друг, так упоен ощущением покоя, что искусство мое страдает от этого.</li>
+										<li>Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты.</li>
+									</ul>
+								</li>
+								<li>Чудесные весенние утра</li>
+								<li>Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты.</li>
+								<li>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!</li>
+								<li>Мой друг, так упоен ощущением покоя, что искусство мое страдает от этого.</li>
+							</ol>
+							<div style="clear: both;"></div>
+							<hr>
+							<p>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога! " Друг мой. . . Но нет! Мне не под силу это, меня подавляет величие этих явлений.</p>
+
+							<!--blockquote-->
+							<div class="blockquote">
+								<blockquote>
+									<div class="text-layout">
+										<q>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты.</q>
+										<cite>Страдания юного Вертера</cite>
+									</div>
+								</blockquote>
+							</div>
+							<!--blockquote end-->
+							<p>Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных
+								былинок и чувствую, как близок моему сердцу крошечный мирок</p>
+							<!--table styling-->
+							<h3>
+								<span class="mark">Таблица стилизованная</span>
+							</h3>
+							<div class="table_auto">
+								<table class="tbl">
+									<thead>
+										<tr>
+											<th>При этом</th>
+											<th>Обратите внимание</th>
+											<th>Что в таблице может</th>
+											<th>Отсутствовать <br> шапка</th>
+											<th>Как таковая</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<td>Итого</td>
+											<td>55%</td>
+											<td>23422</td>
+											<td>&nbsp;</td>
+											<td>&nbsp;</td>
+										</tr>
+									</tfoot>
+									<tbody>
+										<tr>
+											<td>Содержаться</td>
+											<td colspan="2">объединённые ячейки</td>
+											<!--<td></td>-->
+											<td>как в колонках</td>
+											<td>так и в строках</td>
+										</tr>
+										<tr>
+											<td>Например так</td>
+											<td>30%</td>
+											<td>14343</td>
+											<td>Информация</td>
+											<td>в таблицах</td>
+										</tr>
+										<tr>
+											<td>Компания производит продукции</td>
+											<td>13%</td>
+											<td>23233</td>
+											<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+											<td>читабельной</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td>30%</td>
+											<td>14343</td>
+											<td>Информация</td>
+											<td>в таблицах</td>
+										</tr>
+										<tr>
+											<td>Вот так</td>
+											<td>13%</td>
+											<td>23233</td>
+											<td>Да</td>
+											<td>Нет</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!--table styling end-->
+							<p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что
+								искусство мое страдает от этого.</p>
+
+							<h3>
+								<span class="mark">Таблица без стилей</span>
+							</h3>
+							<!--default table-->
+							<div class="table_auto">
+								<table border="1">
+									<thead>
+										<tr>
+											<th>При этом</th>
+											<th>Обратите внимание</th>
+											<th>Что в таблице может</th>
+											<th>Отсутствовать <br> шапка</th>
+											<th>Как таковая</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<td>Итого</td>
+											<td>55%</td>
+											<td>23422</td>
+											<td>&nbsp;</td>
+											<td>&nbsp;</td>
+										</tr>
+									</tfoot>
+									<tbody>
+										<tr>
+											<td>Содержаться</td>
+											<td colspan="2">объединённые ячейки</td>
+											<!--<td></td>-->
+											<td>как в колонках</td>
+											<td>так и в строках</td>
+										</tr>
+										<tr>
+											<td>Например так</td>
+											<td>30%</td>
+											<td>14343</td>
+											<td>Информация</td>
+											<td>в таблицах</td>
+										</tr>
+										<tr>
+											<td>Компания производит продукции</td>
+											<td>13%</td>
+											<td>23233</td>
+											<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+											<td>читабельной</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td>30%</td>
+											<td>14343</td>
+											<td>Информация</td>
+											<td>в таблицах</td>
+										</tr>
+										<tr>
+											<td>Вот так</td>
+											<td>13%</td>
+											<td>23233</td>
+											<td>Да</td>
+											<td>Нет</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!--default table end-->
+							<p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что
+								искусство мое страдает от этого.</p>
+							<!--download files items-->
+							<div class="files">
+								<!--files item-->
+								<div class="files-item">
+									<div class="file">
+										<div class="file__title">
+											<a href="#"><i class="depict-files-pdf"></i><span>Скачать техническое описание</span></a>
+										</div>
+										<div class="file__info">PDF / 200 Kb</div>
+									</div>
+								</div>
+								<!--files item end-->
+								<div class="files-item">
+									<div class="file">
+										<div class="file__title">
+											<a href="#"><i class="depict-files-xls"></i><span>Скачать техническое описание</span></a>
+										</div>
+										<div class="file__info">XLS / 80 Kb</div>
+									</div>
+								</div>
+								<div class="files-item">
+									<div class="file">
+										<div class="file__title">
+											<a href="#"><i class="depict-files-doc"></i><span>Скачать техническое описание</span></a>
+										</div>
+										<div class="file__info">DOC / 94 Kb</div>
+									</div>
+								</div>
+								<div class="files-item">
+									<div class="file">
+										<div class="file__title">
+											<a href="#"><i class="depict-files-zip"></i><span>Скачать техническое описание</span></a>
+										</div>
+										<div class="file__info">ZIP / 20 Kb</div>
+									</div>
+								</div>
+								<div class="files-item">
+									<div class="file">
+										<div class="file__title">
+											<a href="#"><i class="depict-files-jpg"></i><span>Скачать техническое описание</span></a>
+										</div>
+										<div class="file__info">JPG / 415 Kb</div>
+									</div>
+								</div>
+							</div>
+							<!--download files items end-->
+							<p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что
+								искусство мое страдает от этого.</p>
+							<!--style default button-->
+							<h3>
+								<span class="mark">Default buttons</span>
+							</h3>
+							<div style="padding: 0 0 20px;">
+								<a href="#" class="btn-default">Link</a>
+							</div>
+							<div style="padding: 0 0 20px;">
+								<input class="btn-default" type="submit" value="Type submit">
+								<input class="btn-default" type="button" value="Type button">
+								<input class="btn-default" type="reset" value="Type reset">
+							</div>
+							<h3>
+								<span class="mark">Alternative buttons</span>
+							</h3>
+							<div style="padding: 0 0 20px;">
+								<a href="#" class="btn-default-alt">Отправить заявку</a>
+							</div>
+							<div style="padding: 0 0 20px;">
+								<input class="btn-default-alt" type="submit" value="Type submit">
+								<input class="btn-default-alt" type="button" value="Type button">
+								<input class="btn-default-alt" type="reset" value="Type reset">
+							</div>
+							<!--style default button end-->
+							<p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что
+								искусство мое страдает от этого.</p>
+							<!--form style-->
+							<form action="#" method="get">
+								<div class="label-holder">
+									<label for="expl-label-01">Пример текстового поля с плейсхолдером: <span class="form-mark">*</span></label>
+								</div>
+								<input type="text" placeholder="Текстовое поле" id="expl-label-01" />
+								<div class="label-holder">
+									<label for="expl-label-02">Пример невалидного текстового поля: <span class="form-mark">*</span></label>
+								</div>
+								<input class="error" type="text" placeholder="Невалидное поле" id="expl-label-02" />
+								<div class="form-row">
+									<div class="input-wrap">
+										<div class="label-holder">
+											<label for="expl-label-03">Текстовое поле первое: <span class="form-mark">*</span></label>
+										</div>
+										<input type="text" placeholder="Текстовое поле первое" id="expl-label-03" />
+									</div>
+									<div class="input-wrap">
+										<div class="label-holder">
+											<label for="expl-label-04">Текстовое поле второе: <span class="form-mark">*</span></label>
+										</div>
+										<input type="text" placeholder="Текстовое поле второе" id="expl-label-04" />
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="input-wrap">
+										<div class="label-holder">
+											<label for="expl-label-05">Текстовое поле третье: <span class="form-mark">*</span></label>
+										</div>
+										<input type="text" placeholder="Текстовое поле третье" id="expl-label-05" />
+									</div>
+									<div class="input-wrap">
+										<div class="label-holder">
+											<label for="expl-label-06">Пример селекта: <span class="form-mark">*</span></label>
+										</div>
+										<div class="select">
+											<select name="filter-type" id="expl-label-06">
+											<option value="1">Выбрать опшин</option>
+											<option value="2">Опшин</option>
+											<option value="3">Опшин длиннее</option>
+											<option value="4">Опшин очень-очень-очень-очень длинный</option>
+										</select>
+										</div>
+									</div>
+								</div>
+								<div class="label-holder">
+									<label for="expl-label-07">Сообщение:</label>
+								</div>
+								<textarea placeholder="Сообщение" id="expl-label-07"></textarea>
+								<div class="form-row">
+									<div class="input-wrap">
+										<h3>
+											<span class="mark">Checkbox outside label</span>
+										</h3>
+
+										<ul class="checkbox-list">
+											<li>
+												<input type="checkbox" name="checkbox-normal" id="checkbox-normal" />
+												<label for="checkbox-normal"><span>Normal</span></label>
+											</li>
+											<li>
+												<input type="checkbox" name="checkbox-checked" id="checkbox-checked" checked />
+												<label for="checkbox-checked"><span>Checked</span></label>
+											</li>
+											<li>
+												<input type="checkbox" name="checkbox-disabled" id="checkbox-disabled" disabled />
+												<label for="checkbox-disabled"><span>Disabled</span></label>
+											</li>
+											<li>
+												<input type="checkbox" name="checkbox-checked-disabled" id="checkbox-checked-disabled" checked disabled />
+												<label for="checkbox-checked-disabled"><span>Checked & Disabled</span></label>
+											</li>
+										</ul>
+
+										<h3>
+											<span class="mark">Checkbox inside label</span>
+										</h3>
+										<ul class="checkbox-list">
+											<li>
+												<label class="check-label">
+												<input type="checkbox" name="checkbox-normal" />
+												<span><i></i>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.</span>
+											</label>
+											</li>
+											<li>
+												<label class="check-label">
+												<input type="checkbox" name="checkbox-checked" checked />
+												<span><i></i>Checked</span>
+											</label>
+											</li>
+											<li>
+												<label class="check-label">
+												<input type="checkbox" name="checkbox-disabled" disabled />
+												<span><i></i>Disabled</span>
+											</label>
+											</li>
+											<li>
+												<label class="check-label">
+												<input type="checkbox" name="checkbox-checked-disabled" checked disabled />
+												<span><i></i>Checked & Disabled</span>
+											</label>
+											</li>
+										</ul>
+									</div>
+									<div class="input-wrap">
+										<h3>
+											<span class="mark">Radiobutton outside label</span>
+										</h3>
+
+										<ul class="radio-list">
+											<li>
+												<input type="radio" name="testRadioOutside" id="radio-male" checked />
+												<label for="radio-male"><span>Male</span></label>
+											</li>
+											<li>
+												<input type="radio" name="testRadioOutside" id="radio-female" />
+												<label for="radio-female"><span>Female</span></label>
+											</li>
+											<li>
+												<input type="radio" name="radio-disabled" id="radio-disabled" disabled />
+												<label for="radio-disabled"><span>Disabled</span></label>
+											</li>
+											<li>
+												<input type="radio" name="radio-checked-disabled" id="radio-checked-disabled" checked disabled />
+												<label for="radio-checked-disabled"><span>Checked & Disabled</span></label>
+											</li>
+										</ul>
+
+										<h3>
+											<span class="mark">Radiobutton inside label</span>
+										</h3>
+										<ul class="radio-list">
+											<li>
+												<label class="radio-label">
+												<input type="radio" name="testRadioInside" />
+												<span><i></i>Male</span>
+											</label>
+											</li>
+											<li>
+												<label class="radio-label">
+												<input type="radio" name="testRadioInside" checked />
+												<span><i></i>Female</span>
+											</label>
+											</li>
+											<li>
+												<label class="radio-label">
+												<input type="radio" name="radio-disabled" disabled />
+												<span><i></i>Disabled</span>
+											</label>
+											</li>
+											<li>
+												<label class="radio-label">
+												<input type="radio" name="radio-checked-disabled" checked disabled />
+												<span><i></i>Checked & Disabled</span>
+											</label>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</form>
+							<!--form style end-->
+
+							<p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что
+								искусство мое страдает от этого.</p>
+							<img class="imgl" src="img/img-expl-sm.jpg" alt="image description" />
+							<p>Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных
+								былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего,
+								судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах!</p>
+							<p>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога! " Друг мой. . . Но нет! Мне не под силу это, меня подавляет величие этих явлений.</p>
+							<img class="imgr" src="img/img-expl-sm.jpg" alt="image description" />
+							<p>Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных
+								былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего,
+								судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах!</p>
+							<p>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога! " Друг мой. . . Но нет! Мне не под силу это, меня подавляет величие этих явлений.</p>
+							<div class="imgc">
+								<img src="img/img-expl-sm.jpg" alt="image description" />
+							</div>
+							<p>Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных
+								былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего,
+								судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах!</p>
+							<p>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога! " Друг мой. . . Но нет! Мне не под силу это, меня подавляет величие этих явлений.</p>
+							<div class="imgc">
+								<img src="img/img-expl-lg.jpg" alt="image description" />
+							</div>
+							<p>Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога! " Друг мой. . . Но нет! Мне не под силу это, меня подавляет величие этих явлений.</p>
+						</div>
+					</div>
+					<!--CONTENT end-->
+
+					<!--SIDEBAR-->
+					<aside class="sidebar">
+						<div class="sidebar__holder">
+							<div class="sidebar__widget">
+								<h3>Title of Sidebar Widget</h3>
+								Content of Sidebar Widget
+							</div>
+							<div class="sidebar__widget">
+								<h3>Title of Sidebar Widget</h3>
+								Content of Sidebar Widget
+							</div>
+						</div>
+					</aside>
+					<!--SIDEBAR-->
+
+					<!--ASIDE-->
+					<aside class="aside">
+						<div class="aside__holder">
+							<div class="aside__widget">
+								<h3>Title of Aside Widget</h3>
+								Content of Aside Widget
+							</div>
+							<div class="aside__widget">
+								<h3>Title of Aside Widget</h3>
+								Content of Aside Widget
+							</div>
+						</div>
+					</aside>
+					<!--ASIDE end-->
+				</div>
+			</div>
+		</div>
+		<!--MAIN end-->
+	</div>
+	<!-- >>> foot.tpl <<< -->
+	<!--footer-->
+	<footer class="footer">
+		<div class="layout">
+			<div class="footer__holder">
+				<!--footer common-->
+				<div class="footer-common">
+					Content of Footer
+				</div>
+				<!--footer common end-->
+
+				<!--footer bottom-->
+				<div class="footer-bottom">
+					<div class="footer-bottom__holder">
+						<div class="footer-bottom__col">
+							<div class="copyright">Copyright &copy; 2017 Project</div>
+						</div>
+						<div class="footer-bottom__col">
+							<a href="#">Правила использования материалов</a>
+						</div>
+						<div class="footer-bottom__col">
+							<!--developer-->
+							<div class="developer">
+								<a href="http://astronim.by/">
+									<span class="developer__label">Сделано командой &mdash;</span>
+									<span class="developer__logo">Astronim*Support</span>
+								</a>
+							</div>
+							<!--developer end-->
+						</div>
+					</div>
+				</div>
+				<!--footer bottom end-->
+			</div>
+		</div>
+	</footer>
+	<!--footer end-->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/libs.min.js"></script>
+	<script src="js/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+@@include('_head.tpl', {
+	"title": "Главная",
+	"pageClass": ""
+})
+<div class="wrapper">
+	<!--HEADER-->
+	@@include('_header.tpl', {
+		"mainNavItemActive": "index"
+	})
+	<!--HEADER end-->
+	<!--MAIN-->
+	<div class="main">
+		<div class="layout">
+			<div class="main__holder">
+				<!--CONTENT-->
+				<div class="content-wrap">
+					<div class="content">
+						<!--breadcrumbs-->
+						@@include('_breadcrumbs.tpl')
+						<!--breadcrumbs end-->
+						<section class="section">
+							<div class="section__title"><h2>Title of Section</h2></div>
+							<div class="section__holder">
+								Content of Section
+							</div>
+						</section>
+					</div>
+				</div>
+				<!--CONTENT end-->
+
+				<!--SIDEBAR-->
+				@@include('_sidebar.tpl')
+				<!--SIDEBAR-->
+
+				<!--ASIDE-->
+				@@include('_aside.tpl')
+				<!--ASIDE end-->
+			</div>
+		</div>
+	</div>
+	<!--MAIN end-->
+</div>
+@@include('_foot.tpl')

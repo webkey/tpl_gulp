@@ -1,0 +1,83 @@
+// Default Variables and Maps
+// base
+$font-size: 1.8rem !default
+$line-height: 3.0rem/$font-size !default
+$space-bottom: $font-size * $line-height !default
+
+$color-bg: #f8ecc2 !default
+$color-text: #262626 !default
+$color-text-alt: tomato !default
+$color-link: blue !default
+$color-title: black !default
+$color-border: lightgray !default
+$color-text-mark: tomato !default
+
+// user content class
+$user-content: content !default
+
+// layout
+$layout-width: 1920px !default
+$layout-space-horizontal: 0 !default
+
+// form
+$color-form-text: #262626 !default
+$color-form-placeholder: lightgray !default
+$color-form-bg: white !default
+$color-form-border: lightgray !default
+$color-form-border-focus: darken($color-form-border, 20%) !default
+$color-form-error: red !default
+$color-form-success: green !default
+$space-bottom-form: 3rem !default
+
+// btn
+$color-btn-bg: tomato !default
+$color-btn-bg-hover: darken($color-btn-bg, 20%) !default
+$color-btn-text: white !default
+
+// table color
+$color-table-text: #262626 !default
+$color-table-border: tomato !default
+$color-table-bg: white !default
+$color-table-text-alt: white !default
+$color-table-bg-alt: tomato !default
+
+// animation
+$animation-speed: 0.2s !default
+$animation-speed-mouseleave: 0.35s !default
+
+// fonts style
+$font-norm: 'Roboto', sans-serif !default
+$font-b: 'Roboto', sans-serif !default
+$font-i: 'Roboto', sans-serif !default
+$font-bi: 'Roboto', sans-serif !default
+$font-alt: 'Roboto Slab', serif !default
+
+=font-reset()
+	font:
+		weight: normal
+		style: normal
+
+=font-normal()
+	font:
+		family: $font-norm
+//+font-reset
+
+=font-bold()
+	font:
+		family: $font-b
+//+font-reset
+
+=font-italic()
+	font:
+		family: $font-i
+//+font-reset
+
+=font-bold-italic()
+	font:
+		family: $font-bi
+//+font-reset
+
+=font-title()
+	font:
+		family: $font-alt
+//+font-reset
