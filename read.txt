@@ -1,6 +1,10 @@
-npm i
-npm i bower
-bower i
+to cdm commandline: start
+    ============
+    //npm i gulp
+    //npm i
+    //npm i bower
+    //bower i
+    ============
 
 In modernizr-config.json store custom configuration for modernizr.js
 https://modernizr.com/
