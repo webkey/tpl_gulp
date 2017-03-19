@@ -1,167 +1,63 @@
-@import "utils/_variables"
+//======================================================//
+//Sass VENDORS//
+//======================================================//
+// @link https://github.com/eduardoboucas/include-media
+@import ../libs/include-media/dist/_include-media
+
+
+//======================================================//
+//Sass UTILS//
+//======================================================//
+@import utils/variables
+@import utils/functions
+@import utils/mixins
+@import utils/placeholders
 
 /*======================================================*/
 /*FONTS*/
 /*======================================================*/
-@import "base/_fonts"
+@import fonts/fonts
 
 /*======================================================*/
 /*NORMALIZE AND RESET*/
 /*======================================================*/
-@import "vendors/normalize"
-@import "base/_reset"
-
-
+@import base/normalize.min
+@import base/reset
 /*======================================================*/
 /*TYPOGRAPHY*/
 /*======================================================*/
-@import "base/_typography"
+@import base/typography
 
 /*======================================================*/
-/*CUSTOM*/
+/*PARTIALS*/
 /*======================================================*/
+@import partials/layout
+@import partials/header
+@import partials/sidebar
+@import partials/aside
+@import partials/navigation
+@import partials/footer
+@import partials/forms
 
-/*MAIN BLOCKS*/
-.wrapper
-  margin: 0 auto
-  //min-height: 100%
-  //height: auto !important
-  //height: 100%
-  min-height: 100vh
-  overflow: hidden
-  position: relative
+/*======================================================*/
+/*COMPONENTS*/
+/*======================================================*/
+@import components/buttons
+@import components/files
+@import components/breadcrumbs
+@import components/slider
 
-.main
-  padding: 30px 0 130px
-  position: relative
-  clear: both
-  z-index: 4
+/*======================================================*/
+/*PAGES*/
+/*======================================================*/
+@import pages/home
 
-.main__holder
-  width: 100%
-  +clear
-
-.content-wrap
-  float: left
-  width: 100%
-
-.content
-  margin: 0 260px 0 340px
-  min-height: 50px
-
-  .home-page &
-    margin: 0
-
-.header
-  position: relative
-  z-index: 5
-
-.sidebar
-  display: inline
-  float: left
-  margin: 0 0 0 -100%
-  width: 320px
-
-.aside
-  display: inline
-  float: right
-  margin: 0 0 0 -240px
-  width: 240px
-
-.footer
-  margin: -100px auto 0
-  height: 100px
-  position: relative
-  clear: both
-  z-index: 5
-
-.layout
-  max-width: $layout-width
-  padding: 0 $layout-space-horizontal
-  margin: 0 auto
-
-/*MAIN BLOCKS end*/
-
-/*HEADER*/
-.header__holder
-  padding: 10px 0
-  +clear
-
-/*logo*/
-.logo
-  float: left
-  background: url(../img/logo.png) no-repeat
-  width: 220px
-  height: 85px
-  text-indent: -9999px
-  overflow: hidden
-  margin: 0
-
-  a
-    display: block
-    height: 100%
-
-/*logo end*/
-/*HEADER end*/
-
-/*MAIN*/
-/*breadcrumbs*/
-.breadcrumbs
-  font-size: 12px
-  line-height: 14px
-  color: #000
-  margin: 0 0 20px
-
-  &__list, .#{$user-content} &__list
-    overflow: hidden
-    list-style: none
-    padding: 0
-    margin: 0
-
-    li
-      padding: 0 10px 10px 12px
-      margin: 0
-      float: left
-      position: relative
-
-      &:before
-        content: '/'
-        position: absolute
-        left: 0
-        top: 0
-        height: 0
-        width: 0
-        border: none
-
-      &:first-child
-        padding-left: 0
-        background: none
-
-      &:first-child:before
-        content: none
-
-    a
-      color: $color-link
-      text-decoration: underline
-
-      .no-touchevents &:hover
-        text-decoration: none
-
-/*breadcrumbs end*/
-/*MAIN end*/
-
-/*SIDEBAR*/
-/*SIDEBAR end*/
-
-/*ASIDE*/
-/*ASIDE end*/
-
-/*FOOTER*/
-.footer__holder
-  padding: 10px 0 0
-/*FOOTER end*/
+/*======================================================*/
+/*THEMES*/
+/*======================================================*/
+@import themes/theme
 
 /*======================================================*/
 /*PRINT STYLES*/
 /*======================================================*/
-@import "print/_print"
+@import "print/print"

@@ -1,26 +1,43 @@
-// Default Variables and Maps
+@import ../utils/functions
+
+// medium query
+$breakpoints: ( 'mobile-sm': 320px, 'mobile-md': 480px, 'mobile-lg': 640px, 'tablet-sm': 768px, 'tablet-lg': 992px, 'desktop-sm': 1200px, 'desktop-md': 1366px, 'desktop-lg': 1600px, 'desktop-hd': 1920px )
+
 // base
 $font-size: 1.8rem !default
 $line-height: 3.0rem/$font-size !default
-$space-bottom: $font-size * $line-height !default
+$bottom-space: $font-size * $line-height !default
 
-$color-bg: #f8ecc2 !default
-$color-text: #262626 !default
-$color-text-alt: tomato !default
-$color-link: blue !default
-$color-title: black !default
-$color-border: lightgray !default
-$color-text-mark: tomato !default
+// цвет фона страницы
+$bg-color: oldlace !default
+// цвет остовного текста
+$text-color: #262626 !default
+// цвет основных заголовков заголовков
+$title-color: black !default
+// цвет текста светлее основного
+$text-color-light: #262626 !default
+// цвет для выделения текста
+$text-color-alt: tomato !default
+// цвет ссылки
+$link-color: blue !default
+// цвет линий и границ
+$border-color: lightgray !default
+// цвет специальных элементов
+$mark-color: tomato !default
 
 // user content class
-$user-content: content !default
+// class на контейнере, в котором будет использоваться стилизация
+// списков, таблиц, цытат и т.д.
+$user-content: user-content !default
 
 // layout
+// максимальная ширина сайта
 $layout-width: 1920px !default
-$layout-space-horizontal: 0 !default
+// отступы слева и справа для всего сайта
+$layout-space-horizontal: 2rem !default
 
 // form
-$color-form-text: #262626 !default
+$color-form-text: $text-color-light !default
 $color-form-placeholder: lightgray !default
 $color-form-bg: white !default
 $color-form-border: lightgray !default
@@ -35,7 +52,7 @@ $color-btn-bg-hover: darken($color-btn-bg, 20%) !default
 $color-btn-text: white !default
 
 // table color
-$color-table-text: #262626 !default
+$color-table-text: $text-color-light !default
 $color-table-border: tomato !default
 $color-table-bg: white !default
 $color-table-text-alt: white !default

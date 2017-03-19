@@ -22,7 +22,9 @@ var gulp = require('gulp'), // Подключаем Gulp
   fs = require('fs'), // For compiling modernizr.min.js
   modernizr = require('modernizr'), // For compiling modernizr.min.js
   config = require('./modernizr-config'), // Path to modernizr-config.json
-  pathRename = require('gulp-string-replace') //Replace strings in files by using string or regex patterns
+  replace = require('gulp-string-replace')
+  // Replace strings in files by using string or regex patterns
+  // @link https://www.npmjs.com/package/gulp-string-replace
 ;
 
 gulp.task('htmlCompilation', function () { // Таск формирования ДОМ страниц
@@ -41,6 +43,15 @@ gulp.task('htmlCompilation', function () { // Таск формирования 
     .pipe(gulp.dest('./src/'));
 });
 
+/// Таск для переноса normalize.css и его минификации
+gulp.task('compressNormalizeCss', function () {
+  return gulp.src('src/libs/normalize-css/normalize.css')
+    .pipe(gulp.dest('src/sass/base/'))
+    .pipe(cssnano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('src/sass/base/'));
+});
+
 gulp.task('sassCompilation', ['compressNormalizeCss'], function () { // Создаем таск для компиляции sass файлов
   return gulp.src('src/sass/**/*.+(scss|sass)') // Берем источник
     .pipe(sourcemaps.init())
@@ -48,11 +59,12 @@ gulp.task('sassCompilation', ['compressNormalizeCss'], function () { // Созд
       // outputStyle: 'expanded', // nested (default), expanded, compact, compressed
       // indentType: 'tab',
       // indentWidth: 1
-      /// пока эти параметры заменены на csscomb()
-      /// на мой взгляд csscomb() более пластичны
-      /// плюс встроенный стилизатор делал баг в скомпиленых селекторах
-      /// перенося сложные селекторы не по запятой, а произволно в любом месте
+      // пока эти параметры заменены на csscomb()
+      // на мой взгляд csscomb() более пластичны
+      // но и тот и другой почему-то неправильно компилирует сложные селекторы,
+      // переносит на другую строку не после комы, а в произвольном месте
     }).on('error', sass.logError)) // Преобразуем Sass в CSS посредством gulp-sass
+    .pipe(replace('../../', '../')) /// в css файлах меняем пути к файлам с ../../ на ../
     .pipe(autoprefixer([
       'last 5 versions', '> 1%', 'ie >= 9', 'and_chr >= 2.3' //, 'ie 8', 'ie 7'
     ], {
@@ -64,15 +76,6 @@ gulp.task('sassCompilation', ['compressNormalizeCss'], function () { // Созд
     .pipe(browserSync.reload({
       stream: true
     })); // Обновляем CSS на странице при изменении
-});
-
-gulp.task('compressNormalizeCss', function () {
-  // Таск для переноса normalize.css и его минификации
-  return gulp.src('src/libs/normalize-css/normalize.css')
-    .pipe(gulp.dest('src/sass/vendors/'))
-    .pipe(cssnano())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('src/sass/normalize/'));
 });
 
 gulp.task('mergeCssLibs', function () { // Таск для мержа css библиотек

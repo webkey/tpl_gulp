@@ -9,61 +9,61 @@ body
   font-size: $font-size
   line-height: $line-height
   height: 100%
-  color: $color-text
-  background-color: $color-bg
+  color: $text-color-light
+  background-color: $bg-color
   min-width: 320px
 
 h1, h2, h3, h4, h5, h6
   margin: 0
   padding: 0
   +font-title
-  color: $color-title
+  color: $title-color
 
 h1
   font-size: 4.0rem
   line-height: 1.2
-  margin-bottom: $space-bottom
+  margin-bottom: $bottom-space
   overflow: hidden
 
 h2
   font-size: 3.6rem
   line-height: 1.2
-  margin-bottom: $space-bottom
+  margin-bottom: $bottom-space
 
 h3
   font-size: 2.8rem
   line-height: 1.2
-  margin-bottom: $space-bottom
+  margin-bottom: $bottom-space
 
 h4
   font-size: 2.2rem
   line-height: 1.2
-  margin-bottom: $space-bottom
+  margin-bottom: $bottom-space
 
 h5
   font-size: 2.0rem
   line-height: 1.2
-  margin-bottom: $space-bottom
+  margin-bottom: $bottom-space
 
 h6
   font-size: $font-size
   line-height: $line-height
-  margin-bottom: $space-bottom
+  margin-bottom: $bottom-space
 
 p
   padding: 0
-  margin: 0 0 $space-bottom
+  margin: 0 0 $bottom-space
 
 hr
   line-height: 1px
   height: 0
   border: none
   background: none
-  border-bottom: 1px solid $color-border
-  margin-bottom: $space-bottom
+  border-bottom: 1px solid $border-color
+  margin-bottom: $bottom-space
 
 a
-  color: $color-link
+  color: $link-color
   text-decoration: underline
   cursor: default
   outline: none
@@ -101,12 +101,12 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
   +font-bold-italic
 
 .mark
-  color: $color-text-mark
+  color: $mark-color
   font-style: inherit
   font-weight: inherit
 
 .text-color-alt
-  color: $color-text-alt
+  color: $text-color-alt
 
 .align-center
   text-align: center
@@ -202,7 +202,7 @@ button
 .#{$user-content}
   //list
   ul, ol
-    margin: $space-bottom 0
+    margin: $bottom-space 0
     //padding: 0 0 $space-bottom
     padding: 0
     list-style: none
@@ -211,7 +211,7 @@ button
   ol li
     //padding: $space-bottom/2 0 0 30px
     padding-left: 30px
-    margin: #{$space-bottom/2} 0
+    margin: #{$bottom-space/2} 0
     position: relative
 
   //ul li:first-child,
@@ -228,7 +228,7 @@ button
     width: 0
     border: solid transparent
     border-width: 5px 9px
-    border-left-color: $color-text-mark
+    border-left-color: $mark-color
     box-sizing: border-box
 
   //ul > li:first-child:before
@@ -247,7 +247,7 @@ button
       display: inline-block
       text-align: left
       +font-title
-      color: $color-text-mark
+      color: $mark-color
       content: counter(section)
       padding: 0 4px 0 0
       min-width: 30px
@@ -260,7 +260,7 @@ button
   ol ul
     //padding-bottom: 0
     //padding-left: 20px
-    margin: $space-bottom/2 0
+    margin: $bottom-space/2 0
 
   //ul ul > li:before,
   //ul ul > li:first-child:before,
@@ -307,7 +307,7 @@ button
   overflow: auto
   max-width: 100%
   -webkit-overflow-scrolling: touch
-  margin: 0 0 $space-bottom
+  margin: 0 0 $bottom-space
 
   table
     margin-bottom: 0
@@ -329,7 +329,7 @@ table
 
 .#{$user-content}
   table
-    margin-bottom: $space-bottom
+    margin-bottom: $bottom-space
 
   .table-auto table
     margin-bottom: 0
@@ -387,7 +387,7 @@ table
     display: block
     margin: 0
     background-color: #f5f5f5
-    border-left: 4px solid $color-text-alt
+    border-left: 4px solid $text-color-alt
     padding: 18px 32px 28px 42px
 
     q
@@ -396,7 +396,7 @@ table
       padding: 0 0 10px
       font-size: $font-size
       line-height: $line-height
-      color: $color-text
+      color: $text-color-light
 
       &:before,
       &:after
@@ -423,26 +423,26 @@ table
       +font-title
       font-size: $font-size
       line-height: $line-height
-      color: $color-text
+      color: $text-color-light
 
 /*blockquote end*/
 
 /*content img*/
 .imgc
   text-align: center
-  padding-bottom: $space-bottom
+  padding-bottom: $bottom-space
   clear: both
 
 .imgl
   text-align: left
   float: left
-  margin: 0 $space-bottom $space-bottom 0
+  margin: 0 $bottom-space $bottom-space 0
   max-width: 50%
 
 .imgr
   text-align: right
   float: right
-  margin: 0 0 $space-bottom $space-bottom
+  margin: 0 0 $bottom-space $bottom-space
   max-width: 50%
 
 @media only screen and (max-width: 767px)
@@ -486,12 +486,12 @@ table
 .label-holder, label
   font-size: inherit
   line-height: inherit
-  color: $color-text
+  color: $text-color-light
 
 .form-mark
   display: inline-block
   vertical-align: top
-  color: $color-text-alt
+  color: $text-color-alt
 
 /*form layout end*/
 
@@ -550,10 +550,7 @@ textarea
   height: 1.8em
   width: 100%
   margin-bottom: -1.8em
-  overflow: hidden
-  -ms-text-overflow: ellipsis
-  text-overflow: ellipsis
-  white-space: nowrap
+  +ellipsis
 
 .success-text
   color: $color-form-success
@@ -653,7 +650,7 @@ input[type="checkbox"] + label:before,
   top: 50%
   margin-top: -9px
   border-radius: 0
-  border: 1px solid $color-text-alt
+  border: 1px solid $text-color-alt
   box-sizing: border-box
 
 input[type="checkbox"] + label > span,
@@ -701,7 +698,7 @@ input[type="checkbox"]
     left: 0
     top: 50%
     border-radius: 2px
-    background: $color-text-alt
+    background: $text-color-alt
     -webkit-transition-property: opacity
     transition-property: opacity
     -webkit-transition-duration: $animation-speed
@@ -782,7 +779,7 @@ input[type="radio"]
     top: 50%
     margin-top: -9px
     border-radius: 50px
-    border: 1px solid $color-text-alt
+    border: 1px solid $text-color-alt
     box-sizing: border-box
 
   & + label:after,
@@ -812,7 +809,7 @@ input[type="radio"]
     margin-top: -5px
     border-radius: 50%
     overflow: hidden
-    background: $color-text-alt
+    background: $text-color-alt
     -webkit-animation: bounceout 0s
     -webkit-animation-iteration-count: 1
     -webkit-animation-fill-mode: forwards
@@ -1014,9 +1011,7 @@ input[type="radio"]
 
     .select-text
       display: block
-      overflow: hidden
-      text-overflow: ellipsis
-      white-space: nowrap
+      +ellipsis
       min-height: 20px
 
 /*multiselect menu*/
