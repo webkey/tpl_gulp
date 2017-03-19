@@ -1,20 +1,21 @@
-@import "vars"
+@import "utils/_variables"
 
 /*======================================================*/
 /*FONTS*/
 /*======================================================*/
-@import "fonts"
+@import "base/_fonts"
 
 /*======================================================*/
 /*NORMALIZE AND RESET*/
 /*======================================================*/
-@import "../libs/normalize-css/normalize"
-@import "my-reset"
+@import "vendors/normalize"
+@import "base/_reset"
+
 
 /*======================================================*/
 /*TYPOGRAPHY*/
 /*======================================================*/
-@import "typography"
+@import "base/_typography"
 
 /*======================================================*/
 /*CUSTOM*/
@@ -22,83 +23,83 @@
 
 /*MAIN BLOCKS*/
 .wrapper
-	margin: 0 auto
-	//min-height: 100%
-	//height: auto !important
-	//height: 100%
-	min-height: 100vh
-	overflow: hidden
-	position: relative
+  margin: 0 auto
+  //min-height: 100%
+  //height: auto !important
+  //height: 100%
+  min-height: 100vh
+  overflow: hidden
+  position: relative
 
 .main
-	padding: 30px 0 130px
-	position: relative
-	clear: both
-	z-index: 4
+  padding: 30px 0 130px
+  position: relative
+  clear: both
+  z-index: 4
 
 .main__holder
-	width: 100%
-	+clear
+  width: 100%
+  +clear
 
 .content-wrap
-	float: left
-	width: 100%
+  float: left
+  width: 100%
 
 .content
-	margin: 0 260px 0 340px
-	min-height: 50px
+  margin: 0 260px 0 340px
+  min-height: 50px
 
-	.home-page &
-		margin: 0
+  .home-page &
+    margin: 0
 
 .header
-	position: relative
-	z-index: 5
+  position: relative
+  z-index: 5
 
 .sidebar
-	display: inline
-	float: left
-	margin: 0 0 0 -100%
-	width: 320px
+  display: inline
+  float: left
+  margin: 0 0 0 -100%
+  width: 320px
 
 .aside
-	display: inline
-	float: right
-	margin: 0 0 0 -240px
-	width: 240px
+  display: inline
+  float: right
+  margin: 0 0 0 -240px
+  width: 240px
 
 .footer
-	margin: -100px auto 0
-	height: 100px
-	position: relative
-	clear: both
-	z-index: 5
+  margin: -100px auto 0
+  height: 100px
+  position: relative
+  clear: both
+  z-index: 5
 
 .layout
-	max-width: $layout-width
-	padding: 0 $layout-space-horizontal
-	margin: 0 auto
+  max-width: $layout-width
+  padding: 0 $layout-space-horizontal
+  margin: 0 auto
 
 /*MAIN BLOCKS end*/
 
 /*HEADER*/
 .header__holder
-	padding: 10px 0
-	+clear
+  padding: 10px 0
+  +clear
 
 /*logo*/
 .logo
-	float: left
-	background: url(../img/logo.png) no-repeat
-	width: 220px
-	height: 85px
-	text-indent: -9999px
-	overflow: hidden
-	margin: 0
+  float: left
+  background: url(../img/logo.png) no-repeat
+  width: 220px
+  height: 85px
+  text-indent: -9999px
+  overflow: hidden
+  margin: 0
 
-	a
-		display: block
-		height: 100%
+  a
+    display: block
+    height: 100%
 
 /*logo end*/
 /*HEADER end*/
@@ -106,45 +107,45 @@
 /*MAIN*/
 /*breadcrumbs*/
 .breadcrumbs
-	font-size: 12px
-	line-height: 14px
-	color: #000
-	margin: 0 0 20px
+  font-size: 12px
+  line-height: 14px
+  color: #000
+  margin: 0 0 20px
 
-	&__list, .#{$user-content} &__list
-		overflow: hidden
-		list-style: none
-		padding: 0
-		margin: 0
+  &__list, .#{$user-content} &__list
+    overflow: hidden
+    list-style: none
+    padding: 0
+    margin: 0
 
-		li
-			padding: 0 10px 10px 12px
-			margin: 0
-			float: left
-			position: relative
+    li
+      padding: 0 10px 10px 12px
+      margin: 0
+      float: left
+      position: relative
 
-			&:before
-				content: '/'
-				position: absolute
-				left: 0
-				top: 0
-				height: 0
-				width: 0
-				border: none
+      &:before
+        content: '/'
+        position: absolute
+        left: 0
+        top: 0
+        height: 0
+        width: 0
+        border: none
 
-			&:first-child
-				padding-left: 0
-				background: none
+      &:first-child
+        padding-left: 0
+        background: none
 
-			&:first-child:before
-				content: none
+      &:first-child:before
+        content: none
 
-		a
-			color: $color-link
-			text-decoration: underline
+    a
+      color: $color-link
+      text-decoration: underline
 
-			.no-touchevents &:hover
-				text-decoration: none
+      .no-touchevents &:hover
+        text-decoration: none
 
 /*breadcrumbs end*/
 /*MAIN end*/
@@ -157,15 +158,10 @@
 
 /*FOOTER*/
 .footer__holder
-	padding: 10px 0 0
+  padding: 10px 0 0
 /*FOOTER end*/
-
-/*======================================================*/
-/*MEDIA QUERIES*/
-/*======================================================*/
-@import "mq"
 
 /*======================================================*/
 /*PRINT STYLES*/
 /*======================================================*/
-@import "print"
+@import "print/_print"

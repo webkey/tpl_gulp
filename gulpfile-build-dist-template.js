@@ -25,7 +25,7 @@ gulp.task('copyImgToDistTpl', function () {
 
 gulp.task('buildTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function () {
 
-	gulp.src(['src/sass/**/*'])
+	gulp.src(['!src/sass/**/normalize/*', 'src/sass/**/*'])
 		.pipe(gulp.dest('gulp-dist-tpl/src/sass'));
 
 	gulp.src('src/fonts/**/*')
@@ -45,10 +45,11 @@ gulp.task('buildTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function () {
 	gulp.src([
 		'./.bowerrc',
 		'./.gitignore',
-		'!./gulpfile-dist-tpl.js',
+		'!./gulpfile-build-dist-template.js',
 		'./*.json',
 		'./*.js',
-		'./*.txt'
+		'./*.txt',
+		'./*.bat'
 	]).pipe(gulp.dest('gulp-dist-tpl'));
 
 });
