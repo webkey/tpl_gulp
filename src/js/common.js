@@ -5,12 +5,12 @@ var resizeByWidth = true;
 
 var prevWidth = -1;
 $(window).resize(function () {
-  var currentWidth = $('body').outerWidth();
-  resizeByWidth = prevWidth != currentWidth;
-  if (resizeByWidth) {
-    $(window).trigger('resizeByWidth');
-    prevWidth = currentWidth;
-  }
+	var currentWidth = $('body').outerWidth();
+	resizeByWidth = prevWidth != currentWidth;
+	if (resizeByWidth) {
+		$(window).trigger('resizeByWidth');
+		prevWidth = currentWidth;
+	}
 });
 /*resize only width end*/
 
@@ -29,7 +29,7 @@ var TABLET = device.tablet();
  *  placeholder
  *  */
 function placeholderInit() {
-  $('[placeholder]').placeholder();
+	$('[placeholder]').placeholder();
 }
 /*placeholder end*/
 
@@ -37,10 +37,10 @@ function placeholderInit() {
  * print
  * */
 function printShow() {
-  $('.view-print').on('click', function (e) {
-    e.preventDefault();
-    window.print();
-  })
+	$('.view-print').on('click', function (e) {
+		e.preventDefault();
+		window.print();
+	})
 }
 /*print end*/
 
@@ -48,39 +48,39 @@ function printShow() {
  * !footer at bottom
  * */
 function footerBottom() {
-  var $footer = $('.footer');
+	var $footer = $('.footer');
 
-  if ($footer.length) {
-    $('.main').after($('<div class="spacer"></div>'));
+	if ($footer.length) {
+		$('.main').after($('<div class="spacer"></div>'));
 
-    setTimeout(function () {
-      layoutFooter();
-    }, 50);
+		setTimeout(function () {
+			layoutFooter();
+		}, 50);
 
-    $(window).on('resizeByWidth', function () {
-      layoutFooter();
-    });
+		$(window).on('resizeByWidth', function () {
+			layoutFooter();
+		});
 
-    function layoutFooter() {
-      // var footerHeight = $('.footer__holder', $footer).outerHeight();
-      var footerHeight = $($footer).outerHeight();
-      $footer.css({
-        'margin-top': -footerHeight
-      });
+		function layoutFooter() {
+			// var footerHeight = $('.footer__holder', $footer).outerHeight();
+			var footerHeight = $($footer).outerHeight();
+			$footer.css({
+				'margin-top': -footerHeight
+			});
 
-      $('.spacer').css({
-        'height': footerHeight
-      });
-    }
-  }
+			$('.spacer').css({
+				'height': footerHeight
+			});
+		}
+	}
 }
 /*footer at bottom end*/
 
 /** ready/load/resize document **/
 
 $(document).ready(function () {
-  placeholderInit();
-  printShow();
+	placeholderInit();
+	printShow();
 
-  footerBottom();
+	footerBottom();
 });
