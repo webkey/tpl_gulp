@@ -1,5 +1,5 @@
 /**
- * resize only width
+ * !resize only width
  * */
 var resizeByWidth = true;
 
@@ -15,7 +15,7 @@ $(window).resize(function () {
 /*resize only width end*/
 
 /**
- * device detected
+ * !device detected
  * */
 var DESKTOP = device.desktop();
 //console.log('DESKTOP: ', DESKTOP);
@@ -27,14 +27,14 @@ var TABLET = device.tablet();
 
 /**
  *  placeholder
- *  */
+ * */
 function placeholderInit() {
 	$('[placeholder]').placeholder();
 }
 /*placeholder end*/
 
 /**
- * print
+ * !print
  * */
 function printShow() {
 	$('.view-print').on('click', function (e) {
