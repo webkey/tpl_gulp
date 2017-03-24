@@ -5,16 +5,21 @@
 	<title>@@title</title>
 	<!--Mobile optimized-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<!--Theme color-->
 	<meta name="theme-color" content="#fff">
+	<!--SEO-->
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="yandex-verification" content="" >
+	<meta name="google-site-verification" content="">
 	<!--The Open Graph protocol-->
-	<meta property="og:url" content="http://localhost:3000/">
-	<meta property="og:title" content="Name">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:url" content="http://localhost:3000/index.html">
+	<meta property="og:title" content="Название">
 	<meta property="og:image" content="http://localhost:3000/img/logo.png">
 	<meta property="og:description" content="Описание">
-	<meta property="og:site_name" content="http://localhost:3000/">
+	<meta property="og:site_name" content="Расширенное название">
 	<!--Favicon-->
 	<link href="favicon.ico" rel="shortcut icon">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
