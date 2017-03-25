@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+<!--[if lt IE 9]>      <html class="no-js old-ie" lang="ru"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9" lang="ru"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
 <head>
 	<meta charset="UTF-8">
 	<title>@@title</title>
 	<!--Mobile optimized-->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<!--Theme color-->
 	<meta name="theme-color" content="#fff">
 	<!--SEO-->
@@ -21,7 +24,8 @@
 	<meta property="og:description" content="Описание">
 	<meta property="og:site_name" content="Расширенное название">
 	<!--Favicon-->
-	<link href="favicon.ico" rel="shortcut icon">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<!--Style-->
 	<link rel="stylesheet" href="css/libs.min.css">
