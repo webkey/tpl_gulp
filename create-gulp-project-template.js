@@ -20,27 +20,28 @@ gulp.task('copyImgToDistTpl', function () {
 			optimizationLevel: 7,
 			use: [pngquant()]
 		})))
-		.pipe(gulp.dest('gulp-dist-tpl/src/img'));
+		.pipe(gulp.dest('gulp-project-template/src/img'));
 });
 
 gulp.task('buildTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function () {
 
-	gulp.src(['!src/sass/**/normalize/*', 'src/sass/**/*'])
-		.pipe(gulp.dest('gulp-dist-tpl/src/sass'));
+	gulp.src(['!src/sass/test-mixins.sass', '!src/sass/**/normalize.*', 'src/sass/**/*'])
+		.pipe(gulp.dest('gulp-project-template/src/sass'));
 
 	gulp.src('src/fonts/**/*')
-		.pipe(gulp.dest('gulp-dist-tpl/src/fonts'));
+		.pipe(gulp.dest('gulp-project-template/src/fonts'));
 
 	gulp.src(['src/js/common.js'])
-		.pipe(gulp.dest('gulp-dist-tpl/src/js'));
+		.pipe(gulp.dest('gulp-project-template/src/js'));
 
 	gulp.src([
+		'!src/__test-mixins.html',
 		'src/__*.html',
 		'src/_*.tpl'
-	]).pipe(gulp.dest('gulp-dist-tpl/src'));
+	]).pipe(gulp.dest('gulp-project-template/src'));
 
 	gulp.src(['src/*.png', 'src/*.ico', 'src/.htaccess'])
-		.pipe(gulp.dest('gulp-dist-tpl/src'));
+		.pipe(gulp.dest('gulp-project-template/src'));
 
 	gulp.src([
 		'./.bowerrc',
@@ -50,10 +51,10 @@ gulp.task('buildTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function () {
 		'./*.js',
 		'./*.txt',
 		'./*.bat'
-	]).pipe(gulp.dest('gulp-dist-tpl'));
+	]).pipe(gulp.dest('gulp-project-template'));
 
 });
 
 gulp.task('cleanDistTplFolder', function () {
-	return del.sync(['gulp-dist-tpl/']);
+	return del.sync(['gulp-project-template/']);
 });

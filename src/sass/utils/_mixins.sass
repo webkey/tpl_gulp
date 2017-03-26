@@ -1,107 +1,20 @@
 @import "variables"
-// =============================================================================
-// String Replace
-// =============================================================================
+@import "functions"
 
-@function str-replace($string, $search, $replace: "")
-	$index: str-index($string, $search)
+@import "../../libs/mathsass/dist/math"
+@import "../../libs/mathsass/dist/functions/tan"
 
-	@if $index
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace)
-
-	@return $string
-
-// =============================================================================
-// Font Face
-// =============================================================================
-
-=font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg)
-	$src: null
-
-	$extmods: (eot: "?", svg: "#" + str-replace($name, " ", "_"))
-
-	$formats: (otf: "opentype", ttf: "truetype")
-
-	@each $ext in $exts
-		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext)
-		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext)
-		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma)
-
-	@font-face
-		font-family: quote($name)
-		font-style: $style
-		font-weight: $weight
-		src: $src
-
-// =============================================================================
-// for vertical align
-// =============================================================================
-=for-vertical-align()
-	content: ''
-	display: inline-block
-	vertical-align: middle
-	height: 100%
-
-// =============================================================================
-// Grid Parent
-// =============================================================================
-$grid-space: 20px !default
-=grid-parent($this-grid-space: $grid-space)
-	font-size: 0
-	line-height: 1
-	letter-spacing: -4px
-	margin:
-		left: -#{$this-grid-space/2}
-		right: -#{$this-grid-space/2}
-
-// =============================================================================
-// Grid Item
-// =============================================================================
-=grid-item($length-in-row: 1, $this-grid-space: $grid-space, $margin-bottom: $this-grid-space)
-	display: inline-block
-	vertical-align: top
-	width: 100%/$length-in-row - 0.02
-	padding:
-		left: $this-grid-space/2
-		right: $this-grid-space/2
-	margin-bottom: $margin-bottom
-
-// =============================================================================
-// Text transform fix
-// =============================================================================
-=antialiased()
-	-webkit-font-smoothing: antialiased
-	-moz-osx-font-smoothing: grayscale
-	-webkit-touch-callout: none
-	-webkit-user-select: none
-	-khtml-user-select: none
-	-moz-user-select: none
-	-ms-user-select: none
-	user-select: none
-
-/// Помощник для сброса внутреннего обтекания
-/// @author Николас Галлагер
-/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
+////
+/// @author Astronim* Serhiy Ilchenko
+/// @access public
 ///
-=clear()
-	&::after
-		content: ''
-		display: table
-		clear: both
 
-/// Обрезает текст и добавляет троеточие
-///
-=truncate($truncation-boundary: 320px)
-	max-width: $truncation-boundary
-	white-space: nowrap
-	text-overflow: ellipsis
-	overflow: hidden
-
+// =============================================================================
+// size
+// =============================================================================
 /// Примесь позволяет определять `width` и `height` одновременно.
 ///
 /// @author Hugo Giraudel
-///
-/// @access public
 ///
 /// @param {Length} $width - `width` элемента
 /// @param {Length} $height ($width) - `height` элемента
@@ -128,170 +41,10 @@ $grid-space: 20px !default
 	width: $width
 	height: $height
 
-/// Примесь добавляет горизонтальные внутренние отстпупы (`padding`) в развернутом виде.
-///
-/// @author Astronim*
-///
-/// @access public
-///
-/// @param {Length} $left - левый `padding` элемента
-/// @param {Length} $right - правый `padding` элемента
-///
-/// @example Sass - Использование
-///
-/// .foo
-///   +padding-horizontal(20px)
-///
-/// .foo
-///   +padding-horizontal(20px, 10px)
-///
-/// @example css - Вывод CSS
-///
-/// .foo {
-///   padding-left: 20px;
-///   padding-right: 20px;
-/// }
-///
-/// .foo {
-///   padding-left: 20px;
-///   padding-right: 10px;
-/// }
-///
-=padding-horizontal($left, $right: $left)
-	padding:
-		right: $right
-		left: $left
-
-/// Примесь добавляет вертикальные внутренние отстпупы (`padding`) в развернутом виде.
-///
-/// @author Astronim*
-///
-/// @access public
-///
-/// @param {Length} $top - верхний `padding` элемента
-/// @param {Length} $bottom - нижний `padding` элемента
-///
-/// @example Sass - Использование
-///
-/// .foo
-///   +padding-vertical(20px)
-///
-/// .foo
-///   +padding-vertical(20px, 10px)
-///
-/// @example css - Вывод CSS
-///
-/// .foo {
-///   padding-top: 20px;
-///   padding-bottom: 20px;
-/// }
-///
-/// .foo {
-///   padding-top: 20px;
-///   padding-bottom: 10px;
-/// }
-///
-=padding-vertical($top, $bottom:$top)
-	padding:
-		top: $top
-		bottom: $bottom
-
-/// Примесь добавляет горизонтальные внешние отстпупы (`margin`) в развернутом виде.
-///
-/// @author Astronim*
-///
-/// @access public
-///
-/// @param {Length} $left - левый `margin` элемента
-/// @param {Length} $right - правый `margin` элемента
-///
-/// @example Sass - Использование
-///
-/// .foo
-///   +margin-horizontal(20px)
-///
-/// .foo
-///   +margin-horizontal(20px, 10px)
-///
-/// @example css - Вывод CSS
-///
-/// .foo {
-///   margin-left: 20px;
-///   margin-right: 20px;
-/// }
-///
-/// .foo {
-///   margin-left: 20px;
-///   margin-right: 10px;
-/// }
-///
-=margin-horizontal($left, $right: $left)
-	margin:
-		right: $right
-		left: $left
-
-/// Примесь добавляет вертикальные внешние отстпупы (`margin`) в развернутом виде.
-///
-/// @author Astronim*
-///
-/// @access public
-///
-/// @param {Length} $top - верхний `margin` элемента
-/// @param {Length} $bottom - нижний `margin` элемента
-///
-/// @example Sass - Использование
-///
-/// .foo
-///   +margin-vertical(20px)
-///
-/// .foo
-///   +margin-vertical(20px, 10px)
-///
-/// @example css - Вывод CSS
-///
-/// .foo {
-///   margin-top: 20px;
-///   margin-bottom: 20px;
-/// }
-///
-/// .foo {
-///   margin-top: 20px;
-///   margin-bottom: 10px;
-/// }
-///
-=margin-vertical($top, $bottom:$top)
-	margin:
-		top: $top
-		bottom: $bottom
-
-/// Примесь центрирует блочный элемент с ограниченной шириной.
-///
-/// @author Astronim*
-///
-/// @access public
-///
-/// @example Sass - Использование
-///
-/// .foo
-///   +push-auto
-///
-/// @example css - Вывод CSS
-///
-/// .foo {
-///   margin-left: auto;
-///   margin-right: auto;
-/// }
-///
-=push-auto()
-	margin:
-		left: auto
-		right: auto
-
+// =============================================================================
+// pseudo
+// =============================================================================
 /// Примесь добавляет к псевдоэлементу базовые свойства.
-///
-/// @author Astronim*
-///
-/// @access public
 ///
 /// @param {String} $content [''] - контент псевдоэлемента
 /// @param {String} $display [block] - тип псевдоэлемента
@@ -320,17 +73,237 @@ $grid-space: 20px !default
 ///   display: inline-block;
 ///   position: relative;
 /// }
-///
+
 =pseudo($content: '', $display: block, $pos: absolute)
 	content: $content
 	display: $display
 	position: $pos
 
+// =============================================================================
+// vertical align
+// =============================================================================
+/// Вспомагательный елемент для выравнивания по горизонтали с приминением `display: inline-block`
+///
+/// @param {String} $align [middle] - направление выравнивания
+/// @param {Boolean} $pseudo [true] - по умолчанию применяется к псевдоэлементу, если нет, то указать `false`
+///
+/// @example Sass - Использование
+/// @example css - Вывод CSS
+
+=vertical-align($align: middle, $pseudo: true)
+	display: inline-block
+	vertical-align: $align
+	height: 100%
+	@if $pseudo
+		content: ''
+
+// =============================================================================
+// Grid Item
+// =============================================================================
+/// Формирует упрощенную сетку элементов с применением `display: inline-block`
+/// Для родителя наобходимо подключить +grid-parent
+/// На оберту родителя при необходимости задать `overflow: hidden`
+/// Для дочерних элементов необходимо подключить +grid-item
+/// Для дочерних элементов необходимо задать размер ШРИФТА и межбуквенный ИНТРЕВАЛ !!!
+///
+/// @param {Length} $space [20px] - горизонтальные отступы между элементами
+/// @param {Length} $length-in-row [2] - количество элементов в ряду
+/// @param {Length} $bottom-space [$space] - горизонтальные отступы элементов
+///
+/// @example Sass - Использование
+/// @example css - Вывод CSS
+
+=grid-parent($space: 20px)
+	font-size: 0
+	letter-spacing: -4px
+	margin:
+		left: -#{$space/2}
+		right: -#{$space/2}
+
+=grid-item($length-in-row: 2, $space: 20px, $bottom-space: $space)
+	display: inline-block
+	vertical-align: top
+	width: 100%/$length-in-row - 0.02 // -0.02 для кроссбраузерности
+	padding:
+		left: $space/2
+		right: $space/2
+	margin-bottom: $bottom-space
+
+// =============================================================================
+// antialiased
+// =============================================================================
+/// Нормализует отображение текста, если к нему применяется анимированная трансформация
+///
+/// @param {} hasn't params
+///
+/// @example Sass - Использование
+/// @example css - Вывод CSS
+
+=antialiased()
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+
+// =============================================================================
+// clear
+// =============================================================================
+/// Помощник для сброса внутреннего обтекания
+/// @author Николас Галлагер
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
+
+=clear()
+	&::after
+		content: ''
+		display: table
+		clear: both
+
+// =============================================================================
+// truncate
+// =============================================================================
+/// Обрезает текст и добавляет троеточие
+///
+/// @param {Length} $max-width [320px] - максиальная ширина элемента
+///
+/// @example Sass - Использование
+/// @example css - Вывод CSS
+
+=truncate($max-width: 320px)
+	max-width: $max-width
+	white-space: nowrap
+	text-overflow: ellipsis
+	overflow: hidden
+
+// =============================================================================
+// margin-horizontal / margin-vertical / padding-horizontal / padding-vertical
+// =============================================================================
+/// Примеси добавляют горизонтальные/вертикальные внешние/внутренние отстпупы (`margin/padding`)
+/// в развернутом виде.
+///
+/// @param {Length} $left [null] - левый `margin/padding` элемента
+/// @param {Length} $right [$left] - правый `margin/padding` элемента
+/// @param {Length} $top [null] - верхний `margin/padding` элемента
+/// @param {Length} $bottom [$top] - нижний `margin/padding` элемента
+///
+/// @example Sass - Использование
+///
+/// .foo
+///   +margin-horizontal(20px)
+///
+/// .foo
+///   +margin-horizontal(20px, 10px)
+///
+/// @example css - Вывод CSS
+///
+/// .foo {
+///   margin-left: 20px;
+///   margin-right: 20px;
+/// }
+///
+/// .foo {
+///   margin-left: 20px;
+///   margin-right: 10px;
+/// }
+
+=margin-horizontal($left, $right: $left)
+	margin:
+		right: $right
+		left: $left
+
+=margin-vertical($top, $bottom:$top)
+	margin:
+		top: $top
+		bottom: $bottom
+
+=padding-horizontal($left, $right: $left)
+	padding:
+		right: $right
+		left: $left
+
+=padding-vertical($top, $bottom:$top)
+	padding:
+		top: $top
+		bottom: $bottom
+
+// =============================================================================
+// margin / padding
+// =============================================================================
+/// Примеси добавляют внешние/внутренние отстпупы (`margin/padding`) в развернутом виде.
+/// Значения можно добавлять поочередно: верхний, правый, нижний, левый.
+/// Пропустить значение можно задав ему null.
+/// Значения также можно добавлять через ключ: $t, $r, $b, $l, - соответственно.
+/// Если заданно четыре значения не равных null, то `margin` будет в сокращенном виде.
+///
+/// @param {Length} $t [null] - верхний `margin/padding` элемента
+/// @param {Length} $r [null] - правый `margin/padding` элемента
+/// @param {Length} $b [null] - нижний `margin/padding` элемента
+/// @param {Length} $l [null] - левый `margin/padding` элемента
+///
+/// @example Sass - Использование
+///
+/// .foo
+///   +margin(10px, null, 30px, 40px)
+///
+/// @example css - Вывод CSS
+///
+/// .foo {
+///   margin-top: 10px;
+///   margin-bottom: 30px;
+///   margin-left: 40px;
+/// }
+
+=margin($t: null, $r: null, $b: null, $l: null)
+	@if($t and $r and $b and $l)
+		margin: $t $r $b $l
+
+	@else
+		margin:
+			@if $t
+				top: $t
+			@if $r
+				right: $r
+			@if $b
+				bottom: $b
+			@if $l
+				left: $l
+
+=padding($t: null, $r: null, $b: null, $l: null)
+	@if($t and $r and $b and $l)
+		padding: $t $r $b $l
+
+	@else
+		padding:
+			@if $t
+				top: $t
+			@if $r
+				right: $r
+			@if $b
+				bottom: $b
+			@if $l
+				left: $l
+
+/// Примесь центрирует блочный элемент с ограниченной шириной.
+///
+/// @example Sass - Использование
+///
+/// .foo
+///   +push-auto
+///
+/// @example css - Вывод CSS
+///
+/// .foo {
+///   margin-left: auto;
+///   margin-right: auto;
+/// }
+
+=push-auto()
+	+margin-horizontal(auto)
+
 /// Примесь позволяет сохранять пропорции элементов при респонсиве
-///
-/// @author Astronim*
-///
-/// @access public
 ///
 /// @param {Number} $x [1] - ширина в пропорциональном соотношении
 /// @param {Number} $y [1] - высота в пропорциональном соотношении
@@ -366,11 +339,12 @@ $grid-space: 20px !default
 ///   width: 100%;
 ///   padding-top: 75%;
 /// }
-///
+
 =ratio($x: 1, $y: 1, $pseudo: false, $overflow: hidden)
 	$padding: ($y / $x * 100%)
 
 	@if $pseudo
+		overflow: $overflow
 
 		&::before
 			+pseudo($pos: relative)
@@ -378,6 +352,7 @@ $grid-space: 20px !default
 			height: 0
 			width: 100%
 			padding-top: $padding
+
 	@else
 		padding-top: $padding
 
@@ -386,16 +361,13 @@ $grid-space: 20px !default
 /// Для ie9 необходимо подключить скрипт и прописать дополнительные свойства
 /// @link https://medium.com/@primozcigler/neat-trick-for-css-object-fit-fallback-on-edge-and-other-browsers-afbc53bbb2c3#.e3eu6mvxl
 ///
-/// @author Astronim*
-///
-/// @access public
-///
 /// @param {String} $fit [cover] - метод заполнения
+/// @param {String} $pos [relative] - тип позиционирования
 ///
 /// @example Sass - Использование
 ///
 /// img.foo
-///   +object-fit($fit: contain)
+///   +object-fit
 ///
 /// @example css - Вывод CSS
 ///
@@ -408,25 +380,28 @@ $grid-space: 20px !default
 ///   min-width: 100%
 ///   min-height: 100%
 ///   transform: translate(-50%, -50%)
-///   object-fit: $fit
+///   object-fit: cover
 /// }
-///
-=object-fit($fit: cover)
-	position: relative
+
+=object-fit($fit: cover, $pos: relative)
+	position: $pos
 	top: 50%
 	left: 50%
+	min-width: 0
+	min-height: 0
 	max-width: none
-	width: auto
-	min-width: 100%
-	min-height: 100%
+	max-height: none
+	height: 100%
+	width: 100%
 	transform: translate(-50%, -50%)
+	backface-visibility: hidden
 	object-fit: $fit
-
-
 
 // =============================================================================
 // Hide text for screen reader
 // =============================================================================
+/// Примесь скрывает текст, который остается видимым для генераторов речи
+
 =hide-text()
 	border: 0
 	clip: rect(0 0 0 0)
@@ -437,9 +412,21 @@ $grid-space: 20px !default
 	position: absolute
 	width: 1px
 
+	&:active, &:focus
+		clip: auto
+		height: auto
+		margin: 0
+		overflow: visible
+		position: static
+		width: auto
+
 // =============================================================================
 // Scroll lock
 // =============================================================================
+/// Примесь блокирования прокрутки страницы.
+///
+/// @param hasn't params
+
 =scroll-blocked()
 	width: 100% !important
 	height: 100% !important
@@ -450,18 +437,201 @@ $grid-space: 20px !default
 	overflow: hidden !important
 
 // =============================================================================
-// button default hover state
+// Triangle helper mixin
 // =============================================================================
-=btn-hover()
-	.no-touchevents &:hover
-		background-color: $color-btn-bg-hover
+/// Примесь созадает простую стрелку-треугольник
+/// Применяется к псевдоэлементу
+/// Triangle helper mixin
+/// @param {Direction} $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
+/// @param {Color} $color [currentcolor] - Triangle color
+/// @param {Length} $size [1em] - Triangle size
+///
+/// @example Sass - Использование
+///
+/// .foo::before
+/// 	+triangle(bottom)
+/// 	position: absolute
+/// 	left: 50%
+/// 	bottom: 100%
+///
+/// @example css - Вывод CSS
+///
+/// .foo::before {
+/// 	width: 0;
+/// 	height: 0;
+/// 	content: '';
+/// 	z-index: 2;
+/// 	border-top: 1.5em solid tomato;
+/// 	border-left: 1em solid transparent;
+/// 	border-right: 1em solid transparent;
+/// 	position: absolute;
+/// 	left: 50%;
+/// 	bottom: 100%;
+/// }
+=triangle($direction, $color: tomato, $size: 1em)
+	@if not index(top right bottom left, $direction)
+		@error "Direction must be either `top`, `right`, `bottom` or `left`."
+
+	+pseudo()
+	width: 0
+	height: 0
+	z-index: 2
+	border-#{opposite-direction($direction)}: ($size * 1.5) solid $color
+
+	$perpendicular-borders: $size solid transparent
+
+	@if $direction == top or $direction == bottom
+		border-left: $perpendicular-borders
+		border-right: $perpendicular-borders
+	@else if $direction == right or $direction == left
+		border-bottom: $perpendicular-borders
+		border-top: $perpendicular-borders
 
 // =============================================================================
-// button default active state
+// triangle pretty
 // =============================================================================
-=btn-active()
-	&:active
-		transform: scale(0.95)
+/// Примесь формирует стрелку-треугольник с бордером
+/// Применяется к самому элементу, а стрелка-треугольник формируется из псевдоэлементов ::before, ::after
+/// Необходимо подключить плагин mathsass https://www.npmjs.com/package/mathsass
+/// Примесь требует доработки! Действует с ограничениями!
+/// Для правильной работи необходимо строго придерживаться правил добавления параметров
+///
+/// @param {Direction} $direction - Направление стрелки-треугольника: `top`, `right`, `bottom` or `left`
+/// @param {Map} $origins-map [] - Расположение стрелки-треугольника относительно родительского элемента
+///                                Например: (top: 50%, left: 100%) - по правому краю по центру
+///                                Задавать значения необходимо придерживая двух правил:
+///                                1) по первому из значений стрелка-треугольник будет смещена
+///                                   в противоположную сторону на половину ширины основания;
+///                                2) значений должно быть не больше двух, что логично.
+///                                Если нужно разместить стрелку внизу по центру, то значения должны быть такими:
+///                                (right: 50%, bottom: 0) либо (left: 50%, bottom: 0)
+/// @param {Color} $color [brown] - Цвет стрелки-треугольника
+/// @param {Length} $size-towards [30px] - Высота стрелки-треугольника с учетом бордера
+///                                      (от основания до вершины указвающей направление)
+/// @param {Length} $size-across [$size-towards] - Ширина стрелки-треугольника с учетом бордера
+///                                               (ширина основания противоположного вершине указвающей направление)
+/// @param {Color} $bd-color [tomato] - Цвет бордера стрелки-треугольника
+/// @param {Length} $bd-width [2px] - Цвет бордера стрелки-треугольника
+///
+/// @example Sass - Использование
+///
+/// .foo
+///   +triangle-pretty(bottom, (right: 50%, top: 100%), darkolivegreen, 30px, 30px, darkslategray, 3px)
+///
+/// @example css - Вывод CSS
+///
+// .foo::before,
+// .foo::after{
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   top: 100%;
+//   right: 50%;
+//   pointer-events: none;
+// }
+// .foo::before{
+//   z-index: 2;
+//   margin-right: -15px;
+//   border-top: 30px solid darkslategray;
+//   border-left: 15px solid transparent;
+//   border-right: 15px solid transparent;
+// }
+// .foo::after{
+//   z-index: 3;
+//   margin-right: -12px;
+//   border-top: 23px solid darkolivegreen;
+//   border-left: 12px solid transparent;
+//   border-right: 12px solid transparent;
+// }
+
+=triangle-pretty($direction, $origins-map: (), $color: brown, $size-towards: 30px, $size-across: $size-towards, $bd-color: tomato, $bd-width: 2px)
+	@if not index(top right bottom left, $direction)
+		@error "Direction must be either `top`, `right`, `bottom` or `left`."
+
+	$unit-size-toward: unit($size-towards)
+	$unit-size-across: unit($size-across)
+
+	@if $unit-size-across != $unit-size-across
+		@error "Значение высоты треугольника и его основания должны быть в одинаковых единицах измерения"
+
+	// переменные для смещения стрелки-треугольника назад на половину ширины основания
+	$top: null
+	$right: null
+	$bottom: null
+	$left: null
+	$margin-direct: null
+	$i: 0
+
+	// определение направления и величины смещения
+	@each $origin, $value in $origins-map
+		@if $i == 0
+			$margin-direct: $origin
+			//@debug $margin-direct
+
+		$i: $i + 1
+
+		@if $origin == top
+			$top: $value
+			//@debug 'top: ' + $value
+		@if $origin == right
+			$right: $value
+			//@debug 'right: ' + $value
+		@if $origin == bottom
+			$bottom: $value
+			//@debug 'bottom: ' + $value
+		@if $origin == left
+			$left: $value
+			//@debug 'left: ' + $value
+
+	// вывод общих стилей
+	&::before, &::after
+		+pseudo()
+		top: $top
+		right: $right
+		bottom: $bottom
+		left: $left
+		pointer-events: none
+
+	// вывод стилей большой (внешней) стрелки-треугольника
+	&::before
+		z-index: 2
+		@if $margin-direct
+			margin-#{$margin-direct}: -#{$size-across*0.5}
+		border-#{opposite-direction($direction)}: $size-towards solid $bd-color
+
+		$perpendicular-borders: (round($size-across * 0.5)) solid transparent
+
+		@if $direction == top or $direction == bottom
+			border-left: $perpendicular-borders
+			border-right: $perpendicular-borders
+		@else if $direction == right or $direction == left
+			border-bottom: $perpendicular-borders
+			border-top: $perpendicular-borders
+
+	// рассчет маленькой стрелки-треугольника по размеру бордера
+	$tg-angle: (2*$size-towards/$size-across)
+	$angle: atan($tg-angle)
+	$sin-angle: sin($angle)
+	$height-large: $size-across*$sin-angle
+	$height-small: $height-large - $bd-width*2
+	$small-size-across: $height-small/$sin-angle
+	$small-size-toward: $small-size-across/2*$tg-angle
+
+	// вывод стилей маленькой (внутренней) стрелки-треугольника
+	&::after
+		z-index: 3
+		@if $margin-direct
+			margin-#{$margin-direct}: -(round($small-size-across*0.5))
+		border-#{opposite-direction($direction)}: round($small-size-toward) solid $color
+
+		$perpendicular-borders: (round($small-size-across * 0.5)) solid transparent
+
+		@if $direction == top or $direction == bottom
+			border-left: $perpendicular-borders
+			border-right: $perpendicular-borders
+		@else if $direction == right or $direction == left
+			border-bottom: $perpendicular-borders
+			border-top: $perpendicular-borders
 
 // =============================================================================
 // Leaner gradient -vendor
@@ -510,7 +680,6 @@ $grid-space: 20px !default
 /// Mixin printing a linear-gradient
 /// as well as a plain color fallback
 /// and the `-webkit-` prefixed declaration
-/// @access public
 /// @param {String | List | Angle} $direction - Linear gradient direction
 /// @param {Arglist} $color-stops - List of color-stops composing the gradient
 ///
@@ -532,3 +701,78 @@ $grid-space: 20px !default
 //
 //.test-3
 //	+linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%)
+
+
+// =============================================================================
+// Font Face Generator
+// =============================================================================
+/// Примесь генерирует подключение @font-face шрифтов
+///
+/// @author []
+///
+/// @param {String} $name [] - название шрифта
+/// @param {String} $path [] - путь к шрифту включая файл без расширения
+/// @param {String} $weight [null] - значение `font-weight`
+/// @param {String} $style [null] - значение `font-style`
+/// @param {Map} $exts [eot woff2 woff ttf svg] - мапа расширений шрифта
+///
+/// @example Sass - Использование
+///
+/// +font-face("candara", "../fonts/candara/regular/candara", normal, normal, eot woff ttf svg)
+///
+/// @example css - Вывод CSS
+///
+/// @font-face{
+///   font-family: "название-шрифта";
+///   font-style: normal;
+///   font-weight: normal;
+///   src: url("../fonts/candara/regular/candara.eot?") format("eot"), url("../fonts/candara/regular/candara.woff") format("woff"), url("../fonts/candara/regular/candara.ttf") format("truetype"), url("../fonts/candara/regular/candara.svg#candara-regular") format("svg");
+/// }
+
+@function str-replace($string, $search, $replace: "")
+	$index: str-index($string, $search)
+
+	@if $index
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace)
+
+	@return $string
+
+=font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg)
+	$src: null
+
+	$extmods: (eot: "?", svg: "#" + str-replace($name, " ", "_"))
+
+	$formats: (otf: "opentype", ttf: "truetype")
+
+	@each $ext in $exts
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext)
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext)
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma)
+
+	@font-face
+		font-family: quote($name)
+		font-style: $style
+		font-weight: $weight
+		src: $src
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+// ПРИМЕСИ ИСПОЛЬЗУЕМЫЕ В ТИОПОГРАФИЧЕСКИХ СТИЛЯХ
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+// ============================================//
+// button default hover state
+// =============================================================================
+=btn-hover()
+	.no-touchevents &:hover
+		background-color: $color-btn-bg-hover
+
+// =============================================================================
+// button default active state
+// =============================================================================
+=btn-active()
+	&:active
+		transform: scale(0.95)
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+// ПРИМЕСИ ИСПОЛЬЗУЕМЫЕ В ТИПОГРАФИЧЕСКИХ СТИЛЯХ конец
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//

@@ -1,0 +1,170 @@
+@import "utils/variables"
+@import "utils/mixins"
+@import "utils/functions"
+
+@import "../libs/mathsass/dist/math"
+@import "../libs/mathsass/dist/functions/tan"
+
+.mx-test .content
+	margin: 0 0 0 300px
+	+padding-vertical($text-layout-space-horizontal)
+
+.mx-test .sidebar
+	width: 260px
+
+.mx-test .text-layout
+	+padding-horizontal($text-layout-space-horizontal)
+
+.mx-test .section
+	margin-bottom: $bottom-space-section
+
+.mx-test .section__box
+	margin-bottom: $bottom-space-article
+
+.mx-element
+	background-color: darkolivegreen
+
+.mx-inner
+	background-color: darkslategray
+
+.mx-test .mx-object-fit-cover
+	+ratio(16, 9, true)
+	position: relative
+	width: 320px
+
+	img
+		+object-fit($pos: absolute)
+
+.mx-test .mx-object-fit-contain
+	+ratio(16, 9, true)
+	position: relative
+	width: 320px
+
+	img
+		+object-fit(contain, absolute)
+
+.mx-margin
+	width: 320px
+	overflow: hidden
+
+.mx-margin__inner
+	+size(auto, 100px)
+	+margin(10px, 20px, 30px, 40px)
+
+	&::before
+		+pseudo($content: 'margin(10px, 20px, 30px, 40px)', $pos: relative)
+		padding: 5px
+		text-align: center
+
+.mx-push-auto
+	padding: 10px
+
+.mx-push-auto__inner
+	+size(320px, 50px)
+	+push-auto
+
+.mx-vertical-align
+	+size(320px, 200px)
+	padding: 10px
+	cursor: default
+
+	&::after
+		+vertical-align(bottom)
+
+	&.mx--default
+		&::after
+			content: none
+
+		&::before
+			+vertical-align()
+
+.mx-vertical-align__inner
+	+size(200px, 50px)
+	display: inline-block
+	vertical-align: middle
+
+	&::before
+		+pseudo('vertical-align: bottom', block, relative)
+		padding: 5px
+		text-align: center
+
+.mx--default .mx-vertical-align__inner
+	&::before
+		content: 'vertical-align: middle'
+
+.mx-triangle
+	+size(320px, 200px)
+	padding: 10px
+	text-align: center
+	cursor: default
+
+	&::before
+		+vertical-align()
+
+.mx-triangle__inner
+	display: inline-block
+	position: relative
+	vertical-align: middle
+	max-width: 90%
+	+size(200px, 50px)
+	filter: drop-shadow(4px 4px 2px rgba(0,0,0,0.4))
+
+	&.mx--to-north::before
+		+triangle(top, $size: 10px)
+
+	&.mx--to-east::before
+		+triangle(right, $size: 10px)
+
+	&.mx--to-south::before
+		+triangle(bottom, $size: 10px)
+
+	&.mx--to-west::before
+		+triangle(left, $size: 10px)
+
+.mx-triangle-pretty
+	+size(320px, 200px)
+	padding: 10px
+	text-align: center
+	cursor: default
+
+	&::before
+		+vertical-align()
+
+.mx-triangle-pretty__inner
+	display: inline-block
+	position: relative
+	vertical-align: middle
+	max-width: 90%
+	+size(200px, 50px)
+	filter: drop-shadow(4px 4px 2px rgba(0,0,0,0.4))
+
+	&.mx--to-north
+		+triangle-pretty(top, (left: 50%, bottom: 100%), darkolivegreen, 30px, 30px, darkslategray, 3px)
+
+	&.mx--to-east
+		+triangle-pretty(right, (top: 50%, left: 100%), darkolivegreen, 30px, 30px, darkslategray, 3px)
+
+	&.mx--to-south
+		+triangle-pretty(bottom, (right: 50%, top: 100%), darkolivegreen, 30px, 30px, darkslategray, 3px)
+
+	&.mx--to-west
+		+triangle-pretty(left, (top: 50%, right: 100%), darkolivegreen, 30px, 30px, darkslategray, 3px)
+
+	&.mx--to-north
+		+triangle-pretty(bottom, (left: 50%, top: 0), darkslategray, 30px, 30px, darkolivegreen, 3px)
+
+.mx-mathsass
+	+size(320px, 200px)
+	padding: 10px
+	text-align: center
+	cursor: default
+
+	&::before
+		+vertical-align()
+
+.mx-mathsass__inner
+	display: inline-block
+	vertical-align: middle
+	max-width: 90%
+	+size(240px, 50px)
+	transform: rotate(rad-to-deg(atan(1)))

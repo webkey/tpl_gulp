@@ -7,9 +7,11 @@ $breakpoints: ('mobile-sm': 320px, 'mobile-md': 480px, 'mobile-lg': 640px, 'tabl
 $font-size: 1.8rem !default
 $line-height: 3.0rem/$font-size !default
 $bottom-space: $font-size * $line-height !default
+$bottom-space-article: $font-size * $line-height * 1.5 !default
+$bottom-space-section: $font-size * $line-height * 2 !default
 
 // цвет фона страницы
-$bg-color: oldlace !default
+$bg-color: brown !default
 // цвет остовного текста
 $text-color: #262626 !default
 // цвет основных заголовков заголовков
@@ -27,7 +29,7 @@ $mark-color: tomato !default
 
 // user content class
 // class на контейнере, в котором будет использоваться стилизация
-// списков, таблиц, цытат и т.д.
+// типографических элементов: списков, таблиц, цытат и т.д.
 $user-content: user-content !default
 
 // layout
@@ -35,6 +37,10 @@ $user-content: user-content !default
 $layout-width: 1920px !default
 // отступы слева и справа для всего сайта
 $layout-space-horizontal: 2rem !default
+// максимальная ширина текстового блока
+$text-layout-width: 640px !default
+// минимальные отступы слева и справа у текствого блока
+$text-layout-space-horizontal: 40px !default
 
 // form
 $color-form-text: $text-color-light !default
