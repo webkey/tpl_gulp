@@ -3,6 +3,6 @@
 *.idea
 *.iml
 *.ipr
-**/node_modules
+node_modules
 **/libs
 **/npm-debug.log

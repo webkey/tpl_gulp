@@ -24,7 +24,6 @@
 
 .content
 	margin: 0 260px $bottom-space 340px
-	padding: $bottom-space
 	min-height: 50px
 
 	background-color: whitesmoke
@@ -67,11 +66,19 @@
 	+push-auto
 
 .max-wrap-text
-	max-width: $layout-width
+	max-width: $layout-text-width
 
 .layout-text
 	max-width: $layout-text-width
 	+padding-horizontal($layout-text-space-horizontal)
+	+push-auto
+
+.max-wrap-flood
+	max-width: $layout-flood-width
+
+.layout-flood
+	max-width: $layout-flood-width
+	+padding-horizontal($layout-flood-space-horizontal)
 	+push-auto
 
 /*LAYOUT end*/
