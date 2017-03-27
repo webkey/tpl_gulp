@@ -3,51 +3,39 @@
 
 html
 	font-size: 62.5%
+
 body
 	+font-normal
-	font-size: $font-size
-	line-height: $line-height
+	+font($font-size, $line-height)
+	color: $text-color
 	height: 100%
-	color: $text-color-light
 	background-color: $bg-color
 	min-width: 320px
 
 h1, h2, h3, h4, h5, h6
-	margin: 0
-	padding: 0
 	+font-title
 	color: $title-color
+	padding: 0
+	margin: 0 0 $bottom-space
 
 h1
-	font-size: 4.0rem
-	line-height: 1.2
-	margin-bottom: $bottom-space
-	overflow: hidden
+	+font(round-float($font-size*2.5, 1), round-float($line-height*0.75, 1))
 
 h2
-	font-size: 3.6rem
-	line-height: 1.2
-	margin-bottom: $bottom-space
+	+font(round-float($font-size*2, 1), round-float($line-height*0.85, 1))
 
 h3
-	font-size: 2.8rem
-	line-height: 1.2
-	margin-bottom: $bottom-space
+	+font(round-float($font-size*1.5, 1), round-float($line-height*0.95, 1))
 
 h4
-	font-size: 2.2rem
-	line-height: 1.2
-	margin-bottom: $bottom-space
+	+font(round-float($font-size*1.1, 1), $line-height)
 
 h5
-	font-size: 2.0rem
-	line-height: 1.2
-	margin-bottom: $bottom-space
+	+font(round-float($font-size*1, 1), $line-height)
 
 h6
-	font-size: $font-size
-	line-height: $line-height
-	margin-bottom: $bottom-space
+	+font(round-float($font-size*0.75, 1), $line-height)
+	text-transform: uppercase
 
 p
 	padding: 0
@@ -195,7 +183,7 @@ button
 		p + #{$tags},
 		ul + #{$tags},
 		ol + #{$tags}
-			padding-top: 10px
+			margin-top: round-float($bottom-space*1.5, 1)
 
 /*list*/
 .#{$user-content}
@@ -287,17 +275,16 @@ button
 	//	border-width: 4px
 	//	border-radius: 50%
 
-	//list reset
-	.list-reset
-		list-style: none
-		margin: 0
+//list reset
+.reset-list, .#{$user-content} .reset-list
+	list-style: none
 
-		li,
-		li:first-child
-			padding: 0
+	li, li:first-child
+		padding: 0
 
-			&:before
-				content: none
+		&:before
+			content: none
+
 /*list end*/
 
 /*table*/
@@ -379,30 +366,26 @@ table
 
 /*blockquote*/
 .#{$user-content}
-	.blockquote
-		padding: 0 0 30px
 
 	blockquote
 		display: block
-		margin: 0
-		background-color: #f5f5f5
-		border-left: 4px solid $text-color-alt
-		padding: 18px 32px 28px 42px
+		margin: 0 0 $bottom-space
+		padding: 0
+		background-color: #fff
 
 		q
 			display: block
 			margin: 0
 			padding: 0 0 10px
-			font-size: $font-size
-			line-height: $line-height
+			font-family: $font-alt
+			+font(round-float($font-size*1.25, 1), $line-height)
 			color: $text-color-light
+			text-align: center
 
 			&:before,
 			&:after
-				content: ''
-				display: block
-				font-size: 2.4rem
-				line-height: 1.2
+				+pseudo($pos: relative)
+				+font(4rem, 1)
 
 			&:before
 				content: '«'

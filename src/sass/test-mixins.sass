@@ -7,13 +7,13 @@
 
 .mx-test .content
 	margin: 0 0 0 300px
-	+padding-vertical($text-layout-space-horizontal)
+	+padding-vertical($layout-text-space-horizontal)
 
 .mx-test .sidebar
 	width: 260px
 
-.mx-test .text-layout
-	+padding-horizontal($text-layout-space-horizontal)
+.mx-test .layout-text
+	+padding-horizontal($layout-text-space-horizontal)
 
 .mx-test .section
 	margin-bottom: $bottom-space-section
@@ -168,3 +168,16 @@
 	max-width: 90%
 	+size(240px, 50px)
 	transform: rotate(rad-to-deg(atan(1)))
+
+.mx-font
+	padding: 1em
+	background-color: white
+
+	.mx-font--01
+		+font(1.4rem, 1.5)
+
+	.mx-font--02
+		+font(1.7rem, 1.8)
+
+	.mx-font--03
+		+font(2.1rem, 1.2)

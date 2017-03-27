@@ -1,5 +1,5 @@
 <footer class="footer">
-	<div class="layout">
+	<div class="max-wrap layout">
 		<div class="footer__holder">
 			<!--footer bottom-->
 			<div class="footer-bottom">

@@ -1,14 +1,15 @@
 @import ../utils/functions
+@import ../utils/placeholders
 
 // medium query
 $breakpoints: ('mobile-sm': 320px, 'mobile-md': 480px, 'mobile-lg': 640px, 'tablet-sm': 768px, 'tablet-lg': 992px, 'desktop-sm': 1200px, 'desktop-md': 1366px, 'desktop-lg': 1600px, 'desktop-hd': 1920px)
 
 // base
 $font-size: 1.8rem !default
-$line-height: 3.0rem/$font-size !default
-$bottom-space: $font-size * $line-height !default
-$bottom-space-article: $font-size * $line-height * 1.5 !default
-$bottom-space-section: $font-size * $line-height * 2 !default
+$line-height: round-float(3.0rem/$font-size, 2) !default
+$bottom-space: round-float($font-size*$line-height, 1) !default
+$bottom-space-article: round-float($font-size*$line-height*1.5, 1) !default
+$bottom-space-section: round-float($font-size*$line-height*2, 1) !default
 
 // цвет фона страницы
 $bg-color: brown !default
@@ -33,14 +34,14 @@ $mark-color: tomato !default
 $user-content: user-content !default
 
 // layout
-// максимальная ширина сайта
-$layout-width: 1920px !default
 // отступы слева и справа для всего сайта
-$layout-space-horizontal: 2rem !default
-// максимальная ширина текстового блока
-$text-layout-width: 640px !default
+$layout-space-horizontal: 20px !default
+// максимальная ширина сайта
+$layout-width: 1920px + $layout-space-horizontal*2 !default
 // минимальные отступы слева и справа у текствого блока
-$text-layout-space-horizontal: 40px !default
+$layout-text-space-horizontal: 40px !default
+// максимальная ширина текстового блока
+$layout-text-width: 640px + $layout-text-space-horizontal*2 !default
 
 // form
 $color-form-text: $text-color-light !default
