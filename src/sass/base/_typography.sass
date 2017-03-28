@@ -156,9 +156,7 @@ button
 	border: 1px solid transparent
 	background: $color-btn-bg
 	box-shadow: none
-	-webkit-transition-property: background-color
 	transition-property: background-color
-	-webkit-transition-duration: $animation-speed
 	transition-duration: $animation-speed
 	+btn-hover
 	+btn-active
@@ -493,9 +491,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 	background: $color-form-bg
 	box-shadow: none
 	border: 1px solid $color-form-border
-	-webkit-transition-property: border-color
 	transition-property: border-color
-	-webkit-transition: $animation-speed
 	transition: $animation-speed
 	box-sizing: border-box
 
@@ -547,29 +543,24 @@ textarea
 	&::-webkit-input-placeholder
 		color: $color-form-placeholder
 		transition: $animation-speed
-		-webkit-transition: $animation-speed
 
 	&:-moz-placeholder
 		color: $color-form-placeholder
 		transition: $animation-speed
-		-webkit-transition: $animation-speed
 
 	&::-moz-placeholder
 		color: $color-form-placeholder
 		transition: $animation-speed
-		-webkit-transition: $animation-speed
 		opacity: 1
 
 	&:-ms-input-placeholder
 		color: $color-form-placeholder
 		transition: $animation-speed
-		-webkit-transition: $animation-speed
 		opacity: 1
 
 	&.placeholder
 		color: $color-form-placeholder
 		transition: $animation-speed
-		-webkit-transition: $animation-speed
 		opacity: 1
 
 	//form placeholder hide
@@ -665,9 +656,7 @@ input[type="checkbox"]
 		margin-top: -8px
 		border-radius: 0
 		background: none
-		-webkit-transition-property: opacity
 		transition-property: opacity
-		-webkit-transition-duration: $animation-speed
 		transition-duration: $animation-speed
 
 	& + label > span:before,
@@ -682,11 +671,8 @@ input[type="checkbox"]
 		top: 50%
 		border-radius: 2px
 		background: $text-color-alt
-		-webkit-transition-property: opacity
 		transition-property: opacity
-		-webkit-transition-duration: $animation-speed
 		transition-duration: $animation-speed
-		-webkit-transition-timing-function: linear
 		transition-timing-function: linear
 
 	& + label > span:before,
@@ -707,24 +693,17 @@ input[type="checkbox"]
 		& + span:before
 			width: 7px
 			margin: -4px 0 0 0
-			-webkit-transition-property: width
 			transition-property: width
-			-webkit-transition-duration: 0.1s
 			transition-duration: 0.1s
-			-webkit-backface-visibility: hidden
 			backface-visibility: hidden
 
 		& + label > span:after,
 		& + span:after
 			width: 11px
 			margin: 0 0 0 -8px
-			-webkit-transition-property: width
 			transition-property: width
-			-webkit-transition-duration: 0.1s
 			transition-duration: 0.1s
-			-webkit-transition-delay: 0.1s
 			transition-delay: 0.1s
-			-webkit-backface-visibility: hidden
 			backface-visibility: hidden
 
 	// checkbox disabled
@@ -776,9 +755,7 @@ input[type="radio"]
 		margin-top: -8px
 		border-radius: 50px
 		background: none
-		-webkit-transition-property: opacity
 		transition-property: opacity
-		-webkit-transition-duration: $animation-speed
 		transition-duration: $animation-speed
 
 	& + label > span:after,
@@ -793,9 +770,6 @@ input[type="radio"]
 		border-radius: 50%
 		overflow: hidden
 		background: $text-color-alt
-		-webkit-animation: bounceout 0s
-		-webkit-animation-iteration-count: 1
-		-webkit-animation-fill-mode: forwards
 		animation: bounceout 0s
 		animation-iteration-count: 1
 		animation-fill-mode: forwards
@@ -804,8 +778,6 @@ input[type="radio"]
 	// radio checked
 	&:checked + label > span:after,
 	&:checked + span > i:after
-		-webkit-animation: bounce 0.3s
-		-webkit-animation-iteration-count: 1
 		animation: bounce 0.3s
 		animation-iteration-count: 1
 		opacity: 1
@@ -908,9 +880,7 @@ input[type="radio"]
 		-webkit-appearance: none
 		-moz-appearance: none
 		box-shadow: none
-		-webkit-transition-property: background, border, color, box-shadow
 		transition-property: background, border, color, box-shadow
-		-webkit-transition-duration: $animation-speed
 		transition-duration: $animation-speed
 		box-sizing: border-box
 		outline: none
@@ -955,14 +925,10 @@ input[type="radio"]
 
 	&:before,
 	button.cselect .ui-icon .arrow-select:before
-		-webkit-transform: rotate(45deg)
-		-ms-transform: rotate(45deg)
 		transform: rotate(45deg)
 
 	&:after,
 	button.cselect .ui-icon .arrow-select:after
-		-webkit-transform: rotate(-45deg)
-		-ms-transform: rotate(-45deg)
 		transform: rotate(-45deg)
 		right: 17px
 
@@ -1039,9 +1005,7 @@ div.cselect
 		padding: 13px 18px
 		border: none
 		background-color: $color-form-bg
-		-webkit-transition-property: background, color
 		transition-property: background, color
-		-webkit-transition-duration: $animation-speed
 		transition-duration: $animation-speed
 
 	.desktop .ui-multiselect-checkboxes label:hover
@@ -1161,9 +1125,7 @@ div.cselect
 	color: #000
 	text-decoration: none
 	margin-left: 30px
-	-webkit-transition-property: background
 	transition-property: background
-	-webkit-transition-duration: $animation-speed
 	transition-duration: $animation-speed
 
 	.no-touchevents &:hover
