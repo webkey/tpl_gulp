@@ -776,6 +776,7 @@
 		font-weight: $weight
 		src: $src
 
+
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 // ПРИМЕСИ ИСПОЛЬЗУЕМЫЕ В ТИОПОГРАФИЧЕСКИХ СТИЛЯХ
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
@@ -796,4 +797,50 @@
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 // ПРИМЕСИ ИСПОЛЬЗУЕМЫЕ В ТИПОГРАФИЧЕСКИХ СТИЛЯХ конец
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+// ПРИМЕСИ ДЛЯ ПРИНТ ВЕРСИИ
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+=print-reset()
+	display: block !important
+	float: none !important
+	position: relative !important
+	overflow: visible !important
+	height: auto !important
+	min-height: 0 !important
+	max-height: none !important
+	width: auto !important
+	min-width: 0 !important
+	max-width: none !important
+	left: auto !important
+	top: auto !important
+	right: auto !important
+	bottom: auto !important
+	padding: 0 !important
+	margin: 0 !important
+	transform: none !important
+	text-align: left !important
+	border: none !important
+	box-shadow: none !important
+	opacity: 1 !important
+	z-index: auto !important
+
+=prints-space-bottom-sm()
+	margin-top: 0 !important
+	margin-bottom: 0.5cm !important
+	padding-bottom: 0 !important
+
+=prints-space-bottom-md()
+	margin-top: 0 !important
+	margin-bottom: 1cm !important
+	padding-bottom: 0 !important
+
+=prints-space-bottom-lg()
+	margin-bottom: 1.5cm !important
+	padding-bottom: 0 !important
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+// ПРИМЕСИ ДЛЯ ПРИНТ ВЕРСИИ конец
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
