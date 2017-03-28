@@ -203,8 +203,8 @@ button
 	//ol > li:first-child
 	//	padding-top: 0
 
-	//ol ul > li:first-child:before,
-	ul > li:before
+	//ol ul > li:first-child::before,
+	ul > li::before
 		content: ''
 		position: absolute
 		left: 0
@@ -216,7 +216,7 @@ button
 		border-left-color: $text-color-alt
 		box-sizing: border-box
 
-	//ul > li:first-child:before
+	//ul > li:first-child::before
 	//	top: 7px
 
 	ol
@@ -227,7 +227,7 @@ button
 			height: 1%
 			overflow: hidden
 
-		& > li:before
+		& > li::before
 			position: relative
 			display: inline-block
 			text-align: left
@@ -247,10 +247,10 @@ button
 		//padding-left: 20px
 		margin: $bottom-space/2 0
 
-	//ul ul > li:before,
-	//ul ul > li:first-child:before,
-	//ol ul ul > li:before,
-	//ol ul ul > li:first-child:before
+	//ul ul > li::before,
+	//ul ul > li:first-child::before,
+	//ol ul ul > li::before,
+	//ol ul ul > li:first-child::before
 	//	height: 0
 	//	width: 10px
 	//	border-width: 2px 0
@@ -263,10 +263,10 @@ button
 	//ol ul li:first-child
 		//padding-top: $space-bottom/2
 
-	//ul ul ul > li:before,
-	//ul ul ul > li:first-child:before,
-	//ul ol ul > li:before,
-	//ul ol ul > li:first-child:before
+	//ul ul ul > li::before,
+	//ul ul ul > li:first-child::before,
+	//ul ol ul > li::before,
+	//ul ol ul > li:first-child::before
 	//	height: 8px
 	//	width: 8px
 	//	top: 21px
@@ -280,7 +280,7 @@ button
 	li, li:first-child
 		padding: 0
 
-		&:before
+		&::before
 			content: none
 
 /*list end*/
@@ -380,17 +380,17 @@ table
 			color: $text-color-light
 			text-align: center
 
-			&:before,
-			&:after
+			&::before,
+			&::after
 				+pseudo($pos: relative)
 				+font(4rem, 1)
 
-			&:before
+			&::before
 				content: '«'
 				padding-left: 17%
 				padding-bottom: 10px
 
-			&:after
+			&::after
 				content: '»'
 				text-align: right
 				padding-right: 18.5%
@@ -614,8 +614,8 @@ input[type="radio"] + label,
 	cursor: pointer
 	position: relative
 
-input[type="checkbox"] + label:before,
-.check-label > span > i:before
+input[type="checkbox"] + label::before,
+.check-label > span > i::before
 	content: ''
 	height: 18px
 	width: 18px
@@ -645,8 +645,8 @@ input[type="checkbox"]
 	margin: 0
 	display: none
 
-	& + label:after,
-	& + span > i:after
+	& + label::after,
+	& + span > i::after
 		content: ''
 		height: 16px
 		width: 16px
@@ -659,10 +659,10 @@ input[type="checkbox"]
 		transition-property: opacity
 		transition-duration: $animation-speed
 
-	& + label > span:before,
-	& + label > span:after,
-	& + span:before,
-	& + span:after
+	& + label > span::before,
+	& + label > span::after,
+	& + span::before,
+	& + span::after
 		content: ''
 		position: absolute
 		height: 3px
@@ -675,30 +675,30 @@ input[type="checkbox"]
 		transition-duration: $animation-speed
 		transition-timing-function: linear
 
-	& + label > span:before,
-	& + span:before
+	& + label > span::before,
+	& + span::before
 		transform: rotate(45deg)
 		transform-origin: 0 7px
 		z-index: 1
 
-	& + label > span:after,
-	& + span:after
+	& + label > span::after,
+	& + span::after
 		transform: rotate(-50deg)
 		transform-origin: 0 10px
 		left: 22px
 
 	// checkbox checked
 	&:checked
-		& + label > span:before,
-		& + span:before
+		& + label > span::before,
+		& + span::before
 			width: 7px
 			margin: -4px 0 0 0
 			transition-property: width
 			transition-duration: 0.1s
 			backface-visibility: hidden
 
-		& + label > span:after,
-		& + span:after
+		& + label > span::after,
+		& + span::after
 			width: 11px
 			margin: 0 0 0 -8px
 			transition-property: width
@@ -712,14 +712,14 @@ input[type="checkbox"]
 		& + span > i
 			color: #bdbdbd
 
-		& + label:before,
-		& + span > i:before
+		& + label::before,
+		& + span > i::before
 			border-color: #d6d6d6
 
-		& + label > span:before,
-		& + label > span:after,
-		& + span:before,
-		& + span:after
+		& + label > span::before,
+		& + label > span::after,
+		& + span::before,
+		& + span::after
 			background: #b9b9b9
 
 // radio
@@ -731,8 +731,8 @@ input[type="radio"]
 	padding: 0
 	display: none
 
-	& + label:before,
-	& + span:before
+	& + label::before,
+	& + span::before
 		content: ''
 		height: 18px
 		width: 18px
@@ -744,8 +744,8 @@ input[type="radio"]
 		border: 1px solid $text-color-alt
 		box-sizing: border-box
 
-	& + label:after,
-	& + span:after
+	& + label::after,
+	& + span::after
 		content: ''
 		height: 16px
 		width: 16px
@@ -758,8 +758,8 @@ input[type="radio"]
 		transition-property: opacity
 		transition-duration: $animation-speed
 
-	& + label > span:after,
-	& + span > i:after
+	& + label > span::after,
+	& + span > i::after
 		content: ''
 		width: 10px
 		height: 10px
@@ -776,8 +776,8 @@ input[type="radio"]
 		opacity: 0
 
 	// radio checked
-	&:checked + label > span:after,
-	&:checked + span > i:after
+	&:checked + label > span::after,
+	&:checked + span > i::after
 		animation: bounce 0.3s
 		animation-iteration-count: 1
 		opacity: 1
@@ -840,12 +840,12 @@ input[type="radio"]
 		& + span
 			color: #bdbdbd
 
-		& + label:before,
-		& + span:before
+		& + label::before,
+		& + span::before
 			border-color: #d6d6d6
 
-		& + label > span:after,
-		& + span > i:after
+		& + label > span::after,
+		& + span > i::after
 			background: #b9b9b9
 
 /*form checkbox and radiobutton end*/
@@ -907,10 +907,10 @@ input[type="radio"]
 		color: $color-form-text
 		border-color: $color-form-border-focus
 
-	&:before,
-	&:after,
-	button.cselect .ui-icon .arrow-select:before,
-	button.cselect .ui-icon .arrow-select:after
+	&::before,
+	&::after,
+	button.cselect .ui-icon .arrow-select::before,
+	button.cselect .ui-icon .arrow-select::after
 		content: ''
 		position: absolute
 		right: 22px
@@ -923,12 +923,12 @@ input[type="radio"]
 		box-sizing: border-box
 		z-index: 1
 
-	&:before,
-	button.cselect .ui-icon .arrow-select:before
+	&::before,
+	button.cselect .ui-icon .arrow-select::before
 		transform: rotate(45deg)
 
-	&:after,
-	button.cselect .ui-icon .arrow-select:after
+	&::after,
+	button.cselect .ui-icon .arrow-select::after
 		transform: rotate(-45deg)
 		right: 17px
 
@@ -1019,8 +1019,8 @@ div.cselect
 	.ui-multiselect-checkboxes input[type="radio"] + span
 		padding-left: 0
 
-	.ui-multiselect-checkboxes input[type="radio"] + span:before,
-	.ui-multiselect-checkboxes input[type="radio"] + span:after
+	.ui-multiselect-checkboxes input[type="radio"] + span::before,
+	.ui-multiselect-checkboxes input[type="radio"] + span::after
 		content: none
 
 /*multiselect menu end*/
