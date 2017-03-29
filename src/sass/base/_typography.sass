@@ -128,17 +128,17 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		background: url("../../img/empty.png") repeat
 		display: block
 		height: 100%
+		width: 100%
 		padding: 0
 		position: absolute
 		top: 0
 		left: 0
-		width: 100%
 		z-index: 99
 		border: none
 		opacity: 0
 
 /*btn-default*/
-[class*="btn-default"]
+[class*="btn-default"], .#{$user-content} input[type="submit"], .#{$user-content} [type="button"], .#{$user-content} [type="reset"], .#{$user-content} button
 	position: relative
 	+font-title
 	+font(1.6rem, 24px)
@@ -149,6 +149,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	box-shadow: none
 	transition-property: background-color
 	transition-duration: $animation-speed
+	margin: 0
 	+btn-hover
 	+btn-active
 
@@ -1059,3 +1060,4 @@ div.cselect
 			display: none
 
 /*view print end*/
+
