@@ -119,35 +119,40 @@
 		content: ''
 
 // =============================================================================
+// Reset for inline-block elements
+// =============================================================================
+/// обнуляет горизонтальные отступы между `inline-block` елементами
+=reset-inline-block-space()
+	font-size: 0
+	letter-spacing: -4px
+
+// =============================================================================
 // Grid Item
 // =============================================================================
 /// Формирует упрощенную сетку элементов с применением `display: inline-block`
 /// Для родителя наобходимо подключить +grid-parent
 /// На оберту родителя при необходимости задать `overflow: hidden`
 /// Для дочерних элементов необходимо подключить +grid-item
-/// Для дочерних элементов необходимо задать размер ШРИФТА и межбуквенный ИНТРЕВАЛ !!!
 ///
-/// @param {Length} $space [20px] - горизонтальные отступы между элементами
+/// @param {Length} $horizontal-space [20px] - горизонтальные отступы между элементами
 /// @param {Length} $length-in-row [2] - количество элементов в ряду
-/// @param {Length} $bottom-space [$space] - горизонтальные отступы элементов
+/// @param {Length} $bottom-space [$horizontal-space] - нижние отступы элементов
 ///
 /// @example Sass - Использование
 /// @example css - Вывод CSS
 
-=grid-parent($space: 20px)
-	font-size: 0
-	letter-spacing: -4px
+=grid-parent($horizontal-space: 20px)
 	margin:
-		left: -#{$space/2}
-		right: -#{$space/2}
+		left: -#{round($horizontal-space/2)}
+		right: -#{round($horizontal-space/2)}
 
-=grid-item($length-in-row: 2, $space: 20px, $bottom-space: $space)
+=grid-item($length-in-row: 1, $horizontal-space: 20px, $bottom-space: $horizontal-space)
 	display: inline-block
 	vertical-align: top
-	width: 100%/$length-in-row - 0.02 // -0.02 для кроссбраузерности
+	width: round(100%/$length-in-row) - 0.02
 	padding:
-		left: $space/2
-		right: $space/2
+		left: round($horizontal-space/2)
+		right: round($horizontal-space/2)
 	margin-bottom: $bottom-space
 
 // =============================================================================
