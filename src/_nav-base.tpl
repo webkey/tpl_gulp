@@ -1,3 +1,4 @@
+<!--navigation-->
 <!-- @@if(mainNavItemActive === "biography"){ current} -->
 <!-- @@if(mainNavItemActive === "biography"){ class="current"} -->
 <nav class="nav">
@@ -68,3 +69,4 @@
 		</li>
 	</ul>
 </nav>
+<!--navigation end-->
