@@ -129,10 +129,11 @@
 // =============================================================================
 // Grid Item
 // =============================================================================
-/// Формирует упрощенную сетку элементов с применением `display: inline-block`
-/// Для родителя наобходимо подключить +grid-parent
-/// На оберту родителя при необходимости задать `overflow: hidden`
-/// Для дочерних элементов необходимо подключить +grid-item
+/// Формирует упрощенную сетку элементов с применением `display: inline-block`, или `float: left`;
+/// Для родителя наобходимо подключить `+grid-parent`;
+/// В случае с `inline-block` обнулить `font:size` и `letter-spacing` (примесь `+reset-inline-block-space`)
+/// На оберту родителя при необходимости задать `overflow: hidden`;
+/// Для дочерних элементов необходимо подключить `+grid-item` или `+grid-item-float`;
 ///
 /// @param {Length} $horizontal-space [20px] - горизонтальные отступы между элементами
 /// @param {Length} $length-in-row [2] - количество элементов в ряду
@@ -149,7 +150,15 @@
 =grid-item($length-in-row: 1, $horizontal-space: 20px, $bottom-space: $horizontal-space)
 	display: inline-block
 	vertical-align: top
-	width: round(100%/$length-in-row) - 0.02
+	width: round-float(100%/$length-in-row, 2)
+	padding:
+		left: round($horizontal-space/2)
+		right: round($horizontal-space/2)
+	margin-bottom: $bottom-space
+
+=grid-item-float($length-in-row: 1, $horizontal-space: 20px, $bottom-space: $horizontal-space)
+	float: left
+	width: round-float(100%/$length-in-row, 2)
 	padding:
 		left: round($horizontal-space/2)
 		right: round($horizontal-space/2)
