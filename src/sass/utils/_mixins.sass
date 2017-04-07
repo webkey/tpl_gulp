@@ -291,35 +291,35 @@
 ///   margin-left: 40px;
 /// }
 
-=margin($t: null, $r: null, $b: null, $l: null)
-	@if($t and $r and $b and $l)
-		margin: $t $r $b $l
+=margin($top: null, $right: null, $bottom: null, $left: null)
+	@if($top and $right and $bottom and $left)
+		margin: $top $right $bottom $left
 
 	@else
 		margin:
-			@if $t
-				top: $t
-			@if $r
-				right: $r
-			@if $b
-				bottom: $b
-			@if $l
-				left: $l
+			@if $top
+				top: $top
+			@if $right
+				right: $right
+			@if $bottom
+				bottom: $bottom
+			@if $left
+				left: $left
 
-=padding($t: null, $r: null, $b: null, $l: null)
-	@if($t and $r and $b and $l)
-		padding: $t $r $b $l
+=padding($top: null, $right: null, $bottom: null, $left: null)
+	@if($top and $right and $bottom and $left)
+		padding: $top $right $bottom $left
 
 	@else
 		padding:
-			@if $t
-				top: $t
-			@if $r
-				right: $r
-			@if $b
-				bottom: $b
-			@if $l
-				left: $l
+			@if $top
+				top: $top
+			@if $right
+				right: $right
+			@if $bottom
+				bottom: $bottom
+			@if $left
+				left: $left
 
 /// Примесь центрирует блочный элемент с ограниченной шириной.
 ///
