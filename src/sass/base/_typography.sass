@@ -87,9 +87,18 @@ i, em
 i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+font-bold-italic
 
-.user-entry
+.entry-text
 	+font-bold
+	font-size: 1.2em
 	margin-bottom: $bottom-space
+
+	&:first-letter
+		display: inline-block
+		position: relative
+		font-family: $font-alt
+		color: $text-color-alt
+		font-size: 3em
+		line-height: 1
 
 	& > *:last-child
 		margin-bottom: 0
@@ -423,7 +432,7 @@ table
 .imgl, .imgr
 	max-width: 50%
 
-	+media('<tablet-sm')
+	+media('<tab-sm')
 		float: none
 		display: block
 		margin-left: auto
@@ -452,7 +461,7 @@ table
 	font-size: $font-size
 	letter-spacing: normal
 
-	+media('<mobile-lg')
+	+media('<mob-lg')
 		display: block
 		width: auto
 		margin-bottom: $space-bottom-form
@@ -1054,10 +1063,10 @@ div.cselect
 		display: inline-block
 		vertical-align: middle
 
-	+media('<tablet-lg')
+	+media('<tab-lg')
 		font-size: 14px
 
-	+media('<mobile-lg')
+	+media('<mob-lg')
 		padding: 15px
 
 		& svg
