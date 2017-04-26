@@ -7,19 +7,19 @@
 
 .mx-test .content
 	margin: 0 0 0 300px
-	+padding-vertical($layout-text-space-horizontal)
+	+padding-vertical($text-layout-space-horizontal)
 
 .mx-test .sidebar
 	width: 260px
 
 .mx-test .layout-text
-	+padding-horizontal($layout-text-space-horizontal)
+	+padding-horizontal($text-layout-space-horizontal)
 
 .mx-test .section
-	margin-bottom: $bottom-space-section
+	margin-bottom: $bottom-space-lg
 
 .mx-test .section__box
-	margin-bottom: $bottom-space-article
+	margin-bottom: $bottom-space-md
 
 .mx-element
 	background-color: darkolivegreen
@@ -92,6 +92,31 @@
 	&::before
 		content: 'vertical-align: middle'
 
+// centering
+.mx-centering
+	+size(320px, 200px)
+	position: relative
+	padding: 10px
+	cursor: default
+
+.mx-centering__inner
+	+centering(200px, 50px, false)
+
+	&::before
+		+pseudo('200px, 50px, false')
+		padding: 5px
+		text-align: center
+
+.mx--default .mx-centering__inner
+	// обнулить маржины (к тесту не относится)
+	margin: 0
+
+	+centering(200px, 50px)
+
+	&::before
+		content: '200px, 50px'
+
+// triangle
 .mx-triangle
 	+size(320px, 200px)
 	padding: 10px

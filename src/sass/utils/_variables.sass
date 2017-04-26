@@ -6,12 +6,18 @@
 $breakpoints: ('desk-hd': 1920px, 'desk-lg': 1600px, 'desk-md': 1366px, 'desk-sm': 1200px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-sm': 320px)
 
 // base
-$font-size: 1.8rem !default
-$line-height: round-float(3.0rem/$font-size, 2) !default
+$font-size: 1.6rem !default
+$line-height: round-float(2.8rem/$font-size, 2) !default
+
+$font-size-h1: 3.6rem !default
+$line-height-h1: 1.2 !default
+$font-size-h1--sm: 2.6rem !default
+$line-height-h1--sm: 1.3 !default
+
 $bottom-space: round-float($font-size*$line-height, 1) !default
-$bottom-space-small: round-float($font-size*$line-height*0.5, 1) !default
-$bottom-space-article: round-float($font-size*$line-height*1.5, 1) !default
-$bottom-space-section: round-float($font-size*$line-height*2, 1) !default
+$bottom-space-sm: round-float($font-size*$line-height*0.5, 1) !default
+$bottom-space-md: round-float($font-size*$line-height*1.5, 1) !default
+$bottom-space-lg: round-float($font-size*$line-height*2, 1) !default
 
 // цвет фона страницы
 $bg-color: brown !default
@@ -37,41 +43,42 @@ $user-content: user-content !default
 
 // layout
 // отступы слева и справа для всего сайта
-$layout-space-horizontal: 20px !default
+$page-layout-space-horizontal: 20px !default
 // максимальная ширина сайта
-$layout-width: 1920px + $layout-space-horizontal*2 !default
+$page-layout-width: 1920px + $page-layout-space-horizontal*2 !default
 // минимальные отступы слева и справа у текствого блока
-$layout-text-space-horizontal: 40px !default
-$layout-text-space-horizontal-md: 30px !default
-$layout-text-space-horizontal-sm: 15px !default
+$text-layout-space-horizontal: 40px !default
+$text-layout-space-horizontal-md: 30px !default
+$text-layout-space-horizontal-sm: 15px !default
 // максимальная ширина текстового блока
-$layout-text-width: 640px + $layout-text-space-horizontal*2 !default
+$text-layout-width: 640px + $text-layout-space-horizontal*2 !default
 // минимальные отступы слева и справа у блокоа выходящего за пределы текста
-$layout-flood-space-horizontal: 40px !default
+$flood-layout-space-horizontal: 40px !default
 // максимальная ширина текстового блока выходящего за пределы текста
-$layout-flood-width: 768px + $layout-text-space-horizontal*2 !default
+$flood-layout-width: 768px + $text-layout-space-horizontal*2 !default
 
 // form
-$color-form-text: $text-color-light !default
-$color-form-placeholder: lightgray !default
-$color-form-bg: white !default
-$color-form-border: lightgray !default
-$color-form-border-focus: darken($color-form-border, 20%) !default
-$color-form-error: red !default
-$color-form-success: green !default
-$space-bottom-form: 3rem !default
+$form-text-color: $text-color-light !default
+$form-placeholder-color: lightgray !default
+$form-bg-color: white !default
+$form-border-color: lightgray !default
+$form-border-focus-color: darken($form-border-color, 20%) !default
+$form-error-color: red !default
+$form-success-color: green !default
+$form-bottom-space: 3rem !default
 
 // btn
-$color-btn-bg: tomato !default
-$color-btn-bg-hover: darken($color-btn-bg, 20%) !default
-$color-btn-text: white !default
+$btn-bg-color: tomato !default
+$btn-bg-hover-color: tomato !default
+$btn-bg-hover-color: darken($btn-bg-color, 20%) !default
+$btn-text-color: white !default
 
 // table color
-$color-table-text: $text-color !default
-$color-table-border: tomato !default
-$color-table-bg: white !default
-$color-table-text-alt: white !default
-$color-table-bg-alt: tomato !default
+$table-text-color: $text-color !default
+$table-border-color: tomato !default
+$table-bg-color: white !default
+$table-text-alt-color: white !default
+$table-bg-alt-color: tomato !default
 
 // animation
 $animation-speed: 0.2s !default
@@ -79,36 +86,59 @@ $animation-speed-mouseleave: 0.35s !default
 
 // fonts style
 $font-norm: 'Roboto', sans-serif !default
-$font-b: 'Roboto', sans-serif !default
-$font-i: 'Roboto', sans-serif !default
-$font-bi: 'Roboto', sans-serif !default
 $font-alt: 'Roboto Slab', serif !default
 
+// ============= обнуление жирности и наклонности шрифта ==============
+// ============= использовать, если подключается font-face ==============
 =font-reset()
 	font:
 		weight: normal
 		style: normal
+
+// ============= основоной шрифт ==============
 =font-normal()
 	font:
 		family: $font-norm
-//+font-reset
+		weight: 300
 
 =font-bold()
 	font:
-		family: $font-b
-//+font-reset
+		family: $font-norm
+		weight: 700
 
 =font-italic()
 	font:
-		family: $font-i
-//+font-reset
+		family: $font-norm
+		weight: 300
+		style: italic
 
 =font-bold-italic()
 	font:
-		family: $font-bi
-//+font-reset
+		family: $font-norm
+		weight: 700
+		style: italic
 
-=font-title()
+// ========== дополнительный шрифт ============
+=font-alt()
 	font:
 		family: $font-alt
-//+font-reset
+		style: normal
+		weight: 700
+
+=font-alt-bold()
+	font:
+		family: $font-alt
+		style: normal
+		weight: 700
+
+=font-alt-italic()
+	font:
+		family: $font-alt
+		style: italic
+		weight: normal
+
+=font-alt-bold-italic()
+	font:
+		family: $font-alt
+		style: italic
+		weight: 700

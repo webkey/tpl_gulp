@@ -1,3 +1,7 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
 /*FOOTER*/
 .footer
 	font-size: 1.6rem
@@ -12,22 +16,6 @@
 /*footer bottom*/
 .footer-bottom
 	color: $text-color
-
-	+media('<desk-hd')
-		.footer-bottom
-			&__col
-				max-width: 73.9%
-
-				&:last-child
-					max-width: 24.9%
-
-	+media('<tab-sm')
-		.footer-bottom
-			&__col
-				max-width: 59.9%
-
-				&:last-child
-					max-width: 39.9%
 
 .footer-bottom__holder
 	position: relative

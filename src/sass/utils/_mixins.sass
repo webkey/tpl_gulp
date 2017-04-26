@@ -112,57 +112,11 @@
 /// @example css - Вывод CSS
 
 =vertical-align($align: middle, $pseudo: true)
+	@if $pseudo
+		content: ''
 	display: inline-block
 	vertical-align: $align
 	height: 100%
-	@if $pseudo
-		content: ''
-
-// =============================================================================
-// Reset for inline-block elements
-// =============================================================================
-/// обнуляет горизонтальные отступы между `inline-block` елементами
-=reset-inline-block-space()
-	font-size: 0
-	letter-spacing: -4px
-
-// =============================================================================
-// Grid Item
-// =============================================================================
-/// Формирует упрощенную сетку элементов с применением `display: inline-block`, или `float: left`;
-/// Для родителя наобходимо подключить `+grid-parent`;
-/// В случае с `inline-block` обнулить `font:size` и `letter-spacing` (примесь `+reset-inline-block-space`)
-/// На оберту родителя при необходимости задать `overflow: hidden`;
-/// Для дочерних элементов необходимо подключить `+grid-item` или `+grid-item-float`;
-///
-/// @param {Length} $horizontal-space [20px] - горизонтальные отступы между элементами
-/// @param {Length} $length-in-row [2] - количество элементов в ряду
-/// @param {Length} $bottom-space [$horizontal-space] - нижние отступы элементов
-///
-/// @example Sass - Использование
-/// @example css - Вывод CSS
-
-=grid-parent($horizontal-space: 20px)
-	margin:
-		left: -#{round($horizontal-space/2)}
-		right: -#{round($horizontal-space/2)}
-
-=grid-item($length-in-row: 1, $horizontal-space: 20px, $bottom-space: $horizontal-space)
-	display: inline-block
-	vertical-align: top
-	width: round-float(100%/$length-in-row, 2)
-	padding:
-		left: round($horizontal-space/2)
-		right: round($horizontal-space/2)
-	margin-bottom: $bottom-space
-
-=grid-item-float($length-in-row: 1, $horizontal-space: 20px, $bottom-space: $horizontal-space)
-	float: left
-	width: round-float(100%/$length-in-row, 2)
-	padding:
-		left: round($horizontal-space/2)
-		right: round($horizontal-space/2)
-	margin-bottom: $bottom-space
 
 // =============================================================================
 // antialiased
@@ -375,21 +329,124 @@
 ///   padding-top: 75%;
 /// }
 
-=ratio($x: 1, $y: 1, $pseudo: false, $overflow: hidden)
-	$padding: ($y / $x * 100%)
+=ratio($x: 1, $y: 1, $pseudo: false)
+	$padding: round-float($y / $x * 100%, 2)
 
 	@if $pseudo
-		overflow: $overflow
-
 		&::before
 			+pseudo($pos: relative)
 
 			height: 0
-			width: 100%
 			padding-top: $padding
 
 	@else
 		padding-top: $padding
+
+// =============================================================================
+// Сentering
+// =============================================================================
+/// Примесь центрирует элемент относительно родителя
+///
+/// @param {Boolean} $transform [true] - направление выравнивания
+///
+/// @example Sass - Использование
+/// @example css - Вывод CSS
+=centering($width: null, $height: null, $transform: true, $pos: absolute)
+	position: $pos
+	left: 50%
+	top: 50%
+
+	@if $transform
+		transform: translate(-50%, -50%)
+
+	@else
+		width: $width
+		height: $height
+		+margin($top: round(-$height*0.5), $left: round(-$width*0.5))
+
+// =============================================================================
+// Reset for inline-block elements
+// =============================================================================
+/// обнуляет горизонтальные отступы между `inline-block` елементами
+=clear-spacing()
+	font-size: 0
+	letter-spacing: -4px
+
+// =============================================================================
+// Grid Item
+// =============================================================================
+/// Формирует упрощенную сетку элементов с применением `display: inline-block`, или `float: left`;
+/// Для родителя наобходимо подключить `+grid-parent`;
+/// В случае с `inline-block` обнулить `font:size` и `letter-spacing` (примесь `+clear-spacing`)
+/// На оберту родителя при необходимости задать `overflow: hidden`;
+/// Для дочерних элементов необходимо подключить `+grid-item` или `+grid-item-float`;
+///
+/// @param {Length} $horizontal-space [20px] - горизонтальные отступы между элементами
+/// @param {Length} $length-in-row [2] - количество элементов в ряду
+/// @param {Length} $bottom-space [$horizontal-space] - нижние отступы элементов
+///
+/// @example Sass - Использование
+/// @example css - Вывод CSS
+
+=grid-parent($horizontal-space: 20px)
+	margin:
+		left: -#{round($horizontal-space/2)}
+		right: -#{round($horizontal-space/2)}
+
+=grid-item($length-in-row: 1, $horizontal-space: 20px, $bottom-space: $horizontal-space)
+	display: inline-block
+	vertical-align: top
+	width: round-float(100%/$length-in-row, 2)
+	padding:
+		left: round($horizontal-space/2)
+		right: round($horizontal-space/2)
+	margin-bottom: $bottom-space
+
+=grid-item-float($length-in-row: 1, $horizontal-space: 20px, $bottom-space: $horizontal-space)
+	float: left
+	width: round-float(100%/$length-in-row, 2)
+	padding:
+		left: round($horizontal-space/2)
+		right: round($horizontal-space/2)
+	margin-bottom: $bottom-space
+
+// =============================================================================
+// Fill parent with absolute position
+// =============================================================================
+/// Примесь задает блочному элемунту размеры родителя
+///
+/// @param {String} $position [absolute] - позиционирование
+///
+/// @example Sass - Использование
+///
+/// img.foo
+///   +cover
+///
+/// img.foo
+///   +cover(null)
+///
+/// @example css - Вывод CSS
+///
+/// img.foo {
+///   position: absolute;
+///   left: 0;
+///   top: 0;
+///   width: 100%;
+///   height: 100%;
+/// }
+///
+/// img.foo {
+///   left: 0;
+///   top: 0;
+///   width: 100%;
+///   height: 100%;
+/// }
+=cover($position: absolute)
+	@if $position
+		position: $position
+	left: 0
+	top: 0
+	+size(100%)
 
 /// Примесь позволяет указывает изображению способ заполнения блока,
 /// в котором находится
@@ -794,20 +851,6 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 // ПРИМЕСИ ИСПОЛЬЗУЕМЫЕ В ТИОПОГРАФИЧЕСКИХ СТИЛЯХ
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-
-// ============================================//
-// button default hover state
-// =============================================================================
-=btn-hover()
-	.no-touchevents &:hover
-		background-color: $color-btn-bg-hover
-
-// =============================================================================
-// button default active state
-// =============================================================================
-=btn-active()
-	&:active
-		transform: scale(0.95)
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 // ПРИМЕСИ ИСПОЛЬЗУЕМЫЕ В ТИПОГРАФИЧЕСКИХ СТИЛЯХ конец

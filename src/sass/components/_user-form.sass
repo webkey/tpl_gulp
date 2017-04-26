@@ -1,0 +1,102 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/*user form*/
+.form-title
+	display: block
+	font-family: $font-alt
+	font-weight: bold
+	padding-bottom: $bottom-space
+	color: $text-color-alt
+	font-size: 2.4rem
+	line-height: 1.2
+	text-align: center
+
+.user-form
+	background: #fafafa
+	padding: $text-layout-space-horizontal
+	border: 1px solid $border-color
+	margin-bottom: $bottom-space
+
+	+media('<tab-lg')
+		padding: $text-layout-space-horizontal-md
+
+	+media('<mob-lg')
+		padding: $text-layout-space-horizontal-sm
+		border-width: 1px 0
+
+	form
+		display: block
+
+	textarea
+		height: 152px
+		max-height: 152px
+		resize: none
+
+	.captcha
+		+clear
+
+		img
+			$margin-right: 20px
+			display: inline-block
+			vertical-align: middle
+			max-width: calc(50%)
+			margin-right: $margin-right
+
+			& + input
+				display: inline-block
+				vertical-align: middle
+				width: auto
+				max-width: calc(50% - #{$margin-right} - 10px)
+
+		+media('<tab-lg')
+			img
+				display: block
+				max-width: none
+				margin-bottom: $bottom-space-sm
+
+				& + input
+					display: block
+					max-width: none
+					width: 100%
+
+	.form-footer
+		+clear
+
+		+media('<mob-lg')
+			padding-top: $bottom-space-sm
+
+	.form-buttons
+		float: left
+		margin-right: 30px
+
+		+media('<mob-lg')
+			float: none
+			margin: 0
+
+		.btn-submit
+			width: 200px
+
+	.form-note
+		overflow: hidden
+		min-height: 50px
+		font-size: 0
+		letter-spacing: -4px
+		line-height: 25px
+
+		&::before
+			content: ''
+			display: inline-block
+			vertical-align: middle
+			min-height: inherit
+
+	.form-note__item
+		display: inline-block
+		vertical-align: middle
+		width: calc(100% - 6px)
+		font-size: 1.4rem
+		line-height: 1.5
+		letter-spacing: normal
+
+/*user form end*/

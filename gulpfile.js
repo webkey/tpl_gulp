@@ -102,7 +102,8 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 	return gulp.src([
 		'src/libs/device.js/lib/device.min.js',
 		'src/libs/jquery-smartresize/jquery.debouncedresize.js',
-		'src/libs/jquery-placeholder/jquery.placeholder.min.js'
+		'src/libs/jquery-placeholder/jquery.placeholder.min.js',
+		'src/libs/slick-carousel/slick/slick.min.js' // подключаем slick slider
 	])
 		.pipe(concat('libs.js')) // Собираем их в кучу в новом файле libs.min.js
 		.pipe(gulp.dest('src/js'))

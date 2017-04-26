@@ -47,4 +47,4 @@ gulp.task('copyFilesFromLibs', function () {
 
 });
 
-gulp.task('targetLibs', ['changePath', 'copyFilesFromLibs']); // Назначаем таск watch дефолтным
+gulp.task('targetLibs', ['changePath', 'copyFilesFromLibs']);

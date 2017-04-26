@@ -1,3 +1,7 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
 /*LAYOUT*/
 .wrapper
 	margin: 0 auto
@@ -23,7 +27,7 @@
 	width: 100%
 
 .content
-	margin: 0 260px $bottom-space-section 340px
+	margin: 0 260px $bottom-space-lg 340px
 	min-height: 50px
 
 	background-color: whitesmoke
@@ -71,41 +75,42 @@
 	background-color: lightgreen
 
 .max-wrap
-	max-width: $layout-width
+	max-width: $page-layout-width
 
 .layout
-	+padding-horizontal($layout-space-horizontal)
+	+padding-horizontal($page-layout-space-horizontal)
 	+push-auto
 
 	+media('<tab-lg')
-		+padding-horizontal(0)
+		.main &
+			+padding-horizontal(0)
 
 .max-wrap-text
-	max-width: $layout-text-width
+	max-width: $text-layout-width
 
 .layout-text
-	max-width: $layout-text-width
-	+padding-horizontal($layout-text-space-horizontal)
+	max-width: $text-layout-width
+	+padding-horizontal($text-layout-space-horizontal)
 	+push-auto
 
 	+media('<tab-lg')
-		+padding-horizontal($layout-text-space-horizontal-md)
+		+padding-horizontal($text-layout-space-horizontal-md)
 
 	+media('<tab-sm')
-		+padding-horizontal($layout-text-space-horizontal-sm)
+		+padding-horizontal($text-layout-space-horizontal-sm)
 
 .max-wrap-flood
-	max-width: $layout-flood-width
+	max-width: $flood-layout-width
 
 .layout-flood
-	max-width: $layout-flood-width
-	+padding-horizontal($layout-flood-space-horizontal)
+	max-width: $flood-layout-width
+	+padding-horizontal($flood-layout-space-horizontal)
 	+push-auto
 
 	+media('<tab-lg')
-		+padding-horizontal($layout-text-space-horizontal-md)
+		+padding-horizontal($text-layout-space-horizontal-md)
 
 	+media('<tab-sm')
-		+padding-horizontal($layout-text-space-horizontal-sm)
+		+padding-horizontal($text-layout-space-horizontal-sm)
 
 /*LAYOUT end*/
