@@ -106,7 +106,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .entry-img
 	position: relative
 	overflow: hidden
-	+ratio(9, 6)
+	+ratio(10, 6)
 	margin-bottom: $bottom-space
 
 	img
@@ -126,6 +126,14 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		.no-objectfit &
 			width: auto
 			height: 100%
+
+.entry-img__title
+	+centering()
+	z-index: 10
+	font-size: $font-size-h1
+	color: white
+	text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2)
+	text-align: center
 
 .mark
 	color: $mark-color

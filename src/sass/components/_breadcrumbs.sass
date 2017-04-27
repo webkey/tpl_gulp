@@ -36,7 +36,7 @@
 			width: 0
 			line-height: 1.2
 			border: none
-			color: $text-color-alt
+			color: $text-color-light
 
 		&:last-child::after
 			content: none
@@ -50,7 +50,7 @@
 	a
 		display: inline-block
 		vertical-align: top
-		color: $text-color-alt
+		color: $link-color
 		text-decoration: none
 		cursor: pointer
 
@@ -63,7 +63,7 @@
 			transition-duration: $animation-speed
 
 		.no-touchevents &:hover span
-			border-color: tint($text-color-alt, 30%)
-			color: $text-color-alt
+			border-color: tint($link-color, 30%)
+			color: $link-color
 
 /*breadcrumbs end*/
