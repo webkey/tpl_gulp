@@ -1,6 +1,6 @@
 <!-- >>> foot.tpl <<< -->
 <!--footer-->
-@@include('_footer.tpl')
+@@include('_layout_footer.tpl')
 <!--footer end-->
 
 <script src="js/jquery.min.js"></script>

@@ -1,10 +1,10 @@
-@@include('_head.tpl', {
+@@include('_layout_head.tpl', {
 	"title": "Типографика",
 	"pageClass": ""
 })
 <div class="wrapper">
 	<!--HEADER-->
-	@@include('_header.tpl', {
+	@@include('_layout_header.tpl', {
 		"mainNavItemActive": "Типографика"
 	})
 	<!--HEADER end-->
@@ -22,15 +22,15 @@
 				<!--CONTENT end-->
 
 				<!--SIDEBAR-->
-				@@include('_sidebar.tpl')
+				@@include('_layout_sidebar.tpl')
 				<!--SIDEBAR-->
 
 				<!--ASIDE-->
-				@@include('_aside.tpl')
+				@@include('_layout_aside.tpl')
 				<!--ASIDE end-->
 			</div>
 		</div>
 	</div>
 	<!--MAIN end-->
 </div>
-@@include('_foot.tpl')
+@@include('_layout_foot.tpl')

@@ -1,11 +1,11 @@
-@@include('_head.tpl', {
+@@include('_layout_head.tpl', {
 	"title": "Тестирование примесей и функций",
 	"pageClass": "mx-test"
 })
 <link rel="stylesheet" href="css/test-mixins.css">
 <div class="wrapper">
 	<!--HEADER-->
-	@@include('_header.tpl', {
+	@@include('_layout_header.tpl', {
 		"mainNavItemActive": "Тестирование примесей и функций"
 	})
 	<!--HEADER end-->
@@ -179,11 +179,11 @@
 				<!--CONTENT end-->
 
 				<!--SIDEBAR-->
-				@@include('_sidebar.tpl')
+				@@include('_layout_sidebar.tpl')
 				<!--SIDEBAR-->
 			</div>
 		</div>
 	</div>
 	<!--MAIN end-->
 </div>
-@@include('_foot.tpl')
+@@include('_layout_foot.tpl')

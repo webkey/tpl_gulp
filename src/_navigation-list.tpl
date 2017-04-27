@@ -30,13 +30,13 @@
 
 	<!--(1) START @@key FIRST level-->
 	<li class="@@if(mainNavItemActive === "Пункт 2"){ current}">
-		@@include('_navigation-LINK.tpl', { "itemText": "Пункт 2", "itemLink": "404.html", "key": "@@classKey", "specialValue": "" })
+		@@include('_navigation-LINK.tpl', { "itemText": "Пункт 2", "itemLink": "#", "key": "@@classKey", "specialValue": "" })
 	</li>
 	<!--(1) END @@key FIRST level-->
 
 	<!--(1) START @@key FIRST level-->
 	<li class="@@if(mainNavItemActive === "Пункт 3"){ current}">
-		@@include('_navigation-LINK.tpl', { "itemText": "Пункт 3", "itemLink": "404.html", "key": "@@classKey", "specialValue": "" })
+		@@include('_navigation-LINK.tpl', { "itemText": "Пункт 3", "itemLink": "#", "key": "@@classKey", "specialValue": "" })
 	</li>
 	<!--(1) END @@key FIRST level-->
 </ul>

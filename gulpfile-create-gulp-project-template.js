@@ -23,16 +23,19 @@ gulp.task('copyImgToDistTpl', function () {
 		.pipe(gulp.dest('gulp-project-template/src/img'));
 });
 
-gulp.task('buildTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function () {
+gulp.task('buildDistTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function () {
 
 	gulp.src(['!src/sass/test-mixins.sass', '!src/sass/**/normalize.*', 'src/sass/**/*'])
 		.pipe(gulp.dest('gulp-project-template/src/sass'));
 
-	gulp.src('src/fonts/**/*')
-		.pipe(gulp.dest('gulp-project-template/src/fonts'));
+	gulp.src('src/fonts')
+		.pipe(gulp.dest('gulp-project-template/src'));
 
 	gulp.src(['src/js/common.js'])
 		.pipe(gulp.dest('gulp-project-template/src/js'));
+
+	gulp.src(['src/includes-json/**/*'])
+		.pipe(gulp.dest('gulp-project-template/src/includes-json'));
 
 	gulp.src([
 		'!src/__test-mixins.html',
@@ -46,7 +49,7 @@ gulp.task('buildTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function () {
 	gulp.src([
 		'./.bowerrc',
 		'./.gitignore',
-		'!./gulpfile-build-dist-template.js',
+		'!./gulpfile-create-gulp-project-template.js',
 		'./*.json',
 		'./*.js',
 		'./*.txt',
