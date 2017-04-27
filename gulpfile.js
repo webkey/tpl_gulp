@@ -8,24 +8,21 @@ var gulp = require('gulp'), // Подключаем Gulp
 	uglify = require('gulp-uglifyjs'), // Подключаем gulp-uglifyjs (для сжатия JS)
 	cssnano = require('gulp-cssnano'), // Подключаем пакет для минификации CSS
 	concatCss = require('gulp-concat-css'),
-	autoprefixer = require('gulp-autoprefixer'), // Подключаем библиотеку для автоматического добавления префиксов
-	csscomb = require('gulp-csscomb'), // Причесываем css
 	rename = require('gulp-rename'), // Подключаем библиотеку для переименования файлов
 	del = require('del'), // Подключаем библиотеку для удаления файлов и папок
 	imagemin = require('gulp-imagemin'), // Подключаем библиотеку для работы с изображениями
 	pngquant = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
 	cache = require('gulp-cache'), // Подключаем библиотеку кеширования
+	autoprefixer = require('gulp-autoprefixer'), // Подключаем библиотеку для автоматического добавления префиксов
 	sourcemaps = require('gulp-sourcemaps'), // Подключаем Source Map для дебагинга sass-файлов https://github.com/floridoo/gulp-sourcemaps
 	fileinclude = require('gulp-file-include'),
 	markdown = require('markdown'),
-	htmlbeautify = require('gulp-html-beautify'), // Причесываем html
+	htmlbeautify = require('gulp-html-beautify'), // Причесываем
 	fs = require('fs'), // For compiling modernizr.min.js
 	modernizr = require('modernizr'), // For compiling modernizr.min.js
 	config = require('./modernizr-config'), // Path to modernizr-config.json
 	replace = require('gulp-string-replace')
-	// Replace strings in files by using string or regex patterns
-	// @link https://www.npmjs.com/package/gulp-string-replace
-;
+	;
 
 gulp.task('htmlCompilation', function () { // Таск формирования ДОМ страниц
 	return gulp.src(['src/__*.html'])
@@ -55,23 +52,20 @@ gulp.task('compressNormalizeCss', function () {
 
 gulp.task('sassCompilation', ['compressNormalizeCss'], function () { // Создаем таск для компиляции sass файлов
 	return gulp.src('src/sass/**/*.+(scss|sass)') // Берем источник
-		.pipe(sourcemaps.init({largeFile: true}))
+		.pipe(sourcemaps.init())
 		.pipe(sass({
 			outputStyle: 'expanded', // nested (default), expanded, compact, compressed
 			indentType: 'tab',
-			indentWidth: 1
-			// пока эти параметры заменены на csscomb()
-			// на мой взгляд csscomb() более пластичны
-			// но и тот и другой почему-то неправильно компилирует сложные селекторы,
-			// переносит на другую строку не после комы, а в произвольном месте
+			indentWidth: 1,
+			precision: 3,
+			linefeed: 'lf' // cr, crlf, lf or lfcr
 		}).on('error', sass.logError)) // Преобразуем Sass в CSS посредством gulp-sass
 		.pipe(replace('../../', '../')) /// в css файлах меняем пути к файлам с ../../ на ../
 		.pipe(autoprefixer([
 			'last 5 versions', '> 1%', 'ie >= 9', 'and_chr >= 2.3' //, 'ie 8', 'ie 7'
 		], {
 			cascade: true
-		}))
-		// .pipe(csscomb())
+		})) // Создаем префиксы
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./src/css')) // Выгружаем результата в папку src/css
 		.pipe(browserSync.reload({
