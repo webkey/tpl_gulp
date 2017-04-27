@@ -48,118 +48,126 @@
 					<strong class="logo"><a href="index.html">Project Name</a><img style="display: none;" src="img/logo.png" alt="Project Name"></strong>
 					<!--logo end-->
 					<!--navigation-->
-					<!--  -->
-					<!--  -->
-					<nav class="nav">
-						<ul class="nav__list">
-							<li class="has-drop">
-								<a href="index.html"><span>Главная</span></a>
-								<!--(1) START sub-menu FIRST level-->
-								<div class="nav__drop">
-									<ul class="sub1-nav__list">
-										<li><a href="#"><span>Гидродинамический удар</span></a></li>
-										<li><a href="#"><span>Гамма-квант индуцирует погранслой</span></a></li>
-									</ul>
-								</div>
-								<!--(1) END sub-menu FIRST level-->
-							</li>
-							<li class="has-drop current">
-								<a href="typography.html"><span>Типографика</span></a>
-								<!--(1) START sub-menu FIRST level-->
-								<div class="nav__drop">
-									<ul class="sub1-nav__list">
-										<li class="has-drop"><a href="#"><span>Самосогласованная модель предсказывает, что при определенных условиях турбулентность трансформирует лептон</span></a>
-											<!--(2) START sub-menu SECOND level-->
-											<div class="nav__drop sub1-nav__drop">
-												<ul class="sub2-nav__list">
-													<li><a href="#"><span>Туманность искажает лептон</span></a></li>
-													<li><a href="#"><span>Разрыв устойчив в магнитном поле</span></a></li>
-													<li><a href="#"><span>Эксимер</span></a></li>
-												</ul>
-											</div>
-											<!--(2) END sub-menu SECOND level-->
-										</li>
-										<li class="has-drop"><a href="#"><span>Вихрь мгновенно выталкивает фонон</span></a>
-											<!--(2) START sub-menu SECOND level-->
-											<div class="nav__drop sub1-nav__drop">
-												<ul class="sub2-nav__list">
-													<li><a href="#"><span>Гравитирующая сфера</span></a></li>
-													<li><a href="#"><span>Вещество изотропно трансформирует короткоживущий магнит</span></a></li>
-													<li><a href="#"><span>Вещество однородно сжимает резонатор</span></a></li>
-												</ul>
-											</div>
-											<!--(2) END sub-menu SECOND level-->
-										</li>
-										<li class="has-drop"><a href="#"><span>Течение среды стабильно</span></a>
-											<!--(2) START sub-menu SECOND level-->
-											<div class="nav__drop sub1-nav__drop">
-												<ul class="sub2-nav__list">
-													<li><a href="#"><span>Плазма трансформирует фронт</span></a></li>
-													<li><a href="#"><span>Туманность выталкивает объект</span></a></li>
-												</ul>
-											</div>
-											<!--(2) END sub-menu SECOND level-->
-										</li>
-										<li class="has-drop"><a href="#"><span>Молекула теоретически возможна</span></a>
-											<!--(2) START sub-menu SECOND level-->
-											<div class="nav__drop sub1-nav__drop">
-												<ul class="sub2-nav__list">
-													<li><a href="#"><span>Галактика синхронизует фронт</span></a></li>
-													<li><a href="#"><span>Фронт индуцирует спиральный объект</span></a></li>
-													<li><a href="#"><span>Плазменное образование активно</span></a></li>
-												</ul>
-											</div>
-											<!--(2) END sub-menu SECOND level-->
-										</li>
-										<li><a href="#"><span>Плоскополяризованный квант</span></a></li>
-										<li><a href="#"><span>Турбулентность</span></a></li>
-									</ul>
-								</div>
-								<!--(1) END sub-menu FIRST level-->
-							</li>
-							<li class="">
-								<a href="404.html"><span>О компании</span></a>
-							</li>
-							<li class="">
-								<a href="404.html"><span>Публикации</span></a>
-							</li>
-							<li class="has-drop">
-								<a href="404.html"><span>Технологии</span></a>
-								<!--(1) START sub-menu FIRST level-->
-								<div class="nav__drop">
-									<ul class="sub1-nav__list">
-										<li class="has-drop"><a href="#"><span>Взвесь вертикально индуцирует пульсар</span></a>
-											<!--(2) START sub-menu SECOND level-->
-											<div class="nav__drop sub1-nav__drop">
-												<ul class="sub2-nav__list">
-													<li class="has-drop"><a href="#"><span>Взрыв</span></a>
-														<!--(3) START sub-menu THIRD level-->
-														<div class="nav__drop sub2-nav__drop">
-															<ul class="sub3-nav__list">
-																<li><a href="#"><span>Струя устойчиво сжимает солитон</span></a></li>
-																<li><a href="#"><span>Силовое поле</span></a></li>
-															</ul>
-														</div>
-														<!--(3) END sub-menu THIRD level-->
-													</li>
-													<li><a href="#"><span>Туманность</span></a></li>
-												</ul>
-											</div>
-											<!--(2) END sub-menu SECOND level-->
-										</li>
-										<li><a href="#"><span>Галактика </span></a></li>
-									</ul>
-								</div>
-								<!--(1) END sub-menu FIRST level-->
-							</li>
-							<li class="">
-								<a href="404.html"><span>Ссылки</span></a>
-							</li>
-							<li class="">
-								<a href="404.html"><span>Контакты</span></a>
-							</li>
-						</ul>
-					</nav>
+					<div class="nav-wrap">
+						<nav class="nav">
+							<ul class="nav__list nav-js">
+								<!--(1) START @@key FIRST level-->
+								<li class="has-drop">
+									<div class="nav__tab">
+										<a href="typography.html" title="nav - Пункт 1"><span>Пункт 1</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+									<!--(2) START nav SECOND level-->
+									<div class="nav__drop nav-drop-js">
+										<ul class="sub-nav__list">
+											<li>
+												<div class="nav__tab">
+													<a href="#" title="nav - Пункт 1.1"><span>Пункт 1.1</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+											</li>
+											<li class="has-drop">
+												<div class="nav__tab">
+													<a href="#" title="nav - Пункт 1.2 (есть подпункты)"><span>Пункт 1.2 (есть подпункты)</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+												<!--(3) START nav THIRD level-->
+												<div class="nav__drop nav-drop-js">
+													<ul class="sub-nav__list">
+														<li>
+															<div class="nav__tab">
+																<a href="#" title="nav - Пункт 1.2.1"><span>Пункт 1.2.1</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+														<li class="has-drop">
+															<div class="nav__tab">
+																<a href="#" title="nav - Пункт 1.2.2 (есть подпункты)"><span>Пункт 1.2.2 (есть подпункты)</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+															<!--(4) START nav FOURTH level-->
+															<div class="nav__drop nav-drop-js">
+																<ul class="sub-nav__list">
+																	<li>
+																		<div class="nav__tab">
+																			<a href="#" title="nav - Пункт 1.2.2.1"><span>Пункт 1.2.2.1</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																	<li>
+																		<div class="nav__tab">
+																			<a href="#" title="nav - Пункт 1.2.2.2"><span>Пункт 1.2.2.2</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																	<li>
+																		<div class="nav__tab">
+																			<a href="#" title="nav - Пункт 1.2.2.3"><span>Пункт 1.2.2.3</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																	<li>
+																		<div class="nav__tab">
+																			<a href="#" title="nav - Пункт 1.2.2.3"><span>Пункт 1.2.2.3</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+															<!--(4) END nav FOURTH level-->
+														</li>
+														<li>
+															<div class="nav__tab">
+																<a href="#" title="nav - Пункт 1.2.3"><span>Пункт 1.2.3</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+														<li>
+															<div class="nav__tab">
+																<a href="#" title="nav - Пункт 1.2.4"><span>Пункт 1.2.4</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<!--(3) END nav THIRD level-->
+											</li>
+											<li>
+												<div class="nav__tab">
+													<a href="#" title="nav - Пункт 1.4"><span>Пункт 1.4</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+											</li>
+											<li>
+												<div class="nav__tab">
+													<a href="#" title="nav - Пункт 1.5"><span>Пункт 1.5</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<!--(2) END nav SECOND level-->
+								</li>
+								<!--(1) END @@key FIRST level-->
+								<!--(1) START @@key FIRST level-->
+								<li class="">
+									<div class="nav__tab">
+										<a href="404.html" title="nav - Пункт 2"><span>Пункт 2</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+								</li>
+								<!--(1) END @@key FIRST level-->
+								<!--(1) START @@key FIRST level-->
+								<li class="">
+									<div class="nav__tab">
+										<a href="404.html" title="nav - Пункт 3"><span>Пункт 3</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+								</li>
+								<!--(1) END @@key FIRST level-->
+							</ul>
+						</nav>
+					</div>
 					<!--navigation end-->
 				</div>
 			</div>
@@ -181,16 +189,13 @@
 								</ul>
 							</div>
 							<!--breadcrumbs end-->
-
 							<!--datetime-->
 							<time class="datetime" datetime="2017-03-22T13:42">22 марта 2017, 13:42</time>
 							<!--datetime end-->
-
 							<a href="#" class="view-print">
 								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 295.1 280.4" style="enable-background:new 0 0 295.1 280.4;"> <path d="M218.4,236.1H76.7c-1.5,0-3,1.5-3,3v38.4c0,1.5,1.5,3,3,3h141.7c1.5,0,3-1.5,3-3V239C221.3,237.6,219.9,236.1,218.4,236.1z   M280.4,88.5h-44.3V14.8c0-8.9-5.9-14.8-14.8-14.8H73.8C64.9,0,59,5.9,59,14.8v73.8H14.8C5.9,88.5,0,94.4,0,103.3v162.3  c0,8.9,5.9,14.8,14.8,14.8h29.5v-73.8c0-8.9,5.9-14.8,14.8-14.8h177.1c8.9,0,14.8,5.9,14.8,14.8v73.8h29.5c8.9,0,14.8-5.9,14.8-14.8  V103.3C295.1,94.4,289.2,88.5,280.4,88.5z M191.8,162.3c-8.9,0-14.8-5.9-14.8-14.8s5.9-14.8,14.8-14.8s14.8,5.9,14.8,14.8  S200.7,162.3,191.8,162.3z M206.6,88.5h-118v-59h118V88.5z M243.5,162.3c-11.8,0-22.1-10.3-22.1-22.1s10.3-22.1,22.1-22.1  s22.1,10.3,22.1,22.1S255.3,162.3,243.5,162.3z"></path> </svg>
 								<span>Версия для печати</span>
 							</a>
-
 							<div class="layout-flood">
 								<!--h1-->
 								<h1>
@@ -254,7 +259,6 @@
 								<!--Bold-->
 								<h3><span class="mark">Жирный</span></h3>
 								<p><b>На самом деле это правило касается в первую очередь печатных изданий, книгопечатания. Связано это с тем, что шрифт с засечками (небольшими росчерками на концах основных штрихов) плавно выстраивается в одну линию, облегчая восприятие текста и делая его более читабельным.</b></p>
-
 								<h3><span class="mark">Наклонный жирный</span></h3>
 								<p><b><i>Иначе обстоят дела с отображением текста дисплеями различных устройств. Возникает проблема сглаживания и неровности засечек. Поэтому для основного текста лучше подходит шрифт без засечек с несколько увеличенной высотой строчных знаков.</i></b></p>
 								<h3><span class="mark">Текст на латинице</span></h3>
@@ -322,7 +326,6 @@
 								<p>Вообще, переносов в вебе по возможности следует избегать. Попробуйте перенести слово на новую строку или чуть-чуть измените межбуквенное расстояние. Если знаков переноса слишком много, поменяйте размер шрифта или величину пробелов. А при выключке
 									влево вообще не используйте перенос слов.</p>
 							</div>
-
 							<!--blockquote-->
 							<blockquote>
 								<div class="layout-flood">
@@ -330,12 +333,10 @@
 									<cite>Словарь Ожегова</cite>
 								</div>
 							</blockquote>
-
 							<div class="layout-text">
 								<p>Не отделяйте отступом первый абзац от заголовка. Если вы отбиваете абзацы пустой строкой, не используйте абзацные отступы. Это избыточно и безвкусно. С другой стороны, текст вообще без отступов и отбивок будет сложнее восприниматься. В общем,
 									выберите один из способов: или красную строку, или отбивку — и используйте его на протяжении всего текста.</p>
 							</div>
-
 							<!--table styling-->
 							<div class="layout-flood">
 								<h3>
@@ -401,12 +402,10 @@
 									</table>
 								</div>
 							</div>
-
 							<div class="layout-text">
 								<p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что
 									искусство мое страдает от этого.</p>
 							</div>
-
 							<div class="layout-flood">
 								<h3>
 									<span class="mark">Таблица без стилей</span>
@@ -472,7 +471,6 @@
 									</table>
 								</div>
 							</div>
-
 							<div class="layout-text">
 								<p><b>Запомните:</b> когда вы увеличиваете размер шрифта, расстояние между символами тоже увеличивается. Поэтому, если вы устанавливаете в тексте крупный заголовок, советуем пропорционально скорректировать расстояние между символами и словами</p>
 								<!--download files items-->
@@ -538,7 +536,6 @@
 								<p>Выделить важную мысль или слово, на которое нужно обратить внимание, можно самыми разными способами. Не переусердствуйте с ними. Не стоит выделять целое предложение одними прописными — новичок не всегда может сделать это к месту. Просто используйте
 									полужирное начертание шрифта.</p>
 							</div>
-
 							<div class="layout-flood">
 								<!--style default button-->
 								<h3>
@@ -564,11 +561,9 @@
 									<input class="btn-default-alt" type="reset" value="Type reset">
 								</div>
 							</div>
-
 							<div class="layout-text">
 								<p>У всех шрифтов есть хотя бы одна сладкая точка; комбинация размеров, при котором шрифт лучше всего показывает себя на экране, точка, в которой анти-сглаживание, встроенное в браузеры, искажает дизайн шрифта как можно меньше.</p>
 							</div>
-
 							<div class="layout-flood">
 								<!--form style-->
 								<form action="#" method="get">
@@ -666,7 +661,6 @@
 													<label for="checkbox-checked-disabled"><span>Checked & Disabled</span></label>
 												</li>
 											</ul>
-
 											<h3>
 												<span class="mark">Checkbox inside label</span>
 											</h3>
@@ -719,7 +713,6 @@
 													<label for="radio-checked-disabled"><span>Checked & Disabled</span></label>
 												</li>
 											</ul>
-
 											<h3>
 												<span class="mark">Radiobutton inside label</span>
 											</h3>
@@ -754,7 +747,6 @@
 								</form>
 								<!--form style end-->
 							</div>
-
 							<!--user form-->
 							<div class="user-form">
 								<div class="layout-text">
@@ -819,7 +811,6 @@
 								</div>
 							</div>
 							<!--user form end-->
-
 							<div class="layout-flood">
 								<h3><span class="mark">Контент в несколько колонок</span></h3>
 								<h4><span class="mark">Две колонки</span></h4>
@@ -872,16 +863,13 @@
 								<p>Интерлиньяж — это пространство между строками, и когда оно мало, то саккадные прыжки между концами и началами строк становятся трудноуловимыми. Когда же интерлиньяж слишком расслаблен, пробелы между словами начинают выделяться и создают своеобразные
 									«реки», которые прерывают мягкий поток строки.</p>
 							</div>
-
 							<div class="imgc">
 								<img src="img/__temp-img-content-lg.jpg" alt="image description" />
 							</div>
-
 							<div class="layout-text">
 								<p>Обычный стандарт для интерлиньяжа — это около 1,4em, хотя очень часто он слишком плотный для экранов: одна из ключевых характеристик для шрифта, который будет хорошо работать на экранах — это большие контура, которые будут требовать увеличить
 									интерлиньяж, чтобы соответствовать иерархии пространства.</p>
 							</div>
-
 							<hr>
 							<div class="layout-flood">
 								<h3><span class="mark">Карусель с подписями слайдов</span></h3>
@@ -913,7 +901,6 @@
 								<!--flashes end-->
 							</div>
 							<!--images slider end-->
-
 							<hr>
 							<div class="layout-text">
 								<h3><span class="mark">Пример страницы поиска</span></h3>
@@ -985,7 +972,6 @@
 									<p><b>Отсортировано по релевантности</b>&nbsp;|&nbsp;<a href="#">Сортировать по дате</a></p>
 								</div>
 							</div>
-
 							<hr>
 							<div class="layout-text">
 								<h3><span class="mark">Список элементов с изображением и описанием</span></h3>
@@ -1034,7 +1020,6 @@
 						</div>
 					</div>
 					<!--CONTENT end-->
-
 					<!--SIDEBAR-->
 					<aside class="sidebar">
 						<div class="sidebar__holder">
@@ -1049,7 +1034,6 @@
 						</div>
 					</aside>
 					<!--SIDEBAR-->
-
 					<!--ASIDE-->
 					<aside class="aside">
 						<div class="aside__holder">
@@ -1097,7 +1081,6 @@
 		</div>
 	</footer>
 	<!--footer end-->
-
 	<script src="js/jquery.min.js"></script>
 	<script src="js/libs.min.js"></script>
 	<script src="js/common.js"></script>

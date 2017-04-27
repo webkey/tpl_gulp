@@ -15,22 +15,25 @@
 		&.has-drop
 			padding-right: 2rem
 
-			&::after
-				content: ''
+			.nav__angle
 				position: absolute
-				right: 0.5rem
-				top: 1.2rem
-				height: 0
-				width: 0
-				border: 0 solid transparent
+				right: 0
+				top: 50%
+				transform: translate(0, -50%)
+				line-height: 0
+				pointer-events: none
+
+	a
+		display: block
 
 	& > li
 		float: left
 		margin-right: 2rem
 
-		&.has-drop::after
-			border-width: 8px 4px
-			border-top-color: tomato
+		&.has-drop > .nav__tab .nav__angle i
+			display: inline-block
+			vertical-align: top
+			+triangle(bottom, tomato, 5px, 2)
 
 .nav__drop
 	position: absolute
@@ -53,9 +56,11 @@
 		font-size: 1.4rem
 		line-height: 1.5
 
-		&.has-drop::after
-			border-width: 4px 8px
-			border-left-color: tomato
+		&.has-drop > .nav__tab .nav__angle i
+			display: inline-block
+			vertical-align: top
+			+triangle(right, tomato, 5px, 2)
+
 
 	.nav__drop
 		top: 0

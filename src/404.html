@@ -48,118 +48,126 @@
 					<strong class="logo"><a href="index.html">Project Name</a><img style="display: none;" src="img/logo.png" alt="Project Name"></strong>
 					<!--logo end-->
 					<!--navigation-->
-					<!--  -->
-					<!--  -->
-					<nav class="nav">
-						<ul class="nav__list">
-							<li class="has-drop">
-								<a href="index.html"><span>Главная</span></a>
-								<!--(1) START sub-menu FIRST level-->
-								<div class="nav__drop">
-									<ul class="sub1-nav__list">
-										<li><a href="#"><span>Гидродинамический удар</span></a></li>
-										<li><a href="#"><span>Гамма-квант индуцирует погранслой</span></a></li>
-									</ul>
-								</div>
-								<!--(1) END sub-menu FIRST level-->
-							</li>
-							<li class="has-drop current">
-								<a href="typography.html"><span>Типографика</span></a>
-								<!--(1) START sub-menu FIRST level-->
-								<div class="nav__drop">
-									<ul class="sub1-nav__list">
-										<li class="has-drop"><a href="#"><span>Самосогласованная модель предсказывает, что при определенных условиях турбулентность трансформирует лептон</span></a>
-											<!--(2) START sub-menu SECOND level-->
-											<div class="nav__drop sub1-nav__drop">
-												<ul class="sub2-nav__list">
-													<li><a href="#"><span>Туманность искажает лептон</span></a></li>
-													<li><a href="#"><span>Разрыв устойчив в магнитном поле</span></a></li>
-													<li><a href="#"><span>Эксимер</span></a></li>
-												</ul>
-											</div>
-											<!--(2) END sub-menu SECOND level-->
-										</li>
-										<li class="has-drop"><a href="#"><span>Вихрь мгновенно выталкивает фонон</span></a>
-											<!--(2) START sub-menu SECOND level-->
-											<div class="nav__drop sub1-nav__drop">
-												<ul class="sub2-nav__list">
-													<li><a href="#"><span>Гравитирующая сфера</span></a></li>
-													<li><a href="#"><span>Вещество изотропно трансформирует короткоживущий магнит</span></a></li>
-													<li><a href="#"><span>Вещество однородно сжимает резонатор</span></a></li>
-												</ul>
-											</div>
-											<!--(2) END sub-menu SECOND level-->
-										</li>
-										<li class="has-drop"><a href="#"><span>Течение среды стабильно</span></a>
-											<!--(2) START sub-menu SECOND level-->
-											<div class="nav__drop sub1-nav__drop">
-												<ul class="sub2-nav__list">
-													<li><a href="#"><span>Плазма трансформирует фронт</span></a></li>
-													<li><a href="#"><span>Туманность выталкивает объект</span></a></li>
-												</ul>
-											</div>
-											<!--(2) END sub-menu SECOND level-->
-										</li>
-										<li class="has-drop"><a href="#"><span>Молекула теоретически возможна</span></a>
-											<!--(2) START sub-menu SECOND level-->
-											<div class="nav__drop sub1-nav__drop">
-												<ul class="sub2-nav__list">
-													<li><a href="#"><span>Галактика синхронизует фронт</span></a></li>
-													<li><a href="#"><span>Фронт индуцирует спиральный объект</span></a></li>
-													<li><a href="#"><span>Плазменное образование активно</span></a></li>
-												</ul>
-											</div>
-											<!--(2) END sub-menu SECOND level-->
-										</li>
-										<li><a href="#"><span>Плоскополяризованный квант</span></a></li>
-										<li><a href="#"><span>Турбулентность</span></a></li>
-									</ul>
-								</div>
-								<!--(1) END sub-menu FIRST level-->
-							</li>
-							<li class="">
-								<a href="404.html"><span>О компании</span></a>
-							</li>
-							<li class="">
-								<a href="404.html"><span>Публикации</span></a>
-							</li>
-							<li class="has-drop">
-								<a href="404.html"><span>Технологии</span></a>
-								<!--(1) START sub-menu FIRST level-->
-								<div class="nav__drop">
-									<ul class="sub1-nav__list">
-										<li class="has-drop"><a href="#"><span>Взвесь вертикально индуцирует пульсар</span></a>
-											<!--(2) START sub-menu SECOND level-->
-											<div class="nav__drop sub1-nav__drop">
-												<ul class="sub2-nav__list">
-													<li class="has-drop"><a href="#"><span>Взрыв</span></a>
-														<!--(3) START sub-menu THIRD level-->
-														<div class="nav__drop sub2-nav__drop">
-															<ul class="sub3-nav__list">
-																<li><a href="#"><span>Струя устойчиво сжимает солитон</span></a></li>
-																<li><a href="#"><span>Силовое поле</span></a></li>
-															</ul>
-														</div>
-														<!--(3) END sub-menu THIRD level-->
-													</li>
-													<li><a href="#"><span>Туманность</span></a></li>
-												</ul>
-											</div>
-											<!--(2) END sub-menu SECOND level-->
-										</li>
-										<li><a href="#"><span>Галактика </span></a></li>
-									</ul>
-								</div>
-								<!--(1) END sub-menu FIRST level-->
-							</li>
-							<li class="">
-								<a href="404.html"><span>Ссылки</span></a>
-							</li>
-							<li class="">
-								<a href="404.html"><span>Контакты</span></a>
-							</li>
-						</ul>
-					</nav>
+					<div class="nav-wrap">
+						<nav class="nav">
+							<ul class="nav__list nav-js">
+								<!--(1) START @@key FIRST level-->
+								<li class="has-drop">
+									<div class="nav__tab">
+										<a href="typography.html" title="nav - Пункт 1"><span>Пункт 1</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+									<!--(2) START nav SECOND level-->
+									<div class="nav__drop nav-drop-js">
+										<ul class="sub-nav__list">
+											<li>
+												<div class="nav__tab">
+													<a href="#" title="nav - Пункт 1.1"><span>Пункт 1.1</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+											</li>
+											<li class="has-drop">
+												<div class="nav__tab">
+													<a href="#" title="nav - Пункт 1.2 (есть подпункты)"><span>Пункт 1.2 (есть подпункты)</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+												<!--(3) START nav THIRD level-->
+												<div class="nav__drop nav-drop-js">
+													<ul class="sub-nav__list">
+														<li>
+															<div class="nav__tab">
+																<a href="#" title="nav - Пункт 1.2.1"><span>Пункт 1.2.1</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+														<li class="has-drop">
+															<div class="nav__tab">
+																<a href="#" title="nav - Пункт 1.2.2 (есть подпункты)"><span>Пункт 1.2.2 (есть подпункты)</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+															<!--(4) START nav FOURTH level-->
+															<div class="nav__drop nav-drop-js">
+																<ul class="sub-nav__list">
+																	<li>
+																		<div class="nav__tab">
+																			<a href="#" title="nav - Пункт 1.2.2.1"><span>Пункт 1.2.2.1</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																	<li>
+																		<div class="nav__tab">
+																			<a href="#" title="nav - Пункт 1.2.2.2"><span>Пункт 1.2.2.2</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																	<li>
+																		<div class="nav__tab">
+																			<a href="#" title="nav - Пункт 1.2.2.3"><span>Пункт 1.2.2.3</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																	<li>
+																		<div class="nav__tab">
+																			<a href="#" title="nav - Пункт 1.2.2.3"><span>Пункт 1.2.2.3</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+															<!--(4) END nav FOURTH level-->
+														</li>
+														<li>
+															<div class="nav__tab">
+																<a href="#" title="nav - Пункт 1.2.3"><span>Пункт 1.2.3</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+														<li>
+															<div class="nav__tab">
+																<a href="#" title="nav - Пункт 1.2.4"><span>Пункт 1.2.4</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<!--(3) END nav THIRD level-->
+											</li>
+											<li>
+												<div class="nav__tab">
+													<a href="#" title="nav - Пункт 1.4"><span>Пункт 1.4</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+											</li>
+											<li>
+												<div class="nav__tab">
+													<a href="#" title="nav - Пункт 1.5"><span>Пункт 1.5</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<!--(2) END nav SECOND level-->
+								</li>
+								<!--(1) END @@key FIRST level-->
+								<!--(1) START @@key FIRST level-->
+								<li class="">
+									<div class="nav__tab">
+										<a href="404.html" title="nav - Пункт 2"><span>Пункт 2</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+								</li>
+								<!--(1) END @@key FIRST level-->
+								<!--(1) START @@key FIRST level-->
+								<li class="">
+									<div class="nav__tab">
+										<a href="404.html" title="nav - Пункт 3"><span>Пункт 3</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+								</li>
+								<!--(1) END @@key FIRST level-->
+							</ul>
+						</nav>
+					</div>
 					<!--navigation end-->
 				</div>
 			</div>
@@ -177,7 +185,6 @@
 						</div>
 					</div>
 					<!--CONTENT end-->
-
 					<!--SIDEBAR-->
 					<aside class="sidebar">
 						<div class="sidebar__holder">
@@ -192,7 +199,6 @@
 						</div>
 					</aside>
 					<!--SIDEBAR-->
-
 					<!--ASIDE-->
 					<aside class="aside">
 						<div class="aside__holder">
@@ -240,7 +246,6 @@
 		</div>
 	</footer>
 	<!--footer end-->
-
 	<script src="js/jquery.min.js"></script>
 	<script src="js/libs.min.js"></script>
 	<script src="js/common.js"></script>

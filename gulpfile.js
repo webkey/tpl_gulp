@@ -38,7 +38,8 @@ gulp.task('htmlCompilation', function () { // Таск формирования 
 			path.basename = path.basename.substr(2);
 		}))
 		.pipe(htmlbeautify({
-			"indent_with_tabs": true
+			"indent_with_tabs": true,
+			"max_preserve_newlines": 0
 		}))
 		.pipe(gulp.dest('./src/'));
 });

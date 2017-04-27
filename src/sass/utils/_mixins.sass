@@ -537,6 +537,7 @@
 /// @param {Direction} $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
 /// @param {Color} $color [currentcolor] - Triangle color
 /// @param {Length} $size [1em] - Triangle size
+/// @param {Number} $kef [1em] - Higher-to-base ratio
 ///
 /// @example Sass - Использование
 ///
@@ -560,15 +561,15 @@
 /// 	left: 50%;
 /// 	bottom: 100%;
 /// }
-=triangle($direction, $color: tomato, $size: 1em)
+=triangle($direction, $color: tomato, $size: 1em, $kef: 1.5)
 	@if not index(top right bottom left, $direction)
 		@error "Direction must be either `top`, `right`, `bottom` or `left`."
 
-	+pseudo()
+	//+pseudo()
 	width: 0
 	height: 0
 	z-index: 2
-	border-#{opposite-direction($direction)}: ($size * 1.5) solid $color
+	border-#{opposite-direction($direction)}: (round($size * $kef)) solid $color
 
 	$perpendicular-borders: $size solid transparent
 
