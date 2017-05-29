@@ -199,14 +199,14 @@
 							<div class="layout-flood">
 								<!--h1-->
 								<h1>
-									Типографика в вебдизайне. Основыне понятия и принцыпы использования
+									Типографика в вебдизайне. Основные понятия и положения
 									<span class="mark">(h1)</span>
 								</h1>
 							</div>
 							<!--entry image-->
 							<div class="entry-img">
 								<img src="img/__temp-img-entry.jpg" alt="image description" />
-								<h2 class="entry-img__title">Типографика в вебдизайне. Основыне понятия и принцыпы использования</h2>
+								<h2 class="entry-img__title">Типографика в вебдизайне. Основные понятия и положения</h2>
 							</div>
 							<div class="layout-text">
 								<!--entry text-->
@@ -566,7 +566,17 @@
 							</div>
 							<div class="layout-flood">
 								<!--form style-->
-								<form action="#" method="get">
+								<!--form style end-->
+							</div>
+							<!--form style-->
+							<div class="layout-flood">
+								<h3>
+									<i class="hash-anchor" id="hashFormElementExample">&nbsp;</i>
+									<span class="mark"><a href="#hashFormElementExample">Элементы форм</a></span>
+								</h3>
+							</div>
+							<form action="#" method="get">
+								<div class="layout-flood">
 									<div class="input-wrap">
 										<div class="label-holder">
 											<label for="expl-label-01">Пример текстового поля с плейсхолдером: <span class="form-mark">*</span></label>
@@ -618,15 +628,15 @@
 											</div>
 											<div class="select">
 												<select name="filter-type" id="expl-label-06">
-												<option value="1">Размер</option>
-												<option value="2">Вес</option>
-												<option value="3">Цвет</option>
-												<option value="4">Позицию (расположение)</option>
-												<option value="5">Опшин очень-очень-очень-очень длинный</option>
-												<option value="6">Контраст</option>
-												<option value="7">Сочетание</option>
-												<option value="8">Расстояние</option>
-											</select>
+						<option value="1">Размер</option>
+						<option value="2">Вес</option>
+						<option value="3">Цвет</option>
+						<option value="4">Позицию (расположение)</option>
+						<option value="5">Опшин очень-очень-очень-очень длинный</option>
+						<option value="6">Контраст</option>
+						<option value="7">Сочетание</option>
+						<option value="8">Расстояние</option>
+					</select>
 											</div>
 										</div>
 									</div>
@@ -638,11 +648,21 @@
 											<textarea placeholder="Сообщение" id="expl-label-07"></textarea>
 										</div>
 									</div>
+								</div>
+							</form>
+							<!--form style end-->
+							<!--checkbox and radio-->
+							<div class="layout-flood">
+								<h3>
+									<i class="hash-anchor" id="hashFormCheckboxExample">&nbsp;</i>
+									<span class="mark"><a href="#hashFormCheckboxExample">Примеры чекбоксов и переключателей</a></span>
+								</h3>
+							</div>
+							<form action="#" method="get">
+								<div class="layout-flood">
 									<div class="form-row">
 										<div class="input-wrap">
-											<h3>
-												<span class="mark">Checkbox outside label</span>
-											</h3>
+											<h4><span class="mark">Checkbox outside label</span></h4>
 											<ul class="checkbox-list reset-list">
 												<li>
 													<input type="checkbox" name="checkbox-normal" id="checkbox-normal" />
@@ -661,40 +681,36 @@
 													<label for="checkbox-checked-disabled"><span>Checked & Disabled</span></label>
 												</li>
 											</ul>
-											<h3>
-												<span class="mark">Checkbox inside label</span>
-											</h3>
+											<h4><span class="mark">Checkbox inside label</span></h4>
 											<ul class="checkbox-list reset-list">
 												<li>
 													<label class="check-label">
-													<input type="checkbox" name="checkbox-normal" />
-													<span><i></i>Отличный способ для выделения самого важного в тексте – использование контрастных шрифтов</span>
-												</label>
+							<input type="checkbox" name="checkbox-normal" />
+							<span><i></i>Отличный способ для выделения самого важного в тексте – использование контрастных шрифтов</span>
+						</label>
 												</li>
 												<li>
 													<label class="check-label">
-													<input type="checkbox" name="checkbox-checked" checked />
-													<span><i></i>Checked</span>
-												</label>
+							<input type="checkbox" name="checkbox-checked" checked />
+							<span><i></i>Checked</span>
+						</label>
 												</li>
 												<li>
 													<label class="check-label">
-													<input type="checkbox" name="checkbox-disabled" disabled />
-													<span><i></i>Disabled</span>
-												</label>
+							<input type="checkbox" name="checkbox-disabled" disabled />
+							<span><i></i>Disabled</span>
+						</label>
 												</li>
 												<li>
 													<label class="check-label">
-													<input type="checkbox" name="checkbox-checked-disabled" checked disabled />
-													<span><i></i>Checked & Disabled</span>
-												</label>
+							<input type="checkbox" name="checkbox-checked-disabled" checked disabled />
+							<span><i></i>Checked & Disabled</span>
+						</label>
 												</li>
 											</ul>
 										</div>
 										<div class="input-wrap">
-											<h3>
-												<span class="mark">Radiobutton outside label</span>
-											</h3>
+											<h4><span class="mark">Radiobutton outside label</span></h4>
 											<ul class="radio-list reset-list">
 												<li>
 													<input type="radio" name="testRadioOutside" id="radio-male" checked />
@@ -713,44 +729,48 @@
 													<label for="radio-checked-disabled"><span>Checked & Disabled</span></label>
 												</li>
 											</ul>
-											<h3>
-												<span class="mark">Radiobutton inside label</span>
-											</h3>
+											<h4><span class="mark">Radiobutton inside label</span></h4>
 											<ul class="radio-list reset-list">
 												<li>
 													<label class="radio-label">
-													<input type="radio" name="testRadioInside" />
-													<span><i></i>Male</span>
-												</label>
+							<input type="radio" name="testRadioInside" />
+							<span><i></i>Male</span>
+						</label>
 												</li>
 												<li>
 													<label class="radio-label">
-													<input type="radio" name="testRadioInside" checked />
-													<span><i></i>Female</span>
-												</label>
+							<input type="radio" name="testRadioInside" checked />
+							<span><i></i>Female</span>
+						</label>
 												</li>
 												<li>
 													<label class="radio-label">
-													<input type="radio" name="radio-disabled" disabled />
-													<span><i></i>Disabled</span>
-												</label>
+							<input type="radio" name="radio-disabled" disabled />
+							<span><i></i>Disabled</span>
+						</label>
 												</li>
 												<li>
 													<label class="radio-label">
-													<input type="radio" name="radio-checked-disabled" checked disabled />
-													<span><i></i>Checked & Disabled</span>
-												</label>
+							<input type="radio" name="radio-checked-disabled" checked disabled />
+							<span><i></i>Checked & Disabled</span>
+						</label>
 												</li>
 											</ul>
 										</div>
 									</div>
-								</form>
-								<!--form style end-->
-							</div>
+								</div>
+							</form>
+							<!--checkbox and radio end-->
 							<!--user form-->
+							<div class="layout-flood">
+								<h3>
+									<i class="hash-anchor" id="hashUserFormExample">&nbsp;</i>
+									<span class="mark"><a href="#hashUserFormExample">Блок с полями формы</a></span>
+								</h3>
+							</div>
 							<div class="user-form">
 								<div class="layout-text">
-									<div class="form-title">Форма обратной связи</div>
+									<div class="form-title">Заголовок формы</div>
 									<form action="#" method="get">
 										<div class="input-wrap">
 											<div class="label-holder">
@@ -1017,6 +1037,30 @@
 								</div>
 								<!--images descriptions list end-->
 							</div>
+							<script>
+								'use strict';
+
+								var nav = document.createElement('ul');
+								nav.className = "navigationByTypographyElements";
+								document.body.appendChild(nav);
+
+								var numberSpan = document.querySelector('.hash-anchor');
+
+								for (var i = 0; i < document.querySelectorAll('.hash-anchor').length; i++) {
+									var elem = document.querySelectorAll('.hash-anchor');
+									var elemId = elem.id;
+									console.log("elemId: ", elemId);
+									//								console.log("elem: ", elem[i].closest('h3').lastChild.previousSibling.textContent.trim());
+
+									var a = document.createElement('a');
+									a.setAttribute('href', '#');
+									var li = document.createElement('li');
+									//								div.className = "alert alert-success";
+									a.innerHTML = elem[i].closest('h3').lastChild.previousSibling.textContent.trim();
+									li.appendChild(a);
+									nav.appendChild(li);
+								}
+							</script>
 						</div>
 					</div>
 					<!--CONTENT end-->

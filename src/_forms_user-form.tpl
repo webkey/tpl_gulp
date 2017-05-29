@@ -1,7 +1,6 @@
-<!--user form-->
 <div class="user-form">
 	<div class="layout-text">
-		<div class="form-title">Форма обратной связи</div>
+		<div class="form-title">@@title</div>
 		<form action="#" method="get">
 			<div class="input-wrap">
 				<div class="label-holder">
@@ -61,4 +60,3 @@
 		</form>
 	</div>
 </div>
-<!--user form end-->

@@ -63,35 +63,6 @@
 	+size(320px, 50px)
 	+push-auto
 
-.mx-vertical-align
-	+size(320px, 200px)
-	padding: 10px
-	cursor: default
-
-	&::after
-		+vertical-align(bottom)
-
-	&.mx--default
-		&::after
-			content: none
-
-		&::before
-			+vertical-align()
-
-.mx-vertical-align__inner
-	+size(200px, 50px)
-	display: inline-block
-	vertical-align: middle
-
-	&::before
-		+pseudo('vertical-align: bottom', block, relative)
-		padding: 5px
-		text-align: center
-
-.mx--default .mx-vertical-align__inner
-	&::before
-		content: 'vertical-align: middle'
-
 // centering
 .mx-centering
 	+size(320px, 200px)
@@ -100,21 +71,25 @@
 	cursor: default
 
 .mx-centering__inner
-	+centering(200px, 50px, false)
+	$width: 200px
+	$height: 50px
+	position: absolute
+	+size($width, $height)
+	+centering-margin($width, $height)
 
 	&::before
-		+pseudo('200px, 50px, false')
+		+pseudo('margin')
 		padding: 5px
 		text-align: center
 
 .mx--default .mx-centering__inner
 	// обнулить маржины (к тесту не относится)
 	margin: 0
-
-	+centering(200px, 50px)
+	+centering-transform()
 
 	&::before
-		content: '200px, 50px'
+		letter-spacing: -0.08em
+		content: 'transform: translate(-50%, -50%)'
 
 // triangle
 .mx-triangle
@@ -123,9 +98,6 @@
 	text-align: center
 	cursor: default
 
-	&::before
-		+vertical-align()
-
 .mx-triangle__inner
 	display: inline-block
 	position: relative
@@ -133,6 +105,9 @@
 	max-width: 90%
 	+size(200px, 50px)
 	filter: drop-shadow(4px 4px 2px rgba(0,0,0,0.4))
+
+	&::before
+		+pseudo()
 
 	&.mx--to-north::before
 		+triangle(top, $size: 10px)
@@ -151,9 +126,6 @@
 	padding: 10px
 	text-align: center
 	cursor: default
-
-	&::before
-		+vertical-align()
 
 .mx-triangle-pretty__inner
 	display: inline-block
@@ -183,9 +155,6 @@
 	padding: 10px
 	text-align: center
 	cursor: default
-
-	&::before
-		+vertical-align()
 
 .mx-mathsass__inner
 	display: inline-block

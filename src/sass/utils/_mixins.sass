@@ -22,7 +22,7 @@
 ///   +size(10em)
 ///
 /// .bar
-///   +size(100%, 10em
+///   +size(100%, 10em)
 ///
 /// @example css - Вывод CSS
 /// .foo {
@@ -75,6 +75,10 @@
 	display: inline-block
 	vertical-align: middle
 
+=display-inline-block-bottom()
+	display: inline-block
+	vertical-align: baseline
+
 // =============================================================================
 // pseudo
 // =============================================================================
@@ -112,24 +116,6 @@
 	content: $content
 	display: $display
 	position: $pos
-
-// =============================================================================
-// vertical align
-// =============================================================================
-/// Вспомагательный елемент для выравнивания по горизонтали с приминением `display: inline-block`
-///
-/// @param {String} $align [middle] - направление выравнивания
-/// @param {Boolean} $pseudo [true] - по умолчанию применяется к псевдоэлементу, если нет, то указать `false`
-///
-/// @example Sass - Использование
-/// @example css - Вывод CSS
-
-=vertical-align($align: middle, $pseudo: true)
-	@if $pseudo
-		content: ''
-	display: inline-block
-	vertical-align: $align
-	height: 100%
 
 // =============================================================================
 // antialiased
@@ -353,6 +339,7 @@
 			padding-top: $padding
 
 	@else
+		height: 0
 		padding-top: $padding
 
 // =============================================================================
@@ -364,18 +351,20 @@
 ///
 /// @example Sass - Использование
 /// @example css - Вывод CSS
-=centering($width: null, $height: null, $transform: true, $pos: absolute)
+
+/// 1. С помощью transform: translate:
+=centering-transform($pos: null)
 	position: $pos
 	left: 50%
 	top: 50%
+	transform: translate(-50%, -50%)
 
-	@if $transform
-		transform: translate(-50%, -50%)
-
-	@else
-		width: $width
-		height: $height
-		+margin($top: round(-$height*0.5), $left: round(-$width*0.5))
+/// 2. С помощью margin:
+=centering-margin($width: null, $height: null, $pos: null)
+	position: $pos
+	left: 50%
+	top: 50%
+	+margin($top: round(-$height*0.5), $left: round(-$width*0.5))
 
 // =============================================================================
 // Reset for inline-block elements
@@ -454,9 +443,9 @@
 ///   width: 100%;
 ///   height: 100%;
 /// }
-=cover($position: absolute)
-	@if $position
-		position: $position
+=cover($pos: absolute)
+	@if $pos
+		position: $pos
 	left: 0
 	top: 0
 	+size(100%)
@@ -524,6 +513,16 @@
 		overflow: visible
 		position: static
 		width: auto
+
+=show-text()
+	border: 0
+	clip: auto
+	height: auto
+	margin: 0
+	overflow: visible
+	padding: 0
+	position: relative
+	width: auto
 
 // =============================================================================
 // Scroll lock
