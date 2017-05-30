@@ -72,6 +72,11 @@
 			</div>
 		</div>
 
+		<div class="layout-text">
+			<h3>
+				<a href="#hashFormsSelect" id="hashFormsSelect" class="hashAnchor"><span class="mark">Селекты</span></a>
+			</h3>
+		</div>
 		<div class="input-wrap">
 			<div class="label-holder">
 				<label for="default-select-example">Некастомный селект:</label>
