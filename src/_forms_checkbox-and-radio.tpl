@@ -2,7 +2,9 @@
 	<div class="layout-flood">
 		<div class="form-row">
 			<div class="input-wrap">
-				<h4><span class="mark">Checkbox outside label</span></h4>
+				<h4>
+					<a href="#hashFormCheckboxOutsideExample" id="hashFormCheckboxOutsideExample" class="hashAnchor"><span class="mark">Checkbox outside label</span></a>
+				</h4>
 				<ul class="checkbox-list reset-list">
 					<li>
 						<input type="checkbox" name="checkbox-normal" id="checkbox-normal" />
@@ -22,7 +24,9 @@
 					</li>
 				</ul>
 
-				<h4><span class="mark">Checkbox inside label</span></h4>
+				<h4>
+					<a href="#hashFormCheckboxInsideExample" id="hashFormCheckboxInsideExample" class="hashAnchor"><span class="mark">Checkbox inside label</span></a>
+				</h4>
 				<ul class="checkbox-list reset-list">
 					<li>
 						<label class="check-label">
@@ -51,7 +55,9 @@
 				</ul>
 			</div>
 			<div class="input-wrap">
-				<h4><span class="mark">Radiobutton outside label</span></h4>
+				<h4>
+					<a href="#hashFormRadiobuttonOutsideExample" id="hashFormRadiobuttonOutsideExample" class="hashAnchor"><span class="mark">Radiobutton outside label</span></a>
+				</h4>
 				<ul class="radio-list reset-list">
 					<li>
 						<input type="radio" name="testRadioOutside" id="radio-male" checked />
@@ -71,7 +77,9 @@
 					</li>
 				</ul>
 
-				<h4><span class="mark">Radiobutton inside label</span></h4>
+				<h4>
+					<a href="#hashFormRadiobuttonInsideExample" id="hashFormRadiobuttonInsideExample" class="hashAnchor"><span class="mark">Radiobutton inside label</span></a>
+				</h4>
 				<ul class="radio-list reset-list">
 					<li>
 						<label class="radio-label">

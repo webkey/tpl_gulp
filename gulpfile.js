@@ -76,7 +76,8 @@ gulp.task('sassCompilation', ['compressNormalizeCss'], function () { // Созд
 gulp.task('mergeCssLibs', function () { // Таск для мержа css библиотек
 	return gulp.src([
 		'src/css/temp/*.css' // see gulpfile-special.js
-		// ,'src/lib/plugin/file.css'
+		, 'src/libs/select2/dist/css/select2.min.css'
+		// , 'src/lib/plugin/file.css'
 	]) // Выбираем файлы для конкатенации
 		.pipe(concatCss("src/css/libs.css", {
 			rebaseUrls: false
@@ -95,10 +96,12 @@ gulp.task('createCustomModernizr', function (done) { // Таск для форм
 
 gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск для мераж js библиотек
 	return gulp.src([
-		'src/libs/device.js/lib/device.min.js',
-		'src/libs/jquery-smartresize/jquery.debouncedresize.js',
-		'src/libs/jquery-placeholder/jquery.placeholder.min.js',
-		'src/libs/slick-carousel/slick/slick.min.js' // подключаем slick slider
+		'src/libs/device.js/lib/device.min.js'
+		, 'src/libs/jquery-smartresize/jquery.debouncedresize.js'
+		, 'src/libs/jquery-placeholder/jquery.placeholder.min.js'
+		, 'src/libs/slick-carousel/slick/slick.min.js' // подключаем slick slider
+		, 'src/libs/select2/dist/js/select2.full.min.js'
+		, 'src/libs/select2/dist/js/i18n/ru.js'
 	])
 		.pipe(concat('libs.js')) // Собираем их в кучу в новом файле libs.min.js
 		.pipe(gulp.dest('src/js'))

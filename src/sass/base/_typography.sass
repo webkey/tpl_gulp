@@ -208,77 +208,26 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 
 /*columnize end*/
 
-/*btn*/
-[class|="btn"], [class*=" btn-"], input[type="submit"], input[type="button"], input[type="reset"], button
-	display: inline-block
-	vertical-align: top
-	position: relative
-	text-align: center
-	text-decoration: none
-	cursor: pointer
-
-[class|="btn"], [class*=" btn-"]
-	& input[type="submit"], & input[type="button"], & input[type="reset"]
-		background: url("../../img/empty.png") repeat
-		display: block
-		+cover()
-		padding: 0
-		border: none
-		z-index: 99
-		opacity: 0
-
-/*btn-default*/
-[class*="btn-default"]
-	position: relative
-	+font-alt-bold
-	+font(1.6rem, 24px)
-	color: $btn-text-color
-	padding: 12px 25px
-	border: 1px solid transparent
-	background: $btn-bg-color
-	box-shadow: none
-	transition-property: background-color, color
-	transition-duration: $animation-speed
-	margin: 0
-
-	.no-touchevents &:hover
-		background-color: $btn-bg-hover-color
-
-	&:active
-		transform: scale(0.95)
-
-/*btn-default end*/
-
-/*btn-default-alt*/
-.btn-default-alt
-	color: $btn-bg-color
-	border: 2px solid $btn-bg-color
-	background: $btn-text-color
-
-	.no-touchevents &:hover
-		background: $btn-bg-hover-color
-		color: $btn-text-color
-
-/*btn-default-alt end*/
-/*btn end*/
-
 .#{$user-content}
 	@each $tags in h2, h3, h4, h5
-		p + #{$tags}, ul + #{$tags}, ol + #{$tags}
+		p + #{$tags},
+		ul + #{$tags},
+		ol + #{$tags}
 			margin-top: round-float($bottom-space*1.5, 1)
 
 /*list*/
 .#{$user-content}
 	//list
-	ul, ol
+	ul,
+	ol
 		margin: $bottom-space 0
 		padding: 0
 		list-style: none
 
-	ul li, ol li
-		padding-left: 30px
-		margin: round($bottom-space*0.5) 0
-		position: relative
+		li
+			padding-left: 30px
+			margin: round($bottom-space*0.5) 0
+			position: relative
 
 	ul > li::before
 		+pseudo()
@@ -298,30 +247,35 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 			height: 1%
 			overflow: hidden
 
-		& > li::before
-			position: relative
-			display: inline-block
-			text-align: left
-			+font-alt-bold
-			color: $text-color-alt
-			content: counter(section)
-			padding: 0 4px 0 0
-			min-width: 30px
-			margin-left: -30px
-			box-sizing: border-box
+			&::before
+				position: relative
+				display: inline-block
+				text-align: left
+				+font-alt-bold
+				color: $text-color-alt
+				content: counter(section)
+				padding: 0 4px 0 0
+				min-width: 30px
+				margin-left: -30px
+				box-sizing: border-box
 
-	ul ul, ul ol, ol ul
-		margin: round($bottom-space*0.5) 0
+	ul,
+	ol
+		ul,
+		ol
+			margin: round($bottom-space*0.5) 0
 
 /*list reset
-.reset-list, .#{$user-content} .reset-list
+.reset-list,
+.#{$user-content} .reset-list
 	list-style: none
 
-	li, li:first-child
-		padding: 0
+	li
+		&, &:first-child
+			padding: 0
 
-		&::before
-			content: none
+			&::before
+				content: none
 
 /*list reset end
 /*list end*/
@@ -485,77 +439,3 @@ table
 			display: none
 
 /*view print end*/
-
-/*button popup close*/
-.btn-popup-close
-	//<a href="#" class="btn-popup-close js-btn-menu-close"><i></i><span>Закрыть</span></a>
-	$btn-bg: #f3f3f3
-	$btn-color: $text-color
-	$btn-size: 60px
-	$btn-space: 12px
-	$btn-lines-width: 20px
-	$btn-lines-height: 3px
-	$btn-lines-space: 5px
-	$btn-lines-color: $text-color
-
-	=line-style()
-		+size($btn-lines-width, $btn-lines-height)
-		border-radius: 2px
-
-	display: block
-	+size($btn-size)
-	background: $btn-bg
-	color: white
-	text-decoration: none
-	+clear-spacing
-	white-space: nowrap
-	transition-property: background-color, opacity, visibility
-	transition-duration: $animation-speed
-
-	+media('<mob-lg')
-		+size(45px)
-
-	&::before
-		content: ''
-		display: inline-block
-		height: $btn-size
-		min-height: 100%
-		vertical-align: middle
-
-	> span
-		+hide-text
-
-	> i
-		display: inline-block
-		vertical-align: middle
-		position: relative
-		backface-visibility: hidden
-		background-color: transparent
-		+line-style
-
-		&::before, &::after
-			+pseudo()
-			left: 0
-			backface-visibility: hidden
-			+line-style
-			background: $btn-lines-color
-			transition-property: background-color
-			transition-duration: $animation-speed
-
-		//first line menu
-		&::before
-			top: 0
-			transform: rotate(-45deg)
-
-		//third line menu
-		&::after
-			top: 0
-			transform: rotate(45deg)
-
-	.no-touchevents &:hover
-		background-color: $mark-color
-
-	//& > i::before, & > i::after
-		background-color: white
-
-/*button popup close end*/

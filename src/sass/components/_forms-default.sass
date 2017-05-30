@@ -1,6 +1,6 @@
-@import ../utils/variables
-@import ../utils/mixins
-@import ../../libs/include-media/dist/include-media
+@import ../utils/_variables
+@import ../utils/_mixins
+@import ../../libs/include-media/dist/_include-media
 
 /*FORM STYLES DEFAULT
 /*form layout
@@ -31,8 +31,6 @@
 	margin-bottom: 2px
 
 	label
-		font-size: inherit
-		line-height: inherit
 		+font(inherit, inherit)
 		color: $text-color
 
@@ -365,9 +363,9 @@ input[type="radio"]
 
 /*form checkbox and radiobutton end*/
 
-/*select*/
+///*select*/
 // select overall
-.select
+//.select
 	position: relative
 	margin: 0 0 $form-bottom-space
 	width: 100%
@@ -461,8 +459,8 @@ input[type="radio"]
 			white-space: nowrap
 			min-height: 20px
 
-/*multiselect menu*/
-div.cselect
+///*multiselect menu*/
+// div.cselect
 	&.ui-multiselect-menu
 		padding: 2px 0
 		margin: 0
@@ -519,6 +517,153 @@ div.cselect
 		&::before, &::after
 			content: none
 
-/*multiselect menu end*/
+///*multiselect menu end*/
+///*select end*/
+
+/*select*/
+// select overall
+.select
+	position: relative
+	margin: 0 0 $form-bottom-space
+	width: 100%
+
+	.input-wrap &
+		margin-bottom: 0
+
+	.cselect
+		width: 100%
+
+	select,
+	.select2-container--default .select2-selection--single,
+	.select2-container--default .select2-selection--multiple
+		display: block
+		position: relative
+		overflow: hidden
+		height: 50px
+		text-overflow: ''
+		cursor: pointer
+		padding: 13px 40px 13px 18px
+		white-space: nowrap
+		text-indent: 0
+		width: 100%
+		border: 1px solid $form-border-color
+		border-radius: 0
+		background: $form-bg-color
+		box-shadow: none
+		transition-property: background, border, color, box-shadow
+		transition-duration: 0.2s
+		box-sizing: border-box
+		outline: none
+
+	.select2-container--default .select2-selection--multiple
+		height: auto
+
+	select,
+	.select2-container--default .select2-selection--single .select2-selection__rendered,
+	.select2-container--default .select2-selection--multiple .select2-selection__rendered
+		+font-normal
+		font-size: 16px
+		line-height: 22px
+		text-transform: none
+		color: $form-text-color
+
+	select
+		padding-right: 40px
+
+		&:focus
+			color: $form-text-color
+			border-color: $form-border-focus-color
+
+	.select2-container--default
+		.select2-selection--single
+			.select2-selection__rendered
+				padding-left: 0
+				padding-right: 0
+
+			.select2-selection__arrow
+				position: absolute
+				right: 0
+				top: 0
+				height: 100%
+				width: 40px
+				background-color: white
+				z-index: 2
+
+				b
+					border: none
+					position: absolute
+					left: 0
+					top: 0
+					width: 100%
+					height: 100%
+					margin: 0
+
+	&::before,
+	&::after,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b::before,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b::after
+		content: ''
+		position: absolute
+		right: 22px
+		top: 50%
+		width: 8px
+		height: 2px
+		background-color: $title-color
+		margin-top: -1px
+		box-sizing: border-box
+		z-index: 1
+
+	&::before,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b::before
+		transform: rotate(45deg)
+
+	&::after,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b::after
+		transform: rotate(-45deg)
+		right: 17px
+
+	.select2-container--default .select2-search--inline .select2-search__field
+		height: auto
+		margin: 0
+
+	// multiple
+	.select2-container--default .select2-selection--multiple
+		padding: 9px 40px 9px 18px
+
+		.select2-selection__rendered
+			padding-left: 0
+			padding-right: 0
+			margin: 0
+			vertical-align: top
+			max-width: none
+
+			li
+				padding: 0 4px
+				margin: 4px 8px 4px 0
+
+				&::before
+					content: none
+
+/*select2 dropdown*/
+.select2-dropdown
+	border-color: $form-border-color
+	border-radius: 0
+	z-index: 9999
+
+.select2-container--default
+	.select2-search--dropdown
+		.select2-search__field
+			border-color: $form-border-color
+			margin: 0
+			height: 34px
+
+			&:focus
+				border-color: $form-border-color
+				box-shadow: inset 0 0 0 1px $form-border-color
+
+	.select2-results>.select2-results__options
+		max-height: 210px
+
+/*select2 dropdown end*/
 /*select end*/
 /*FORM STYLE DEFAULT end*/
