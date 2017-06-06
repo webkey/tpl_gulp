@@ -413,11 +413,11 @@
 	margin-bottom: $bottom-space
 
 // =============================================================================
-// Fill parent with absolute position
+// Fill parent with absolute or relative position or without position
 // =============================================================================
 /// Примесь задает блочному элемунту размеры родителя
 ///
-/// @param {String} $position [absolute] - позиционирование
+/// @param {} no param
 ///
 /// @example Sass - Использование
 ///
@@ -443,9 +443,19 @@
 ///   width: 100%;
 ///   height: 100%;
 /// }
-=cover($pos: absolute)
-	@if $pos
-		position: $pos
+=cover()
+	left: 0
+	top: 0
+	+size(100%)
+
+=cover-abs()
+	position: absolute
+	left: 0
+	top: 0
+	+size(100%)
+
+=cover-rel()
+	position: relative
 	left: 0
 	top: 0
 	+size(100%)
