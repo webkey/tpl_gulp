@@ -96,12 +96,12 @@ gulp.task('createCustomModernizr', function (done) { // Таск для форм
 
 gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск для мераж js библиотек
 	return gulp.src([
-		'src/libs/device.js/lib/device.min.js'
-		, 'src/libs/jquery-smartresize/jquery.debouncedresize.js'
-		, 'src/libs/jquery-placeholder/jquery.placeholder.min.js'
-		, 'src/libs/slick-carousel/slick/slick.min.js' // подключаем slick slider
-		, 'src/libs/select2/dist/js/select2.full.min.js'
-		, 'src/libs/select2/dist/js/i18n/ru.js'
+		'src/libs/device.js/lib/device.min.js' // определение устройств
+		, 'src/libs/jquery-smartresize/jquery.debouncedresize.js' // "умный" ресайз
+		, 'src/libs/jquery-placeholder/jquery.placeholder.min.js' // поддержка плейсхолдера в старых браузерах
+		, 'src/libs/slick-carousel/slick/slick.min.js' // slick slider
+		, 'src/libs/select2/dist/js/select2.full.min.js' // кастомный селект
+		, 'src/libs/select2/dist/js/i18n/ru.js' // локализация для кастомного селекта
 	])
 		.pipe(concat('libs.js')) // Собираем их в кучу в новом файле libs.min.js
 		.pipe(gulp.dest('src/js'))
