@@ -21,6 +21,14 @@
 .mx-test .section__box
 	margin-bottom: $bottom-space-md
 
+.mx-subtitle
+	+font-bold
+	margin-bottom: $bottom-space-sm
+	background-color: white
+
+	.mx-element &
+		padding: $bottom-space-sm
+
 .mx-element
 	background-color: darkolivegreen
 
@@ -175,3 +183,25 @@
 
 	.mx-font--03
 		+font(2.1rem, 1.2)
+
+
+.mx-height-text
+	padding: $bottom-space-sm
+
+.mx-height-text__inner
+	overflow: hidden
+	margin-bottom: $bottom-space-sm
+	+font(1em, 1.5)
+	+height-text(5, 1em, 1.5)
+
+	&:last-child
+		margin-bottom: 0
+
+.mx-max-height-text__inner
+	overflow: hidden
+	margin-bottom: $bottom-space-sm
+	+font(1em, 1.5)
+	+max-height-text(5, 1em, 1.5)
+
+	&:last-child
+		margin-bottom: 0

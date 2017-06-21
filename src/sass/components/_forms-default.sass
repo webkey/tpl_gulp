@@ -1,6 +1,6 @@
-@import ../utils/_variables
-@import ../utils/_mixins
-@import ../../libs/include-media/dist/_include-media
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
 
 /*FORM STYLES DEFAULT
 /*form layout
@@ -44,13 +44,11 @@
 /*form common*/
 input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
 	display: block
-	color: $form-text-color
-	font-size: 16px
-	line-height: 24px
-	letter-spacing: normal
-	height: 50px
-	width: 100%
 	padding: 12px 18px
+	+size(100%, 50px)
+	+font(16px, 24px)
+	color: $form-text-color
+	letter-spacing: normal
 	background: $form-bg-color
 	box-shadow: inset 0 0 0 1px transparent
 	border: 1px solid $form-border-color
@@ -87,14 +85,11 @@ textarea
 	//display: block
 	position: relative
 	float: left
-	font-size: 1.2rem
-	line-height: 1.8
+	margin-bottom: 1.8em
+	+size(100%, 1.8em)
+	+font(1.2rem, 1.8)
 	color: $form-error-color
-	height: 1.8em
-	width: 100%
-	margin-bottom: -1.8em
 	overflow: hidden
-	-ms-text-overflow: ellipsis
 	text-overflow: ellipsis
 	white-space: nowrap
 	display: none

@@ -167,6 +167,24 @@
 	overflow: hidden
 
 // =============================================================================
+// height-text / max-height-text
+// =============================================================================
+/// Устанавливает высоту текста по количеству строк
+///
+/// @param {Number} $line [1] - количество строк
+/// @param {Length} $fz [1em] - font-size
+/// @param {Length} $lh [1] - line-height
+///
+/// @example Sass - Использование
+/// @example css - Вывод CSS
+
+=height-text($line: 1, $fz: 1em, $lh: 1)
+	height: calc(#{$line}*#{$fz}*#{$lh})
+
+=max-height-text($line: 1, $fz: 1em, $lh: 1)
+	max-height: calc(#{$line}*#{$fz}*#{$lh})
+
+// =============================================================================
 // margin-horizontal / margin-vertical / padding-horizontal / padding-vertical
 // =============================================================================
 /// Примеси добавляют горизонтальные/вертикальные внешние/внутренние отстпупы (`margin/padding`)
