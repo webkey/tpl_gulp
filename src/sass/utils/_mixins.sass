@@ -40,6 +40,21 @@
 	height: $height
 
 // =============================================================================
+// Position
+// =============================================================================
+/// Примесь устанавливает верхнюю и левую координаты
+///
+/// @param {Length} $t [0] - верхняя координата
+/// @param {Length} $l [0] - левая координата
+///
+/// @example Sass - Использование
+/// @example css - Вывод CSS
+
+=position($t: 0, $l: 0)
+	top: $t
+	left: $l
+
+// =============================================================================
 // font
 // =============================================================================
 /// Примесь добавляет одновремменно `font-size` и `line-height`
@@ -116,6 +131,21 @@
 	content: $content
 	display: $display
 	position: $pos
+
+=pseudo-block-relative($content: '')
+	+pseudo($content: $content, $display: block, $pos: relative)
+
+=pseudo-relative($content: '')
+	+pseudo($content: $content, $display: null, $pos: relative)
+
+=pseudo-inline-block($content: '')
+	+pseudo($content: $content, $display: inline-block, $pos: null)
+
+=pseudo-inline-block-relative($content: '')
+	+pseudo($content: $content, $display: inline-block, $pos: relative)
+
+=pseudo-content($content: '')
+	+pseudo($content: $content, $display: null, $pos: null)
 
 // =============================================================================
 // antialiased
