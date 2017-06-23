@@ -44,9 +44,9 @@
 /*form common*/
 input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
 	display: block
-	padding: 12px 18px
+	padding: #{$input-space-v} #{$input-space-h}
 	+size(100%, 50px)
-	+font(16px, 24px)
+	+font($form-font-size, $form-line-height)
 	color: $form-text-color
 	letter-spacing: normal
 	background: $form-bg-color
@@ -76,7 +76,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 		box-shadow: inset 0 0 0 1px $form-error-color
 
 textarea
-	padding: 12px 18px
+	padding: #{$input-space-v} #{$input-space-h}
 	min-height: 114px
 	height: 114px
 	resize: vertical
@@ -537,7 +537,7 @@ input[type="radio"]
 		height: 50px
 		text-overflow: ''
 		cursor: pointer
-		padding: 13px 40px 13px 18px
+		padding: #{$select-space-v} #{$select-arrow-width} #{$select-space-v} #{$select-space-h}
 		white-space: nowrap
 		text-indent: 0
 		width: 100%
@@ -546,7 +546,7 @@ input[type="radio"]
 		background: $form-bg-color
 		box-shadow: none
 		transition-property: background, border, color, box-shadow
-		transition-duration: 0.2s
+		transition-duration: $animation-speed
 		box-sizing: border-box
 		outline: none
 
@@ -557,8 +557,7 @@ input[type="radio"]
 	.select2-container--default .select2-selection--single .select2-selection__rendered,
 	.select2-container--default .select2-selection--multiple .select2-selection__rendered
 		+font-normal
-		font-size: 16px
-		line-height: 22px
+		+font($form-font-size, $form-line-height)
 		text-transform: none
 		color: $form-text-color
 
@@ -579,18 +578,13 @@ input[type="radio"]
 				position: absolute
 				right: 0
 				top: 0
-				height: 100%
-				width: 40px
+				+size($select-arrow-width, $select-arrow-height)
 				background-color: white
 				z-index: 2
 
 				b
 					border: none
-					position: absolute
-					left: 0
-					top: 0
-					width: 100%
-					height: 100%
+					+cover()
 					margin: 0
 
 	&::before,
@@ -601,11 +595,9 @@ input[type="radio"]
 		position: absolute
 		right: 22px
 		top: 50%
-		width: 8px
-		height: 2px
+		+size(8px, 2px)
 		background-color: $title-color
 		margin-top: -1px
-		box-sizing: border-box
 		z-index: 1
 
 	&::before,
@@ -623,7 +615,7 @@ input[type="radio"]
 
 	// multiple
 	.select2-container--default .select2-selection--multiple
-		padding: 9px 40px 9px 18px
+		padding: 8px #{$select-arrow-width} 8px #{$select-space-h}
 
 		.select2-selection__rendered
 			padding-left: 0
@@ -639,11 +631,30 @@ input[type="radio"]
 				&::before
 					content: none
 
+		.select2-selection__choice
+			background-color: $link-color
+			border: 1px solid $link-color
+			border-radius: 0
+			color: $text-color
+
+		.select2-selection__choice__remove
+			color: $text-color
+
+			&:hover
+				color: $link-color
+
 /*select2 dropdown*/
 .select2-dropdown
 	border-color: $form-border-color
 	border-radius: 0
 	z-index: 9999
+
+.select2-results__options
+	+font-normal
+	+font($form-font-size, $form-line-height)
+
+.select2-results__option
+	padding: 8px #{$select-space-h} 8px #{$select-space-h}
 
 .select2-container--default
 	.select2-search--dropdown
@@ -658,6 +669,13 @@ input[type="radio"]
 
 	.select2-results>.select2-results__options
 		max-height: 210px
+
+	.select2-results__option[aria-selected=true]
+		background-color: #f3f3f3
+
+	.select2-results__option--highlighted[aria-selected]
+		background-color: $link-color
+		color: $text-color
 
 /*select2 dropdown end*/
 /*select end*/
