@@ -5,19 +5,18 @@
 /*FORM STYLES DEFAULT
 /*form layout
 .form-row, .input-wrap
+	position: relative
 	margin-bottom: $form-bottom-space
 
 .form-row
-	margin: 0 -15px
+	margin: 0 -#{round($form-gap*0.5)}
 	font-size: 0
 	letter-spacing: -4px
 
 	.input-wrap
-		display: inline-block
-		vertical-align: top
-		width: 49.98%
-		padding: 0 15px
-		box-sizing: border-box
+		+display-inline-block-top
+		width: calc(100% * 0.5 - #{$form-gap})
+		+margin-horizontal(#{round($form-gap*0.5)})
 
 		font-size: $font-size
 		letter-spacing: normal
@@ -25,14 +24,20 @@
 		+media('<mob-lg')
 			display: block
 			width: auto
-			margin-bottom: $form-bottom-space
+			margin-bottom: $form-bottom-space--sm
+
+label
+	+font($font-size, $line-height)
+	color: $text-color
 
 .label-holder
+	+font($form-font-size, $form-line-height)
+	color: $text-color
 	margin-bottom: 2px
 
 	label
 		+font(inherit, inherit)
-		color: $text-color
+		color: inherit
 
 .form-mark
 	display: inline-block
@@ -44,8 +49,9 @@
 /*form common*/
 input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
 	display: block
-	padding: #{$input-space-v} #{$input-space-h}
-	+size(100%, 50px)
+	padding: #{$form-input-space-v} #{$form-input-space-h}
+	+font-normal
+	+size(100%, $form-input-height)
 	+font($form-font-size, $form-line-height)
 	color: $form-text-color
 	letter-spacing: normal
@@ -54,7 +60,6 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 	border: 1px solid $form-border-color
 	transition-property: border-color, background-color, box-shadow
 	transition-duration: $animation-speed
-	box-sizing: border-box
 	margin: 0 0 $form-bottom-space
 
 	.input-wrap &
@@ -76,22 +81,17 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 		box-shadow: inset 0 0 0 1px $form-error-color
 
 textarea
-	padding: #{$input-space-v} #{$input-space-h}
+	padding: #{$form-input-space-v} #{$form-input-space-h}
 	min-height: 114px
 	height: 114px
 	resize: vertical
 
 .error-note
-	//display: block
-	position: relative
-	float: left
-	margin-bottom: 1.8em
-	+size(100%, 1.8em)
-	+font(1.2rem, 1.8)
+	position: absolute
+	+size(100%, 22px)
+	+font(12px, 22px)
+	+truncate(none)
 	color: $form-error-color
-	overflow: hidden
-	text-overflow: ellipsis
-	white-space: nowrap
 	display: none
 
 	form .error &
@@ -187,7 +187,6 @@ input[type="checkbox"] + label::before, .check-label > span > i::before
 	margin-top: -9px
 	border-radius: 0
 	border: 1px solid $mark-color
-	box-sizing: border-box
 
 input[type="checkbox"] + label > span, input[type="radio"] + label > span, input[type="checkbox"] + span, input[type="radio"] + span
 	display: inline-block
@@ -283,7 +282,6 @@ input[type="radio"]
 		margin-top: -9px
 		border-radius: 50px
 		border: 1px solid $mark-color
-		box-sizing: border-box
 
 	& + label::after, & + span::after
 		content: ''
@@ -386,7 +384,6 @@ input[type="radio"]
 		box-shadow: none
 		transition-property: background, border, color, box-shadow
 		transition-duration: $animation-speed
-		box-sizing: border-box
 		outline: none
 
 	select, button.cselect, button.cselect .select-inner
@@ -416,7 +413,6 @@ input[type="radio"]
 		background-color: $form-border-focus-color
 		border-radius: 2px
 		margin-top: -1px
-		box-sizing: border-box
 		z-index: 1
 
 	&::before, button.cselect .ui-icon .arrow-select::before
@@ -534,7 +530,7 @@ input[type="radio"]
 		display: block
 		position: relative
 		overflow: hidden
-		height: 50px
+		height: $form-input-height
 		text-overflow: ''
 		cursor: pointer
 		padding: #{$select-space-v} #{$select-arrow-width} #{$select-space-v} #{$select-space-h}
@@ -547,7 +543,6 @@ input[type="radio"]
 		box-shadow: none
 		transition-property: background, border, color, box-shadow
 		transition-duration: $animation-speed
-		box-sizing: border-box
 		outline: none
 
 	.select2-container--default .select2-selection--multiple
@@ -632,8 +627,8 @@ input[type="radio"]
 					content: none
 
 		.select2-selection__choice
-			background-color: $link-color
-			border: 1px solid $link-color
+			background-color: $base-color
+			border: 1px solid $base-color
 			border-radius: 0
 			color: $text-color
 
@@ -674,7 +669,7 @@ input[type="radio"]
 		background-color: #f3f3f3
 
 	.select2-results__option--highlighted[aria-selected]
-		background-color: $link-color
+		background-color: $base-color
 		color: $text-color
 
 /*select2 dropdown end*/
