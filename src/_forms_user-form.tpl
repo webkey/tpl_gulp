@@ -20,12 +20,12 @@
 					<span class="error-note">Поле обязательно для заполнения</span>
 				</div>
 			</div>
-			<div class="input-wrap has--value">
+			<div class="input-wrap">
 				<div class="label-holder">
 					<label for="user-form-example__message-field">Сообщение<span class="form-mark">*</span></label>
 				</div>
-				<div class="input-holder success">
-					<textarea id="user-form-example__message-field" class="success"></textarea>
+				<div class="input-holder">
+					<textarea id="user-form-example__message-field"></textarea>
 					<span class="error-note">Поле обязательно для заполнения</span>
 				</div>
 			</div>
@@ -37,7 +37,7 @@
 					<input class="upload-file" name="files[]" type="file" multiple="multiple" data-jfiler-limit="2">
 				</div>
 			</div>
-			<div class="input-wrap has--value">
+			<div class="input-wrap">
 				<div class="label-holder">
 					<label for="user-form-example__captcha-field">Защита от спама:<span class="form-mark">*</span></label>
 				</div>
