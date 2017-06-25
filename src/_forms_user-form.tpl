@@ -8,7 +8,8 @@
 				</div>
 				<div class="input-holder">
 					<input type="text" id="user-form-example__name-field">
-					<span class="error-note">Поле обязательно для заполнения</span>
+					<span class="error-note">Поле обязательное для заполнения</span>
+					<span class="confirm-note">&nbsp;</span>
 				</div>
 			</div>
 			<div class="input-wrap">
@@ -17,7 +18,8 @@
 				</div>
 				<div class="input-holder">
 					<input type="email" id="user-form-example__email-field">
-					<span class="error-note">Поле обязательно для заполнения</span>
+					<span class="error-note">Поле обязательное для заполнения</span>
+					<span class="confirm-note">&nbsp;</span>
 				</div>
 			</div>
 			<div class="input-wrap">
@@ -26,7 +28,8 @@
 				</div>
 				<div class="input-holder">
 					<textarea id="user-form-example__message-field"></textarea>
-					<span class="error-note">Поле обязательно для заполнения</span>
+					<span class="error-note">Поле обязательное для заполнения</span>
+					<span class="confirm-note">&nbsp;</span>
 				</div>
 			</div>
 			<div class="input-wrap">

@@ -34,6 +34,119 @@ function placeholderInit() {
 /*placeholder end*/
 
 /**
+ * !toggle class for input on focus
+ * */
+function inputToggleFocusClass() {
+	// use for the "focus" state
+	var $fieldWrap = $('.field-effects-js');
+
+	if ($fieldWrap.length) {
+		var $inputsAll = $fieldWrap.find('input[type="email"], input[type="search"], :text, textarea, select');
+		var _classFocus = 'input--focus';
+
+		$inputsAll.focus(function () {
+			var $thisField = $(this);
+
+			$thisField
+				.closest($fieldWrap)
+				.addClass(_classFocus);
+
+		}).blur(function () {
+			var $thisField = $(this);
+
+			$thisField
+				.closest($fieldWrap)
+				.removeClass(_classFocus);
+		});
+	}
+}
+
+function inputHasValueClass() {
+	// use for the "has-value" state
+	var $fieldWrap = $('.field-effects-js');
+
+	if ($fieldWrap.length) {
+		var $inputsAll = $fieldWrap.find('input[type="email"], input[type="search"], :text, textarea, select');
+		var classHasValue = 'input--has-value';
+
+		$.each($inputsAll, function () {
+			switchHasValue.call(this);
+		});
+
+		// $inputsAll.on('change', function () {
+		// 	switchHasValue.call(this);
+		// });
+
+		$inputsAll.on('keyup change', function () {
+			console.log('keyup change');
+			switchHasValue.call(this);
+		});
+
+		function switchHasValue() {
+			var $currentField = $(this);
+			var $currentFieldWrap = $currentField.closest($fieldWrap);
+
+			console.log("$currentField.val(): ", $currentField.val());
+
+			//first element of the select must have a value empty ("")
+			if ($currentField.val() === '') {
+				$currentFieldWrap.removeClass(classHasValue);
+			} else if (!$currentFieldWrap.hasClass(classHasValue)) {
+				$currentFieldWrap.addClass(classHasValue);
+			}
+		}
+	}
+}
+
+function inputFilledClass() {
+	// use if the "focus" state and the "has-value" state are the same
+	var $fieldWrap = $('.field-effects-js');
+
+	if ($fieldWrap.length) {
+		var $inputsAll = $fieldWrap.find('input[type="email"], input[type="search"], :text, textarea, select');
+		var _classFilled = 'input--filled';
+
+		$inputsAll.focus(function () {
+			var $thisField = $(this);
+
+			$thisField
+				.closest($fieldWrap)
+				.addClass(_classFilled);
+
+		}).blur(function () {
+			var $thisField = $(this);
+
+			if ($thisField.val() === '') {
+				$thisField
+					.closest($fieldWrap)
+					.removeClass(_classFilled);
+			}
+		});
+
+		function switchHasValue() {
+			var $currentField = $(this);
+			var $currentFieldWrap = $currentField.closest($fieldWrap);
+
+			$currentFieldWrap.removeClass(_classFilled);
+
+			//first element of the select must have a value empty ("")
+			if ($currentField.val() !== '') {
+				$currentFieldWrap.addClass(_classFilled);
+			}
+		}
+
+		$.each($inputsAll, function () {
+			switchHasValue.call(this);
+		});
+
+		$inputsAll.on('change', function () {
+			switchHasValue.call(this);
+		});
+	}
+}
+/*toggle class for input on focus end*/
+
+/**
  * !print
  * */
 function printShow() {
@@ -211,6 +324,9 @@ function formSuccessExample() {
 $(document).ready(function () {
 	placeholderInit();
 	printShow();
+	inputToggleFocusClass();
+	inputHasValueClass();
+	// inputFilledClass();
 	// if (!Modernizr.touchevents) {
 	// 	customSelect($('select.cselect'));
 	// }

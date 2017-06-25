@@ -14,6 +14,8 @@
 				<option value="7">Сочетание</option>
 				<option value="8">Расстояние</option>
 			</select>
+			<span class="error-note">Обязательное поле</span>
+			<span class="confirm-note">&nbsp;</span>
 		</div>
 	</div>
 	<div class="input-wrap field-effects-js">
@@ -31,6 +33,8 @@
 				<option value="7">Сочетание</option>
 				<option value="8">Расстояние</option>
 			</select>
+			<span class="error-note">Обязательное поле</span>
+			<span class="confirm-note">&nbsp;</span>
 		</div>
 	</div>
 	<div class="input-wrap field-effects-js">
@@ -48,6 +52,8 @@
 				<option value="7">Сочетание</option>
 				<option value="8">Расстояние</option>
 			</select>
+			<span class="error-note">Обязательное поле</span>
+			<span class="confirm-note">&nbsp;</span>
 		</div>
 	</div>
 	<div class="input-wrap field-effects-js">
@@ -65,6 +71,8 @@
 				<option value="7">Сочетание</option>
 				<option value="8">Расстояние</option>
 			</select>
+			<span class="error-note">Обязательное поле</span>
+			<span class="confirm-note">&nbsp;</span>
 		</div>
 	</div>
 </form>

@@ -6,6 +6,7 @@
 		<div class="input-holder">
 			<input type="text" placeholder="Текстовое поле" id="expl-label-01" />
 			<span class="error-note">Поле обязательное для заполнения</span>
+			<span class="confirm-note">&nbsp;</span>
 		</div>
 	</div>
 	<div class="input-wrap field-effects-js">
@@ -15,6 +16,7 @@
 		<div class="input-holder error">
 			<input class="error" type="text" placeholder="Невалидное поле" id="expl-label-02" />
 			<span class="error-note">Поле обязательное для заполнения</span>
+			<span class="confirm-note">&nbsp;</span>
 		</div>
 	</div>
 	<div class="form-row">
@@ -25,6 +27,7 @@
 			<div class="input-holder">
 				<input type="text" placeholder="Текстовое поле первое" id="expl-label-03" />
 				<span class="error-note">Поле обязательное для заполнения</span>
+				<span class="confirm-note">&nbsp;</span>
 			</div>
 		</div>
 		<div class="input-wrap field-effects-js">
@@ -34,6 +37,7 @@
 			<div class="input-holder error">
 				<input class="error" type="text" placeholder="Текстовое поле второе" id="expl-label-04" />
 				<span class="error-note">Поле обязательное для заполнения</span>
+				<span class="confirm-note">&nbsp;</span>
 			</div>
 		</div>
 	</div>
@@ -45,6 +49,7 @@
 			<div class="input-holder">
 				<input type="text" placeholder="Текстовое поле третье" id="expl-label-05" />
 				<span class="error-note">Поле обязательное для заполнения</span>
+				<span class="confirm-note">&nbsp;</span>
 			</div>
 		</div>
 		<div class="input-wrap field-effects-js">
@@ -63,6 +68,7 @@
 					<option value="8">Расстояние</option>
 				</select>
 				<span class="error-note">Обязательное поле</span>
+				<span class="confirm-note">&nbsp;</span>
 			</div>
 		</div>
 	</div>
@@ -72,6 +78,8 @@
 		</div>
 		<div class="input-holder">
 			<textarea placeholder="Сообщение" id="expl-label-07"></textarea>
+			<span class="error-note">Поле обязательное для заполнения</span>
+			<span class="confirm-note">&nbsp;</span>
 		</div>
 	</div>
 </form>
