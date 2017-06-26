@@ -8,6 +8,12 @@ $breakpoints: ('desk-hd': 1920px, 'desk-lg': 1600px, 'desk-md': 1366px, 'desk-sm
 // base
 $font-size: 1.6rem !default
 $line-height: round-float(2.8rem/$font-size, 2) !default
+// ===============
+$font-size--sm: 1.4rem !default
+$line-height--sm: round-float(2.0rem/$font-size--sm, 2) !default
+// ===============
+$font-size--less: 1.2rem !default
+$line-height--less: round-float(1.8rem/$font-size--less, 2) !default
 
 // ===============
 $font-size-h1: 3.6rem !default
@@ -41,6 +47,8 @@ $bottom-space-lg: round-float($font-size*$line-height*2, 1) !default
 $base-color: tomato
 // цвет фона страницы
 $bg-color: brown !default
+// цвет фона элементов выделяющихся на страницы
+$bg-color-alt: #f3f3f3 !default
 // цвет основного текста
 $text-color: #262626 !default
 // цвет основных заголовков заголовков
@@ -68,8 +76,8 @@ $page-layout-space-horizontal: 20px !default
 $page-layout-width: 1920px + $page-layout-space-horizontal*2 !default
 // минимальные отступы слева и справа у текствого блока
 $text-layout-space-horizontal: 40px !default
-$text-layout-space-horizontal-md: 30px !default
-$text-layout-space-horizontal-sm: 15px !default
+$text-layout-space-horizontal--md: 30px !default
+$text-layout-space-horizontal--sm: 15px !default
 // максимальная ширина текстового блока
 $text-layout-width: 640px + $text-layout-space-horizontal*2 !default
 // минимальные отступы слева и справа у блокоа выходящего за пределы текста
@@ -92,6 +100,8 @@ $form-gap: 60px !default
 $form-font-size: 16px
 $form-line-height: 24px
 $form-input-height: 50px
+// ==================
+$checkbox-color: tomato
 // ==================
 $form-input-space-v: 12px
 $form-input-space-h: 18px

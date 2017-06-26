@@ -5,36 +5,41 @@
 /*user form*/
 .form-title
 	display: block
-	font-family: $font-alt
-	font-weight: bold
-	padding-bottom: $bottom-space
-	color: $text-color-alt
-	font-size: 2.4rem
-	line-height: 1.2
+	+font-alt-bold
+	+font($font-size-h2, $line-height-h2)
+	color: $title-color
 	text-align: center
+	margin-bottom: $bottom-space-md
 
 .user-form
-	background: #fafafa
+	background: $bg-color-alt
 	padding: $text-layout-space-horizontal
-	border: 1px solid $border-color
 	margin-bottom: $bottom-space
 
 	+media('<tab-lg')
-		padding: $text-layout-space-horizontal-md
+		padding: $text-layout-space-horizontal--md
 
 	+media('<mob-lg')
-		padding: $text-layout-space-horizontal-sm
+		padding: $text-layout-space-horizontal--sm
 		border-width: 1px 0
 
 	form
 		display: block
 
+	.input-wrap
+		margin-bottom: 50px
+
 	textarea
-		height: 152px
-		max-height: 152px
+		height: 130px
+		max-height: 130px
 		resize: none
 
 	.captcha
+		+display-inline-block-top
+		+clear-spacing
+		position: relative // Важно! Для позицирования отметки подтверждения полей формы
+		z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
+
 		+clear
 
 		img
@@ -47,8 +52,7 @@
 			& + input
 				display: inline-block
 				vertical-align: middle
-				width: auto
-				max-width: calc(50% - #{$margin-right} - 10px)
+				width: 200px
 
 		+media('<tab-lg')
 			img
@@ -81,8 +85,7 @@
 	.form-note
 		overflow: hidden
 		min-height: 50px
-		font-size: 0
-		letter-spacing: -4px
+		+clear-spacing
 		line-height: 25px
 
 		&::before
@@ -95,8 +98,7 @@
 		display: inline-block
 		vertical-align: middle
 		width: calc(100% - 6px)
-		font-size: 1.4rem
-		line-height: 1.5
+		+font($font-size--sm, $line-height--sm)
 		letter-spacing: normal
 
 /*user form end*/

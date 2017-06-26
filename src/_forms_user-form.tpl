@@ -49,6 +49,7 @@
 						<img src="img/captcha.jpg" alt="captcha" />
 						<input type="text" id="user-form-example__captcha-field">
 						<span class="error-note">Введите текст на картинке для защиты от спама</span>
+						<span class="confirm-note">&nbsp;</span>
 					</div>
 				</div>
 			</div>
