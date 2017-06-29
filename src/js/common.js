@@ -78,15 +78,12 @@ function inputHasValueClass() {
 		// });
 
 		$inputsAll.on('keyup change', function () {
-			console.log('keyup change');
 			switchHasValue.call(this);
 		});
 
 		function switchHasValue() {
 			var $currentField = $(this);
 			var $currentFieldWrap = $currentField.closest($fieldWrap);
-
-			console.log("$currentField.val(): ", $currentField.val());
 
 			//first element of the select must have a value empty ("")
 			if ($currentField.val() === '') {
