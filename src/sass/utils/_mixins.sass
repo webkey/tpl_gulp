@@ -491,22 +491,17 @@
 ///   width: 100%;
 ///   height: 100%;
 /// }
-=cover()
-	left: 0
-	top: 0
+=cover($position: null)
+	@if $position
+		position: $position
+	+position(0, 0)
 	+size(100%)
 
 =cover-abs()
-	position: absolute
-	left: 0
-	top: 0
-	+size(100%)
+	+cover($position: absolute)
 
 =cover-rel()
-	position: relative
-	left: 0
-	top: 0
-	+size(100%)
+	+cover($position: relative)
 
 /// Примесь позволяет указывает изображению способ заполнения блока,
 /// в котором находится
