@@ -52,6 +52,7 @@
 	<!--==================================================================-->
 	<!--=========================== ПРИМЕР ===============================-->
 	<!--==================================================================-->
+	<!--Чтобы лучше было видно группу пунктов в одно дропе, нужно подсветить этот дроп, введя в поиск ==========3========== -->
 	<li class="has-drop">@@include('_navigation-LINK--full.tpl', { "itemText": "tt2tt", "itemLink": "#", "key": "@@classKey", "specialValue": "" })
 		@@include('_navigation-DROP-WRAP.tpl', { "dropLevel": "(==========3==========)", "START": "true", "key": "@@classKey"})
 	<li>@@include('_navigation-LINK--full.tpl', { "itemText": "tt3tt", "itemLink": "#", "key": "@@classKey", "specialValue": "" })</li>
