@@ -43,7 +43,7 @@
 	<!--@@classKey item end-->
 
 	<!--@@classKey item start-->
-	<li id="catalog-menu-item-09" class="js-tab-content@@if(catalogMenuActiveItem === "tt1tt"){ current}">
+	<li class="(mainNavItemActive === "tt1tt"){ current}">
 		@@include('_navigation-LINK--full.tpl', { "itemText": "tt1tt", "itemLink": "#", "key": "@@classKey", "specialValue": "" })
 		@@include('_navigation-DROP-WRAP.tpl', { "dropLevel": "(==========2==========)", "START": "true", "key": "@@classKey"})
 
