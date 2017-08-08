@@ -452,6 +452,9 @@
 		right: round($horizontal-space/2)
 	margin-bottom: $bottom-space
 
+	&:nth-last-child(-n+#{$length-in-row})
+		margin-bottom: 0
+
 =grid-item-float($length-in-row: 1, $horizontal-space: 20px, $bottom-space: $horizontal-space)
 	float: left
 	width: round-float(100%/$length-in-row, 2)
