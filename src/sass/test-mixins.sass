@@ -71,34 +71,6 @@
 	+size(320px, 50px)
 	+push-auto
 
-// centering
-.mx-centering
-	+size(320px, 200px)
-	position: relative
-	padding: 10px
-	cursor: default
-
-.mx-centering__inner
-	$width: 200px
-	$height: 50px
-	position: absolute
-	+size($width, $height)
-	+centering-margin($width, $height)
-
-	&::before
-		+pseudo('margin')
-		padding: 5px
-		text-align: center
-
-.mx--default .mx-centering__inner
-	// обнулить маржины (к тесту не относится)
-	margin: 0
-	+centering-transform()
-
-	&::before
-		letter-spacing: -0.08em
-		content: 'transform: translate(-50%, -50%)'
-
 // triangle
 .mx-triangle
 	+size(320px, 200px)
@@ -183,25 +155,3 @@
 
 	.mx-font--03
 		+font(2.1rem, 1.2)
-
-
-.mx-height-text
-	padding: $bottom-space-sm
-
-.mx-height-text__inner
-	overflow: hidden
-	margin-bottom: $bottom-space-sm
-	+font(1em, 1.5)
-	+height-text(5, 1em, 1.5)
-
-	&:last-child
-		margin-bottom: 0
-
-.mx-max-height-text__inner
-	overflow: hidden
-	margin-bottom: $bottom-space-sm
-	+font(1em, 1.5)
-	+max-height-text(5, 1em, 1.5)
-
-	&:last-child
-		margin-bottom: 0

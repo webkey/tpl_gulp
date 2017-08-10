@@ -50,7 +50,7 @@
 /// @example Sass - Использование
 /// @example css - Вывод CSS
 
-=position($t: 0, $l: 0)
+=position($t: 0, $l: $t)
 	top: $t
 	left: $l
 
@@ -73,7 +73,7 @@
 ///   line-height: 1.5;
 /// }
 
-=font($font-size: $font-size, $line-height: $line-height)
+=font($font-size: inherit, $line-height: inherit)
 	font-size: $font-size
 	line-height: $line-height
 
@@ -195,24 +195,6 @@
 	white-space: nowrap
 	text-overflow: ellipsis
 	overflow: hidden
-
-// =============================================================================
-// height-text / max-height-text
-// =============================================================================
-/// Устанавливает высоту текста по количеству строк
-///
-/// @param {Number} $line [1] - количество строк
-/// @param {Length} $fz [1em] - font-size
-/// @param {Length} $lh [1] - line-height
-///
-/// @example Sass - Использование
-/// @example css - Вывод CSS
-
-=height-text($line: 1, $fz: 1em, $lh: 1)
-	height: calc(#{$line}*#{$fz}*#{$lh})
-
-=max-height-text($line: 1, $fz: 1em, $lh: 1)
-	max-height: calc(#{$line}*#{$fz}*#{$lh})
 
 // =============================================================================
 // margin-horizontal / margin-vertical / padding-horizontal / padding-vertical
@@ -399,13 +381,33 @@
 ///
 /// @example Sass - Использование
 /// @example css - Вывод CSS
+=centering($width: null, $height: null, $transform: true, $pos: absolute)
+	position: $pos
+	left: 50%
+	top: 50%
 
-/// 1. С помощью transform: translate:
+	@if $transform
+		transform: translate(-50%, -50%)
+
+	@else
+		width: $width
+		height: $height
+		+margin($top: round(-$height*0.5), $left: round(-$width*0.5))
+
+/// 1.1 С помощью "transform: translate" без позициирования:
 =centering-transform($pos: null)
 	position: $pos
 	left: 50%
 	top: 50%
 	transform: translate(-50%, -50%)
+
+/// 1.2 С помощью "transform: translate" + "position: absolute":
+=centering-transform-abs()
+	+centering-transform($pos: absolute)
+
+/// 1.3 С помощью "transform: translate" + "position: relative":
+=centering-transform-rel()
+	+centering-transform($pos: relative)
 
 /// 2. С помощью margin:
 =centering-margin($width: null, $height: null, $pos: null)
@@ -450,7 +452,22 @@
 	padding:
 		left: round($horizontal-space/2)
 		right: round($horizontal-space/2)
-	margin-bottom: $bottom-space
+
+	&, &:nth-last-child(n+#{$length-in-row+1})
+		margin-bottom: $bottom-space
+
+	&:nth-last-child(-n+#{$length-in-row})
+		margin-bottom: 0
+
+/// использовать если нужно только поменять количество колонок
+=grid-item-responsive($length-in-row: 1, $horizontal-space: 20px, $bottom-space: $horizontal-space)
+	width: round-float(100%/$length-in-row, 2)
+	padding:
+		left: round($horizontal-space/2)
+		right: round($horizontal-space/2)
+
+	&, &:nth-last-child(n+#{$length-in-row+1})
+		margin-bottom: $bottom-space
 
 	&:nth-last-child(-n+#{$length-in-row})
 		margin-bottom: 0
@@ -494,6 +511,7 @@
 ///   width: 100%;
 ///   height: 100%;
 /// }
+
 =cover($position: null)
 	@if $position
 		position: $position
@@ -570,15 +588,33 @@
 		position: static
 		width: auto
 
-=show-text()
-	border: 0
-	clip: auto
-	height: auto
-	margin: 0
-	overflow: visible
-	padding: 0
-	position: relative
-	width: auto
+// =============================================================================
+// Input placeholder
+// =============================================================================
+
+=search-form-placeholder($color: #ccc, $tsp: color, $tsd: $animation-speed)
+	&::-webkit-input-placeholder
+		color: $color
+		transition: $tsp $tsd
+
+	&:-moz-placeholder
+		color: $color
+		transition: $tsp $tsd
+
+	&::-moz-placeholder
+		color: $color
+		transition: $tsp $tsd
+		opacity: 1
+
+	&:-ms-input-placeholder
+		color: $color
+		transition: $tsp $tsd
+		opacity: 1
+
+	&.placeholder
+		color: $color
+		transition: $tsp $tsd
+		opacity: 1
 
 // =============================================================================
 // Scroll lock

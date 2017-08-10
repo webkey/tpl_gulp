@@ -6,37 +6,49 @@
 $breakpoints: ('desk-hd': 1920px, 'desk-lg': 1600px, 'desk-md': 1366px, 'desk-sm': 1200px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-sm': 320px)
 
 // base
-$font-size: 1.6rem !default
-$line-height: round-float(2.8rem/$font-size, 2) !default
+$font-size: 1.8rem !default
+$line-height: round-float(3.2rem/$font-size, 2) !default
 // ===============
-$font-size--sm: 1.4rem !default
-$line-height--sm: round-float(2.0rem/$font-size--sm, 2) !default
+$font-size--sm: 1.6rem !default
+$line-height--sm: round-float(2.4rem/$font-size--sm, 2) !default
 // ===============
-$font-size--less: 1.2rem !default
-$line-height--less: round-float(1.8rem/$font-size--less, 2) !default
+$font-size--less: 1.4rem !default
+$line-height--less: round-float(2.0rem/$font-size--less, 2) !default
 
-// ===============
-$font-size-h1: 3.6rem !default
-$line-height-h1: 1.2 !default
-$font-size-h1--sm: 2.6rem !default
-$line-height-h1--sm: 1.3 !default
-// ===============
-$font-size-h2: round-float($font-size-h1*0.78, 1) !default
-$line-height-h2: round-float(($line-height-h1*1.08),2) !default
-$font-size-h2--sm: round-float($font-size-h1--sm*0.85, 1) !default
-$line-height-h2--sm: round-float(($line-height-h1--sm*1.08),2) !default
-// ===============
-$font-size-h3: round-float($font-size-h1*0.61, 1) !default
-$line-height-h3: round-float(($line-height-h1*1.2),2) !default
-// ===============
-$font-size-h4: round-float($font-size-h1*0.5, 1) !default
-$line-height-h4: round-float(($line-height-h1*1.33),2) !default
-// ===============
+// =======h1========
+$font-size-h1: 4.8rem !default
+$line-height-h1: round-float(6.0rem/$font-size-h1, 2) !default
+// md ===
+$font-size-h1--md: 3.6rem !default
+$line-height-h1--md: round-float(4.8rem/$font-size-h1--md, 2) !default
+// sm ===
+$font-size-h1--sm: 3.0rem !default
+$line-height-h1--sm: round-float(4.2rem/$font-size-h1--sm, 2) !default
+// =======h2========
+$font-size-h2: round-float($font-size-h1*3.6rem/4.8rem, 1) !default
+$line-height-h2: round-float(4.8rem/3.6rem, 2) !default
+// md ===
+$font-size-h2--md: round-float($font-size-h1--md*0.84, 1) !default
+$line-height-h2--md: round-float(($line-height-h1--md*1.02),2) !default
+// sm ===
+$font-size-h2--sm: round-float($font-size-h1--sm*0.87, 1) !default
+$line-height-h2--sm: round-float(($line-height-h1--sm*1.01),2) !default
+// =======h3========
+$font-size-h3: round-float($font-size-h1*2.4rem/4.8rem, 1) !default
+$line-height-h3: round-float(3.6rem/2.4rem, 2) !default
+// sm ===
+$font-size-h3--sm: round-float($font-size-h1--sm*0.73, 1) !default
+$line-height-h3--sm: round-float(($line-height-h1--sm*1.05),2) !default
+// =======h4========
+$font-size-h4: round-float($font-size-h1*1.8rem/4.8rem, 1) !default
+$line-height-h4: round-float(3.0rem/1.8rem, 2) !default
+// =======h5========
 $font-size-h5: $font-size !default
 $line-height-h5: $line-height !default
-// ===============
+// =======h6========
 $font-size-h6: round-float($font-size*0.75, 1) !default
 $line-height-h6: round-float($line-height*1.25, 2) !default
+
 
 $bottom-space: round-float($font-size*$line-height, 1) !default
 $bottom-space-sm: round-float($font-size*$line-height*0.5, 1) !default
@@ -44,9 +56,9 @@ $bottom-space-md: round-float($font-size*$line-height*1.5, 1) !default
 $bottom-space-lg: round-float($font-size*$line-height*2, 1) !default
 
 // цвет бренда
-$base-color: tomato
+$base-color: tomato !default
 // цвет фона страницы
-$bg-color: #444 !default
+$bg-color: #e5e5e5 !default
 // цвет фона элементов выделяющихся на страницы
 $bg-color-alt: #f3f3f3 !default
 // цвет основного текста

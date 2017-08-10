@@ -1,10 +1,10 @@
-@@include('_layout_head.tpl', {
+@@include('_tpl_layout_head.tpl', {
 	"title": "Главная",
 	"pageClass": ""
 })
 <div class="wrapper">
 	<!--HEADER-->
-	@@include('_layout_header.tpl', {
+	@@include('_tpl_layout_header.tpl', {
 		"mainNavItemActive": "Главная"
 	})
 	<!--HEADER end-->
@@ -16,7 +16,9 @@
 				<div class="content-wrap">
 					<div class="content user-content">
 						<!--breadcrumbs-->
-						@@include('_breadcrumbs.tpl')
+						@@include('_tpl_breadcrumbs.tpl', {
+							"last": ""
+						})
 						<!--breadcrumbs end-->
 						<section class="section">
 							<div class="section__title"><h2>Заголовок секции</h2></div>
@@ -29,15 +31,15 @@
 				<!--CONTENT end-->
 
 				<!--SIDEBAR-->
-				@@include('_layout_sidebar.tpl')
+				@@include('_tpl_layout_sidebar.tpl')
 				<!--SIDEBAR-->
 
 				<!--ASIDE-->
-				@@include('_layout_aside.tpl')
+				@@include('_tpl_layout_aside.tpl')
 				<!--ASIDE end-->
 			</div>
 		</div>
 	</div>
 	<!--MAIN end-->
 </div>
-@@include('_layout_foot.tpl')
+@@include('_tpl_layout_foot.tpl')

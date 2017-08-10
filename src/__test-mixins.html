@@ -1,11 +1,11 @@
-@@include('_layout_head.tpl', {
+@@include('_tpl_layout_head.tpl', {
 	"title": "Тестирование примесей и функций",
 	"pageClass": "mx-test"
 })
 <link rel="stylesheet" href="css/test-mixins.css">
 <div class="wrapper">
 	<!--HEADER-->
-	@@include('_layout_header.tpl', {
+	@@include('_tpl_layout_header.tpl', {
 		"mainNavItemActive": "Тестирование примесей и функций"
 	})
 	<!--HEADER end-->
@@ -53,23 +53,6 @@
 										<div class="section__subtitle"><h4>push-auto</h4></div>
 										<div class="mx-element mx-push-auto">
 											<div class="mx-inner mx-push-auto__inner"></div>
-										</div>
-									</div>
-								</div>
-							</section>
-							<section class="section">
-								<div class="section__title"><h3>centering()</h3></div>
-								<div class="section__holder">
-									<div class="section__box">
-										<div class="section__subtitle"><h4>+centering-margin($width, $height)</h4></div>
-										<div class="mx-element mx-centering">
-											<div class="mx-inner mx-centering__inner"></div>
-										</div>
-									</div>
-									<div class="section__box">
-										<div class="section__subtitle"><h4>+centering-transform()</h4></div>
-										<div class="mx-element mx-centering mx--default">
-											<div class="mx-inner mx-centering__inner"></div>
 										</div>
 									</div>
 								</div>
@@ -156,65 +139,17 @@
 									</div>
 								</div>
 							</section>
-							<section class="section">
-								<div class="section__title"><h3>height-text()</h3></div>
-								<div class="section__holder">
-									<div class="section__box">
-										<div class="mx-element mx-height-text">
-											<div class="mx-subtitle">
-												<div><b>+font(1em, 1.5)</b></div>
-												<div><b>+height-text(4, 1em, 1.5)</b></div>
-											</div>
-											<div class="mx-inner mx-height-text__inner">
-												Не отделяйте отступом первый абзац от заголовка. Если вы отбиваете абзацы пустой строкой, не используйте абзацные отступы. Это избыточно и безвкусно. С другой стороны, текст вообще без отступов и отбивок будет сложнее восприниматься. В общем, выберите один из способов: или красную строку, или отбивку — и используйте его на протяжении всего текста. Гарнитура — шрифт или несколько шрифтов, имеющих стилистическое единство начертания. Состоит из набора знаков (обычно — цифры, буквы, знаки пунктуации, спецсимволы, но может состоять так же исключительно из неалфавитных знаков). Например, гарнитура «Times New Roman» состоит из обычного, курсивного, полужирного и множества других шрифтов этого семейства.
-											</div>
-
-											<div class="mx-subtitle">
-												<div><b>+font(1em, 1.5)</b></div>
-												<div><b>+height-text(4, 1em, 1.5)</b></div>
-											</div>
-											<div class="mx-inner mx-height-text__inner">
-												Не отделяйте отступом первый абзац от заголовка. Если вы отбиваете абзацы пустой строкой, не используйте абзацные отступы.
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
-							<section class="section">
-								<div class="section__title"><h3>max-height-text()</h3></div>
-								<div class="section__holder">
-									<div class="section__box">
-										<div class="mx-element mx-height-text">
-											<div class="mx-subtitle">
-												<div><b>+font(1em, 1.5)</b></div>
-												<div><b>+max-height-text(4, 1em, 1.5)</b></div>
-											</div>
-											<div class="mx-inner mx-max-height-text__inner">
-												Не отделяйте отступом первый абзац от заголовка. Если вы отбиваете абзацы пустой строкой, не используйте абзацные отступы. Это избыточно и безвкусно. С другой стороны, текст вообще без отступов и отбивок будет сложнее восприниматься. В общем, выберите один из способов: или красную строку, или отбивку — и используйте его на протяжении всего текста. Гарнитура — шрифт или несколько шрифтов, имеющих стилистическое единство начертания. Состоит из набора знаков (обычно — цифры, буквы, знаки пунктуации, спецсимволы, но может состоять так же исключительно из неалфавитных знаков). Например, гарнитура «Times New Roman» состоит из обычного, курсивного, полужирного и множества других шрифтов этого семейства.
-											</div>
-
-											<div class="mx-subtitle">
-												<div><b>+font(1em, 1.5)</b></div>
-												<div><b>+max-height-text(4, 1em, 1.5)</b></div>
-											</div>
-											<div class="mx-inner mx-max-height-text__inner">
-												Не отделяйте отступом первый абзац от заголовка. Если вы отбиваете абзацы пустой строкой, не используйте абзацные отступы.
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
 						</div>
 					</div>
 				</div>
 				<!--CONTENT end-->
 
 				<!--SIDEBAR-->
-				@@include('_layout_sidebar.tpl')
+				@@include('_tpl_layout_sidebar.tpl')
 				<!--SIDEBAR-->
 			</div>
 		</div>
 	</div>
 	<!--MAIN end-->
 </div>
-@@include('_layout_foot.tpl')
+@@include('_tpl_layout_foot.tpl')

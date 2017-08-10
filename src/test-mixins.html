@@ -37,7 +37,7 @@
 </head>
 
 <body class="mx-test">
-	<!--[if lt IE 9]> <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
+	<!--[if lt IE 9]> <div class="browserupgrade"><p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p></div> <![endif]-->
 	<!-- >>> head.tpl END <<< -->
 	<link rel="stylesheet" href="css/test-mixins.css">
 	<div class="wrapper">
@@ -51,24 +51,25 @@
 					<!--navigation-->
 					<div class="nav-wrap">
 						<nav class="nav">
+							<!--(1) START nav FIRST level-->
 							<ul class="nav__list nav-js">
-								<!--(1) START @@key FIRST level-->
-								<li class="has-drop">
-									<div class="nav__tab">
-										<a href="typography.html" title="nav - Пункт 1"><span>Пункт 1</span></a>
+								<!--nav item start-->
+								<li class="has-drop ">
+									<div class="nav__tab nav__tab-js">
+										<a href="typography.html" title="nav - Пункт 1 (Типографика)"><span>Пункт 1 (Типографика)</span></a>
 										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 									</div>
 									<!--(2) START nav SECOND level-->
 									<div class="nav__drop nav-drop-js">
 										<ul class="sub-nav__list">
 											<li>
-												<div class="nav__tab">
+												<div class="nav__tab nav__tab-js">
 													<a href="#" title="nav - Пункт 1.1"><span>Пункт 1.1</span></a>
 													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 												</div>
 											</li>
 											<li class="has-drop">
-												<div class="nav__tab">
+												<div class="nav__tab nav__tab-js">
 													<a href="#" title="nav - Пункт 1.2 (есть подпункты)"><span>Пункт 1.2 (есть подпункты)</span></a>
 													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 												</div>
@@ -76,13 +77,13 @@
 												<div class="nav__drop nav-drop-js">
 													<ul class="sub-nav__list">
 														<li>
-															<div class="nav__tab">
+															<div class="nav__tab nav__tab-js">
 																<a href="#" title="nav - Пункт 1.2.1"><span>Пункт 1.2.1</span></a>
 																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 															</div>
 														</li>
 														<li class="has-drop">
-															<div class="nav__tab">
+															<div class="nav__tab nav__tab-js">
 																<a href="#" title="nav - Пункт 1.2.2 (есть подпункты)"><span>Пункт 1.2.2 (есть подпункты)</span></a>
 																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 															</div>
@@ -90,25 +91,25 @@
 															<div class="nav__drop nav-drop-js">
 																<ul class="sub-nav__list">
 																	<li>
-																		<div class="nav__tab">
+																		<div class="nav__tab nav__tab-js">
 																			<a href="#" title="nav - Пункт 1.2.2.1"><span>Пункт 1.2.2.1</span></a>
 																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 																		</div>
 																	</li>
 																	<li>
-																		<div class="nav__tab">
+																		<div class="nav__tab nav__tab-js">
 																			<a href="#" title="nav - Пункт 1.2.2.2"><span>Пункт 1.2.2.2</span></a>
 																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 																		</div>
 																	</li>
 																	<li>
-																		<div class="nav__tab">
+																		<div class="nav__tab nav__tab-js">
 																			<a href="#" title="nav - Пункт 1.2.2.3"><span>Пункт 1.2.2.3</span></a>
 																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 																		</div>
 																	</li>
 																	<li>
-																		<div class="nav__tab">
+																		<div class="nav__tab nav__tab-js">
 																			<a href="#" title="nav - Пункт 1.2.2.3"><span>Пункт 1.2.2.3</span></a>
 																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 																		</div>
@@ -118,13 +119,13 @@
 															<!--(4) END nav FOURTH level-->
 														</li>
 														<li>
-															<div class="nav__tab">
+															<div class="nav__tab nav__tab-js">
 																<a href="#" title="nav - Пункт 1.2.3"><span>Пункт 1.2.3</span></a>
 																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 															</div>
 														</li>
 														<li>
-															<div class="nav__tab">
+															<div class="nav__tab nav__tab-js">
 																<a href="#" title="nav - Пункт 1.2.4"><span>Пункт 1.2.4</span></a>
 																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 															</div>
@@ -134,13 +135,13 @@
 												<!--(3) END nav THIRD level-->
 											</li>
 											<li>
-												<div class="nav__tab">
+												<div class="nav__tab nav__tab-js">
 													<a href="#" title="nav - Пункт 1.4"><span>Пункт 1.4</span></a>
 													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 												</div>
 											</li>
 											<li>
-												<div class="nav__tab">
+												<div class="nav__tab nav__tab-js">
 													<a href="#" title="nav - Пункт 1.5"><span>Пункт 1.5</span></a>
 													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 												</div>
@@ -149,24 +150,66 @@
 									</div>
 									<!--(2) END nav SECOND level-->
 								</li>
-								<!--(1) END @@key FIRST level-->
-								<!--(1) START @@key FIRST level-->
+								<!--nav item end-->
+								<!--nav item start-->
 								<li class="">
-									<div class="nav__tab">
+									<div class="nav__tab nav__tab-js">
 										<a href="#" title="nav - Пункт 2"><span>Пункт 2</span></a>
 										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 									</div>
 								</li>
-								<!--(1) END @@key FIRST level-->
-								<!--(1) START @@key FIRST level-->
+								<!--nav item end-->
+								<!--nav item start-->
 								<li class="">
-									<div class="nav__tab">
+									<div class="nav__tab nav__tab-js">
 										<a href="#" title="nav - Пункт 3"><span>Пункт 3</span></a>
 										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
 									</div>
 								</li>
-								<!--(1) END @@key FIRST level-->
+								<!--nav item end-->
+								<!--nav item start-->
+								<li class="has-drop">
+									<div class="nav__tab nav__tab-js">
+										<a href="#" title="nav - tt1tt"><span>tt1tt</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+									<!--(2) START nav SECOND level-->
+									<div class="nav__drop nav-drop-js">
+										<ul class="sub-nav__list">
+											<!--==================================================================-->
+											<!--=========================== ПРИМЕР ===============================-->
+											<!--==================================================================-->
+											<!--Чтобы лучше было видно группу пунктов в одно дропе, нужно подсветить этот дроп, введя в поиск ==========3========== -->
+											<li class="has-drop">
+												<div class="nav__tab nav__tab-js">
+													<a href="#" title="nav - tt2tt"><span>tt2tt</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+												<!--(3) START nav THIRD level-->
+												<div class="nav__drop nav-drop-js">
+													<ul class="sub-nav__list">
+														<li>
+															<div class="nav__tab nav__tab-js">
+																<a href="#" title="nav - tt3tt"><span>tt3tt</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<!--(3) END nav THIRD level-->
+											</li>
+											<!--пробел ставим ТОЛЬКО после элемента с правилом "pos": "end"-->
+											<!--пример конец-->
+											<!--==================================================================-->
+											<!--=========================== ПРИМЕР конец =========================-->
+											<!--==================================================================-->
+										</ul>
+									</div>
+									<!--(2) END nav SECOND level-->
+								</li>
+								<!--nav item end-->
 							</ul>
+							<!--(1) END nav FIRST level-->
 						</nav>
 					</div>
 					<!--navigation end-->
@@ -232,29 +275,6 @@
 											</div>
 											<div class="mx-element mx-push-auto">
 												<div class="mx-inner mx-push-auto__inner"></div>
-											</div>
-										</div>
-									</div>
-								</section>
-								<section class="section">
-									<div class="section__title">
-										<h3>centering()</h3>
-									</div>
-									<div class="section__holder">
-										<div class="section__box">
-											<div class="section__subtitle">
-												<h4>+centering-margin($width, $height)</h4>
-											</div>
-											<div class="mx-element mx-centering">
-												<div class="mx-inner mx-centering__inner"></div>
-											</div>
-										</div>
-										<div class="section__box">
-											<div class="section__subtitle">
-												<h4>+centering-transform()</h4>
-											</div>
-											<div class="mx-element mx-centering mx--default">
-												<div class="mx-inner mx-centering__inner"></div>
 											</div>
 										</div>
 									</div>
@@ -365,60 +385,6 @@
 												<p class="mx-font--01">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque incidunt nobis omnis rem sunt. Aspernatur dolore et neque saepe voluptates.</p>
 												<p class="mx-font--02">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque incidunt nobis omnis rem sunt. Aspernatur dolore et neque saepe voluptates.</p>
 												<p class="mx-font--03">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque incidunt nobis omnis rem sunt. Aspernatur dolore et neque saepe voluptates.</p>
-											</div>
-										</div>
-									</div>
-								</section>
-								<section class="section">
-									<div class="section__title">
-										<h3>height-text()</h3>
-									</div>
-									<div class="section__holder">
-										<div class="section__box">
-											<div class="mx-element mx-height-text">
-												<div class="mx-subtitle">
-													<div><b>+font(1em, 1.5)</b></div>
-													<div><b>+height-text(4, 1em, 1.5)</b></div>
-												</div>
-												<div class="mx-inner mx-height-text__inner">
-													Не отделяйте отступом первый абзац от заголовка. Если вы отбиваете абзацы пустой строкой, не используйте абзацные отступы. Это избыточно и безвкусно. С другой стороны, текст вообще без отступов и отбивок будет сложнее восприниматься. В общем, выберите
-													один из способов: или красную строку, или отбивку — и используйте его на протяжении всего текста. Гарнитура — шрифт или несколько шрифтов, имеющих стилистическое единство начертания. Состоит из набора знаков (обычно — цифры, буквы, знаки
-													пунктуации, спецсимволы, но может состоять так же исключительно из неалфавитных знаков). Например, гарнитура «Times New Roman» состоит из обычного, курсивного, полужирного и множества других шрифтов этого семейства.
-												</div>
-												<div class="mx-subtitle">
-													<div><b>+font(1em, 1.5)</b></div>
-													<div><b>+height-text(4, 1em, 1.5)</b></div>
-												</div>
-												<div class="mx-inner mx-height-text__inner">
-													Не отделяйте отступом первый абзац от заголовка. Если вы отбиваете абзацы пустой строкой, не используйте абзацные отступы.
-												</div>
-											</div>
-										</div>
-									</div>
-								</section>
-								<section class="section">
-									<div class="section__title">
-										<h3>max-height-text()</h3>
-									</div>
-									<div class="section__holder">
-										<div class="section__box">
-											<div class="mx-element mx-height-text">
-												<div class="mx-subtitle">
-													<div><b>+font(1em, 1.5)</b></div>
-													<div><b>+max-height-text(4, 1em, 1.5)</b></div>
-												</div>
-												<div class="mx-inner mx-max-height-text__inner">
-													Не отделяйте отступом первый абзац от заголовка. Если вы отбиваете абзацы пустой строкой, не используйте абзацные отступы. Это избыточно и безвкусно. С другой стороны, текст вообще без отступов и отбивок будет сложнее восприниматься. В общем, выберите
-													один из способов: или красную строку, или отбивку — и используйте его на протяжении всего текста. Гарнитура — шрифт или несколько шрифтов, имеющих стилистическое единство начертания. Состоит из набора знаков (обычно — цифры, буквы, знаки
-													пунктуации, спецсимволы, но может состоять так же исключительно из неалфавитных знаков). Например, гарнитура «Times New Roman» состоит из обычного, курсивного, полужирного и множества других шрифтов этого семейства.
-												</div>
-												<div class="mx-subtitle">
-													<div><b>+font(1em, 1.5)</b></div>
-													<div><b>+max-height-text(4, 1em, 1.5)</b></div>
-												</div>
-												<div class="mx-inner mx-max-height-text__inner">
-													Не отделяйте отступом первый абзац от заголовка. Если вы отбиваете абзацы пустой строкой, не используйте абзацные отступы.
-												</div>
 											</div>
 										</div>
 									</div>

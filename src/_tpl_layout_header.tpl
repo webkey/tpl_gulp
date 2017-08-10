@@ -8,9 +8,9 @@
 			<!--navigation-->
 			<div class="nav-wrap">
 				<nav class="nav">
-					@@include('_navigation-list.tpl', {
+					@@include('_tpl_nav-constructor.tpl', {
 						"mainNavItemActive": "@@mainNavItemActive",
-						"classKey": "nav"
+						"bsKey": "nav"
 					})
 				</nav>
 			</div>
