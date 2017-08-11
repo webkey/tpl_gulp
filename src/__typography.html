@@ -1,11 +1,11 @@
-@@include('_tpl_layout_head.tpl', {
+@@include('_tpl_layout_head.html', {
 	"title": "Типографика",
 	"pageClass": ""
 })
 <div class="wrapper">
 	<!--HEADER-->
-	@@include('_tpl_layout_header.tpl', {
-		"mainNavItemActive": "Пункт 1 (Типографика)"
+	@@include('_tpl_layout_header.html', {
+		"currentItem": "Пункт 1 (Типографика)"
 	})
 	<!--HEADER end-->
 	<!--MAIN-->
@@ -16,43 +16,43 @@
 				<div class="content-wrap">
 					<div class="content user-content">
 						<!--breadcrumbs-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "breadcrumbs"
 						})
 						<!--breadcrumbs end-->
 
 						<!--heading-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "heading"
 						})
 						<!--heading end-->
 
 						<!--datetime-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "dateTime"
 						})
 						<!--datetime end-->
 
 						<!--entry-img-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "entryImage"
 						})
 						<!--entry-img end-->
 
 						<!--entry-text-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "entryText"
 						})
 						<!--entry-text end-->
 
 						<!--paragraphs-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "paragraphs"
 						})
 						<!--paragraphs end-->
 
 						<!--h2-h6-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "h2h6"
 						})
 						<!--h2-h6 end-->
@@ -60,7 +60,7 @@
 						<!--separator--><hr>
 
 						<!--font style-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "fontStyle"
 						})
 						<!--font style end-->
@@ -68,19 +68,19 @@
 						<!--separator--><hr>
 
 						<!--list ul-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "listUl"
 						})
 						<!--list ul end-->
 
 						<!--list ol-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "listOl"
 						})
 						<!--list ol end-->
 
 						<!--list mix-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "listMix"
 						})
 						<!--list mix end-->
@@ -89,13 +89,13 @@
 						<!--separator--><hr>
 
 						<!--blockquote-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "blockquote"
 						})
 						<!--blockquote end-->
 
 						<!--table styling-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "tableStyling"
 						})
 						<!--table styling end-->
@@ -103,19 +103,19 @@
 						<p>Обычный стандарт для интерлиньяжа — это около 1,4em, хотя очень часто он слишком плотный для экранов: одна из ключевых характеристик для шрифта, который будет хорошо работать на экранах — это большие контура, которые будут требовать увеличить интерлиньяж, чтобы соответствовать иерархии пространства.</p>
 
 						<!--table default-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "tableDefault"
 						})
 						<!--table default end-->
 
 						<!--files-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "files"
 						})
 						<!--files end-->
 
 						<!--style default button-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "buttons"
 						})
 						<!--style default button end-->
@@ -123,7 +123,7 @@
 						<div class="user-spacer">&nbsp;</div>
 
 						<!--form-default-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "formDefault"
 						})
 						<!--form-default end-->
@@ -131,7 +131,7 @@
 						<div class="user-spacer">&nbsp;</div>
 
 						<!--selects-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "select"
 						})
 						<!--selects end-->
@@ -139,19 +139,19 @@
 						<div class="user-spacer">&nbsp;</div>
 
 						<!--checkbox and radio-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "checkboxRadio"
 						})
 						<!--checkbox and radio end-->
 
 						<!--user form-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "userForm"
 						})
 						<!--user form end-->
 
 						<!--columnize-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "columnize"
 						})
 						<!--columnize end-->
@@ -159,7 +159,7 @@
 						<div class="user-spacer">&nbsp;</div>
 
 						<!--images align-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "imagesAlign"
 						})
 						<!--images align end-->
@@ -168,7 +168,7 @@
 						<!--separator--><hr>
 
 						<!--images-slider-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "imagesSlider"
 						})
 						<!--images-slider end-->
@@ -176,14 +176,14 @@
 						<!--separator--><hr>
 
 						<!--search-page-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "searchPage"
 						})
 						<!--search-page end-->
 
 						<!--separator--><hr>
 						<!--feature-list-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "featureList"
 						})
 						<!--feature-list end-->
@@ -191,7 +191,7 @@
 						<div class="user-spacer">&nbsp;</div>
 
 						<!--print-button-->
-						@@include('_tpl_typography_components.tpl', {
+						@@include('_tpl_typography_components.html', {
 							"component": "printButton"
 						})
 						<!--print-button end-->
@@ -470,15 +470,15 @@
 				<!--CONTENT end-->
 
 				<!--SIDEBAR-->
-				@@include('_tpl_layout_sidebar.tpl')
+				@@include('_tpl_layout_sidebar.html')
 				<!--SIDEBAR-->
 
 				<!--ASIDE-->
-				@@include('_tpl_layout_aside.tpl')
+				@@include('_tpl_layout_aside.html')
 				<!--ASIDE end-->
 			</div>
 		</div>
 	</div>
 	<!--MAIN end-->
 </div>
-@@include('_tpl_layout_foot.tpl')
+@@include('_tpl_layout_foot.html')

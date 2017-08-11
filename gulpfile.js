@@ -129,7 +129,7 @@ gulp.task('browserSync', function (done) { // Таск browserSync
 });
 
 gulp.task('watch', ['createCustomModernizr', 'browserSync', 'htmlCompilation', 'sassCompilation', 'mergeCssLibs', 'copyLibsScriptsToJs'], function () {
-	gulp.watch(['src/*.tpl', 'src/__*.html', 'src/includes-json/**/*.json'], ['htmlCompilation']); // Наблюдение за tpl
+	gulp.watch(['src/_tpl_*.html', 'src/__*.html', 'src/includes-json/**/*.json'], ['htmlCompilation']); // Наблюдение за tpl
 	// файлами в папке include
 	gulp.watch('src/sass/**/*.+(scss|sass)', ['sassCompilation']); // Наблюдение за sass файлами в папке sass
 });
@@ -163,7 +163,7 @@ gulp.task('build', ['cleanDistFolder', 'htmlCompilation', 'copyImgToDist', 'sass
 	gulp.src(['!src/js/temp/**/*.js', '!src/js/**/temp-*.js', 'src/js/*.js']) // Переносим скрипты в продакшен
 		.pipe(gulp.dest('dist/js'));
 
-	gulp.src(['!src/__*.html', 'src/*.html']) // Переносим HTML в продакшен
+	gulp.src(['!src/__*.html', '!src/_tpl_*.html', 'src/*.html']) // Переносим HTML в продакшен
 		.pipe(gulp.dest('dist'));
 
 	gulp.src(['src/*.png', 'src/*.ico', 'src/.htaccess']) // Переносим favicon и др. файлы в продакшин

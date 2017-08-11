@@ -50,9 +50,14 @@
 		border-color: black
 
 	body
-		font-family: Arial, Helvetica, sans-serif
-		font-size: 10pt
+		font-family: Arial, Helvetica, sans-serif !important
+		font-size: 10pt !important
 		line-height: 1.5 !important
+
+	h1, h2, h3, h4, h5, h6, b, strong, th, i, em, blockquote, q, cite
+		font-family: Arial, Helvetica, sans-serif !important
+		font-weight: normal !important
+		font-style: normal !important
 
 	h1
 		font-size: 20pt !important
@@ -78,6 +83,16 @@
 		font-size: 8pt !important
 		line-height: 1.8 !important
 
+	b, strong, th
+		font-weight: bold !important
+
+	i, em
+		font-style: italic !important
+
+	i b, i strong, em b, em strong, b i, b em, strong i, strong em
+		font-weight: bold !important
+		font-style: italic !important
+
 	table td, table th, table
 		border: 1px solid black !important
 		font-size: 9pt !important
@@ -90,10 +105,10 @@
 	.sidebar, .aside, .print-hidden, .view-print, .nav, .nav-list, .breadcrumbs, .breadcrumbs__list, form, .footer, .spacer, [class*="btn-"]
 		display: none !important
 
-	.main, .content, .layout, .layout-text, .layout-flood, .header, .header__holder, .blockquote, .blockquote *, blockquote, .imgl, .imgr, .imgc, .table-auto table
+	.main, .content, .layout, .layout-text, .layout-flood, .header, .header__holder, .blockquote, .blockquote *, blockquote, .imgl, .imgr, .imgc, table, blockquote, q, cite
 		+print-reset
 
-	h1, h2, h3, h4, h5, h6, p, ul, ol, .table-auto, table, .imgl, .imgr, .imgc, .datetime
+	h1, h2, h3, h4, h5, h6, p, ul, ol, .table-auto, table, .imgl, .imgr, .imgc, .datetime, blockquote, q
 		+prints-space-bottom-sm
 
 	.header, .blockquote, hr, blockquote
@@ -114,3 +129,6 @@
 		margin: 0 !important
 		font-size: 18pt !important
 		display: inline-block !important
+
+	table
+		width: 100% !important

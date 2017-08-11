@@ -1,6 +1,6 @@
 @@if(context.component === "breadcrumbs") {
 
-	@@include('_tpl_breadcrumbs.tpl', {
+	@@include('_tpl_breadcrumbs.html', {
 		"last": "Типографика в вебдизайне. Основные понятия и положения"
 	})
 
@@ -74,13 +74,13 @@
 
 }@@if(context.component === "fontStyle") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "textStyle",
 		"taText": "Начертания шрифта"
 	})
 
 	<!--italic-->
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "textStyleItalic",
 		"taText": "Наклонный",
 		"taTag": "h4"
@@ -88,7 +88,7 @@
 	<p><i>В рекомендациях по сочетанию шрифтов преобладает негласное правило — для заголовков выбирается шрифт без засечек, а основной текст формируется шрифтом с засечками. Однако такой подход не настолько популярен, как может показаться.</i></p>
 
 	<!--bold-->
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "textStyleBold",
 		"taText": "Жирный",
 		"taTag": "h4"
@@ -96,7 +96,7 @@
 	<p><b>На самом деле это правило касается в первую очередь печатных изданий, книгопечатания. Связано это с тем, что шрифт с засечками (небольшими росчерками на концах основных штрихов) плавно выстраивается в одну линию, облегчая восприятие текста и делая его более читабельным.</b></p>
 
 	<!--bold italic-->
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "textStyleBoldItalic",
 		"taText": "Наклонный жирный",
 		"taTag": "h4"
@@ -104,7 +104,7 @@
 	<p><b><i>Иначе обстоят дела с отображением текста дисплеями различных устройств. Возникает проблема сглаживания и неровности засечек. Поэтому для основного текста лучше подходит шрифт без засечек с несколько увеличенной высотой строчных знаков.</i></b></p>
 
 	<!--latin-->
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "textStyleLatin",
 		"taText": "Наклонный",
 		"taTag": "h4"
@@ -114,7 +114,7 @@
 
 }@@if(context.component === "listUl") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "unorderedList",
 		"taText": "Неупорядоченный список"
 	})
@@ -138,7 +138,7 @@
 
 }@@if(context.component === "listOl") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "orderedList",
 		"taText": "Упорядоченный список"
 	})
@@ -153,7 +153,7 @@
 
 }@@if(context.component === "listMix") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "complexList",
 		"taText": "Сложный список"
 	})
@@ -177,7 +177,7 @@
 
 }@@if(context.component === "blockquote") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "quote",
 		"taText": "Цитата"
 	})
@@ -192,7 +192,7 @@
 
 }@@if(context.component === "tableStyling") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "tableCustom",
 		"taText": "Таблица стилизованная"
 	})
@@ -207,15 +207,6 @@
 					<th>Как таковая</th>
 				</tr>
 			</thead>
-			<tfoot>
-				<tr>
-					<td>Итого</td>
-					<td>55%</td>
-					<td>23422</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-			</tfoot>
 			<tbody>
 				<tr>
 					<td>Содержаться</td>
@@ -253,12 +244,21 @@
 					<td>Нет</td>
 				</tr>
 			</tbody>
+			<tfoot>
+				<tr>
+					<td>Итого</td>
+					<td>55%</td>
+					<td>23422</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</tfoot>
 		</table>
 	</div>
 
 }@@if(context.component === "tableDefault") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "table",
 		"taText": "Таблица без стилей"
 	})
@@ -274,15 +274,6 @@
 					<th>Как таковая</th>
 				</tr>
 			</thead>
-			<tfoot>
-				<tr>
-					<td>Итого</td>
-					<td>55%</td>
-					<td>23422</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-			</tfoot>
 			<tbody>
 				<tr>
 					<td>Содержаться</td>
@@ -320,30 +311,39 @@
 					<td>Нет</td>
 				</tr>
 			</tbody>
+			<tfoot>
+				<tr>
+					<td>Итого</td>
+					<td>55%</td>
+					<td>23422</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</tfoot>
 		</table>
 	</div>
 
 }@@if(context.component === "files") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "file",
 		"taText": "Документы для скачивания"
 	})
 	<p>Когда вы увеличиваете размер шрифта, расстояние между символами тоже увеличивается. Поэтому, если вы устанавливаете в тексте крупный заголовок, советуем пропорционально скорректировать расстояние между символами и словами</p>
 	<div class="layout-text">
-		@@include('_tpl_files.tpl')
+		@@include('_tpl_files.html')
 	</div>
 	<p>Выделить важную мысль или слово, на которое нужно обратить внимание, можно самыми разными способами. Не переусердствуйте с ними. Не стоит выделять целое предложение одними прописными — новичок не всегда может сделать это к месту. Просто используйте полужирное начертание шрифта.</p>
 
 }@@if(context.component === "buttons") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "buttons",
 		"taText": "Кнопки"
 	})
 	<p>Редко бывает так, что 65 символов выходят за пределы браузера на пк, но на большинстве мобильных девайсов 65 символов (если текст отображается в достаточно большом масштабе, чтобы быть разборчивым) выходят далеко за пределы браузера.</p>
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "buttonsDef",
 		"taText": "Дефолтные кнопки",
 		"taTag": "h4"
@@ -359,7 +359,7 @@
 		</div>
 	</div>
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "buttonsAlt",
 		"taText": "Альтернативные кнопки",
 		"taTag": "h4"
@@ -377,48 +377,48 @@
 
 }@@if(context.component === "formDefault") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "formElementExample",
 		"taText": "Поля форм"
 	})
 	<div class="layout-text">
-		@@include('_tpl_forms_form-default.tpl')
+		@@include('_tpl_forms_form-default.html')
 	</div>
 
 }@@if(context.component === "select") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "formsSelect",
 		"taText": "Селекты"
 	})
 	<div class="layout-text">
-		@@include('_tpl_forms_form-selects.tpl')
+		@@include('_tpl_forms_form-selects.html')
 	</div>
 
 }@@if(context.component === "checkboxRadio") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "formCheckboxExample",
 		"taText": "Чекбоксы и Радиобаттоны"
 	})
 	<div class="layout-text">
-		@@include('_tpl_forms_checkbox-and-radio.tpl')
+		@@include('_tpl_forms_checkbox-and-radio.html')
 	</div>
 
 }@@if(context.component === "userForm") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "userFormExample",
 		"taText": "Форма обратной связи"
 	})
-	@@include('_tpl_forms_user-form.tpl', {
+	@@include('_tpl_forms_user-form.html', {
 		"title": "Задать вопрос"
 	})
 
 }@@if(context.component === "columnize") {
 
 	<div class="layout-flood">
-		@@include('_tpl_title-anchor.tpl', {
+		@@include('_tpl_title-anchor.html', {
 			"taId": "columnize",
 			"taText": "Колонки (css3 columnize)"
 		})
@@ -446,7 +446,7 @@
 
 }@@if(context.component === "imagesAlign") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "imagesAlign",
 		"taText": "Выравнивание картинок в контенте"
 	})
@@ -473,30 +473,30 @@
 
 }@@if(context.component === "imagesSlider") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "imagesCarousel",
 		"taText": "Карусель с подписями"
 	})
-	@@include('_tpl_sliders_images-carousel.tpl')
+	@@include('_tpl_sliders_images-carousel.html')
 
 }@@if(context.component === "searchPage") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "searchPage",
 		"taText": "Пример страницы поиска"
 	})
 	<div class="layout-text">
-		@@include('_tpl_search-page-bitrix.tpl')
+		@@include('_tpl_search-page-bitrix.html')
 	</div>
 
 }@@if(context.component === "featureList") {
 
-	@@include('_tpl_title-anchor.tpl', {
+	@@include('_tpl_title-anchor.html', {
 		"taId": "visualList",
 		"taText": "Изображения + описания к ним"
 	})
 	<div class="layout-text">
-		@@include("_tpl_feature-list.tpl")
+		@@include("_tpl_feature-list.html")
 	</div>
 
 }@@if(context.component === "printButton") {

@@ -1,3 +1,8 @@
+Перед началом проэкта запустить в косоле
+start.bat
+
+ИЛИ
+
 to cdm commandline: start
     ============
     //npm i gulp
