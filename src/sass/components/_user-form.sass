@@ -13,15 +13,16 @@
 
 .user-form
 	background: $bg-color-alt
-	padding: $text-layout-space-horizontal
+	+padding-vertical($text-layout-space-horizontal)
 	margin-bottom: $bottom-space
+	border: solid $border-color
+	border-width: 1px 0
 
 	+media('<tab-lg')
-		padding: $text-layout-space-horizontal--md
+		+padding-vertical($text-layout-space-horizontal--md)
 
 	+media('<mob-lg')
-		padding: $text-layout-space-horizontal--sm
-		border-width: 1px 0
+		+padding-vertical($text-layout-space-horizontal--sm)
 
 	form
 		display: block

@@ -5,15 +5,14 @@
 /*slick sliders*/
 // arrows
 .slick-arrow
-	width: 40px
-	height: 40px
+	+size(40px)
 	display: block
 	position: absolute
 	border: none
 	border-radius: 0
 	background: none
 	outline: none
-	box-shadow: 0
+	box-shadow: none
 	opacity: 1
 	z-index: 6
 	transition-property: background, opacity, visibility
@@ -41,8 +40,7 @@
 		position: absolute
 		opacity: 1
 		pointer-events: none
-		width: 12px
-		height: 12px
+		+size(12px)
 		transform: rotate(45deg)
 		border: 0 solid #000
 
