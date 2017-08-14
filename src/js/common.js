@@ -173,6 +173,69 @@ function customSelect(select) {
 /* Multiselect init end */
 
 /**
+ * file input
+ * */
+function fileInput() {
+	$('.upload-file').each(function () {
+		$(this).filer({
+			// limit: 3,
+			changeInput: '' +
+			'<div class="jFiler-input-dragDrop">' +
+			'<div class="jFiler-input-inner">' +
+			'<div class="jFiler-input-icon">' +
+			'<i class="icon-jfi-cloud-up-o"></i>' +
+			'</div>' +
+			'<div class="jFiler-input-text">' +
+			'<strong>Чтобы добавить файл, перетащите его сюда</strong>' +
+			'</div>' +
+			'</div>' +
+			'</div>',
+			showThumbs: true,
+			theme: "dragdropbox",
+			captions: {
+				button: "Выберите файлы",
+				feedback: "Выберите файлы для загрузки",
+				feedback2: "Файлы выбраны",
+				drop: "Чтобы добавить файл, перетащите его сюда",
+				removeConfirmation: "Вы уверены, что хотите удалить этот файл?",
+				errors: {
+					filesLimit: "Максиальное количество файлов: {{fi-limit}}",
+					filesType: "Загружать можно только изображения!",
+					filesSize: "{{fi-name}} слишком велик! Пожалуйста, загрузите файл до {{fi-maxSize}} MB.",
+					filesSizeAll: "Файлы, которые Вы выбрали слишком велики! Пожалуйста, загружайте файлы до {{fi-maxSize}} MB."
+				}
+			},
+			templates: {
+				box: '<ul class="jFiler-items-list jFiler-items-default list-reset"></ul>'
+			},
+			// captions: {
+			// 	button: "Choose Files",
+			// 	feedback: "Choose files To Upload",
+			// 	feedback2: "files were chosen",
+			// 	drop: "Drop file here to Upload",
+			// 	removeConfirmation: "Вы уверены, что хотите удалить этот файл?",
+			// 	errors: {
+			// 		filesLimit: "Only {{fi-limit}} files are allowed to be uploaded.",
+			// 		filesType: "Only Images are allowed to be uploaded.",
+			// 		filesSize: "{{fi-name}} is too large! Please upload file up to {{fi-maxSize}} MB.",
+			// 		filesSizeAll: "Files you've choosed are too large! Please upload files up to {{fi-maxSize}} MB."
+			// 	}
+			// },
+			addMore: true,
+			allowDuplicates: false,
+			clipBoardPaste: true,
+			dragDrop: {
+				dragEnter: null,
+				dragLeave: null,
+				drop: null,
+				dragContainer: null
+			}
+		});
+	});
+}
+/*file input end end*/
+
+/**
  * !sliders
  * */
 function slidersInit() {
@@ -328,6 +391,7 @@ $(document).ready(function () {
 	// 	customSelect($('select.cselect'));
 	// }
 	customSelect($('select.cselect'));
+	fileInput();
 	slidersInit();
 
 	footerBottom();

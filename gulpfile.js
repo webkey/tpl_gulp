@@ -99,9 +99,10 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 		'src/libs/device.js/lib/device.min.js' // определение устройств
 		, 'src/libs/jquery-smartresize/jquery.debouncedresize.js' // "умный" ресайз
 		, 'src/libs/jquery-placeholder/jquery.placeholder.min.js' // поддержка плейсхолдера в старых браузерах
-		, 'src/libs/slick-carousel/slick/slick.min.js' // slick slider
 		, 'src/libs/select2/dist/js/select2.full.min.js' // кастомный селект
 		, 'src/libs/select2/dist/js/i18n/ru.js' // локализация для кастомного селекта
+		, 'src/js/temp/filer.min.js' // инпут файл
+		, 'src/libs/slick-carousel/slick/slick.min.js' // slick slider
 	])
 		.pipe(concat('libs.js')) // Собираем их в кучу в новом файле libs.min.js
 		.pipe(gulp.dest('src/js'))
