@@ -34,13 +34,16 @@ gulp.task('buildDistTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function (
 	gulp.src(['src/js/common.js'])
 		.pipe(gulp.dest('gulp-project-template/src/js'));
 
+	gulp.src(['src/js/temp/**/*'])
+		.pipe(gulp.dest('gulp-project-template/src/js/temp'));
+
 	gulp.src(['src/includes-json/**/*'])
 		.pipe(gulp.dest('gulp-project-template/src/includes-json'));
 
 	gulp.src([
 		'!src/__test-mixins.html',
 		'src/__*.html',
-		'src/_*.tpl'
+		'src/_tpl_*.html'
 	]).pipe(gulp.dest('gulp-project-template/src'));
 
 	gulp.src(['src/*.png', 'src/*.ico', 'src/.htaccess'])
