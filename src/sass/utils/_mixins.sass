@@ -591,30 +591,118 @@
 // =============================================================================
 // Input placeholder
 // =============================================================================
+/// @param {} - нет параметров
+///
+/// @example Sass - Использование
+/// .foo
+/// 	+placeholder
+/// 		color: green
+///
+/// +placeholder
+/// 	color: red
+///
+/// @example css - Вывод CSS
+/// .foo::-webkit-input-placeholder {
+/// 	color: green;
+/// }
+/// .foo:-moz-placeholder {
+/// 	color: green;
+/// }
+/// .foo::-moz-placeholder {
+/// 	color: green;
+/// }
+/// .foo:-ms-input-placeholder {
+/// 	color: green;
+/// }
+/// .foo.placeholder {
+/// 	color: green;
+/// }
+///
+/// ::-webkit-input-placeholder {
+/// 	color: red;
+/// }
+/// :-moz-placeholder {
+/// 		color: red;
+/// }
+/// ::-moz-placeholder {
+/// 	color: red;
+/// }
+/// :-ms-input-placeholder {
+/// 		color: red;
+/// }
+/// .placeholder {
+/// 		color: red;
+/// }
 
-=search-form-placeholder($color: #ccc, $tsp: color, $tsd: $animation-speed)
-	&::-webkit-input-placeholder
-		color: $color
-		transition: $tsp $tsd
+=optional-at-root($sel)
+	@at-root #{if(not &, $sel, selector-append(&, $sel))}
+		@content
 
-	&:-moz-placeholder
-		color: $color
-		transition: $tsp $tsd
+=placeholder()
+	+optional-at-root('::-webkit-input-placeholder')
+		@content
 
-	&::-moz-placeholder
-		color: $color
-		transition: $tsp $tsd
+	+optional-at-root(':-moz-placeholder')
+		@content
+
+	+optional-at-root('::-moz-placeholder')
 		opacity: 1
+		@content
 
-	&:-ms-input-placeholder
-		color: $color
-		transition: $tsp $tsd
+	+optional-at-root(':-ms-input-placeholder')
 		opacity: 1
+		@content
 
-	&.placeholder
-		color: $color
-		transition: $tsp $tsd
-		opacity: 1
+	+optional-at-root('.placeholder')
+		@content
+
+=placeholder-focus()
+	+optional-at-root(':focus::-webkit-input-placeholder')
+		@content
+
+	+optional-at-root(':focus:-moz-placeholder')
+		@content
+
+	+optional-at-root(':focus::-moz-placeholder')
+		@content
+
+	+optional-at-root(':focus:-ms-input-placeholder')
+		@content
+
+	+optional-at-root('.placeholder:focus')
+		@content
+
+=placeholder-hover()
+	+optional-at-root(':hover::-webkit-input-placeholder')
+		@content
+
+	+optional-at-root(':hover:-moz-placeholder')
+		@content
+
+	+optional-at-root(':hover::-moz-placeholder')
+		@content
+
+	+optional-at-root(':hover:-ms-input-placeholder')
+		@content
+
+	+optional-at-root('.placeholder:hover')
+		@content
+
+=placeholder-active()
+	+optional-at-root(':active::-webkit-input-placeholder')
+		@content
+
+	+optional-at-root(':active:-moz-placeholder')
+		@content
+
+	+optional-at-root(':active::-moz-placeholder')
+		@content
+
+	+optional-at-root(':active:-ms-input-placeholder')
+		@content
+
+	+optional-at-root('.placeholder:active')
+		@content
 
 // =============================================================================
 // Scroll lock
@@ -987,6 +1075,7 @@
 	border: none !important
 	box-shadow: none !important
 	opacity: 1 !important
+	visibility: visible !important
 	z-index: auto !important
 
 =prints-space-bottom-sm()

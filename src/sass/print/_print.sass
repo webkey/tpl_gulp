@@ -111,24 +111,31 @@
 	.nav, .nav-list,
 	.breadcrumbs, .breadcrumbs__list,
 	[class*="btn-"],
-	form
+	form,
+	.class
 		display: none !important
 
 	.main, .content, .header, .header__holder,
 	.layout, .layout-text, .layout-flood,
 	.blockquote, .blockquote *, blockquote,
 	.imgl, .imgr, .imgc,
-	table, blockquote, q, cite
+	table, blockquote, q, cite,
+	[class*="feature-list"],
+	.class
 		+print-reset
 
 	h1, h2, h3, h4, h5, h6,
 	p, ul, ol, blockquote, q,
 	.table-auto, table,
 	.imgl, .imgr, .imgc,
-	.datetime
+	.feature-list__item,
+	.feature-list__img,
+	.datetime,
+	.class
 		+prints-space-bottom-sm
 
-	.header, .blockquote, hr, blockquote
+	.header, .blockquote, hr, blockquote,
+	.class
 		+prints-space-bottom-md
 
 	.logo

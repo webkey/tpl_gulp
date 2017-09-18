@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>      <html class="no-js old-ie" lang="ru"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9" lang="ru"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="ru">
+<!--<![endif]-->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Тестирование элементов форм</title>
+	<!--Mobile optimized-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2">
+	<!--Theme color-->
+	<meta name="theme-color" content="#fff">
+	<!--SEO-->
+	<meta name="description" content="описание">
+	<meta name="keywords" content="ключевые слова">
+	<meta name="yandex-verification" content="XXXXXXXXXXXXXX">
+	<meta name="google-site-verification" content="XXXXXXXXXXXXXX">
+	<!--The Open Graph protocol-->
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:url" content="http://localhost:3000/index.html">
+	<meta property="og:title" content="Название">
+	<meta property="og:image" content="http://localhost:3000/img/logo.png">
+	<meta property="og:description" content="Описание">
+	<meta property="og:site_name" content="Расширенное название">
+	<!--Favicon-->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!--Style-->
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<!--Modernizr-->
+	<script src="js/modernizr.min.js"></script>
+</head>
+
+<body>
+	<!--[if lt IE 9]> <div class="browserupgrade"><p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p></div> <![endif]-->
+	<!-- >>> head.tpl END <<< -->
+	<div class="wrapper">
+		<!--HEADER-->
+		<header class="header">
+			<div class="max-wrap layout">
+				<div class="header__holder">
+					<!--logo-->
+					<strong class="logo"><a href="index.html">Project Name</a><img style="display: none;" src="img/logo.png" alt="Project Name"></strong>
+					<!--logo end-->
+					<!--navigation-->
+					<div class="nav-wrap">
+						<nav class="nav">
+							<!--(1) START nav FIRST level-->
+							<ul class="nav__list nav-js">
+								<!--nav item start-->
+								<li class="has-drop ">
+									<div class="nav__tab nav__tab-js">
+										<a href="typography.html" title="nav - Пункт 1 (Типографика)"><span>Пункт 1 (Типографика)</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+									<!--(2) START nav SECOND level-->
+									<div class="nav__drop nav-drop-js">
+										<ul class="sub-nav__list">
+											<li>
+												<div class="nav__tab nav__tab-js">
+													<a href="#" title="nav - Пункт 1.1"><span>Пункт 1.1</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+											</li>
+											<li class="has-drop">
+												<div class="nav__tab nav__tab-js">
+													<a href="#" title="nav - Пункт 1.2 (есть подпункты)"><span>Пункт 1.2 (есть подпункты)</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+												<!--(3) START nav THIRD level-->
+												<div class="nav__drop nav-drop-js">
+													<ul class="sub-nav__list">
+														<li>
+															<div class="nav__tab nav__tab-js">
+																<a href="#" title="nav - Пункт 1.2.1"><span>Пункт 1.2.1</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+														<li class="has-drop">
+															<div class="nav__tab nav__tab-js">
+																<a href="#" title="nav - Пункт 1.2.2 (есть подпункты)"><span>Пункт 1.2.2 (есть подпункты)</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+															<!--(4) START nav FOURTH level-->
+															<div class="nav__drop nav-drop-js">
+																<ul class="sub-nav__list">
+																	<li>
+																		<div class="nav__tab nav__tab-js">
+																			<a href="#" title="nav - Пункт 1.2.2.1"><span>Пункт 1.2.2.1</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																	<li>
+																		<div class="nav__tab nav__tab-js">
+																			<a href="#" title="nav - Пункт 1.2.2.2"><span>Пункт 1.2.2.2</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																	<li>
+																		<div class="nav__tab nav__tab-js">
+																			<a href="#" title="nav - Пункт 1.2.2.3"><span>Пункт 1.2.2.3</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																	<li>
+																		<div class="nav__tab nav__tab-js">
+																			<a href="#" title="nav - Пункт 1.2.2.3"><span>Пункт 1.2.2.3</span></a>
+																			<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+															<!--(4) END nav FOURTH level-->
+														</li>
+														<li>
+															<div class="nav__tab nav__tab-js">
+																<a href="#" title="nav - Пункт 1.2.3"><span>Пункт 1.2.3</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+														<li>
+															<div class="nav__tab nav__tab-js">
+																<a href="#" title="nav - Пункт 1.2.4"><span>Пункт 1.2.4</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<!--(3) END nav THIRD level-->
+											</li>
+											<li>
+												<div class="nav__tab nav__tab-js">
+													<a href="#" title="nav - Пункт 1.4"><span>Пункт 1.4</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+											</li>
+											<li>
+												<div class="nav__tab nav__tab-js">
+													<a href="#" title="nav - Пункт 1.5"><span>Пункт 1.5</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<!--(2) END nav SECOND level-->
+								</li>
+								<!--nav item end-->
+								<!--nav item start-->
+								<li class="">
+									<div class="nav__tab nav__tab-js">
+										<a href="#" title="nav - Пункт 2"><span>Пункт 2</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+								</li>
+								<!--nav item end-->
+								<!--nav item start-->
+								<li class="">
+									<div class="nav__tab nav__tab-js">
+										<a href="#" title="nav - Пункт 3"><span>Пункт 3</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+								</li>
+								<!--nav item end-->
+								<!--nav item start-->
+								<li class="has-drop">
+									<div class="nav__tab nav__tab-js">
+										<a href="#" title="nav - tt1tt"><span>tt1tt</span></a>
+										<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+									</div>
+									<!--(2) START nav SECOND level-->
+									<div class="nav__drop nav-drop-js">
+										<ul class="sub-nav__list">
+											<!--==================================================================-->
+											<!--=========================== ПРИМЕР ===============================-->
+											<!--==================================================================-->
+											<!--Чтобы лучше было видно группу пунктов в одно дропе, нужно подсветить этот дроп, введя в поиск ==========3========== -->
+											<li class="has-drop">
+												<div class="nav__tab nav__tab-js">
+													<a href="#" title="nav - tt2tt"><span>tt2tt</span></a>
+													<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+												</div>
+												<!--(3) START nav THIRD level-->
+												<div class="nav__drop nav-drop-js">
+													<ul class="sub-nav__list">
+														<li>
+															<div class="nav__tab nav__tab-js">
+																<a href="#" title="nav - tt3tt"><span>tt3tt</span></a>
+																<span class="nav__angle nav-handler-js"><i>&nbsp;</i></span>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<!--(3) END nav THIRD level-->
+											</li>
+											<!--пробел ставим ТОЛЬКО после элемента с правилом "pos": "end"-->
+											<!--пример конец-->
+											<!--==================================================================-->
+											<!--=========================== ПРИМЕР конец =========================-->
+											<!--==================================================================-->
+										</ul>
+									</div>
+									<!--(2) END nav SECOND level-->
+								</li>
+								<!--nav item end-->
+							</ul>
+							<!--(1) END nav FIRST level-->
+						</nav>
+					</div>
+					<!--navigation end-->
+				</div>
+			</div>
+		</header>
+		<!--HEADER end-->
+		<!--MAIN-->
+		<div class="main">
+			<div class="max-wrap layout">
+				<div class="main__holder">
+					<!--CONTENT-->
+					<div class="content-wrap">
+						<div class="content user-content">
+							<div class="layout-article">
+								<h1>Тестирование элементов форм</h1>
+								<!--form-default-->
+								<h3><a href="#hash-formElementClearExample" id="hash-formElementClearExample" class="hashAnchor"><span class="mark">Поля форм (без оберток). Элементы идут один за другим.</span></a></h3>
+								<div class="layout-text">
+									<form action="#" method="post">
+										<label for="expl-label-clear-ph">Текстовое поле с плейсхолдером: <span class="form-mark">*</span></label>
+										<input type="text" placeholder="Текстовое поле" id="expl-label-clear-ph" class="field-effects-js" />
+										<span class="error-note">Поле обязательное для заполнения</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-01">Заполненное текстовое поле: <span class="form-mark">*</span></label>
+										<input type="text" value="Уже есть текст" id="expl-label-clear-01" class="field-effects-js" />
+										<span class="error-note">Поле обязательное для заполнения</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-02">Пример невалидного текстового поля: <span class="form-mark">*</span></label>
+										<input class="error" type="text" placeholder="Невалидное поле" id="expl-label-clear-02" />
+										<span class="error-note">Поле обязательное для заполнения</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-03">Текстовое поле первое: <span class="form-mark">*</span></label>
+										<input type="text" placeholder="Текстовое поле первое" id="expl-label-clear-03" />
+										<span class="error-note">Поле обязательное для заполнения</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-04">Текстовое поле второе: <span class="form-mark">*</span></label>
+										<input class="error" type="text" placeholder="Текстовое поле второе" id="expl-label-clear-04" />
+										<span class="error-note">Поле обязательное для заполнения</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-05">Текстовое поле третье: <span class="form-mark">*</span></label>
+										<input type="text" placeholder="Текстовое поле третье" id="expl-label-clear-05" class="success" />
+										<span class="error-note">Поле обязательное для заполнения</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-06">Пример селекта: <span class="form-mark">*</span></label>
+										<select name="filter-type" id="expl-label-clear-06">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+										<span class="error-note">Обязательное поле</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-07">Пример селекта кастомного: <span class="form-mark">*</span></label>
+										<select class="cselect" data-placeholder="- Выбрать -" name="filter-type" id="expl-label-clear-07">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+										<span class="error-note">Обязательное поле</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-06-error">Пример селекта (error): <span class="form-mark">*</span></label>
+										<select name="filter-type" class="error" id="expl-label-clear-06-error">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+										<span class="error-note">Обязательное поле</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-07-error">Пример селекта кастомного (error): <span class="form-mark">*</span></label>
+										<select class="cselect error" data-placeholder="- Выбрать -" name="filter-type" id="expl-label-clear-07-error">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+										<span class="error-note">Обязательное поле</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-06-success">Пример селекта (success): <span class="form-mark">*</span></label>
+										<select name="filter-type" class="success" id="expl-label-clear-06-success">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+										<span class="error-note">Обязательное поле</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-07-success">Пример селекта кастомного (success): <span class="form-mark">*</span></label>
+										<select class="cselect success" data-placeholder="- Выбрать -" name="filter-type" id="expl-label-clear-07-success">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+										<span class="error-note">Обязательное поле</span>
+										<span class="confirm-note">Подтверждено</span>
+										<!--===================================================-->
+										<label for="expl-label-clear-08">Сообщение:</label>
+										<textarea placeholder="Сообщение" id="expl-label-clear-08"></textarea>
+										<span class="error-note">Поле обязательное для заполнения</span>
+										<span class="confirm-note">Подтверждено</span>
+									</form>
+								</div>
+								<!--form-default end-->
+								<div class="user-spacer">&nbsp;</div>
+								<!--form-default-->
+								<h3><a href="#hash-formElementExample" id="hash-formElementExample" class="hashAnchor"><span class="mark">Поля форм</span></a></h3>
+								<div class="layout-text">
+									<form action="#" method="post">
+										<div class="input-wrap">
+											<div class="label-holder">
+												<label for="expl-label-01">Пример текстового поля с плейсхолдером: <span class="form-mark">*</span></label>
+											</div>
+											<div class="input-holder">
+												<input class="field-effects-js" type="text" placeholder="Текстовое поле" id="expl-label-01" />
+												<span class="error-note">Поле обязательное для заполнения</span>
+												<span class="confirm-note">&nbsp;</span>
+											</div>
+										</div>
+										<div class="input-wrap">
+											<div class="label-holder">
+												<label for="expl-label-02">Пример невалидного текстового поля: <span class="form-mark">*</span></label>
+											</div>
+											<div class="input-holder error">
+												<input class="field-effects-js error" type="text" placeholder="Невалидное поле" id="expl-label-02" />
+												<span class="error-note">Поле обязательное для заполнения</span>
+												<span class="confirm-note">&nbsp;</span>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="input-wrap">
+												<div class="label-holder">
+													<label for="expl-label-03">Текстовое поле первое: <span class="form-mark">*</span></label>
+												</div>
+												<div class="input-holder">
+													<input class="field-effects-js" type="text" placeholder="Текстовое поле первое" id="expl-label-03" />
+													<span class="error-note">Поле обязательное для заполнения</span>
+													<span class="confirm-note">&nbsp;</span>
+												</div>
+											</div>
+											<div class="input-wrap">
+												<div class="label-holder">
+													<label for="expl-label-04">Текстовое поле второе: <span class="form-mark">*</span></label>
+												</div>
+												<div class="input-holder error">
+													<input class="field-effects-js error" type="text" placeholder="Текстовое поле второе" id="expl-label-04" />
+													<span class="error-note">Поле обязательное для заполнения</span>
+													<span class="confirm-note">&nbsp;</span>
+												</div>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="input-wrap">
+												<div class="label-holder">
+													<label for="expl-label-05">Текстовое поле третье: <span class="form-mark">*</span></label>
+												</div>
+												<div class="input-holder">
+													<input class="field-effects-js" type="text" placeholder="Текстовое поле третье" id="expl-label-05" />
+													<span class="error-note">Поле обязательное для заполнения</span>
+													<span class="confirm-note">&nbsp;</span>
+												</div>
+											</div>
+											<div class="input-wrap">
+												<div class="label-holder">
+													<label for="expl-label-06">Пример селекта: <span class="form-mark">*</span></label>
+												</div>
+												<div class="select error">
+													<select class="cselect field-effects-js error" name="filter-type" id="expl-label-06">
+					<option value="1">Размер</option>
+					<option value="2">Вес</option>
+					<option value="3">Цвет</option>
+					<option value="4">Позицию (расположение)</option>
+					<option value="5">Опшин очень-очень-очень-очень длинный</option>
+					<option value="6">Контраст</option>
+					<option value="7">Сочетание</option>
+					<option value="8">Расстояние</option>
+				</select>
+													<span class="error-note">Обязательное поле</span>
+													<span class="confirm-note">&nbsp;</span>
+												</div>
+											</div>
+										</div>
+										<div class="input-wrap">
+											<div class="label-holder">
+												<label for="expl-label-07">Сообщение:</label>
+											</div>
+											<div class="input-holder">
+												<textarea class="field-effects-js" placeholder="Сообщение" id="expl-label-07"></textarea>
+												<span class="error-note">Поле обязательное для заполнения</span>
+												<span class="confirm-note">&nbsp;</span>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!--form-default end-->
+								<div class="user-spacer">&nbsp;</div>
+								<!--selects-->
+								<h3><a href="#hash-formsSelect" id="hash-formsSelect" class="hashAnchor"><span class="mark">Селекты</span></a></h3>
+								<div class="layout-text">
+									<form action="#" method="post">
+										<div class="input-wrap field-effects-js">
+											<div class="label-holder">
+												<label for="default-select-example">Некастомный селект:</label>
+											</div>
+											<div class="select">
+												<select id="default-select-example">
+				<option value="1">Размер</option>
+				<option value="2">Вес</option>
+				<option value="3">Цвет</option>
+				<option value="4">Позицию (расположение)</option>
+				<option value="5">Опшин очень-очень-очень-очень длинный</option>
+				<option value="6">Контраст</option>
+				<option value="7">Сочетание</option>
+				<option value="8">Расстояние</option>
+			</select>
+												<span class="error-note">Обязательное поле</span>
+												<span class="confirm-note">&nbsp;</span>
+											</div>
+										</div>
+										<div class="input-wrap field-effects-js">
+											<div class="label-holder">
+												<label for="custom-select-example">Кастомный селект:</label>
+											</div>
+											<div class="select">
+												<select class="cselect" id="custom-select-example">
+				<option value="1">Размер</option>
+				<option value="2">Вес</option>
+				<option value="3">Цвет</option>
+				<option value="4">Позицию (расположение)</option>
+				<option value="5">Опшин очень-очень-очень-очень длинный</option>
+				<option value="6">Контраст</option>
+				<option value="7">Сочетание</option>
+				<option value="8">Расстояние</option>
+			</select>
+												<span class="error-note">Обязательное поле</span>
+												<span class="confirm-note">&nbsp;</span>
+											</div>
+										</div>
+										<div class="input-wrap field-effects-js">
+											<div class="label-holder">
+												<label for="multiselect-example">Мультиселект:</label>
+											</div>
+											<div class="select">
+												<select class="cselect" id="multiselect-example" multiple>
+				<option value="1">Размер</option>
+				<option value="2">Вес</option>
+				<option value="3">Цвет</option>
+				<option value="4">Позицию (расположение)</option>
+				<option value="5">Опшин очень-очень-очень-очень длинный</option>
+				<option value="6">Контраст</option>
+				<option value="7">Сочетание</option>
+				<option value="8">Расстояние</option>
+			</select>
+												<span class="error-note">Обязательное поле</span>
+												<span class="confirm-note">&nbsp;</span>
+											</div>
+										</div>
+										<div class="input-wrap field-effects-js">
+											<div class="label-holder">
+												<label for="multiselect-with-placeholder-example">Мультиселект c пелейсхолдером:</label>
+											</div>
+											<div class="select">
+												<select class="cselect" id="multiselect-with-placeholder-example" multiple data-placeholder="Выберите несколько вариантов">
+				<option value="1">Размер</option>
+				<option value="2">Вес</option>
+				<option value="3">Цвет</option>
+				<option value="4">Позицию (расположение)</option>
+				<option value="5">Опшин очень-очень-очень-очень длинный</option>
+				<option value="6">Контраст</option>
+				<option value="7">Сочетание</option>
+				<option value="8">Расстояние</option>
+			</select>
+												<span class="error-note">Обязательное поле</span>
+												<span class="confirm-note">&nbsp;</span>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!--selects end-->
+								<div class="user-spacer">&nbsp;</div>
+								<!--checkbox and radio-->
+								<h3><a href="#hash-formCheckboxExample" id="hash-formCheckboxExample" class="hashAnchor"><span class="mark">Чекбоксы и Радиобаттоны</span></a></h3>
+								<div class="layout-text">
+									<form action="#" method="post">
+										<div class="form-row">
+											<div class="input-wrap">
+												<h4>
+													<a href="#hashFormCheckboxOutsideExample" id="hashFormCheckboxOutsideExample" class="hashAnchor"><span class="mark">Checkbox outside label</span></a>
+												</h4>
+												<ul class="checkbox-list reset-list">
+													<li>
+														<input type="checkbox" name="testCheckboxOutside" id="checkbox-normal" />
+														<label for="checkbox-normal"><span>Normal</span></label>
+													</li>
+													<li>
+														<input type="checkbox" name="testCheckboxOutsideChecked" id="checkbox-checked" checked />
+														<label for="checkbox-checked"><span>Checked</span></label>
+													</li>
+													<li>
+														<input type="checkbox" name="testCheckboxOutsideDisabled" id="checkbox-disabled" disabled />
+														<label for="checkbox-disabled"><span>Disabled</span></label>
+													</li>
+													<li>
+														<input type="checkbox" name="testCheckboxOutsideCheckedDisabled" id="checkbox-checked-disabled" checked disabled />
+														<label for="checkbox-checked-disabled"><span>Checked & Disabled</span></label>
+													</li>
+												</ul>
+												<h4>
+													<a href="#hashFormCheckboxInsideExample" id="hashFormCheckboxInsideExample" class="hashAnchor"><span class="mark">Checkbox inside label</span></a>
+												</h4>
+												<ul class="checkbox-list reset-list">
+													<li>
+														<label class="check-label">
+						<input type="checkbox" name="testCheckboxInside" />
+						<i>&nbsp;</i>
+						<span>Отличный способ для выделения самого важного в тексте – использование контрастных шрифтов</span>
+					</label>
+													</li>
+													<li>
+														<label class="check-label">
+						<input type="checkbox" name="testCheckboxInsideChecked" checked />
+						<i>&nbsp;</i>
+						<span>Checked</span>
+					</label>
+													</li>
+													<li>
+														<label class="check-label">
+						<input type="checkbox" name="testCheckboxInsideDisabled" disabled />
+						<i>&nbsp;</i>
+						<span>Disabled</span>
+					</label>
+													</li>
+													<li>
+														<label class="check-label">
+						<input type="checkbox" name="testCheckboxInsideCheckedDisabled" checked disabled />
+						<i>&nbsp;</i>
+						<span>Checked & Disabled</span>
+					</label>
+													</li>
+												</ul>
+											</div>
+											<div class="input-wrap">
+												<h4>
+													<a href="#hashFormRadiobuttonOutsideExample" id="hashFormRadiobuttonOutsideExample" class="hashAnchor"><span class="mark">Radiobutton outside label</span></a>
+												</h4>
+												<ul class="radio-list reset-list">
+													<li>
+														<input type="radio" name="testRadioOutside" id="radio-male" checked />
+														<label for="radio-male"><span>Male</span></label>
+													</li>
+													<li>
+														<input type="radio" name="testRadioOutside" id="radio-female" />
+														<label for="radio-female"><span>Female</span></label>
+													</li>
+													<li>
+														<input type="radio" name="testRadioOutsideDisabled" id="radio-disabled" disabled />
+														<label for="radio-disabled"><span>Disabled</span></label>
+													</li>
+													<li>
+														<input type="radio" name="testRadioOutsideCheckedDisabled" id="radio-checked-disabled" checked disabled />
+														<label for="radio-checked-disabled"><span>Checked & Disabled</span></label>
+													</li>
+												</ul>
+												<h4>
+													<a href="#hashFormRadiobuttonInsideExample" id="hashFormRadiobuttonInsideExample" class="hashAnchor"><span class="mark">Radiobutton inside label</span></a>
+												</h4>
+												<ul class="radio-list reset-list">
+													<li>
+														<label class="radio-label">
+						<input type="radio" name="testRadioInside" />
+						<i>&nbsp;</i>
+						<span>Male</span>
+					</label>
+													</li>
+													<li>
+														<label class="radio-label">
+						<input type="radio" name="testRadioInside" checked />
+						<i>&nbsp;</i>
+						<span>Female</span>
+					</label>
+													</li>
+													<li>
+														<label class="radio-label">
+						<input type="radio" name="testRadioInsideDisabled" disabled />
+						<i>&nbsp;</i>
+						<span>Disabled</span>
+					</label>
+													</li>
+													<li>
+														<label class="radio-label">
+						<input type="radio" name="testRadioInsideCheckedDisabled" checked disabled />
+						<i>&nbsp;</i>
+						<span>Checked & Disabled</span>
+					</label>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!--checkbox and radio end-->
+								<!--user form-->
+								<h3><a href="#hash-userFormExample" id="hash-userFormExample" class="hashAnchor"><span class="mark">Форма обратной связи</span></a></h3>
+								<div class="user-form">
+									<div class="layout-text">
+										<div class="form-title">Задать вопрос</div>
+										<form action="#" method="post">
+											<div class="input-wrap">
+												<div class="label-holder">
+													<label for="user-form-example__name-field">Имя<span class="form-mark">*</span></label>
+												</div>
+												<div class="input-holder">
+													<input type="text" id="user-form-example__name-field">
+													<span class="error-note">Поле обязательное для заполнения</span>
+													<span class="confirm-note">&nbsp;</span>
+												</div>
+											</div>
+											<div class="input-wrap">
+												<div class="label-holder">
+													<label for="user-form-example__email-field">E-mail<span class="form-mark">*</span></label>
+												</div>
+												<div class="input-holder">
+													<input type="email" id="user-form-example__email-field">
+													<span class="error-note">Поле обязательное для заполнения</span>
+													<span class="confirm-note">&nbsp;</span>
+												</div>
+											</div>
+											<div class="input-wrap">
+												<div class="label-holder">
+													<label for="user-form-example__message-field">Сообщение<span class="form-mark">*</span></label>
+												</div>
+												<div class="input-holder">
+													<textarea id="user-form-example__message-field"></textarea>
+													<span class="error-note">Поле обязательное для заполнения</span>
+													<span class="confirm-note">&nbsp;</span>
+												</div>
+											</div>
+											<div class="input-wrap">
+												<div class="label-holder">
+													<span class="label">Прикрепить файл</span>
+												</div>
+												<div class="input-holder upload-file__container">
+													<input class="upload-file" name="files[]" type="file" multiple="multiple" data-jfiler-limit="2">
+												</div>
+											</div>
+											<div class="input-wrap">
+												<div class="label-holder">
+													<label for="user-form-example__captcha-field">Защита от спама:<span class="form-mark">*</span></label>
+												</div>
+												<div class="input-holder">
+													<div class="captcha">
+														<img src="img/captcha.jpg" alt="captcha" />
+														<input type="text" id="user-form-example__captcha-field">
+														<span class="error-note">Введите текст на картинке для защиты от спама</span>
+														<span class="confirm-note">&nbsp;</span>
+													</div>
+												</div>
+											</div>
+											<div class="form-footer">
+												<div class="form-buttons">
+													<button class="btn-default btn-submit" data-label="Отправить">Отправить</button>
+												</div>
+												<div class="form-note">
+													<div class="form-note__item"><span class="form-mark">*</span> Поля обязательны для заполнения</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<!--user form end-->
+							</div>
+							<script>
+								'use strict';
+
+								function get_cookie(cookie_name) {
+									var results = document.cookie.match('(^|;) ?' + cookie_name + '=([^;]*)(;|$)');
+
+									if (results)
+										return (unescape(results[2]));
+									else
+										return null;
+								}
+
+								var nav = document.createElement('div');
+								var list = document.createElement('ul');
+								nav.className = "navigationByTypographyElements";
+								document.body.appendChild(nav);
+								nav.appendChild(list);
+
+								var opener = document.createElement('a');
+								opener.innerHTML = "Меню";
+								opener.className = "navigationByTypographyOpener";
+								nav.insertBefore(opener, nav.firstChild);
+
+								var toLeftBtn = document.createElement('a');
+								toLeftBtn.innerHTML = "Прикрепить слева";
+								toLeftBtn.className = "navigationByTypographyToLeft";
+								nav.insertBefore(toLeftBtn, nav.firstChild);
+
+								for (var i = 0; i < document.querySelectorAll('.hashAnchor').length; i++) {
+									var elem = document.querySelectorAll('.hashAnchor');
+									var a = document.createElement('a');
+									var li = document.createElement('li');
+
+									a.innerHTML = elem[i].closest('h4, h3').textContent.trim();
+									if (elem[i].closest('h4')) {
+										//										elem[i].closest('h4').setAttribute("class", "blah");
+										li.className = 'navigationByTypographySubItem';
+									}
+									a.setAttribute('href', '#' + elem[i].id);
+
+									li.appendChild(a);
+									list.appendChild(li);
+								}
+
+								// navigation toggle
+								var cookieNavBTIsHide = "navigationByTypographyIsHide";
+
+								if (get_cookie(cookieNavBTIsHide) === 'true') {
+									list.style.display = "none";
+									nav.setAttribute('data-toggle', 'hide');
+								}
+
+								opener.onclick = function() {
+									list.style.display = (list.style.display !== "none") ? "none" : "block";
+									if (list.style.display === "none") {
+										document.cookie = cookieNavBTIsHide + "=true";
+										nav.setAttribute('data-toggle', 'hide');
+									} else {
+										document.cookie = cookieNavBTIsHide + "=false";
+										nav.setAttribute('data-toggle', 'show')
+									}
+								};
+
+								// navigation move to left/right
+								var toLeftAttr = 'data-to-left';
+								var cookieIsLeftPos = "navigationByTypographyIsLeft";
+
+								if (get_cookie(cookieIsLeftPos) === 'true') {
+									nav.setAttribute(toLeftAttr, 'true');
+								}
+
+								toLeftBtn.onclick = function() {
+									if (!nav.hasAttribute(toLeftAttr)) {
+										document.cookie = cookieIsLeftPos + "=true";
+										nav.setAttribute(toLeftAttr, 'true');
+									} else {
+										document.cookie = cookieIsLeftPos + "=false";
+										nav.removeAttribute(toLeftAttr);
+									}
+								}
+							</script>
+							<style>
+								.navigationByTypographyElements {
+									position: fixed;
+									right: 20px;
+									top: 20px;
+									width: 240px;
+									background-color: white;
+									box-shadow: 2px 2px 35px rgba(0, 0, 0, 0.2);
+									z-index: 99999;
+									font-size: 14px;
+									line-height: 1.4;
+									/*counter-reset: items;*/
+									-webkit-transition-property: transform;
+									transition-property: transform;
+									-webkit-transition-duration: 0.2s;
+									transition-duration: 0.2s;
+									-webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+									transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+									user-select: none;
+								}
+								
+								.navigationByTypographyElements[data-toggle="hide"] {
+									width: 42px;
+								}
+								
+								.navigationByTypographyElements[data-to-left] {
+									transform: translateX(calc(-100vw + 240px + 60px));
+								}
+								
+								.navigationByTypographyElements ul {
+									display: block;
+									list-style: none;
+									margin: 0;
+									height: calc(100vh - 100px);
+									overflow-x: hidden;
+									overflow-y: auto;
+									padding: 0 20px 18px;
+								}
+								
+								.navigationByTypographyElements ul::-webkit-scrollbar {
+									width: 0.4em;
+								}
+								
+								.navigationByTypographyElements ul::-webkit-scrollbar-track {
+									-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+								}
+								
+								.navigationByTypographyElements ul::-webkit-scrollbar-thumb {
+									background-color: darkgrey;
+									outline: 1px solid slategrey;
+								}
+								
+								.navigationByTypographyElements ul li {
+									margin-bottom: 12px;
+									/*counter-increment: items;*/
+								}
+								
+								.navigationByTypographyElements ul li:last-child {
+									margin: 0;
+								}
+								
+								.navigationByTypographyElements ul li::before {
+									/*content: counter(items) '. ';*/
+									color: tomato;
+									content: '';
+									display: inline-block;
+									vertical-align: top;
+									margin-top: 7px;
+									margin-right: 8px;
+									height: 6px;
+									width: 6px;
+									background-color: tomato;
+								}
+								
+								.navigationByTypographyElements ul .navigationByTypographySubItem {
+									font-size: 0.8em;
+									padding-left: 15px;
+								}
+								
+								.navigationByTypographyElements ul .navigationByTypographySubItem::before {
+									border-radius: 50%;
+									margin-top: 4px;
+								}
+								
+								.navigationByTypographyElements ul a {
+									color: darkslategray;
+									text-decoration: none;
+									padding-top: 5px;
+								}
+								
+								.navigationByTypographyElements ul a:hover {
+									text-decoration: underline;
+								}
+								
+								h3,
+								h4 {
+									position: relative;
+								}
+								
+								h3 a,
+								h4 a {
+									display: inline-block;
+									vertical-align: top;
+									color: inherit;
+									text-decoration: none;
+									-webkit-transition: border-color 0.2s;
+									transition: border-color 0.2s;
+								}
+								
+								h3 a span,
+								h4 a span {
+									text-decoration: underline;
+								}
+								
+								h4 a {
+									border-bottom-color: #909090;
+								}
+								
+								h4 a .mark {
+									color: #909090;
+								}
+								
+								h4 .hashAnchor::before {
+									width: 18px;
+									height: 18px;
+									top: 6px;
+								}
+								
+								.hashAnchor:hover::before {
+									opacity: 0.5;
+								}
+								
+								.navigationByTypographyOpener {
+									position: relative;
+									display: block;
+									padding: 18px 35px 18px 20px;
+									cursor: pointer;
+									font-size: 16px;
+									line-height: 15px;
+									font-weight: bold;
+									text-align: center;
+								}
+								
+								.navigationByTypographyElements[data-toggle="hide"] .navigationByTypographyOpener {
+									font-size: 0;
+									line-height: 0;
+									padding: 11px 5px;
+								}
+								
+								.navigationByTypographyOpener::after {
+									content: '-';
+									display: block;
+									position: absolute;
+									right: 20px;
+									top: 50%;
+									width: 16px;
+									height: 16px;
+									font-size: 16px;
+									line-height: 15px;
+									background-color: rgba(0, 0, 0, 0.2);
+									text-align: center;
+									-webkit-transform: translate(0, -50%);
+									-ms-transform: translate(0, -50%);
+									transform: translate(0, -50%);
+								}
+								
+								.navigationByTypographyElements[data-toggle="hide"] .navigationByTypographyOpener::after {
+									right: 3px;
+								}
+								
+								.navigationByTypographyOpener:hover::after {
+									background-color: rgba(0, 0, 0, 0.4);
+								}
+								
+								[data-toggle*="hide"] .navigationByTypographyOpener::after {
+									content: '+';
+								}
+								
+								.navigationByTypographyToLeft {
+									position: absolute;
+									top: 3px;
+									left: 3px;
+									font-size: 0;
+									line-height: 0;
+									letter-spacing: -4px;
+									text-align: center;
+									cursor: pointer;
+									width: 16px;
+									height: 16px;
+									background-color: rgba(0, 0, 0, 0.2);
+									z-index: 5;
+								}
+								
+								.navigationByTypographyToLeft:hover {
+									background-color: rgba(0, 0, 0, 0.4);
+								}
+								
+								.navigationByTypographyToLeft:before {
+									content: '<';
+									display: inline-block;
+									font-size: 18px;
+									line-height: 16px;
+									letter-spacing: normal;
+								}
+								
+								[data-to-left] .navigationByTypographyToLeft:before {
+									content: '>';
+								}
+							</style>
+						</div>
+					</div>
+					<!--CONTENT end-->
+					<!--SIDEBAR-->
+					<aside class="sidebar">
+						<div class="sidebar__holder">
+							<div class="sidebar__widget">
+								<h3>Заголовок виджета</h3>
+								<p>Контент виджета</p>
+							</div>
+							<div class="sidebar__widget">
+								<h3>Заголовок виджета</h3>
+								<p>Контент виджета</p>
+							</div>
+						</div>
+					</aside>
+					<!--SIDEBAR-->
+					<!--ASIDE-->
+					<aside class="aside">
+						<div class="aside__holder">
+							<div class="aside__widget">
+								<h3>Заголовок виджета</h3>
+								<p>Контент виджета</p>
+							</div>
+							<div class="aside__widget">
+								<h3>Заголовок виджета</h3>
+								<p>Контент виджета</p>
+							</div>
+						</div>
+					</aside>
+					<!--ASIDE end-->
+				</div>
+			</div>
+		</div>
+		<!--MAIN end-->
+	</div>
+	<!-- >>> foot.tpl <<< -->
+	<!--footer-->
+	<footer class="footer">
+		<div class="max-wrap layout">
+			<div class="footer__holder">
+				<!--footer bottom-->
+				<div class="footer-bottom">
+					<div class="footer-bottom__holder">
+						<div class="footer-bottom__col">
+							<span class="copyright">&copy; <a href="index.html">Project</a> 2017</span>
+						</div>
+						<div class="footer-bottom__col">
+							<!--developer-->
+							<div class="developer">
+								<a href="http://astronim.by/">
+									<span class="developer__label">Разработка сайта —</span>
+									<span class="developer__logo">Astronim*Support</span>
+								</a>
+							</div>
+							<!--developer end-->
+						</div>
+					</div>
+				</div>
+				<!--footer bottom end-->
+			</div>
+		</div>
+	</footer>
+	<!--footer end-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/libs.min.js"></script>
+	<script src="js/common.js"></script>
+</body>
+
+</html>
