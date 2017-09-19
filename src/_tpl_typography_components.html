@@ -371,35 +371,21 @@
 		</div>
 	</div>
 
-}@@if(context.component === "formDefault") {
-
-	@@include('_tpl_title-anchor.html', {
-		"taId": "formElementExample",
-		"taText": "Поля форм"
-	})
-	<div class="layout-text">
-		@@include('_tpl_forms_form-default.html')
-	</div>
-
 }@@if(context.component === "formClear") {
 
 	@@include('_tpl_title-anchor.html', {
 		"taId": "formElementClearExample",
-		"taText": "Поля форм (без оберток). Элементы идут один за другим."
+		"taText": "Поля форм без оберток. Элементы идут один за другим. (рекомендуем)"
 	})
-	<div class="layout-text">
-		@@include('_tpl_forms_form-clear.html')
-	</div>
+	@@include('_tpl_forms_form-clear.html')
 
-}@@if(context.component === "select") {
+}@@if(context.component === "formDefault") {
 
 	@@include('_tpl_title-anchor.html', {
-		"taId": "formsSelect",
-		"taText": "Селекты"
+		"taId": "formElementExample",
+		"taText": "Поля форм c обертками. (если необходимо)"
 	})
-	<div class="layout-text">
-		@@include('_tpl_forms_form-selects.html')
-	</div>
+	@@include('_tpl_forms_form-default.html')
 
 }@@if(context.component === "checkboxRadio") {
 

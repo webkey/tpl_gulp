@@ -16,16 +16,23 @@
 	position: relative // Важно! Для позицирования отметки подтверждения полей формы
 	z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
 
-.form-group
-	margin-bottom: $bottom-space--md
+.label-holder, label
+	+font-normal
+	+font($font-size, $line-height)
+	color: $text-color-light
+	margin-bottom: 7px
 
-	&:last-child
+label
+	+display-inline-block-top
+
+.label-holder
+	label
 		margin-bottom: 0
 
-.form-group-title
-	+font-bold
-	+font(18px, round-float(32/18, 2))
-	margin-bottom: $bottom-space
+.form-mark
+	display: inline-block
+	vertical-align: top
+	color: $mark-color
 
 .form-row
 	+margin-horizontal(-#{round($form-gap*0.5)})
@@ -46,23 +53,35 @@
 			width: auto
 			margin-bottom: $form-bottom-space--sm
 
-.label-holder, label
-	+font-bold
-	+font($font-size, $line-height)
-	color: $text-color-light
-	margin-bottom: 7px
-
-label
-	+display-inline-block-top
-
-.label-holder
 	label
+		+truncate(100%)
+
+.form-columnize
+	column-count: 2
+
+.form-columnize--3
+	column-count: 3
+
+.form-columnize, .form-columnize--3
+	column-gap: $form-gap
+
+	label
+		+truncate(100%)
+
+	+media('<mob-lg')
+		column-count: 1
+		column-gap: 0
+
+.form-group
+	margin-bottom: $bottom-space--md
+
+	&:last-child
 		margin-bottom: 0
 
-.form-mark
-	display: inline-block
-	vertical-align: top
-	color: $mark-color
+.form-group-title
+	+font-bold
+	+font(18px, round-float(32/18, 2))
+	margin-bottom: $bottom-space
 
 /* form layout end
 
@@ -71,8 +90,7 @@ label
 	+clear
 
 	.form-buttons
-		float: right
-		margin-left: $grid-space
+		float: left
 
 	.form-note
 		display: block
@@ -85,14 +103,15 @@ label
 /* form common
 input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
 	display: block
+	//+display-inline-block-top
 	padding: #{$form-input-space-vt} #{$form-input-space-h} #{$form-input-space-vb}
 	+size(100%, $form-input-height)
 	@if $form-letter-spacing
 		letter-spacing: $form-letter-spacing
 	background: $form-bg-color
-	//box-shadow: inset 0 0 0 1px transparent
 	box-shadow: none
 	border: #{$form-border-width} solid #{$form-border-color}
+	cursor: pointer
 
 	@if $animation-use
 		transition:
@@ -107,42 +126,16 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 		+font($form-font-size, $form-line-height)
 		color: $form-text-color
 
-	.input-wrap &, &:last-child
-		margin: 0
-
-	//form hover
-	.no-touchevents &:hover
-		border-color: $form-border-focus-color
-
-	//form focus
-	&:focus
-		border-color: $form-border-focus-color
-	//box-shadow: inset 0 0 0 1px $form-border-focus-color
-
-	//form success
-	.input--has-value &,
-	&.success, .no-touchevents &.success
-		border-color: $form-success-color
-
-	//box-shadow: inset 0 0 0 1px transparent
-
-	//&:focus
-		box-shadow: inset 0 0 0 1px $form-error-color
-
-	//form error
-	&.error, .no-touchevents &.error
-		color: $form-error-color
-		border-color: $form-error-color
-//box-shadow: inset 0 0 0 1px transparent
-
-//&:focus
-	box-shadow: inset 0 0 0 1px $form-error-color
-
 textarea
 	padding: #{$form-input-space-vt} #{$form-input-space-h} #{$form-input-space-vb}
 	min-height: 114px
 	height: 114px
 	resize: vertical
+
+input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea, select, .select, .select2
+
+	.input-wrap &, &:last-child
+		margin-bottom: 0
 
 .error-note
 	float: left
@@ -156,7 +149,7 @@ textarea
 
 	margin-top: -#{$form-bottom-space}
 
-	.input-wrap &
+	.input-wrap &, .select &
 		float: none
 		position: absolute
 		margin-top: 0
@@ -166,12 +159,12 @@ textarea
 	form .error + .select2 + &
 		display: block
 
-.confirm-note
+.success-note
 
 	$this-icon-size: 16px
-	$this-icon-lines-width: 12px
-	$this-icon-lines-height: 2px
-	$this-icon-lines-color: $base-color
+	$this-icon-lines-width: 11px
+	$this-icon-lines-height: 3px
+	$this-icon-lines-color: $form-success-color
 
 	float: left
 	position: relative
@@ -183,11 +176,11 @@ textarea
 	+font(0, 0)
 	letter-spacing: 0
 	backface-visibility: hidden
-	z-index: -1
+	//z-index: -1
 	pointer-events: none
 	display: none
 
-	.input-wrap &
+	.input-wrap &, .select &
 		float: none
 		position: absolute
 		top: round($form-input-height*0.5)
@@ -225,7 +218,7 @@ textarea
 		+size(round($this-icon-lines-width*1.3), $this-icon-lines-height)
 		left: 50%
 		transform-origin: bottom left
-		transform: rotate(-55deg)
+		transform: rotate(-45deg)
 
 /* form common end
 
@@ -233,34 +226,11 @@ textarea
 input, textarea
 	+placeholder
 		color: $form-placeholder-color
-
-		//@if $has-animation
 		transition: $animation-speed opacity
 
 	//form placeholder hide on focus
 	+placeholder-focus
 		opacity: 0
-
-	//&:focus
-		&::-webkit-input-placeholder
-			opacity: 0 !important
-
-		&:-moz-placeholder
-			opacity: 0 !important
-
-		&::-moz-placeholder
-			opacity: 0 !important
-
-		&:-ms-input-placeholder
-			opacity: 0 !important
-
-	//&.placeholder:focus
-		opacity: 0 !important
-
-	//form error placeholder
-	&.error
-		+placeholder
-			color: $form-error-color
 
 /* form placeholder end
 
@@ -283,11 +253,11 @@ input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radi
 
 	// hover
 	.no-touchevents &:hover
-		color: $base-color
+		color: $checkbox-color
 
 		input[type="checkbox"]:not(:disabled) ~ i
 			&::before
-				border-color: $base-color
+				border-color: $checkbox-color
 
 input[type="checkbox"],
 input[type="radio"]
@@ -315,13 +285,13 @@ input[type="radio"]
 
 	input[type="checkbox"]:not(:disabled) ~ i
 		&::before
-			border-color: $base-color
+			border-color: $checkbox-color
 
 .no-touchevents .radio-label:hover
 
 	input[type="radio"]:not(:disabled) ~ span
 		&::before
-			border-color: $base-color
+			border-color: $checkbox-color
 
 //checkbox
 input[type="checkbox"]
@@ -383,8 +353,8 @@ input[type="checkbox"]
 		& ~ label,
 		& ~ i
 			&::before
-				border-color: $base-color
-				background-color: $base-color
+				border-color: $checkbox-color
+				background-color: $checkbox-color
 
 		& ~ label > span,
 		& ~ span
@@ -483,7 +453,7 @@ input[type="radio"]
 		& ~ label,
 		& ~ span
 			&::before
-				border-color: $base-color
+				border-color: $checkbox-color
 
 		& ~ label > span,
 		& ~ i
@@ -491,7 +461,7 @@ input[type="radio"]
 				animation: bounce 0.3s
 				animation-iteration-count: 1
 				opacity: 1
-				background-color: $base-color
+				background-color: $checkbox-color
 
 	@keyframes bounce
 		0%
@@ -658,7 +628,9 @@ input[type="radio"]
 	// multiple
 	.select2-selection--multiple
 		height: auto
-		padding: #{$form-input-space-vt - $multiple-item-space} #{$select-arrow-width} #{$form-input-space-vb - $multiple-item-space}  #{$select-space-h}
+		padding: #{$form-input-space-vt - $multiple-item-space} #{$select-space-h} #{$form-input-space-vb - $multiple-item-space}
+		//if has arrow
+		//padding: #{$form-input-space-vt - $multiple-item-space} #{$select-arrow-width} #{$form-input-space-vb - $multiple-item-space} #{$select-space-h}
 
 		.select2-selection__rendered
 			padding-left: 0
@@ -692,7 +664,7 @@ input[type="radio"]
 		.select2-selection__placeholder
 			color: $form-placeholder-color
 
-	@at-root .input--has-value, &.select2-container--focus, &.select2-container--open
+	&.select2-container--focus, &.select2-container--open
 		.select2-selection--multiple, .select2-selection--single
 			border: #{$form-border-width} solid #{$form-border-focus-color}
 
@@ -741,7 +713,7 @@ input[type="radio"]
 	.select2-dropdown--above
 		box-shadow: 0 #{$form-border-width} 0 #{$form-border-color}
 
-select.error
+//select.error
 	&,
 	& + .select2-container--default .select2-selection--single,
 	& + .select2-container--default .select2-selection--multiple
@@ -752,7 +724,7 @@ select.error
 			.select2-selection__placeholder
 				color: $form-error-color
 
-select.success
+//select.success
 	&,
 	& + .select2-container--default .select2-selection--single,
 	& + .select2-container--default .select2-selection--multiple
@@ -766,11 +738,86 @@ select.success
 /* select end
 /* FORM STYLE DEFAULT end
 
-/* has value
+/* inputs states
+=form-success()
+	color: $form-success-color
+	border-color: $form-success-color
 
-label, input
-	&.input--has-value
-		color: lightseagreen
-		border-color: lightseagreen
+=form-error()
+	color: $form-error-color
+	border-color: $form-error-color
 
-/* has value end
+=form-has-value()
+	color: blueviolet
+	border-color: blueviolet
+
+=form-on-focus()
+	color: blue
+	border-color: blue
+
+input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea, .#{$user-content} select, .select
+
+	//form hover
+	&:hover
+		border-color: $form-border-focus-color
+
+	//form focus
+	&:focus
+		border-color: $form-border-focus-color
+		cursor: text
+
+	// has value (js)
+	@at-root label, &
+		&.input--has-value
+			+form-has-value
+
+	//form success
+	@at-root label, &
+		&.success
+			+form-success
+
+			//form error placeholder
+			+placeholder
+				color: $form-success-color
+
+	//form error
+	@at-root label, &
+		&.error
+			+form-error
+
+			//form error placeholder
+			+placeholder
+				color: $form-error-color
+
+	// on focus (js)
+	@at-root label, &
+		&.input--focus
+			+form-on-focus
+
+.select2
+	.select2-selection, .select2-selection__rendered, .select2-selection__placeholder
+		//color: goldenrod
+		//border-color: goldenrod
+
+		.input--has-value + &
+			+form-has-value
+
+		.success + &
+			+form-success
+
+		.error + &
+			+form-error
+
+		.input--focus + &
+			+form-on-focus
+
+	.select2-search__field
+		.success + &
+			+placeholder
+				color: $form-success-color
+
+		.error + &
+			+placeholder
+				color: $form-error-color
+
+/* inputs states end

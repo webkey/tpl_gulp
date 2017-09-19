@@ -38,6 +38,46 @@ function placeholderInit() {
  * */
 function inputToggleFocusClass() {
 	// use for the "focus" state
+	var $inputs = $('.field-effects-js');
+
+	if ($inputs.length) {
+		var $fieldWrap = $('.input-wrap');
+		var $selectWrap = $('.select');
+		var classFocus = 'input--focus';
+
+		$inputs.focus(function () {
+			var $currentField = $(this);
+			var $currentFieldWrap = $currentField.closest($fieldWrap);
+
+			// add class on input
+			$currentField.addClass(classFocus);
+			// add class on label
+			$currentField.prev('label').addClass(classFocus);
+			$currentField.closest($selectWrap).prev('label').addClass(classFocus);
+			// add class on wrapper
+			$currentFieldWrap.addClass(classFocus);
+			// add class on label in wrapper
+			$currentFieldWrap.find('label').addClass(classFocus);
+
+		}).blur(function () {
+			var $currentField = $(this);
+			var $currentFieldWrap = $currentField.closest($fieldWrap);
+
+			// remove class on input
+			$currentField.removeClass(classFocus);
+			// remove class on label
+			$currentField.prev('label').removeClass(classFocus);
+			$currentField.closest($selectWrap).prev('label').removeClass(classFocus);
+			// remove class on wrapper
+			$currentFieldWrap.removeClass(classFocus);
+			// remove class on label in wrapper
+			$currentFieldWrap.find('label').removeClass(classFocus);
+
+		});
+	}
+}
+function inputToggleFocusClass_2() {
+	// use for the "focus" state
 	var $fieldWrap = $('.field-effects-js');
 
 	if ($fieldWrap.length) {
@@ -61,6 +101,52 @@ function inputToggleFocusClass() {
 	}
 }
 
+function inputHasValueClass() {
+	// use for the "has-value" state
+	var $inputs = $('.field-effects-js');
+
+	if ($inputs.length) {
+		var $fieldWrap = $('.input-wrap');
+		var $selectWrap = $('.select');
+		var classHasValue = 'input--has-value';
+
+		$.each($inputs, function () {
+			switchHasValue.call(this);
+		});
+
+		$inputs.on('keyup change', function () {
+			switchHasValue.call(this);
+		});
+
+		function switchHasValue() {
+			var $currentField = $(this);
+			var $currentFieldWrap = $currentField.closest($fieldWrap);
+
+			//first element of the select must have a value empty ("")
+			if ($currentField.val().length === 0) {
+				// remove class on input
+				$currentField.removeClass(classHasValue);
+				// remove class on label
+				$currentField.prev('label').removeClass(classHasValue);
+				$currentField.closest($selectWrap).prev('label').removeClass(classHasValue);
+				// remove class on wrapper
+				$currentFieldWrap.removeClass(classHasValue);
+				// remove class on label in wrapper
+				$currentFieldWrap.find('label').removeClass(classHasValue);
+			} else if (!$currentField.hasClass(classHasValue)) {
+				// add class on input
+				$currentField.addClass(classHasValue);
+				// add class on label
+				$currentField.prev('label').addClass(classHasValue);
+				$currentField.closest($selectWrap).prev('label').addClass(classHasValue);
+				// add class on wrapper
+				$currentFieldWrap.addClass(classHasValue);
+				// add class on label in wrapper
+				$currentFieldWrap.find('label').addClass(classHasValue);
+			}
+		}
+	}
+}
 function inputHasValueClass_2() {
 	// use for the "has-value" state
 	var $fieldWrap = $('.field-effects-js');
@@ -90,54 +176,6 @@ function inputHasValueClass_2() {
 				$currentFieldWrap.removeClass(classHasValue);
 			} else if (!$currentFieldWrap.hasClass(classHasValue)) {
 				$currentFieldWrap.addClass(classHasValue);
-			}
-		}
-	}
-}
-function inputHasValueClass() {
-	// use for the "has-value" state
-	var $inputs = $('.field-effects-js');
-	var $fieldWrap = $('.input-wrap');
-
-	if ($inputs.length) {
-		// var $inputsAll = $fieldWrap.find('input[type="email"], input[type="search"], :text, textarea, select');
-		var classHasValue = 'input--has-value';
-
-		$.each($inputs, function () {
-			switchHasValue.call(this);
-		});
-
-		// $inputs.on('change', function () {
-		// 	switchHasValue.call(this);
-		// });
-
-		$inputs.on('keyup change', function () {
-			switchHasValue.call(this);
-		});
-
-		function switchHasValue() {
-			var $currentField = $(this);
-			var $currentFieldWrap = $currentField.closest($fieldWrap);
-
-			//first element of the select must have a value empty ("")
-			if ($currentField.val() === '') {
-				// remove class on input
-				$currentField.removeClass(classHasValue);
-				// remove class on label
-				$currentField.prev('label').removeClass(classHasValue);
-				// remove class on wrapper
-				$currentFieldWrap.removeClass(classHasValue);
-				// remove class on label in wrapper
-				$currentFieldWrap.find('label').removeClass(classHasValue);
-			} else if (!$currentField.hasClass(classHasValue)) {
-				// add class on input
-				$currentField.addClass(classHasValue);
-				// add class on label
-				$currentField.prev('label').addClass(classHasValue);
-				// add class on wrapper
-				$currentFieldWrap.addClass(classHasValue);
-				// add class on label in wrapper
-				$currentFieldWrap.find('label').addClass(classHasValue);
 			}
 		}
 	}
@@ -208,13 +246,13 @@ function printShow() {
 function customSelect(select) {
 	$.each(select, function () {
 		var $thisSelect = $(this);
-		var placeholder = $thisSelect.attr('data-placeholder') || '';
+		// var placeholder = $thisSelect.attr('data-placeholder') || '';
 		$thisSelect.select2({
 			language: "ru",
 			width: '100%',
 			containerCssClass: 'cselect-head',
-			dropdownCssClass: 'cselect-drop',
-			placeholder: placeholder
+			dropdownCssClass: 'cselect-drop'
+			// , placeholder: placeholder
 		});
 	})
 }
