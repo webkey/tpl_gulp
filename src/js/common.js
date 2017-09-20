@@ -479,6 +479,7 @@ $(document).ready(function () {
 	customSelect($('select.cselect'));
 	fileInput();
 	slidersInit();
+	objectFitImages(); // object-fit-images initial
 
 	footerBottom();
 	formSuccessExample();

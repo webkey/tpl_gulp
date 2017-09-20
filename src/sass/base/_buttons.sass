@@ -2,7 +2,7 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/*button*/
+/* button
 [class|="btn"], [class*=" btn-"], input[type="submit"], input[type="button"], input[type="reset"], button
 	display: inline-block
 	vertical-align: top
@@ -21,29 +21,39 @@
 		z-index: 99
 		opacity: 0
 
-/*btn-default*/
+/* btn-default
 [class*="btn-default"]
 	position: relative
 	+font-alt-bold
 	+font(1.6rem, 24px)
 	color: $btn-text-color
+	fill: $btn-text-color
 	padding: 12px 25px
 	border: 1px solid transparent
 	background: $btn-bg-color
 	box-shadow: none
-	transition-property: background-color, color
-	transition-duration: $animation-speed
 	margin: 0
 
+	@if $animation-use
+		transition:
+			property: background-color, color, border-color
+			duration: $animation-speed
+
+	// hover
 	.no-touchevents &:hover
 		background-color: $btn-bg-hover-color
 
-	&:active
-		transform: scale(0.95)
+	// disabled
+	&:disabled, &.disabled, &[data-disabled]
+		cursor: default
+		background-color: $btn-disabled-color !important
 
-/*btn-default end*/
+		&::before, &::after
+			display: none
 
-/*btn-default-alt*/
+/* btn-default end
+
+/* btn-default-alt
 .btn-default-alt
 	color: $btn-bg-color
 	border: 2px solid $btn-bg-color
@@ -53,10 +63,127 @@
 		background: $btn-bg-color
 		color: $btn-text-color
 
-/*btn-default-alt end*/
-/*button end*/
+	&:disabled, &.disabled, &[data-disabled]
+		cursor: default
+		background-color: white !important
+		border-color: $btn-disabled-color !important
+		color: $btn-disabled-color !important
 
-/*button popup close*/
+		&::before, &::after
+			display: none
+
+		& > i
+			&::before, &::after
+				border-color: $btn-disabled-color !important
+				fill: $btn-disabled-color !important
+
+/* btn-default-alt end
+
+/* btn-with-icon
+.btn-with-icon
+	& > i, & > span
+		+display-inline-block-top
+
+	& > i
+		margin-right: 10px
+		line-height: 1
+
+	svg
+		+display-inline-block-top
+		+size(24px)
+
+	path
+		fill: inherit
+
+		@if $animation-use
+			transition:
+				property: fill
+				duration: $animation-speed
+
+	& > span
+		text-align: left
+		white-space: normal
+
+	.depict-send
+		svg
+			+size(40px, 16px)
+			margin-top: 4px
+			margin-bottom: -4px
+
+		& + span
+			max-width: calc(100% - 5px - 40px - 10px)
+
+/* btn-with-icon end
+
+/* btn-with-arrow
+.btn-with-arrow
+	$arrow-width: 26px
+	$arrow-space: 10px
+
+	& > i, & > span
+		+display-inline-block-middle
+
+	& > i
+		position: relative
+		margin-right: $arrow-space
+		+font(0, 0)
+		+size($arrow-width, 18px)
+
+		&::before, &::after
+			+pseudo()
+			+position(50%)
+			border: 0 solid $btn-text-color
+			transform: none
+
+			@if $animation-use
+				transition:
+					property: border-color
+					duration: $animation-speed
+
+		&::before
+			+size(26px, 2px)
+			border-top-width: 2px
+			margin: -1px 0 0 round(-$arrow-width/2)
+
+		&::after
+			top: 0
+			+size(12px)
+			border-width: 2px 0 0 2px
+			transform: rotate(-45deg)
+			margin: 3px 0 0 round(-$arrow-width/2)
+
+	& > span
+		text-align: left
+		white-space: normal
+		max-width: calc(100% - #{$arrow-width} - #{$arrow-space})
+
+		& ~ i
+			margin-right: 0
+			margin-left: $arrow-space
+
+			&::after
+				border-width: 0 2px 2px 0
+				margin: 3px 0 0 1px
+
+	// alt button
+	&.btn-default-alt
+
+		& > i
+			&::before, &::after
+				border-color: $btn-bg-color
+
+	// hover
+	.no-touchevents &.btn-default-alt:hover, .no-touchevents &.btn-default-alt:focus
+
+		& > i
+
+			&::before, &::after
+				border-color: $btn-text-color
+
+/* btn-with-arrow end
+/* button end
+
+/* button popup close
 .btn-popup-close
 	//<a href="#" class="btn-popup-close js-btn-menu-close"><i></i><span>Закрыть</span></a>
 	$btn-bg: #f3f3f3
@@ -125,7 +252,4 @@
 	.no-touchevents &:hover
 		background-color: $mark-color
 
-//& > i::before, & > i::after
-	background-color: white
-
-/*button popup close end*/
+/* button popup close end

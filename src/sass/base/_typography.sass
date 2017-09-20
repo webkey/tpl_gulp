@@ -5,13 +5,20 @@
 html
 	font-size: 62.5%
 
+	// блокировка скролла
+	&.css-scroll-fixed
+		+scroll-blocked()
+
 body
 	+font-normal
 	+font($font-size, $line-height)
 	color: $text-color
-	height: 100%
-	background-color: $bg-color
-	min-width: 320px
+	background: $bg-color url(../../img/empty.png) no-repeat left top fixed
+
+	// выделение текста
+	*::selection
+		background-color: $base-color
+		color: white
 
 h1, h2, h3, h4, h5, h6
 	padding: 0
@@ -20,7 +27,18 @@ h1, h2, h3, h4, h5, h6
 	margin: 0 0 $bottom-space
 
 	+media('<mob-lg')
-		margin: 0 0 round-float($bottom-space*0.85, 1)
+		margin-bottom: round-float($bottom-space*0.85, 1)
+
+	&:last-child
+		margin-bottom: 0
+
+	a
+		text-decoration: none
+		color: inherit
+
+		.no-touchevents &:hover
+			color: $base-color
+			text-decoration: underline
 
 h1
 	+font($font-size-h1, $line-height-h1)
@@ -113,6 +131,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+ratio(10, 6)
 	margin-bottom: $bottom-space
 
+	+media('<mob-md')
+		+ratio(16, 9)
+
 	img
 		position: absolute
 		left: 50%
@@ -125,22 +146,32 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		width: calc(100% + 4px)
 		height: calc(100% + 4px)
 		transform: translate(-50%, -50%)
-		object-fit: cover
+		+object-fit(cover)
 
-		.no-objectfit &
+		//.no-objectfit &
 			width: auto
 			height: 100%
 
 .entry-img__title
 	position: absolute
-	left: 50%
-	top: 50%
+	+position(50%)
+	+padding-horizontal(0 !important)
+	margin: 0
 	transform: translate(-50%, -50%)
 	z-index: 10
-	font-size: $font-size-h1
-	color: white
+	+font($font-size-h1, $line-height-h1)
+	color: $bg-color-base
 	text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2)
 	text-align: center
+
+	+media('<desk-md')
+		+font($font-size-h1--md, $line-height-h1--md)
+
+	+media('<mob-lg')
+		+font($font-size-h1--sm, $line-height-h1--sm)
+
+	+media('<mob-md')
+		+font(22px, 1)
 
 .mark
 	color: $mark-color
@@ -148,7 +179,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	font-weight: inherit
 
 .text-color-alt
-	color: $text-color-alt
+	color: $base-color
 
 .align-center
 	text-align: center
@@ -169,7 +200,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	white-space: nowrap
 
 
-/*content img*/
+/* content img
 .imgc
 	text-align: center
 	padding-bottom: $bottom-space
@@ -186,18 +217,18 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	margin: 0 0 $bottom-space $bottom-space
 
 .imgl, .imgr
-	max-width: 50%
+	max-width: 40%
 
 	+media('<tab-sm')
 		float: none
 		display: block
 		margin-left: auto
 		margin-right: auto
-		max-width: none
+		max-width: 100%
 
-/*content img end*/
+/* content img end
 
-/*columnize*/
+/* columnize
 .columnize, .columnize--3, .columnize--4
 	column-count: 2
 	column-gap: 2em
@@ -225,20 +256,19 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+media('<tab-sm')
 		column-count: 1
 
-/*columnize end*/
+/* columnize end
 
 .#{$user-content}
 	@each $tags in h2, h3, h4, h5
 		p + #{$tags},
 		ul + #{$tags},
 		ol + #{$tags}
-			margin-top: round-float($bottom-space*1.5, 1)
+			margin-top: round-float($bottom-space--md, 1)
 
-/*list*/
+/* list
 .#{$user-content}
 	//list
-	ul,
-	ol
+	ul, ol
 		margin: 0 0 $bottom-space
 		padding: 0
 		list-style: none
@@ -255,7 +285,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		+size(0)
 		border: solid transparent
 		border-width: 5px 0 5px 9px
-		border-left-color: $text-color-alt
+		border-left-color: $base-color
 
 	ol
 		counter-reset: section
@@ -270,19 +300,17 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 				display: inline-block
 				text-align: left
 				+font-alt-bold
-				color: $text-color-alt
+				color: $base-color
 				content: counter(section)
 				padding: 0 4px 0 0
 				min-width: 30px
 				margin-left: -30px
 
-	ul,
-	ol
-		ul,
-		ol
+	ul, ol
+		ul, ol
 			margin: round($bottom-space*0.5) 0
 
-/*list reset
+/* list reset
 .reset-list,
 .#{$user-content} .reset-list
 	list-style: none
@@ -294,20 +322,20 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 			&::before
 				content: none
 
-/*list reset end
-/*list end*/
+/* list reset end
+/* list end
 
-/*table*/
+/* table
 table
 	border-collapse: collapse
 	border-spacing: 0
 	width: auto
 
 	td, th
-		+font(1.4rem, 1.3)
-		color: $table-text-color
-		padding: 8px 10px
-		border-color: black
+		+font($font-size, $line-height)
+		color: inherit
+		padding: 8px 15px
+		border-color: $text-color-base
 
 .table-auto
 	position: relative
@@ -332,9 +360,9 @@ table
 		border: none
 
 		td, th
-			color: $table-text-color
-			background-color: $table-bg-color
-			border: 0 solid $table-border-color
+			color: $text-color
+			background-color: $bg-color-base
+			border: 0 solid $base-color
 			+font(1.4rem, 1.5)
 
 			&:first-child, &:first-child
@@ -345,7 +373,7 @@ table
 
 		tr:last-child
 			td
-				border-width: 1px 0
+				border-bottom-width: 0
 
 		td
 			border-top-width: 1px
@@ -354,8 +382,8 @@ table
 			border-top-width: 0
 
 		tbody tr:nth-child(even) td
-			background: $table-bg-alt-color
-			color: $table-text-alt-color
+			background: $base-color
+			color: $bg-color-base
 
 		th, thead td
 			+font-bold
@@ -363,14 +391,14 @@ table
 			text-align: left
 
 		th, thead td, tfoot td
-			background: $table-bg-alt-color
-			color: $table-text-alt-color
-			border-color: $table-bg-alt-color
+			background: $base-color
+			color: $bg-color-base
+			border-color: $base-color
 			border-top-width: 0
 
-/*table end*/
+/* table end
 
-/*blockquote*/
+/* blockquote
 .#{$user-content}
 
 	blockquote
@@ -411,28 +439,51 @@ table
 			+font($font-size, $line-height)
 			color: $text-color-light
 
-/*blockquote end*/
+/* blockquote end
 
-/*datetime*/
+/* user spacer
+.user-spacer
+	display: block
+	height: $bottom-space--lg
+	+font(0, 0)
+	+clear
+
+	+media('<desk-lg')
+		height: $bottom-space--ml
+
+/* user spacer end
+
+/* datetime
 .datetime
 	display: block
 	font-style: normal
 	margin-bottom: $bottom-space
 
-/*datetime end*/
+/* datetime end
 
-/*view print*/
+/* view print
 .view-print
-	display: inline-block
-	vertical-align: top
+	+display-inline-block-top
 	padding: 6px 12px
 	margin-bottom: $bottom-space
 	background: #f9f9f9
 	line-height: 1
 	color: black
 	text-decoration: none
-	transition-property: background
-	transition-duration: $animation-speed
+
+	@if $animation-use
+		transition:
+			property: background-color
+			duration: $animation-speed
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+	+media('<tab-lg')
+		display: none
+
+	&:last-child
+		margin-bottom: 0
 
 	.no-touchevents &:hover
 		background-color: #eaeaea
@@ -444,30 +495,14 @@ table
 		height: 20px
 		margin-right: 5px
 
+	@if $animation-use
+		path
+			transition:
+				property: fill
+				duration: $animation-speed
+
 	span
 		display: inline-block
 		vertical-align: middle
 
-	+media('<tab-lg')
-		font-size: 14px
-
-	+media('<mob-lg')
-		padding: 15px
-
-		& svg
-			margin-right: 0
-
-		& span
-			display: none
-
-/*view print end*/
-
-/* user spacer
-.user-spacer
-	width: 100%
-	height: 1px
-	+font(0, 0)
-	margin-bottom: $bottom-space
-	clear: both
-
-/* user spacer end
+/* view print end
