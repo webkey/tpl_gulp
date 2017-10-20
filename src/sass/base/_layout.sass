@@ -51,9 +51,7 @@ body
 	display: inline
 	float: left
 	margin: 0 0 0 -100%
-	width: 260px
-
-	background-color: sandybrown
+	width: $sidebar-width
 
 	+media('<tab-lg')
 		display: none
@@ -61,10 +59,8 @@ body
 .aside
 	display: inline
 	float: right
-	margin: 0 0 0 -160px
-	width: 160px
-
-	background-color: sandybrown
+	margin: 0 0 0 -#{$aside-width}
+	width: $aside-width
 
 	+media('<desk-lg')
 		display: none
@@ -74,8 +70,6 @@ body
 	position: relative
 	clear: both
 	z-index: 5
-
-	background-color: lightgreen
 
 .max-wrap
 	max-width: $page-layout-width + $page-layout-space-horizontal*2

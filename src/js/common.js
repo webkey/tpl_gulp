@@ -6,32 +6,36 @@ var resizeByWidth = true;
 var prevWidth = -1;
 $(window).resize(function () {
 	var currentWidth = $('body').outerWidth();
-	resizeByWidth = prevWidth != currentWidth;
+	resizeByWidth = prevWidth !== currentWidth;
 	if (resizeByWidth) {
 		$(window).trigger('resizeByWidth');
 		prevWidth = currentWidth;
 	}
 });
-/*resize only width end*/
 
 /**
  * !device detected
  * */
 var DESKTOP = device.desktop();
-//console.log('DESKTOP: ', DESKTOP);
 var MOBILE = device.mobile();
-//console.log('MOBILE: ', MOBILE);
 var TABLET = device.tablet();
-//console.log('MOBILE: ', MOBILE);
-/*device detected end*/
 
 /**
- *  placeholder
+ *  Add placeholder for old browsers
  * */
 function placeholderInit() {
 	$('[placeholder]').placeholder();
 }
-/*placeholder end*/
+
+/**
+ * !Show print page by click on the button
+ * */
+function printShow() {
+	$('.view-print').on('click', function (e) {
+		e.preventDefault();
+		window.print();
+	})
+}
 
 /**
  * !toggle class for input on focus
@@ -73,30 +77,6 @@ function inputToggleFocusClass() {
 			// remove class on label in wrapper
 			$currentFieldWrap.find('label').removeClass(classFocus);
 
-		});
-	}
-}
-function inputToggleFocusClass_2() {
-	// use for the "focus" state
-	var $fieldWrap = $('.field-effects-js');
-
-	if ($fieldWrap.length) {
-		var $inputsAll = $fieldWrap.find('input[type="email"], input[type="search"], :text, textarea, select');
-		var _classFocus = 'input--focus';
-
-		$inputsAll.focus(function () {
-			var $thisField = $(this);
-
-			$thisField
-				.closest($fieldWrap)
-				.addClass(_classFocus);
-
-		}).blur(function () {
-			var $thisField = $(this);
-
-			$thisField
-				.closest($fieldWrap)
-				.removeClass(_classFocus);
 		});
 	}
 }
@@ -143,39 +123,6 @@ function inputHasValueClass() {
 				$currentFieldWrap.addClass(classHasValue);
 				// add class on label in wrapper
 				$currentFieldWrap.find('label').addClass(classHasValue);
-			}
-		}
-	}
-}
-function inputHasValueClass_2() {
-	// use for the "has-value" state
-	var $fieldWrap = $('.field-effects-js');
-
-	if ($fieldWrap.length) {
-		var $inputsAll = $fieldWrap.find('input[type="email"], input[type="search"], :text, textarea, select');
-		var classHasValue = 'input--has-value';
-
-		$.each($inputsAll, function () {
-			switchHasValue.call(this);
-		});
-
-		// $inputsAll.on('change', function () {
-		// 	switchHasValue.call(this);
-		// });
-
-		$inputsAll.on('keyup change', function () {
-			switchHasValue.call(this);
-		});
-
-		function switchHasValue() {
-			var $currentField = $(this);
-			var $currentFieldWrap = $currentField.closest($fieldWrap);
-
-			//first element of the select must have a value empty ("")
-			if ($currentField.val() === '') {
-				$currentFieldWrap.removeClass(classHasValue);
-			} else if (!$currentFieldWrap.hasClass(classHasValue)) {
-				$currentFieldWrap.addClass(classHasValue);
 			}
 		}
 	}
@@ -230,18 +177,7 @@ function inputFilledClass() {
 /*toggle class for input on focus end*/
 
 /**
- * !print
- * */
-function printShow() {
-	$('.view-print').on('click', function (e) {
-		e.preventDefault();
-		window.print();
-	})
-}
-/*print end*/
-
-/**
- * !Multiselect init
+ * !Initial custom select for cross-browser styling
  * */
 function customSelect(select) {
 	$.each(select, function () {
@@ -256,10 +192,9 @@ function customSelect(select) {
 		});
 	})
 }
-/* Multiselect init end */
 
 /**
- * file input
+ * !Initial custom file input
  * */
 function fileInput() {
 	$('.upload-file').each(function () {
@@ -319,10 +254,9 @@ function fileInput() {
 		});
 	});
 }
-/*file input end end*/
 
 /**
- * !sliders
+ * !Initial sliders on the project
  * */
 function slidersInit() {
 	//images carousel
@@ -376,10 +310,9 @@ function slidersInit() {
 		});
 	}
 }
-/*sliders end*/
 
 /**
- * !footer at bottom
+ * !Always place the footer at the bottom of the page
  * */
 function footerBottom() {
 	var $footer = $('.footer');
@@ -408,10 +341,9 @@ function footerBottom() {
 		}
 	}
 }
-/*footer at bottom end*/
 
 /**
- * !form success for example
+ * !Testing form validation (for example). Do not use on release!
  * */
 function formSuccessExample() {
 	var $form = $('.user-form form');
@@ -463,9 +395,18 @@ function formSuccessExample() {
 		});
 	}
 }
-/* form success for example end */
 
-/** ready/load/resize document **/
+/**
+ * =========== !ready document, load/resize window ===========
+ */
+
+$(window).on('load', function () {
+	// add functions
+});
+
+$(window).on('debouncedresize', function () {
+	// $(document.body).trigger("sticky_kit:recalc");
+});
 
 $(document).ready(function () {
 	placeholderInit();
@@ -473,9 +414,6 @@ $(document).ready(function () {
 	inputToggleFocusClass();
 	inputHasValueClass();
 	// inputFilledClass();
-	// if (!Modernizr.touchevents) {
-	// 	customSelect($('select.cselect'));
-	// }
 	customSelect($('select.cselect'));
 	fileInput();
 	slidersInit();

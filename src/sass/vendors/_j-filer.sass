@@ -2,6 +2,7 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
+/* jFiler
 .upload-file
 	opacity: 0
 
@@ -14,8 +15,12 @@
 	padding: 20px
 	background: $bg-color-alt
 	border: 1px dashed $border-color
-	transition-property: background-color, border-color, transform
-	transition-duration: $animation-speed
+	@if $animation-use
+		transition:
+			property: background-color, border-color, transform
+			duration: $animation-speed
+	@else
+		transition: none
 
 	.no-touchevents &:hover
 		border-color: $form-border-focus-color
@@ -120,9 +125,14 @@
 		+size(16px, 2px)
 		border-radius: 2px
 		background: white
-		transition-property: background
-		transition-duration: $animation-speed
 		margin: -1px 0 0 -8px
+
+		@if $animation-use
+			transition:
+				property: background-color
+				duration: $animation-speed
+		@else
+			transition: none
 
 	&::before
 		transform: rotate(-45deg)
@@ -133,3 +143,5 @@
 	.no-touchevents &:hover::before,
 	.no-touchevents &:hover::after
 		background-color: $base-color
+
+/* jFiler end

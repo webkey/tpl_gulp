@@ -22,16 +22,19 @@
 	color: $text-color-light
 	margin-bottom: 7px
 
-label
+label, .label
 	+display-inline-block-top
+	user-select: none
 
 .label-holder
-	label
+	label, .label
 		margin-bottom: 0
 
 .form-mark
-	display: inline-block
-	vertical-align: top
+	+display-inline-block-top
+	position: relative
+	margin-left: -15px
+	left: 15px
 	color: $mark-color
 
 .form-row
@@ -245,6 +248,8 @@ input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radi
 	cursor: pointer
 	position: relative
 	user-select: none
+	white-space: normal !important
+	text-overflow: clip !important
 
 	@if $animation-use
 		transition:
@@ -736,7 +741,6 @@ input[type="radio"]
 				color: $form-success-color
 
 /* select end
-/* FORM STYLE DEFAULT end
 
 /* inputs states
 =form-success()
@@ -776,18 +780,20 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 		&.success
 			+form-success
 
-			//form error placeholder
-			+placeholder
-				color: $form-success-color
+	//form error placeholder
+	&.success
+		+placeholder
+			color: $form-success-color
 
 	//form error
 	@at-root label, &
 		&.error
 			+form-error
 
-			//form error placeholder
-			+placeholder
-				color: $form-error-color
+	//form error placeholder
+	&.error
+		+placeholder
+			color: $form-error-color
 
 	// on focus (js)
 	@at-root label, &
@@ -821,3 +827,4 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 				color: $form-error-color
 
 /* inputs states end
+/* FORM STYLE DEFAULT end

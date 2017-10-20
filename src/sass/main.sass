@@ -13,51 +13,65 @@
 @import utils/placeholders
 
 /*======================================================*/
-/*FONTS*/
+/* FONTS
 /*======================================================*/
 @import fonts/fonts
 
 /*======================================================*/
-/*NORMALIZE AND RESET*/
+/* NORMALIZE AND RESET
 /*======================================================*/
 @import base/normalize.min
 @import base/reset
 @import base/oldie
+
 /*======================================================*/
-/*TYPOGRAPHY*/
+/* VENDORS
+/*======================================================*/
+@import vendors/j-filer
+@import vendors/slick-slider
+
+/*======================================================*/
+/* TYPOGRAPHY
 /*======================================================*/
 @import base/typography
 @import base/buttons
 @import base/forms-default
 
 /*======================================================*/
-/*LAYOUT*/
+/* COMMON
+/*======================================================*/
+
+///*======================================================*/
+///*COMPONENTS*/
+///*======================================================*/
+/* SLIDERS
+@import components/sliders
+/* SLIDERS end
+/* FORMS
+@import components/user-form
+/* FORMS end
+/* COMPONENTS
+@import components/breadcrumbs
+@import components/files
+@import components/bitrix-search
+@import components/feature-list
+/* COMPONENTS end
+
+/*======================================================*/
+/* LAYOUT
 /*======================================================*/
 @import base/layout
 
-/*======================================================*/
-/*COMMON*/
-/*======================================================*/
+///*======================================================*/
+///*POPUPS*/
+///*======================================================*/
+//@import partials/shutter
+
 ///*======================================================*/
 ///*PARTIALS 1*/
 ///*======================================================*/
 @import partials/header
 @import partials/navigation
-
-///*======================================================*/
-///*COMPONENTS*/
-///*======================================================*/
-@import components/breadcrumbs
-@import components/files
-@import components/sliders
-@import components/user-form
-@import components/bitrix-search
-@import components/feature-list
-
-///*======================================================*/
-///*VENDOR*/
-///*======================================================*/
-@import vendors/j-filer
 
 ///*======================================================*/
 ///*PARTIALS 2*/
@@ -77,6 +91,6 @@
 @import themes/theme
 
 /*======================================================*/
-/*PRINT STYLES*/
+/* PRINT VERSION
 /*======================================================*/
 @import print/print
