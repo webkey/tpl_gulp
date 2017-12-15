@@ -126,12 +126,12 @@ gulp.task('browserSync', function (done) { // Таск browserSync
 		},
 		notify: false // Отключаем уведомления
 	});
-	browserSync.watch(['src/*.html', 'src/js/**/*.js', 'src/includes-json/**/*.json']).on("change", browserSync.reload);
+	browserSync.watch(['src/*.html', 'src/js/**/*.js', 'src/includes/**/*.json']).on("change", browserSync.reload);
 	done();
 });
 
 gulp.task('watch', ['createCustomModernizr', 'browserSync', 'htmlCompilation', 'sassCompilation', 'mergeCssLibs', 'copyLibsScriptsToJs'], function () {
-	gulp.watch(['src/_tpl_*.html', 'src/__*.html', 'src/includes-json/**/*.json'], ['htmlCompilation']); // Наблюдение за tpl
+	gulp.watch(['src/_tpl_*.html', 'src/__*.html', 'src/includes/**/*.json'], ['htmlCompilation']); // Наблюдение за tpl
 	// файлами в папке include
 	gulp.watch('src/sass/**/*.+(scss|sass)', ['sassCompilation']); // Наблюдение за sass файлами в папке sass
 });
@@ -156,7 +156,7 @@ gulp.task('copyImgToDist', function () {
 
 gulp.task('build', ['cleanDistFolder', 'htmlCompilation', 'copyImgToDist', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
 
-	gulp.src('src/css/*.css')
+	gulp.src(['src/css/*.css', 'src/css/*.map'])
 	.pipe(gulp.dest('dist/css'));
 
 	gulp.src('src/fonts/**/*') // Переносим шрифты в продакшен

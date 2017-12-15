@@ -903,43 +903,7 @@
 								<h3><a href="#hash-visualList" id="hash-visualList" class="hashAnchor"><span class="mark">Изображения + описания к ним</span></a></h3>
 								<!--images descriptions list-->
 								<div class="feature-list">
-									<div class="feature-list__item">
-										<div class="feature-list__img">
-											<img src="img/__temp-img-content-carousel-01.jpg" alt="Не используйте причудливые шрифты" />
-										</div>
-										<div class="feature-list__content">
-											<h3>Не используйте причудливые шрифты</h3>
-											<p>Часто текст равняется по ширине. Это значит, что слова в строке расположены соответственно друг другу, и рваного края нет ни с одной стороны.</p>
-										</div>
-									</div>
-									<div class="feature-list__item">
-										<div class="feature-list__img">
-											<img src="img/__temp-img-content-carousel-02.jpg" alt="Забудьте о Comic Sans" />
-										</div>
-										<div class="feature-list__content">
-											<h3>Забудьте о Comic Sans</h3>
-											<p>Такой способ выравнивания модный, так как отзывчивый дизайн научил дизайнеров думать в блоках. Выравнивая текст по ширине, вы получаете непостоянные пробелы и, в худшем случае, в строке оказывается всего несколько слов, что очень раздражает.
-												Проблема с таким текстом усугубляется на мобильных устройствах, и текст становится нечитабельным.</p>
-										</div>
-									</div>
-									<div class="feature-list__item">
-										<div class="feature-list__img">
-											<img src="img/__temp-img-content-carousel-03.jpg" alt="Не избегайте стандартных, дефолтных шрифтов" />
-										</div>
-										<div class="feature-list__content">
-											<h3>Не избегайте стандартных, дефолтных шрифтов</h3>
-											<p>Если опрятность действительно важна для вас, то вам стоит пользоваться знаками переноса, чтобы смягчить рваный край, но никогда не равнять текст по ширине.</p>
-										</div>
-									</div>
-									<div class="feature-list__item">
-										<div class="feature-list__img">
-											<img src="img/__temp-img-content-carousel-04.jpg" alt="Не используйте одновременно больше двух шрифтов" />
-										</div>
-										<div class="feature-list__content">
-											<h3>Не используйте одновременно больше двух шрифтов</h3>
-											<p>В то время как мы хотим подчеркнуть контраст между текстом и фоном, мы также хотим уменьшить контраст между разными уровнями шрифта.</p>
-										</div>
-									</div>
+									@@loop("_tpl_feature-list-item.html", "includes/feature-list-item.json")
 								</div>
 								<!--images descriptions list end-->
 								<!--feature-list end-->

@@ -37,8 +37,8 @@ gulp.task('buildDistTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function (
 	gulp.src(['src/js/temp/**/*'])
 		.pipe(gulp.dest('gulp-project-template/src/js/temp'));
 
-	gulp.src(['src/includes-json/**/*'])
-		.pipe(gulp.dest('gulp-project-template/src/includes-json'));
+	gulp.src(['src/includes/**/*'])
+		.pipe(gulp.dest('gulp-project-template/src/includes'));
 
 	gulp.src([
 		'!src/__test-mixins.html',
