@@ -97,6 +97,7 @@ gulp.task('createCustomModernizr', function (done) { // Таск для форм
 gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск для мераж js библиотек
 	return gulp.src([
 		'src/libs/device.js/lib/device.min.js' // определение устройств
+		, 'src/libs/jquery-form/dist/jquery.form.min.js' // jquery form для валидации форм
 		, 'src/libs/jquery-smartresize/jquery.debouncedresize.js' // "умный" ресайз
 		, 'src/libs/jquery-placeholder/jquery.placeholder.min.js' // поддержка плейсхолдера в старых браузерах
 		, 'src/libs/select2/dist/js/select2.full.min.js' // кастомный селект
@@ -126,12 +127,12 @@ gulp.task('browserSync', function (done) { // Таск browserSync
 		},
 		notify: false // Отключаем уведомления
 	});
-	browserSync.watch(['src/*.html', 'src/js/**/*.js', 'src/includes/**/*.json']).on("change", browserSync.reload);
+	browserSync.watch(['src/*.html', 'src/js/**/*.js', 'src/includes/**/*.json', 'src/includes/**/*.svg']).on("change", browserSync.reload);
 	done();
 });
 
 gulp.task('watch', ['createCustomModernizr', 'browserSync', 'htmlCompilation', 'sassCompilation', 'mergeCssLibs', 'copyLibsScriptsToJs'], function () {
-	gulp.watch(['src/_tpl_*.html', 'src/__*.html', 'src/includes/**/*.json'], ['htmlCompilation']); // Наблюдение за tpl
+	gulp.watch(['src/_tpl_*.html', 'src/__*.html', 'src/includes/**/*.json', 'src/includes/**/*.svg'], ['htmlCompilation']); // Наблюдение за tpl
 	// файлами в папке include
 	gulp.watch('src/sass/**/*.+(scss|sass)', ['sassCompilation']); // Наблюдение за sass файлами в папке sass
 });

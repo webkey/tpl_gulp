@@ -72,10 +72,10 @@ body
 	z-index: 5
 
 .max-wrap
-	max-width: $page-layout-width + $page-layout-space-horizontal*2
+	max-width: $page-layout-width + $page-layout-space*2
 
 .layout
-	+padding-horizontal($page-layout-space-horizontal)
+	+padding-horizontal($page-layout-space)
 	+push-auto
 
 	+media('<tab-lg')
@@ -85,13 +85,13 @@ body
 // выравнивание текстовых элементов на странице статьи (контент обернут в .layout-article)
 // и их максимальная ширина
 .layout-article
-	padding: round($text-layout-space-horizontal) #{$text-layout-space-horizontal} round($text-layout-space-horizontal*1.5)
+	padding: round($text-layout-space) #{$text-layout-space} round($text-layout-space*1.5)
 
 	+media('<tab-lg')
-		padding: round($text-layout-space-horizontal--md*1.5) #{$text-layout-space-horizontal--md} round($text-layout-space-horizontal--md*2)
+		padding: round($text-layout-space--md*1.5) #{$text-layout-space--md} round($text-layout-space--md*2)
 
 	+media('<tab-sm')
-		padding: round($text-layout-space-horizontal--sm*1.5) #{$text-layout-space-horizontal--sm} round($text-layout-space-horizontal--sm*2)
+		padding: round($text-layout-space--sm*1.5) #{$text-layout-space--sm} round($text-layout-space--sm*2)
 
 	p, ul, ol, h2, h3, h4, h5, h6, hr, .layout-text
 		max-width: $text-layout-width
@@ -107,76 +107,76 @@ body
 	// минусовые маржины по горизонтале имеют значение только внутри .layout-article
 	.layout-full-width, .layout-wide
 
-		+margin-horizontal(-#{$text-layout-space-horizontal})
+		+margin-horizontal(-#{$text-layout-space})
 
 		+media('<tab-lg')
-			+margin-horizontal(-#{$text-layout-space-horizontal--md})
+			+margin-horizontal(-#{$text-layout-space--md})
 
 		+media('<tab-sm')
-			+margin-horizontal(-#{$text-layout-space-horizontal--sm})
+			+margin-horizontal(-#{$text-layout-space--sm})
 
 // максимальная ширина текстовых элементов на внутренней (текстовой) странице
 .max-wrap-text
-	max-width: #{$text-layout-width + $text-layout-space-horizontal*2}
+	max-width: #{$text-layout-width + $text-layout-space*2}
 
 	+media('<tab-lg')
-		max-width: #{$text-layout-width + $text-layout-space-horizontal--md*2}
+		max-width: #{$text-layout-width + $text-layout-space--md*2}
 
 	+media('<tab-sm')
-		max-width: #{$text-layout-width + $text-layout-space-horizontal--sm*2}
+		max-width: #{$text-layout-width + $text-layout-space--sm*2}
 
 // выравнивание текстовых элементов на внутренней (текстовой) странице
 // и их максимальная ширина
 .layout-text
-	max-width: #{$text-layout-width + $text-layout-space-horizontal*2}
-	+padding-horizontal($text-layout-space-horizontal)
+	max-width: #{$text-layout-width + $text-layout-space*2}
+	+padding-horizontal($text-layout-space)
 	+push-auto
 
 	+media('<tab-lg')
-		max-width: #{$text-layout-width + $text-layout-space-horizontal--md*2}
-		+padding-horizontal($text-layout-space-horizontal--md)
+		max-width: #{$text-layout-width + $text-layout-space--md*2}
+		+padding-horizontal($text-layout-space--md)
 
 	+media('<tab-sm')
-		max-width: #{$text-layout-width + $text-layout-space-horizontal--sm*2}
-		+padding-horizontal($text-layout-space-horizontal--sm)
+		max-width: #{$text-layout-width + $text-layout-space--sm*2}
+		+padding-horizontal($text-layout-space--sm)
 
 // максимальная ширина альтернативных элементов на внутренней (текстовой) странице
 .max-wrap-flood
-	max-width: #{$flood-layout-width + $text-layout-space-horizontal*2}
+	max-width: #{$flood-layout-width + $text-layout-space*2}
 
 	+media('<tab-lg')
-		max-width: #{$flood-layout-width + $text-layout-space-horizontal--md*2}
+		max-width: #{$flood-layout-width + $text-layout-space--md*2}
 
 	+media('<tab-sm')
-		max-width: #{$flood-layout-width + $text-layout-space-horizontal--sm*2}
+		max-width: #{$flood-layout-width + $text-layout-space--sm*2}
 
 // выравнивание альтернативных элементов на внутренней (текстовой) странице
 // и их максимальная ширина
 .layout-flood
-	max-width: #{$flood-layout-width + $text-layout-space-horizontal*2}
-	+padding-horizontal($text-layout-space-horizontal)
+	max-width: #{$flood-layout-width + $text-layout-space*2}
+	+padding-horizontal($text-layout-space)
 	+push-auto
 
 	+media('<tab-lg')
-		max-width: #{$flood-layout-width + $text-layout-space-horizontal--md*2}
-		+padding-horizontal($text-layout-space-horizontal--md)
+		max-width: #{$flood-layout-width + $text-layout-space--md*2}
+		+padding-horizontal($text-layout-space--md)
 
 	+media('<tab-sm')
-		max-width: #{$flood-layout-width + $text-layout-space-horizontal--sm*2}
-		+padding-horizontal($text-layout-space-horizontal--sm)
+		max-width: #{$flood-layout-width + $text-layout-space--sm*2}
+		+padding-horizontal($text-layout-space--sm)
 
 	p, ul, ol, h1, h2, h3, h4, h5, h6, hr
 		max-width: none
 
 // элеметы с отступами по бокам
 .layout-wide
-	+padding-horizontal($text-layout-space-horizontal)
+	+padding-horizontal($text-layout-space)
 
 	+media('<tab-lg')
-		+padding-horizontal($text-layout-space-horizontal--md)
+		+padding-horizontal($text-layout-space--md)
 
 	+media('<tab-sm')
-		+padding-horizontal($text-layout-space-horizontal--sm)
+		+padding-horizontal($text-layout-space--sm)
 
 	p, ul, ol, h1, h2, h3, h4, h5, h6, hr
 		max-width: none

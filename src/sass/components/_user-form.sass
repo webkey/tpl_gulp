@@ -13,7 +13,7 @@
 
 .user-form
 	background: $bg-color-alt
-	+padding-vertical($text-layout-space-horizontal)
+	+padding-vertical($text-layout-space)
 	margin-bottom: $bottom-space
 	border: solid $border-color
 	border-width: 1px 0
@@ -22,10 +22,10 @@
 		margin-bottom: 0
 
 	+media('<tab-lg')
-		+padding-vertical($text-layout-space-horizontal--md)
+		+padding-vertical($text-layout-space--md)
 
 	+media('<mob-lg')
-		+padding-vertical($text-layout-space-horizontal--sm)
+		+padding-vertical($text-layout-space--sm)
 
 	form
 		display: block
