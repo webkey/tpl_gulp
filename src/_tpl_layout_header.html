@@ -2,7 +2,10 @@
 	<div class="max-wrap layout">
 		<div class="header__holder">
 			<!--logo-->
-			<strong class="logo"><a href="index.html">Project Name</a><img style="display: none;" src="img/logo.png" alt="Project Name"></strong>
+			<strong class="logo">
+				<@@if(currentItem == "Главная"){span}@@if(currentItem != "Главная"){a href="index.html" title="Project Name"}>Project Name</@@if(currentItem == "Главная"){span}@@if(currentItem != "Главная"){a}>
+				<img style="display: none;" src="img/logo-print.jpg" alt="Project Name">
+			</strong>
 			<!--logo end-->
 
 			<!--navigation-->
