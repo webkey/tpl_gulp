@@ -111,17 +111,224 @@
 							})
 							<!--table default end-->
 
+							<!--===============files===============-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "file",
+								"taText": "Документы для скачивания"
+							})
+							<p>Когда вы увеличиваете размер шрифта, расстояние между символами тоже увеличивается. Поэтому, если вы устанавливаете в тексте крупный заголовок, советуем пропорционально скорректировать расстояние между символами и словами</p>
 							<!--files-->
-							@@include('_tpl_typography_components.html', {
-								"component": "files"
-							})
+							@@include('_tpl_files.html')
 							<!--files end-->
+							<p>Выделить важную мысль или слово, на которое нужно обратить внимание, можно самыми разными способами. Не переусердствуйте с ними. Не стоит выделять целое предложение одними прописными — новичок не всегда может сделать это к месту. Просто используйте полужирное начертание шрифта.</p>
+							<!--==============================-->
 
-							<!--style default button-->
-							@@include('_tpl_typography_components.html', {
-								"component": "buttons"
+							<!--===============buttons===============-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "buttons",
+								"taText": "Кнопки"
 							})
-							<!--style default button end-->
+							<p>Редко бывает так, что 65 символов выходят за пределы браузера на пк, но на большинстве мобильных девайсов 65 символов (если текст отображается в достаточно большом масштабе, чтобы быть разборчивым) выходят далеко за пределы браузера.</p>
+
+							<style>
+								.buttonsWrap a,
+								.buttonsWrap input,
+								.buttonsWrap button{
+									margin: 0 2rem 2rem 0;
+								}
+							</style>
+							<!--==============================-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "buttonsDef",
+								"taText": "Дефолтные кнопки",
+								"taTag": "h4"
+							})
+							<div class="layout-text buttonsWrap">
+								<a href="#" class="btn-default">Link</a>
+								<br>
+								<!--==============================-->
+								<button class="btn-default">Button</button>
+								<br>
+								<!--==============================-->
+								<input class="btn-default" type="submit" value="Type submit">
+								<input class="btn-default" type="button" value="Type button">
+								<input class="btn-default" type="reset" value="Type reset">
+							</div>
+
+							<!--==============================-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "buttonsDefDisabled",
+								"taText": "Дефолтные кнопки (неактивные)",
+								"taTag": "h4"
+							})
+							<div class="layout-text buttonsWrap">
+								<a href="javascript:void(0)" class="btn-default disabled">Link (.disabled)</a>
+								<a href="javascript:void(0)" class="btn-default" data-disabled>Link (data-disabled)</a>
+								<br>
+								<!--==============================-->
+								<button class="btn-default disabled">Button (.disabled)</button>
+								<button class="btn-default" data-disabled>Button (data-disabled)</button>
+								<br>
+								<!--==============================-->
+								<input class="btn-default" type="submit" value="Type submit" disabled>
+								<input class="btn-default" type="button" value="Type button" disabled>
+								<input class="btn-default" type="reset" value="Type reset" disabled>
+							</div>
+
+							<!--==============================-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "buttonsAlt",
+								"taText": "Альтернативные кнопки",
+								"taTag": "h4"
+							})
+							<div class="layout-text buttonsWrap">
+								<a href="#" class="btn-default-alt">Отправить заявку</a>
+								<br>
+								<!--==============================-->
+								<button class="btn-default-alt">Button</button>
+								<br>
+								<!--==============================-->
+								<input class="btn-default-alt" type="submit" value="Type submit">
+								<input class="btn-default-alt" type="button" value="Type button">
+								<input class="btn-default-alt" type="reset" value="Type reset">
+							</div>
+
+							<!--==============================-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "buttonsAltDisabled",
+								"taText": "Альтернативные кнопки (неактивные)",
+								"taTag": "h4"
+							})
+							<div class="layout-text buttonsWrap">
+								<a href="javascript:void(0)" class="btn-default-alt disabled">Отправить заявку (.disabled)</a>
+								<a href="javascript:void(0)" class="btn-default-alt" data-disabled>Отправить заявку (data-disabled)</a>
+								<br>
+								<!--==============================-->
+								<button class="btn-default-alt disabled">Button (.disabled)</button>
+								<button class="btn-default-alt" data-disabled>Button (data-disabled)</button>
+								<br>
+								<!--==============================-->
+								<input class="btn-default-alt" type="submit" value="Type submit" disabled>
+								<input class="btn-default-alt" type="button" value="Type button" disabled>
+								<input class="btn-default-alt" type="reset" value="Type reset" disabled>
+							</div>
+
+							<!--==============================-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "buttonsWithIcon",
+								"taText": "Кнопки с иконкой",
+								"taTag": "h4"
+							})
+							<div class="layout-text buttonsWrap">
+								<!--==============================-->
+								<a href="#" class="btn-default btn-with-icon">
+									@@include("includes/svg/icon-send.svg")
+									<span>Заказать</span>
+								</a>
+								<!--==============================-->
+								<button class="btn-default btn-with-icon">
+									@@include("includes/svg/icon-send.svg")
+									<span>Отправить</span>
+								</button>
+								<!--==============================-->
+								<button class="btn-default btn-with-icon">
+									<span>Send</span>
+									@@include("includes/svg/icon-send.svg")
+								</button>
+								<!--==============================-->
+								<button class="btn-default btn-with-icon">
+									@@include("includes/svg/icon-arr--sm--left.svg")
+									<span>Вернуться к каталогу</span>
+								</button>
+								<!--==============================-->
+								<br>
+								<code>width: 250px</code><br>
+								<button class="btn-default btn-with-icon">
+									@@include("includes/svg/icon-arr--sm--left.svg")
+									<span>Вернуться на шаг назад</span>
+								</button>
+								<!--==============================-->
+								<br>
+								<code>width: 250px</code><br>
+								<button class="btn-default btn-with-icon">
+									<span>Перейти на шаг вперед</span>
+									@@include("includes/svg/icon-arr--sm--left.svg")
+								</button>
+							</div>
+
+							<!--==============================-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "buttonsWithIconDisabled",
+								"taText": "Кнопки с иконкой (неактивные)",
+								"taTag": "h4"
+							})
+							<div class="layout-text buttonsWrap">
+								<!--==============================-->
+								<a href="#" class="btn-default btn-with-icon disabled">
+									@@include("includes/svg/icon-send.svg")
+									<span>Заказать</span>
+								</a>
+								<!--==============================-->
+								<button class="btn-default btn-with-icon" disabled>
+									@@include("includes/svg/icon-send.svg")
+									<span>Отправить</span>
+								</button>
+								<!--==============================-->
+								<button class="btn-default btn-with-icon" disabled>
+									<span>Send</span>
+									@@include("includes/svg/icon-send.svg")
+								</button>
+								<!--==============================-->
+								<button class="btn-default btn-with-icon" disabled>
+									@@include("includes/svg/icon-arr--sm--left.svg")
+									<span>Вернуться к каталогу</span>
+								</button>
+								<!--==============================-->
+								<br>
+								<code>width: 250px</code> <br>
+								<button class="btn-default btn-with-icon" disabled>
+									@@include("includes/svg/icon-arr--sm--left.svg")
+									<span>Вернуться на шаг назад</span>
+								</button>
+								<!--==============================-->
+								<br>
+								<code>width: 250px</code> <br>
+								<button class="btn-default btn-with-icon" disabled>
+									<span>Перейти на шаг вперед</span>
+									@@include("includes/svg/icon-arr--sm--left.svg")
+								</button>
+							</div>
+
+							<!--==============================-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "buttonsWithArr",
+								"taText": "Кнопки со стрелками",
+								"taTag": "h4"
+							})
+							<div class="layout-text buttonsWrap">
+								<a href="#" class="btn-default btn-with-arrow"><span>Смотреть все</span><i>&nbsp;</i></a>
+								<a href="#" class="btn-default btn-with-arrow"><i>&nbsp;</i><span>Вернуться к каталогу</span></a>
+								<br>
+								<!--==============================-->
+								<a href="#" class="btn-default-alt btn-with-arrow"><span>Смотреть все</span><i>&nbsp;</i></a>
+								<a href="#" class="btn-default-alt btn-with-arrow"><i>&nbsp;</i><span>Вернуться к каталогу</span></a>
+							</div>
+
+							<!--==============================-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "buttonsWithArrDisabled",
+								"taText": "Кнопки со стрелками (неактивные)",
+								"taTag": "h4"
+							})
+							<div class="layout-text buttonsWrap">
+								<a href="#" class="btn-default btn-with-arrow disabled"><span>Смотреть все</span><i>&nbsp;</i></a>
+								<a href="#" class="btn-default btn-with-arrow disabled"><i>&nbsp;</i><span>Вернуться к каталогу</span></a>
+								<br>
+								<!--==============================-->
+								<a href="#" class="btn-default-alt btn-with-arrow disabled"><span>Смотреть все</span><i>&nbsp;</i></a>
+								<a href="#" class="btn-default-alt btn-with-arrow disabled"><i>&nbsp;</i><span>Вернуться к каталогу</span></a>
+							</div>
+							<!--===============buttons end===============-->
 
 							<div class="user-spacer">&nbsp;</div>
 
@@ -139,11 +346,57 @@
 
 							<div class="user-spacer">&nbsp;</div>
 
-							<!--images-align-->
-							@@include('_tpl_typography_components.html', {
-								"component": "imagesAlign"
+							<!--===============images-align===============-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "imagesAlign",
+								"taText": "Выравнивание картинок в контенте"
 							})
-							<!--images-align end-->
+
+							<p>Когда мы пробегаем взглядом по тексту, мы делаем это прыжками, которые называются саккадами; мы не читаем буквы или даже слова, мы читаем куски слов и наш мозг составляет эти куски в одно целое, в то, что мы ожидаем прочесть. Если же мозг удивлен прочтенным, он посылает взгляд обратно, чтобы проверить, правильно ли был прочитан текст. Хорошая типографика минимизирует работу ваших глаз, позволяя взгляду мягко скользить вдоль строк текста.</p>
+							<img class="imgl" src="img/__temp-img-content-sm-03.jpg" alt="image description" />
+							<ul>
+								<li>Не используйте причудливые шрифты
+									<ul>
+										<li>Забудьте о Comic Sans</li>
+										<li>Не избегайте стандартных, дефолтных шрифтов
+											<ul>
+												<li>Не используйте одновременно больше двух шрифтов</li>
+												<li>Смешивайте только контрастные шрифты. Выравнивайте по левой стороне. Избегайте большого числа переносов</li>
+												<li>Выбирайте шрифты с одинаковой высотой букв</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>Размер шрифта</li>
+								<li>Без отступа</li>
+								<li>Узкая колонка. Висячая пунктуация. Не злоупотребляйте пробелами</li>
+							</ul>
+							<ol>
+								<li>Семейство шрифтов (свойство font-family)</li>
+								<li>Сочетание шрифтов с засечками и без засечек</li>
+								<li>Цвет шрифта (свойство color)</li>
+								<li>Межбуквенный и межсимвольный интервал (свойства word-spacing и letter-spacing)</li>
+								<li>Межстрочный интервал (свойство line-height)</li>
+								<li>Длина строки</li>
+							</ol>
+							<p>Мобильные девайсы предоставляют каждому специалисту массу проблем: площадь ограничена, подсветка зачастую плохая. Но следуя этим простым советам, вы сможете улучшить читабельность текста на мобильных устройствах. Вопреки всеобщему заблуждению, типографика — это не только организация маленьких волнистых линий на экране; она значительно отвечает и за пространство внутри и вокруг них.</p>
+							<p>Чтобы понять это, давайте разберемся, как произошли шрифты: дырка посреди «о» (и а, ю, ы и т.д.) — это контур. Когда буквы изготавливались из металла для дальнейшего их использования в печатных прессах, эти контуры создавались с помощью механического удара, который вырезал буквы из металла. Первые дизайнеры шрифтов работали с формами, которые не будут печататься. Типографика отвечает за формы букв гораздо меньше, чем за пространство, которое эти буквы обрамляют.</p>
+							<img class="imgr" src="img/__temp-img-content-sm-02.jpg" alt="image description" />
+							<p>Когда мы говорим об иерархии, мы обычно имеем в виду иерархию от h1 до p, и, возможно, вплоть до h6. Но есть дополнительная иерархия, которая влияет на поток линии или абзаца, и это иерархия пространства: пространство между буквами меньше, чем пространство между словами, пространство между словами меньше, чем пространство между строками и так далее.</p>
+							<p>Для оптимизации читабельности на мобильных устройствах стоит особое внимание уделять иерархии пространства, четкому и жесткому группированию букв в слова, строки и абзацы.</p>
+							<p>Мера — это длина строки текста. Или, точнее сказать, — это идеальная длина строки текста, ведь редко бывает, что каждая строка идеально вписывается.</p>
+							<p>Обычно за идеальную меру принимают около 65 символов. Физическая длина меры будет зависеть от дизайна шрифта и от текста, который вы используете.</p>
+							<div class="imgc">
+								<img src="img/__temp-img-content-sm-01.jpg" alt="image description" />
+							</div>
+							<p>Редко бывает так, что 65 символов выходят за пределы браузера на пк, но на большинстве мобильных девайсов 65 символов (если текст отображается в достаточно большом масштабе, чтобы быть разборчивым) выходят далеко за пределы браузера. Следовательно, для мобильных девайсов вы должны сокращать свою меру.</p>
+							<p>Здесь нет никаких общепринятых стандартов для меры на мобильных экранах, хотя традиционно ровные колонки текста в газетах или журналах стремятся к 39 символам. Так как это является идеальной мерой, проверенной столетиями, она хорошо подходит и для мобильной типографики.</p>
+							<p>Интерлиньяж — это пространство между строками, и когда оно мало, то саккадные прыжки между концами и началами строк становятся трудноуловимыми. Когда же интерлиньяж слишком расслаблен, пробелы между словами начинают выделяться и создают своеобразные «реки», которые прерывают мягкий поток строки.</p>
+
+							<div class="imgc">
+								<img src="img/__temp-img-content-lg.jpg" alt="image description" />
+							</div>
+							<!--===============images-align end===============-->
 
 							<p>Обычный стандарт для интерлиньяжа — это около 1,4em, хотя очень часто он слишком плотный для экранов: одна из ключевых характеристик для шрифта, который будет хорошо работать на экранах — это большие контура, которые будут требовать увеличить интерлиньяж, чтобы соответствовать иерархии пространства.</p>
 							<!--separator--><hr>
@@ -157,25 +410,35 @@
 							<!--separator--><hr>
 
 							<!--search-page-->
-								@@include('_tpl_typography_components.html', {
-									"component": "searchPage"
-								})
-								<!--search-page end-->
+							@@include('_tpl_typography_components.html', {
+								"component": "searchPage"
+							})
+							<!--search-page end-->
 
-								<!--separator--><hr>
-								<!--feature-list-->
-								@@include('_tpl_typography_components.html', {
-									"component": "featureList"
-								})
-								<!--feature-list end-->
+							<!--separator--><hr>
+							<!--feature-list-->
+							@@include('_tpl_typography_components.html', {
+								"component": "featureList"
+							})
+							<!--feature-list end-->
 
-								<div class="user-spacer">&nbsp;</div>
+							<div class="user-spacer">&nbsp;</div>
 
-								<!--print-button-->
-								@@include('_tpl_typography_components.html', {
-									"component": "printButton"
-								})
-								<!--print-button end-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "iconsList",
+								"taText": "Иконки"
+							})
+							<!--iconsList-->
+							@@include("_tpl_typography_icons-list.html")
+							<!--iconsList end-->
+
+							<div class="user-spacer">&nbsp;</div>
+
+							<!--print-button-->
+							@@include('_tpl_typography_components.html', {
+								"component": "printButton"
+							})
+							<!--print-button end-->
 						</div>
 
 						@@include('_tpl_typography_nav.html')
@@ -196,3 +459,9 @@
 	<!--MAIN end-->
 </div>
 @@include('_tpl_layout_foot.html')
+
+<div class="table-auto">
+	<table id="currentOffer" class="tableOffers">
+
+	</table>
+</div>

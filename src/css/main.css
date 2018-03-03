@@ -208,16 +208,10 @@ canvas {
 }
 
 /* reset */
-a, input, button,
-a:focus, input:focus, button:focus {
+input, input:focus, textarea, select {
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
 	-webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
 	outline: none !important;
-}
-
-*:focus {
-	outline: none;
-	-moz-outline: 3px solid white !important;
 }
 
 body {
@@ -795,7 +789,6 @@ a {
 	color: blue;
 	text-decoration: underline;
 	cursor: default;
-	outline: none;
 }
 
 a:link {
@@ -1111,13 +1104,12 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 }
 
 .user-content ul > li::before {
-	content: "";
+	content: '';
 	display: block;
-	position: absolute;
-	left: 0;
-	top: 9px;
+	float: left;
 	width: 0;
 	height: 0;
+	margin: 0.4em 0 -0.5em -30px;
 	border: solid transparent;
 	border-width: 5px 0 5px 9px;
 	border-left-color: #ffa43f;
@@ -3103,22 +3095,6 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 	height: 42px;
 }
 
-.file .st-bg {
-	fill: #e2e5e7;
-}
-
-.file .st-corner {
-	fill: #b0b7bd;
-}
-
-.file .st-shadow {
-	fill: #cad1d8;
-}
-
-.file .st-text {
-	fill: white;
-}
-
 .file > span, .file > em {
 	display: block;
 	margin-left: 42px;
@@ -3137,6 +3113,22 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 
 .no-touchevents .file:hover > em {
 	color: white;
+}
+
+.st-bg {
+	fill: #e2e5e7;
+}
+
+.st-corner {
+	fill: #b0b7bd;
+}
+
+.st-shadow {
+	fill: #cad1d8;
+}
+
+.st-text {
+	fill: #fff;
 }
 
 /* files links end */
@@ -3656,7 +3648,7 @@ body {
 	z-index: 5;
 }
 
-.logo a {
+.logo a, .logo > span {
 	display: block;
 	height: 100%;
 }
