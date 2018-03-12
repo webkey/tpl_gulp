@@ -2,7 +2,6 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/* FORM STYLES DEFAULT
 /* form layout
 .form-row, .input-wrap
 	position: relative // Важно! Для позицирования отметки подтверждения полей формы
@@ -36,6 +35,10 @@ label, .label
 	margin-left: -15px
 	left: 15px
 	color: $mark-color
+
+	.form-note &
+		margin-left: 0
+		left: auto
 
 .form-row
 	+margin-horizontal(-#{round($form-gap*0.5)})
@@ -827,4 +830,3 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 				color: $form-error-color
 
 /* inputs states end
-/* FORM STYLE DEFAULT end

@@ -10,9 +10,12 @@ html
 		+scroll-blocked()
 
 body
+	position: relative
 	+font-normal
 	+font($font-size, $line-height)
 	color: $text-color
+	height: 100%
+	min-width: 320px
 	background: $bg-color url(../../img/empty.png) no-repeat left top fixed
 
 	// выделение текста
@@ -203,30 +206,41 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+hide-text
 
 /* content img
-.imgc
-	text-align: center
-	padding-bottom: $bottom-space
-	clear: both
 
-.imgl
-	text-align: left
-	float: left
-	margin: 0 $bottom-space $bottom-space 0
-
-.imgr
-	text-align: right
-	float: right
-	margin: 0 0 $bottom-space $bottom-space
-
-.imgl, .imgr
-	max-width: 40%
-
-	+media('<tab-sm')
-		float: none
+.layout-article
+	& > img, .imgc
+		text-align: center
 		display: block
-		margin-left: auto
-		margin-right: auto
-		max-width: 100%
+		margin: 0 auto $bottom-space
+		max-width: $flood-layout-width
+		clear: both
+
+	.imgl
+		text-align: left
+		float: left
+		margin: 0 $bottom-space $bottom-space 0
+
+	.imgr
+		text-align: right
+		float: right
+		margin: 0 0 $bottom-space $bottom-space
+
+	.imgl, .imgr
+		max-width: 40%
+
+		+media('<tab-sm')
+			float: none
+			display: block
+			margin-left: auto
+			margin-right: auto
+			max-width: 100%
+
+.imgc, .imgl, .imgr
+	figcaption
+		display: block
+		padding: $bottom-space 0 0
+		margin: 0
+		+font($font-size--sm, $line-height--sm)
 
 /* content img end
 

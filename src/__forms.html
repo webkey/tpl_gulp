@@ -21,35 +21,47 @@
 
 							<h1>Тестирование элементов форм</h1>
 
-							<!--form clear-->
-							@@include('_tpl_typography_components.html', {
-								"component": "formClear"
+							<!--===============form clear===============-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "formElementClearExample",
+								"taText": "Поля форм без оберток. Элементы идут один за другим. (рекомендуем)"
 							})
-							<!--form clear end-->
+							@@include('_tpl_forms_form-clear.html')
+							<!--===============form clear end===============-->
 
 							<div class="user-spacer"></div>
 
-							<!--form default-->
-							@@include('_tpl_typography_components.html', {
-								"component": "formDefault"
+							<!--===============form default===============-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "formElementExample",
+								"taText": "Поля форм c обертками. (если необходимо)"
 							})
-							<!--form default end-->
+							@@include('_tpl_forms_form-default.html')
+							<!--===============form default end===============-->
 
 							<div class="user-spacer"></div>
 
-							<!--checkbox and radio-->
-							@@include('_tpl_typography_components.html', {
-								"component": "checkboxRadio"
+							<!--===============checkbox and radio===============-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "formCheckboxExample",
+								"taText": "Чекбоксы и Радиобаттоны"
 							})
-							<!--checkbox and radio end-->
+							<div class="layout-text">
+								@@include('_tpl_forms_checkbox-and-radio.html')
+							</div>
+							<!--===============checkbox and radio end===============-->
 
 							<div class="user-spacer"></div>
 
-							<!--user form-->
-							@@include('_tpl_typography_components.html', {
-								"component": "userForm"
+							<!--===============user form===============-->
+							@@include('_tpl_title-anchor.html', {
+								"taId": "userFormExample",
+								"taText": "Форма обратной связи"
 							})
-							<!--user form end-->
+							@@include('_tpl_forms_user-form.html', {
+								"title": "Задать вопрос"
+							})
+							<!--===============user form end===============-->
 						</div>
 
 						@@include('_tpl_typography_nav.html')

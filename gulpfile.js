@@ -61,6 +61,7 @@ gulp.task('sassCompilation', ['compressNormalizeCss'], function () { // Созд
 			linefeed: 'lf' // cr, crlf, lf or lfcr
 		}).on('error', sass.logError)) // Преобразуем Sass в CSS посредством gulp-sass
 		.pipe(replace('../../', '../')) /// в css файлах меняем пути к файлам с ../../ на ../
+		.pipe(replace('@charset "UTF-8";', ''))
 		.pipe(autoprefixer([
 			'last 5 versions', '> 1%', 'ie >= 9', 'and_chr >= 2.3' //, 'ie 8', 'ie 7'
 		], {
@@ -157,8 +158,12 @@ gulp.task('copyImgToDist', function () {
 
 gulp.task('build', ['cleanDistFolder', 'htmlCompilation', 'copyImgToDist', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
 
-	gulp.src(['src/css/*.css', 'src/css/*.map'])
-	.pipe(gulp.dest('dist/css'));
+	gulp.src(['src/css/*.css'])
+		.pipe(replace('\n\n', '\n'))
+		.pipe(gulp.dest('dist/css'));
+
+	gulp.src(['src/css/*.map'])
+		.pipe(gulp.dest('dist/css'));
 
 	gulp.src('src/fonts/**/*') // Переносим шрифты в продакшен
 		.pipe(gulp.dest('dist/fonts'));
@@ -166,7 +171,7 @@ gulp.task('build', ['cleanDistFolder', 'htmlCompilation', 'copyImgToDist', 'sass
 	gulp.src(['!src/js/temp/**/*.js', '!src/js/**/temp-*.js', 'src/js/*.js']) // Переносим скрипты в продакшен
 		.pipe(gulp.dest('dist/js'));
 
-	gulp.src(['!src/__*.html', '!src/forms.html', '!src/_tpl_*.html', 'src/*.html']) // Переносим HTML в продакшен
+	gulp.src(['!src/__*.html', '!src/_tpl_*.html', 'src/*.html']) // Переносим HTML в продакшен
 		.pipe(gulp.dest('dist'));
 
 	gulp.src(['src/*.png', 'src/*.ico', 'src/.htaccess']) // Переносим favicon и др. файлы в продакшин

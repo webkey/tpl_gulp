@@ -23,19 +23,18 @@
 @import base/normalize.min
 @import base/reset
 @import base/oldie
-
-/*======================================================*/
-/* VENDORS
-/*======================================================*/
-@import vendors/j-filer
-@import vendors/slick-slider
+@import base/nojs
 
 /*======================================================*/
 /* TYPOGRAPHY
 /*======================================================*/
 @import base/typography
+/* === BUTTON ===
 @import base/buttons
-@import base/forms-default
+/* === BUTTON end ===
+/* === FORM STYLES DEFAULT ===
+@import base/form-elements
+/* === FORM STYLES DEFAULT end ===
 
 /*======================================================*/
 /* COMMON
@@ -44,41 +43,18 @@
 ///*======================================================*/
 ///*COMPONENTS*/
 ///*======================================================*/
-/* SLIDERS
-@import components/sliders
-/* SLIDERS end
-/* FORMS
-@import components/user-form
-/* FORMS end
-/* COMPONENTS
-@import components/breadcrumbs
-@import components/files
-@import components/bitrix-search
-@import components/feature-list
-/* COMPONENTS end
+@import components/components
+//@import components/bitrix-search
 
 /*======================================================*/
-/* LAYOUT
+/* PARTIALS
 /*======================================================*/
 @import base/layout
 
-///*======================================================*/
-///*POPUPS*/
-///*======================================================*/
-//@import partials/shutter
-
-///*======================================================*/
-///*PARTIALS 1*/
-///*======================================================*/
-@import partials/header
-@import partials/navigation
-
-///*======================================================*/
-///*PARTIALS 2*/
-///*======================================================*/
-@import partials/sidebar
-@import partials/aside
-@import partials/footer
+/*======================================================*/
+/*POPUPS*/
+/*======================================================*/
+//@import components/shutter
 
 ///*======================================================*/
 ///*PAGES*/
