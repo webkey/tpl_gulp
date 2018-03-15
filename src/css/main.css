@@ -2754,6 +2754,10 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 	font-family: "object-fit: contain";
 }
 
+.images-slider__item .caption {
+	display: none;
+}
+
 .images-slider .slick-arrow {
 	right: 0;
 	left: auto;

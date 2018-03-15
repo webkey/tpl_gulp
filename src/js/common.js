@@ -268,25 +268,29 @@ function slidersInit() {
 				'<span class="slide-curr">0</span>/<span class="slide-total">0</span>' +
 			'</div>';
 
+		var titleListTpl = $('<div class="flashes"></div>');
+
 		$imagesCarousel.each(function () {
-			var $currentImagesCarousel = $(this);
-			var $images = $currentImagesCarousel.find('.images-slider__list');
-			var $titles = $currentImagesCarousel.find('.flashes');
+			var $curSlider = $(this);
+			var $imgList = $curSlider.find('.images-slider__list');
+			var $titleList = $curSlider.find('.flashes');
 			var dur = 200;
 
-			$images.on('init', function (event, slick) {
+			$imgList.after(titleListTpl.clone());
+
+			$imgList.on('init', function (event, slick) {
 				$(slick.$slider).append($(slideCounterTpl).clone());
 
 				$('.slide-total', $(slick.$slider)).text(slick.$slides.length);
 				$('.slide-curr', $(slick.$slider)).text(slick.currentSlide + 1);
 			});
 
-			$images.slick({
+			$imgList.slick({
 				fade: false,
 				speed: dur,
 				slidesToShow: 1,
 				slidesToScroll: 1,
-				asNavFor: $titles,
+				asNavFor: $titleList,
 				// initialSlide: 2,
 				lazyLoad: 'ondemand',
 				infinite: true,
@@ -296,13 +300,13 @@ function slidersInit() {
 				$('.slide-curr', $(slick.$slider)).text(nextSlider + 1);
 			});
 
-			$titles.slick({
+			$titleList.slick({
 				fade: true,
 				speed: dur,
 				slidesToShow: 1,
 				slidesToScroll: 1,
 				infinite: true,
-				asNavFor: $images,
+				asNavFor: $imgList,
 				dots: false,
 				arrows: false
 			});
