@@ -156,7 +156,7 @@ gulp.task('copyImgToDist', function () {
 		.pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
 });
 
-gulp.task('build', ['cleanDistFolder', 'htmlCompilation', 'copyImgToDist', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
+gulp.task('buildDist', ['cleanDist', 'htmlCompilation', 'copyImgToDist', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
 
 	gulp.src(['src/css/*.css'])
 		.pipe(replace('\n\n', '\n'))
@@ -179,7 +179,7 @@ gulp.task('build', ['cleanDistFolder', 'htmlCompilation', 'copyImgToDist', 'sass
 
 });
 
-gulp.task('cleanDistFolder', function () {
+gulp.task('cleanDist', function () {
 	return del.sync(['dist/']); // Удаляем папку dist
 });
 

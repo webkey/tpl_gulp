@@ -680,7 +680,8 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 	text-align: center;
 	display: block;
 	margin: 0 auto 2.4rem;
-	max-width: 1000px;
+	width: 1000px;
+	max-width: 100%;
 	clear: both;
 }
 
@@ -2737,7 +2738,7 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 	content: '';
 	display: block;
 	height: 0;
-	padding-top: 62.5%;
+	padding-top: 56.25%;
 }
 
 .images-slider__item img {

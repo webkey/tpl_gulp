@@ -12,7 +12,7 @@ var gulp = require('gulp'),
  ************************************************************/
 
 gulp.task('copyImgToDistTpl', function () {
-	return gulp.src('src/img/**/*')
+	return gulp.src(['!src/img/temp/list/**/*', 'src/img/**/*'])
 		.pipe(cache(imagemin({
 			interlaced: true,
 			progressive: true,
@@ -23,7 +23,7 @@ gulp.task('copyImgToDistTpl', function () {
 		.pipe(gulp.dest('gulp-project-template/src/img'));
 });
 
-gulp.task('buildDistTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function () {
+gulp.task('buildDistTpl', ['cleanDistTpl', 'copyImgToDistTpl'], function () {
 
 	gulp.src(['!src/sass/test-mixins.sass', '!src/sass/**/normalize.*', 'src/sass/**/*'])
 		.pipe(gulp.dest('gulp-project-template/src/sass'));
@@ -61,6 +61,6 @@ gulp.task('buildDistTpl', ['cleanDistTplFolder', 'copyImgToDistTpl'], function (
 
 });
 
-gulp.task('cleanDistTplFolder', function () {
+gulp.task('cleanDistTpl', function () {
 	return del.sync(['gulp-project-template/']);
 });

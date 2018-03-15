@@ -260,7 +260,7 @@ function fileInput() {
  * */
 function slidersInit() {
 	//images carousel
-	var $imagesCarousel = $('.images-slider');
+	var $imagesCarousel = $('.images-slider-js');
 
 	if($imagesCarousel.length){
 		var slideCounterTpl = '' +
