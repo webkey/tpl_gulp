@@ -108,6 +108,12 @@
 /* user form end
 
 /* slick sliders
+// slider
+.slick-slide
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important
+	-webkit-focus-ring-color: rgba(255, 255, 255, 0) !important
+	outline: none !important
+
 // arrows
 .slick-arrow
 	+size(40px)
@@ -239,7 +245,7 @@
 	white-space: normal
 	overflow: hidden
 	position: relative
-	background: #494949
+	background-color: transparent
 
 	.slick-initialized &
 		display: block
@@ -250,11 +256,15 @@
 		display: block
 		width: 100%
 		opacity: 1
+		margin-bottom: $bottom-space
 
 	&::before
 		content: ''
 		display: block
 		+ratio(16, 9)
+
+		.no-js &
+			content: none
 
 	img
 		position: absolute
@@ -265,8 +275,22 @@
 		height: 100%
 		+object-fit(contain)
 
+		.no-js &[data-lazy]
+			display: none
+
+		.no-js &
+			position: relative
+			+position(auto)
+			width: auto
+			height: auto
+			+object-fit(fill)
+			margin-bottom: 1rem
+
 	.caption
 		display: none
+
+		.no-js &
+			display: block
 
 .images-slider
 
@@ -316,6 +340,19 @@
 				transform: scale(2)
 
 /* images slider end
+
+/* flashes
+.flashes
+	padding: 0 90px
+
+.flashes__item, .images-slider__item .caption
+	+font(1.4rem, 1.5)
+	color: $text-color-light
+
+	& > *:last-child
+		margin-bottom: 0
+
+/* flashes end
 
 /* jFiler
 .upload-file
@@ -460,19 +497,6 @@
 		background-color: $base-color
 
 /* jFiler end
-
-/* flashes
-.flashes
-	padding: 0 90px
-
-.flashes__item
-	+font(1.4rem, 1.5)
-	color: $text-color-light
-
-	& > *:last-child
-		margin-bottom: 0
-
-/* flashes end
 
 /* breadcrumbs
 .breadcrumbs

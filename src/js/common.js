@@ -273,33 +273,18 @@ function slidersInit() {
 		$imagesCarousel.each(function () {
 			var $curSlider = $(this);
 			var $imgList = $curSlider.find('.images-slider__list');
-			var $titleList = $curSlider.find('.flashes');
+			var $imgListItem = $imgList.find('.images-slider__item');
 			var dur = 200;
 
+			// create titles
 			$imgList.after(titleListTpl.clone());
-
-			$imgList.on('init', function (event, slick) {
-				$(slick.$slider).append($(slideCounterTpl).clone());
-
-				$('.slide-total', $(slick.$slider)).text(slick.$slides.length);
-				$('.slide-curr', $(slick.$slider)).text(slick.currentSlide + 1);
+			var $titleList = $curSlider.find('.flashes');
+			$.each($imgListItem, function () {
+				var $this = $(this);
+				$titleList.append($('<div class="flashes__item">' + $this.find('.caption').html() + '</div>'));
 			});
 
-			$imgList.slick({
-				fade: false,
-				speed: dur,
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				asNavFor: $titleList,
-				// initialSlide: 2,
-				lazyLoad: 'ondemand',
-				infinite: true,
-				dots: true,
-				arrows: true
-			}).on('beforeChange', function (event, slick, currentSlide, nextSlider) {
-				$('.slide-curr', $(slick.$slider)).text(nextSlider + 1);
-			});
-
+			// initialized slider of titles
 			$titleList.slick({
 				fade: true,
 				speed: dur,
@@ -308,7 +293,31 @@ function slidersInit() {
 				infinite: true,
 				asNavFor: $imgList,
 				dots: false,
-				arrows: false
+				arrows: false,
+
+				swipe: false,
+				touchMove: false,
+				draggable: false
+			});
+
+			// initialized slider of images
+			$imgList.on('init', function (event, slick) {
+				$(slick.$slider).append($(slideCounterTpl).clone());
+
+				$('.slide-total', $(slick.$slider)).text(slick.$slides.length);
+				$('.slide-curr', $(slick.$slider)).text(slick.currentSlide + 1);
+			}).slick({
+				fade: false,
+				speed: dur,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				asNavFor: $titleList,
+				lazyLoad: 'ondemand',
+				infinite: true,
+				dots: true,
+				arrows: true
+			}).on('beforeChange', function (event, slick, currentSlide, nextSlider) {
+				$('.slide-curr', $(slick.$slider)).text(nextSlider + 1);
 			});
 
 		});

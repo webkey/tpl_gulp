@@ -113,6 +113,13 @@
 	.breadcrumbs, .breadcrumbs__list,
 	[class*="btn-"],
 	form,
+
+	.flashes,
+	.images-slider__item::before,
+	.images-slider__list .slick-arrow,
+	.images-slider__list .slick-dots,
+	.images-slider__list .slider-counter,
+	.images-slider__item img,
 	.class
 		display: none !important
 
@@ -122,6 +129,12 @@
 	.imgl, .imgr, .imgc,
 	table, blockquote, q, cite,
 	[class*="feature-list"],
+	// images-slider
+	.images-slider__list,
+	.images-slider__list .slick-list,
+	.images-slider__list .slick-track,
+	.images-slider__item,
+	.images-slider__item .caption,
 	.class
 		+print-reset
 
@@ -132,6 +145,8 @@
 	.feature-list__item,
 	.feature-list__img,
 	.datetime,
+	// images-slider
+	.images-slider__item,
 	.class
 		+prints-space-bottom-sm
 
@@ -158,3 +173,6 @@
 
 	table
 		width: 100% !important
+
+	.#{$user-content} img
+		max-width: 8cm !important
