@@ -21,7 +21,12 @@ var gulp = require('gulp'), // Подключаем Gulp
 	fs = require('fs'), // For compiling modernizr.min.js
 	modernizr = require('modernizr'), // For compiling modernizr.min.js
 	config = require('./modernizr-config'), // Path to modernizr-config.json
-	replace = require('gulp-string-replace')
+	replace = require('gulp-string-replace'),
+	strip = require('gulp-strip-comments'), // Удалить комментарии
+	stripCssComments = require('gulp-strip-css-comments'), // Удалить комментарии (css)
+	removeEmptyLines = require('gulp-remove-empty-lines'), // Удалить пустые строки
+	revts = require('gulp-rev-timestamp'), // Дабавить версии к подключаемым файлам
+	beautify = require('gulp-beautify') // Причесать js
 	;
 
 gulp.task('htmlCompilation', function () { // Таск формирования ДОМ страниц
@@ -41,16 +46,15 @@ gulp.task('htmlCompilation', function () { // Таск формирования 
 		.pipe(gulp.dest('./src/'));
 });
 
-/// Таск для переноса normalize.css и его минификации
-gulp.task('compressNormalizeCss', function () {
-	return gulp.src('src/libs/normalize-css/normalize.css')
-		.pipe(gulp.dest('src/sass/base/'))
-		.pipe(cssnano())
-		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest('src/sass/base/'));
+/// Таск для переноса normalize
+gulp.task('normalize', function () {
+	return gulp.src('src/libs/normalize-scss/sass/**/*.+(scss|sass)')
+		.pipe(stripCssComments())
+		// .pipe(removeEmptyLines())
+		.pipe(gulp.dest('src/_temp/'));
 });
 
-gulp.task('sassCompilation', ['compressNormalizeCss'], function () { // Создаем таск для компиляции sass файлов
+gulp.task('sassCompilation', ['normalize'], function () { // Создаем таск для компиляции sass файлов
 	return gulp.src('src/sass/**/*.+(scss|sass)') // Берем источник
 		.pipe(sourcemaps.init())
 		.pipe(sass({
@@ -158,20 +162,40 @@ gulp.task('copyImgToDist', function () {
 
 gulp.task('buildDist', ['cleanDist', 'htmlCompilation', 'copyImgToDist', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
 
-	gulp.src(['src/css/*.css'])
-		.pipe(replace('\n\n', '\n'))
-		.pipe(gulp.dest('dist/css'));
+	gulp.src(['src/ajax/**/*'])
+		.pipe(gulp.dest('dist/ajax')); // Переносим ajax-файлы в продакшен
 
-	gulp.src(['src/css/*.map'])
+	gulp.src(['src/video/**/*']) // Переносим видеофайлы в продакшен
+		.pipe(gulp.dest('dist/video'));
+
+	gulp.src(['src/css/*.css']) // Переносим стили в продакшен
+		.pipe(removeEmptyLines()) // Удаляем пустые строки
 		.pipe(gulp.dest('dist/css'));
 
 	gulp.src('src/fonts/**/*') // Переносим шрифты в продакшен
 		.pipe(gulp.dest('dist/fonts'));
 
-	gulp.src(['!src/js/temp/**/*.js', '!src/js/**/temp-*.js', 'src/js/*.js']) // Переносим скрипты в продакшен
+	gulp.src('src/js/common.js') // Переносим common.js в продакшен
+		.pipe(strip({
+			safe: true,
+			ignore: /\/\*\*\s*\n([^\*]*(\*[^\/])?)*\*\//g // Не удалять /**...*/
+		}))
+		.pipe(removeEmptyLines())  // Удаляем пустые строки
+		.pipe(beautify({  // Причесываем код
+			"indent_with_tabs": true,
+			"space_after_anon_function": true,
+			"max_preserve_newlines": 2
+		}))
 		.pipe(gulp.dest('dist/js'));
 
+	gulp.src(['!src/js/temp/**/*.js', '!src/js/**/temp-*.js', '!src/js/common.js', 'src/js/*.js']) // Переносим остальные скрипты в продакшен
+		.pipe(gulp.dest('dist/js'));
+
+	gulp.src('src/assets/**/*') // Переносим дополнительные файлы в продакшен
+		.pipe(gulp.dest('dist/assets'));
+
 	gulp.src(['!src/__*.html', '!src/_tpl_*.html', 'src/*.html']) // Переносим HTML в продакшен
+		.pipe(revts()) // Добавить версии подключаемых файлов. В html добавить ключ ?rev=@@hash в место добавления версии
 		.pipe(gulp.dest('dist'));
 
 	gulp.src(['src/*.png', 'src/*.ico', 'src/.htaccess']) // Переносим favicon и др. файлы в продакшин

@@ -28,7 +28,16 @@ gulp.task('buildDistTpl', ['cleanDistTpl', 'copyImgToDistTpl'], function () {
 	gulp.src(['!src/sass/test-mixins.sass', '!src/sass/**/normalize.*', 'src/sass/**/*'])
 		.pipe(gulp.dest('gulp-project-template/src/sass'));
 
+	gulp.src('src/ajax')
+		.pipe(gulp.dest('gulp-project-template/src'));
+
+	gulp.src('src/assets')
+		.pipe(gulp.dest('gulp-project-template/src'));
+
 	gulp.src('src/fonts')
+		.pipe(gulp.dest('gulp-project-template/src'));
+
+	gulp.src('src/video')
 		.pipe(gulp.dest('gulp-project-template/src'));
 
 	gulp.src(['src/js/common.js'])

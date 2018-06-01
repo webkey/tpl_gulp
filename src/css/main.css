@@ -6,9 +6,8 @@
 /*======================================================*/
 /* NORMALIZE AND RESET */
 /*======================================================*/
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+/*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
 html {
-	font-family: sans-serif;
 	line-height: 1.15;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
@@ -18,16 +17,22 @@ body {
 	margin: 0;
 }
 
-article, aside, footer, header, nav, section {
+article,
+aside,
+footer,
+header,
+nav,
+section {
 	display: block;
 }
 
 h1 {
 	font-size: 2em;
-	margin: .67em 0;
+	margin: 0.67em 0;
 }
 
-figcaption, figure, main {
+figcaption,
+figure {
 	display: block;
 }
 
@@ -41,8 +46,12 @@ hr {
 	overflow: visible;
 }
 
+main {
+	display: block;
+}
+
 pre {
-	font-family: monospace,monospace;
+	font-family: monospace, monospace;
 	font-size: 1em;
 }
 
@@ -51,23 +60,26 @@ a {
 	-webkit-text-decoration-skip: objects;
 }
 
-a:active, a:hover {
-	outline-width: 0;
-}
-
 abbr[title] {
 	border-bottom: none;
 	text-decoration: underline;
 	text-decoration: underline dotted;
 }
 
-b, strong {
+b,
+strong {
 	font-weight: inherit;
+}
+
+b,
+strong {
 	font-weight: bolder;
 }
 
-code, kbd, samp {
-	font-family: monospace,monospace;
+code,
+kbd,
+samp {
+	font-family: monospace, monospace;
 	font-size: 1em;
 }
 
@@ -84,7 +96,8 @@ small {
 	font-size: 80%;
 }
 
-sub, sup {
+sub,
+sup {
 	font-size: 75%;
 	line-height: 0;
 	position: relative;
@@ -92,14 +105,15 @@ sub, sup {
 }
 
 sub {
-	bottom: -.25em;
+	bottom: -0.25em;
 }
 
 sup {
-	top: -.5em;
+	top: -0.5em;
 }
 
-audio, video {
+audio,
+video {
 	display: inline-block;
 }
 
@@ -116,46 +130,87 @@ svg:not(:root) {
 	overflow: hidden;
 }
 
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
 	font-family: sans-serif;
 	font-size: 100%;
 	line-height: 1.15;
 	margin: 0;
 }
 
-button, input {
+button {
 	overflow: visible;
 }
 
-button, select {
+button,
+select {
 	text-transform: none;
 }
 
-[type=reset], [type=submit], button, html [type=button] {
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
 	-webkit-appearance: button;
 }
 
-[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
 	border-style: none;
 	padding: 0;
 }
 
-[type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring, button:-moz-focusring {
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
 	outline: 1px dotted ButtonText;
 }
 
+input {
+	overflow: visible;
+}
+
+[type="checkbox"],
+[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
 fieldset {
-	border: 1px solid silver;
-	margin: 0 2px;
-	padding: .35em .625em .75em;
+	padding: 0.35em 0.75em 0.625em;
 }
 
 legend {
 	box-sizing: border-box;
-	color: inherit;
 	display: table;
 	max-width: 100%;
 	padding: 0;
+	color: inherit;
 	white-space: normal;
 }
 
@@ -168,30 +223,7 @@ textarea {
 	overflow: auto;
 }
 
-[type=checkbox], [type=radio] {
-	box-sizing: border-box;
-	padding: 0;
-}
-
-[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
-	height: auto;
-}
-
-[type=search] {
-	-webkit-appearance: textfield;
-	outline-offset: -2px;
-}
-
-[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
-	-webkit-appearance: none;
-}
-
-::-webkit-file-upload-button {
-	-webkit-appearance: button;
-	font: inherit;
-}
-
-details, menu {
+details {
 	display: block;
 }
 
@@ -199,11 +231,19 @@ summary {
 	display: list-item;
 }
 
+menu {
+	display: block;
+}
+
 canvas {
 	display: inline-block;
 }
 
-[hidden], template {
+template {
+	display: none;
+}
+
+[hidden] {
 	display: none;
 }
 
@@ -239,6 +279,7 @@ input {
 textarea, .select select, input[type="text"], input[type="email"], input[type="search"], input[type="submit"], input[type="button"], input[type="reset"], button {
 	-webkit-appearance: none;
 	-moz-appearance: none;
+	appearance: none;
 	border-radius: 0;
 }
 
@@ -252,6 +293,8 @@ input[type=radio], input[type=checkbox], select {
 
 textarea, input, button {
 	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 	border-radius: 0;
 }
 
@@ -2421,8 +2464,8 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 
 .user-form {
 	background: #f3f3f3;
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 	margin-bottom: 2.4rem;
 	border: solid lightgray;
 	border-width: 1px 0;
@@ -2434,15 +2477,15 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 
 @media (max-width: 991px) {
 	.user-form {
-		padding-top: 30px;
-		padding-bottom: 30px;
+		padding-top: 25px;
+		padding-bottom: 25px;
 	}
 }
 
 @media (max-width: 639px) {
 	.user-form {
-		padding-top: 15px;
-		padding-bottom: 15px;
+		padding-top: 13px;
+		padding-bottom: 13px;
 	}
 }
 
@@ -3243,7 +3286,7 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 /*======================================================*/
 /* === LAYOUT === */
 .max-wrap {
-	max-width: 1960px;
+	max-width: 1920px + 40px;
 }
 
 .layout {
@@ -3253,26 +3296,19 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 	margin-left: auto;
 }
 
-@media (max-width: 991px) {
-	.main .layout {
-		padding-right: 0;
-		padding-left: 0;
-	}
-}
-
 .layout-article {
-	padding: 60px 60px 90px;
+	padding: 50px 60px;
 }
 
 @media (max-width: 991px) {
 	.layout-article {
-		padding: 45px 30px 60px;
+		padding: 25px 30px;
 	}
 }
 
 @media (max-width: 767px) {
 	.layout-article {
-		padding: 23px 15px 30px;
+		padding: 13px 15px;
 	}
 }
 
@@ -3363,7 +3399,7 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 
 @media (max-width: 767px) {
 	.max-wrap-flood {
-		max-width: 1030px;
+		max-width: 1020px;
 	}
 }
 
