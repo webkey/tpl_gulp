@@ -1157,7 +1157,6 @@ table td, table th {
 	font-weight: 700;
 	text-transform: uppercase;
 	color: white;
-	fill: white;
 	padding: 14px 38px;
 	border: 2px solid transparent;
 	background: #ffa43f;
@@ -1210,7 +1209,6 @@ table td, table th {
 
 .btn-default-alt:disabled > i::before, .btn-default-alt:disabled > i::after, .btn-default-alt.disabled > i::before, .btn-default-alt.disabled > i::after, .btn-default-alt[data-disabled] > i::before, .btn-default-alt[data-disabled] > i::after {
 	border-color: #ccc !important;
-	fill: #ccc !important;
 }
 
 /* btn-default-alt end */
@@ -2927,8 +2925,6 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 	padding: 20px;
 	background: #f3f3f3;
 	border: 1px dashed lightgray;
-	-webkit-transition: none;
-	transition: none;
 }
 
 .no-touchevents .jFiler-input-dragDrop:hover {
@@ -3068,8 +3064,6 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 	border-radius: 2px;
 	background: white;
 	margin: -1px 0 0 -8px;
-	-webkit-transition: none;
-	transition: none;
 }
 
 .jFiler-item-trash-action::before {
@@ -3286,7 +3280,7 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 /*======================================================*/
 /* === LAYOUT === */
 .max-wrap {
-	max-width: 1920px + 40px;
+	max-width: 1960px;
 }
 
 .layout {
@@ -3459,8 +3453,25 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 }
 
 .wrapper {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch;
 	margin: 0 auto;
-	min-height: 100vh;
+	min-height: 100%;
 	overflow: hidden;
 	position: relative;
 }
@@ -3468,6 +3479,10 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 /* === LAYOUT end === */
 /* === CONTENT === */
 .main {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1;
+	    -ms-flex: 1 1;
+	        flex: 1 1;
 	position: relative;
 	clear: both;
 	z-index: 4;
@@ -3508,11 +3523,14 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 
 /* === CONTENT end === */
 /* === HEADER === */
+.header {
+	background-color: lightgreen;
+}
+
 .header__holder {
 	position: relative;
 	padding: 10px 0;
 	z-index: 5;
-	background-color: lightgreen;
 }
 
 .header__holder::after {
@@ -3666,7 +3684,6 @@ li:hover > .nav__drop {
 /* === ASIDE end === */
 /* === FOOTER === */
 .footer {
-	margin: 0 auto;
 	position: relative;
 	clear: both;
 	z-index: 5;
@@ -3685,40 +3702,58 @@ li:hover > .nav__drop {
 
 /* footer bottom */
 .footer-bottom {
-	color: #262626;
+	position: relative;
+	overflow: hidden;
 }
 
 .footer-bottom__holder {
 	position: relative;
-	text-align: justify;
-	overflow: hidden;
-	cursor: default;
-	font-size: 0;
-	letter-spacing: -4px;
-}
-
-.footer-bottom__holder::after {
-	content: "1";
-	display: inline-block;
-	margin-left: 100%;
-	height: 1px;
-	overflow: hidden;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+	margin-bottom: -14px;
 }
 
 .footer-bottom__col {
+	text-align: center;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-bottom: 14px;
 	display: inline-block;
 	vertical-align: top;
-	font-size: 16px;
-	line-height: 1.5;
-	letter-spacing: normal;
+	width: calc(33.33% - 5px);
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 33.33%;
+	    -ms-flex: 1 1 33.33%;
+	        flex: 1 1 33.33%;
 }
 
-.footer-bottom__col:last-child {
-	text-align: right;
+@media (max-width: 639px) {
+	.footer-bottom__col {
+		min-width: 100%;
+	}
+}
+
+@media (min-width: 640px) {
+	.footer-bottom__col:first-child {
+		text-align: left;
+	}
+}
+
+@media (min-width: 640px) {
+	.footer-bottom__col:last-child {
+		text-align: right;
+	}
 }
 
 .footer-bottom__col a {
-	color: #262626;
+	color: inherit;
 	text-decoration: none;
 }
 
@@ -3738,6 +3773,18 @@ li:hover > .nav__drop {
 
 .no-touchevents .developer a:hover {
 	text-decoration: none;
+}
+
+@media (max-width: 639px) {
+	.developer__label {
+		display: block;
+	}
+}
+
+@media (max-width: 639px) {
+	.developer__label i {
+		display: none;
+	}
 }
 
 .developer__logo {

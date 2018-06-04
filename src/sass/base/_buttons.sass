@@ -26,7 +26,6 @@
 	+font-bold
 	text-transform: uppercase
 	color: $btn-text-color
-	fill: $btn-text-color
 	padding: 14px 38px
 	border: 2px solid transparent
 	background: $btn-bg-color
@@ -36,11 +35,6 @@
 	&, & > span
 		+font(14px, 18px)
 		letter-spacing: 0.2em
-
-	@if $animation-use
-		transition:
-			property: background-color, color, border-color
-			duration: $animation-speed
 
 	// hover
 	.no-touchevents &:hover
@@ -78,7 +72,6 @@
 		& > i
 			&::before, &::after
 				border-color: $btn-disabled-color !important
-				fill: $btn-disabled-color !important
 
 /* btn-default-alt end
 
@@ -126,11 +119,6 @@
 			+position(50%)
 			border: 0 solid $btn-text-color
 			transform: none
-
-			@if $animation-use
-				transition:
-					property: border-color
-					duration: $animation-speed
 
 		&::before
 			+size(26px, 2px)

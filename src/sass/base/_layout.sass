@@ -4,7 +4,7 @@
 
 /* === LAYOUT ===
 .max-wrap
-	max-width: $page-layout-width + #{nth($page-layout-space, 2)*2}
+	max-width: #{$page-layout-width +  nth($page-layout-space, 2)*2}
 
 .layout
 	+padding-horizontal(nth($page-layout-space, 2))
@@ -117,11 +117,13 @@
 
 // лэяут страницы
 .wrapper
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	align-items: stretch
 	margin: 0 auto
-	//min-height: 100%
-	//height: auto !important
-	//height: 100%
-	min-height: 100vh
+	//min-height: 100vh
+	min-height: 100%
 	overflow: hidden
 	position: relative
 
@@ -129,6 +131,7 @@
 
 /* === CONTENT ===
 .main
+	flex: 1 1
 	position: relative
 	clear: both
 	z-index: 4
@@ -156,13 +159,14 @@
 /* === CONTENT end ===
 
 /* === HEADER ===
+.header
+	background-color: lightgreen
+
 .header__holder
 	position: relative
 	padding: 10px 0
 	z-index: 5
 	+clear
-
-	background-color: lightgreen
 
 /* logo
 .logo
@@ -278,7 +282,7 @@
 
 /* === FOOTER ===
 .footer
-	margin: 0 auto
+	//margin: 0 auto
 	position: relative
 	clear: both
 	z-index: 5
@@ -291,37 +295,45 @@
 .footer__holder
 	overflow: hidden
 	cursor: default
-	padding: $footer-grid-space 0
+	padding: $footer-grid-space
 
 /* footer bottom
 .footer-bottom
-	color: $text-color
+	position: relative
+	// обрезать вытянутый маржинами по горизонтале дочерний элемент
+	overflow: hidden
 
 .footer-bottom__holder
 	position: relative
-	text-align: justify
-	overflow: hidden
-	cursor: default
-
-	+clear-spacing
-
-	&::after
-		content: "1"
-		display: inline-block
-		margin-left: 100%
-		height: 1px
-		overflow: hidden
+	display: flex
+	flex-wrap: wrap
+	+margin-horizontal(-#{round(nth($grid-space, 2)/2)})
+	margin-bottom: -#{round(nth($grid-space, 1)/2)}
 
 .footer-bottom__col
-	+display-inline-block-top
-	+font(16px, round-float(24/16, 3))
-	letter-spacing: normal
+	text-align: center
+	+padding-horizontal(round(nth($grid-space, 2)/2))
+	margin-bottom: #{round(nth($grid-space, 1)/2)}
+	// для браузеров не поддерживающих display: flex
+	display: inline-block
+	vertical-align: top
+	width: calc(33.33% - 5px)
+	// для браузеров поддерживающих display: flex
+	flex: 1 1 33.33%
+
+	+media('<mob-lg')
+		min-width: 100%
+
+	&:first-child
+		+media('>=mob-lg')
+			text-align: left
 
 	&:last-child
-		text-align: right
+		+media('>=mob-lg')
+			text-align: right
 
 	a
-		color: $text-color
+		color: inherit
 		text-decoration: none
 
 		.no-touchevents &:hover
@@ -339,6 +351,14 @@
 		.no-touchevents &:hover
 			text-decoration: none
 
+.developer__label
+	+media('<mob-lg')
+		display: block
+
+	i
+		+media('<mob-lg')
+			display: none
+
 .developer__logo
 	+display-inline-block-top
 	position: relative
@@ -352,11 +372,6 @@
 		+pseudo()
 		+position(0, 0)
 		+size(149px, 16px)
-
-		@if $animation-use
-			transition:
-				property: opacity, transform, filter
-				duration: 0.2s
 
 	&::before
 		+pseudo()
