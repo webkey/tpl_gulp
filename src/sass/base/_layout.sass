@@ -131,7 +131,8 @@
 
 /* === CONTENT ===
 .main
-	flex: 1 1
+	flex-shrink: 1
+	flex-grow: 1
 	position: relative
 	clear: both
 	z-index: 4
@@ -318,8 +319,6 @@
 	display: inline-block
 	vertical-align: top
 	width: calc(33.33% - 5px)
-	// для браузеров поддерживающих display: flex
-	flex: 1 1 33.33%
 
 	+media('<mob-lg')
 		min-width: 100%
