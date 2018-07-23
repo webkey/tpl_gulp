@@ -161,8 +161,8 @@ $animation-speed: 0.2s !default
 $animation-speed-mouseleave: 0.35s !default
 
 // =========fonts style=========
-$font-norm: 'Roboto', sans-serif !default
-$font-alt: 'Roboto Slab', serif !default
+$font-norm: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default
+$font-alt: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default
 
 // ============= обнуление жирности и наклонности шрифта ==============
 // ============= использовать, если подключается font-face ==============
@@ -173,48 +173,22 @@ $font-alt: 'Roboto Slab', serif !default
 
 // ============= основоной шрифт ==============
 =font-normal()
-	font:
-		family: $font-norm
-		weight: 300
+	font-family: $font-norm
 
 =font-bold()
-	font:
-		family: $font-norm
-		weight: 700
+	font-weight: bold
 
 =font-italic()
-	font:
-		family: $font-norm
-		weight: 300
-		style: italic
+	font-style: italic
 
 =font-bold-italic()
-	font:
-		family: $font-norm
-		weight: 700
-		style: italic
+	font-weight: bold
+	font-style: italic
 
 // ========== дополнительный шрифт ============
 =font-alt()
-	font:
-		family: $font-alt
-		style: normal
-		weight: normal
+	font-family: $font-norm
 
 =font-alt-bold()
-	font:
-		family: $font-alt
-		style: normal
-		weight: 700
-
-=font-alt-italic()
-	font:
-		family: $font-alt
-		style: italic
-		weight: normal
-
-=font-alt-bold-italic()
-	font:
-		family: $font-alt
-		style: italic
-		weight: 700
+	font-family: $font-norm
+	font-weight: 300

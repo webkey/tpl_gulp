@@ -22,8 +22,7 @@
 }
 
 .mx-subtitle {
-	font-family: "Roboto", sans-serif;
-	font-weight: 700;
+	font-weight: bold;
 	margin-bottom: 1.8rem;
 	background-color: white;
 }
@@ -63,9 +62,8 @@
 	max-height: none;
 	height: 100%;
 	width: 100%;
-	-webkit-transform: translate(-50%, -50%);
-	    -ms-transform: translate(-50%, -50%);
-	        transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
 	-webkit-backface-visibility: hidden;
 	        backface-visibility: hidden;
 	-o-object-fit: cover;
@@ -95,9 +93,8 @@
 	max-height: none;
 	height: 100%;
 	width: 100%;
-	-webkit-transform: translate(-50%, -50%);
-	    -ms-transform: translate(-50%, -50%);
-	        transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
 	-webkit-backface-visibility: hidden;
 	        backface-visibility: hidden;
 	-o-object-fit: contain;
@@ -353,9 +350,8 @@
 	max-width: 90%;
 	width: 240px;
 	height: 50px;
-	-webkit-transform: rotate(45deg);
-	    -ms-transform: rotate(45deg);
-	        transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	    transform: rotate(45deg);
 }
 
 .mx-font {
