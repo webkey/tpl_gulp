@@ -419,7 +419,6 @@ body {
 	font-size: 1.6rem;
 	line-height: 1.5;
 	color: #262626;
-	height: 100%;
 	min-width: 320px;
 	background: #e5e5e5 url(../img/empty.png) no-repeat left top fixed;
 }
@@ -2910,180 +2909,6 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 }
 
 /* flashes end */
-/* jFiler */
-.upload-file {
-	opacity: 0;
-}
-
-.jFiler {
-	position: relative;
-}
-
-.jFiler-input-dragDrop {
-	margin: 0;
-	cursor: pointer;
-	padding: 20px;
-	background: #f3f3f3;
-	border: 1px dashed lightgray;
-}
-
-.no-touchevents .jFiler-input-dragDrop:hover {
-	border-color: #a0a0a0;
-}
-
-.jFiler-input-dragDrop.dragged .jFiler-input-icon i {
-	-webkit-transform: translate(0, -8px);
-	    -ms-transform: translate(0, -8px);
-	        transform: translate(0, -8px);
-}
-
-.jFiler-input-dragDrop .jFiler-input-icon {
-	margin-top: 0;
-	margin-bottom: 15px;
-	text-align: center;
-}
-
-.jFiler-input-dragDrop .jFiler-input-icon i {
-	display: inline-block;
-	vertical-align: top;
-	background: url(../img/attach.png) no-repeat;
-	background-size: contain;
-	width: 60px;
-	height: 44px;
-	-webkit-transition-property: background-color, border-color, -webkit-transform;
-	transition-property: background-color, border-color, -webkit-transform;
-	transition-property: background-color, border-color, transform;
-	transition-property: background-color, border-color, transform, -webkit-transform;
-	-webkit-transition-duration: 0.2s;
-	        transition-duration: 0.2s;
-}
-
-.jFiler-input-dragDrop .jFiler-input-text strong {
-	display: block;
-	font-family: "Roboto", sans-serif;
-	font-weight: 300;
-	font-size: 1.2rem;
-	line-height: 1.67;
-	color: #262626;
-	text-align: center;
-}
-
-.jFiler-items {
-	margin: 50px 0 0;
-}
-
-.jFiler-items-list, .user-content .jFiler-items-list {
-	margin: 1.8rem 0;
-}
-
-.jFiler-items-list li, .user-content .jFiler-items-list li {
-	padding-left: 0;
-}
-
-.jFiler-items-list li::before, .user-content .jFiler-items-list li::before {
-	content: none;
-}
-
-.jFiler-item {
-	margin: 1.8rem 0;
-	font-size: 1.4rem;
-	line-height: 1.71;
-	color: #262626;
-	overflow: hidden;
-}
-
-.jFiler-item-icon {
-	display: none;
-}
-
-.jFiler-item-title {
-	display: inline-block;
-	vertical-align: top;
-	font-family: "Roboto", sans-serif;
-	font-weight: 700;
-	margin-right: 10px;
-}
-
-.jFiler-item-others {
-	display: inline-block;
-	vertical-align: top;
-	color: gray;
-	position: relative;
-}
-
-.jFiler-item-others::after {
-	content: '';
-	position: absolute;
-	left: 100%;
-	bottom: 0;
-	width: 999px;
-	height: 0;
-	border-bottom: 1px dotted lightgray;
-	margin: 0 0 3px;
-}
-
-.jFiler-item-others span {
-	padding-right: 5px;
-}
-
-.jFiler-item-assets {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-}
-
-.jFiler-item-assets ul,
-.user-content ul .jFiler-item-assets ul {
-	margin: 0;
-}
-
-.jFiler-item-assets ul li,
-.user-content ul .jFiler-item-assets ul li {
-	margin: 0;
-	padding: 0 0 3px 8px !important;
-	background: #f3f3f3;
-}
-
-.jFiler-item-trash-action {
-	display: block;
-	position: relative;
-	width: 20px;
-	height: 20px;
-	z-index: 2;
-	cursor: pointer;
-	background-color: #262626;
-}
-
-.jFiler-item-trash-action::before, .jFiler-item-trash-action::after {
-	content: '';
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	width: 16px;
-	height: 2px;
-	border-radius: 2px;
-	background: white;
-	margin: -1px 0 0 -8px;
-}
-
-.jFiler-item-trash-action::before {
-	-webkit-transform: rotate(-45deg);
-	    -ms-transform: rotate(-45deg);
-	        transform: rotate(-45deg);
-}
-
-.jFiler-item-trash-action::after {
-	-webkit-transform: rotate(45deg);
-	    -ms-transform: rotate(45deg);
-	        transform: rotate(45deg);
-}
-
-.no-touchevents .jFiler-item-trash-action:hover::before,
-.no-touchevents .jFiler-item-trash-action:hover::after {
-	background-color: #ffa43f;
-}
-
-/* jFiler end */
 /* breadcrumbs */
 .breadcrumbs {
 	color: gray;
@@ -3479,10 +3304,13 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 /* === LAYOUT end === */
 /* === CONTENT === */
 .main {
+	-webkit-flex-shrink: 1;
+	    -ms-flex-negative: 1;
+	        flex-shrink: 1;
 	-webkit-box-flex: 1;
-	-webkit-flex: 1 1;
-	    -ms-flex: 1 1;
-	        flex: 1 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 	position: relative;
 	clear: both;
 	z-index: 4;
@@ -3728,10 +3556,6 @@ li:hover > .nav__drop {
 	display: inline-block;
 	vertical-align: top;
 	width: calc(33.33% - 5px);
-	-webkit-box-flex: 1;
-	-webkit-flex: 1 1 33.33%;
-	    -ms-flex: 1 1 33.33%;
-	        flex: 1 1 33.33%;
 }
 
 @media (max-width: 639px) {

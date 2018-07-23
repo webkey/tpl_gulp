@@ -111,7 +111,6 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 		, 'src/libs/jquery-placeholder/jquery.placeholder.min.js' // поддержка плейсхолдера в старых браузерах
 		, 'src/libs/select2/dist/js/select2.full.min.js' // кастомный селект
 		, 'src/libs/select2/dist/js/i18n/ru.js' // локализация для кастомного селекта
-		, 'src/js/temp/filer.min.js' // инпут файл
 		, 'src/libs/slick-carousel/slick/slick.min.js' // slick slider
 		, 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for a non-support browsers
 	])
