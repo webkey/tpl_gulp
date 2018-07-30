@@ -7,7 +7,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Тестирование элементов форм</title>
+	<title>Forms</title>
 	<!--Mobile optimized-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2">
 	<!--Theme color-->
@@ -255,26 +255,23 @@
 						<div class="content user-content">
 							<div class="layout-article">
 								<style>
-									form.form-clear>div {
-										padding-top: 20px;
-										padding-bottom: 1px;
+									form>div {
+										padding-top: 40px;
+										padding-bottom: 40px;
+										border-top: 1px dashed #ffa43f;
 									}
-
-									form.form-clear>div:nth-child(odd) {
-										background-color: #e5e5e5;
+									
+									form>div:first-child {
+										padding-top: 0;
+										border: none;
 									}
-
-									form.form-clear>div:nth-child(even) {
-										background-color: whitesmoke;
-									}
-
+									
 									h3,
 									h4 {
 										position: relative;
-										margin-right: 20px;
 										padding-right: 40px !important;
 									}
-
+									
 									h3 label,
 									h4 label {
 										position: absolute;
@@ -292,7 +289,7 @@
 										-ms-user-select: none;
 										user-select: none;
 									}
-
+									
 									h3 label::before,
 									h4 label::before {
 										content: "–";
@@ -301,208 +298,231 @@
 										line-height: 28px;
 										text-align: center;
 									}
-
+									
 									.accordionOpener:checked+h3 label::before,
 									.accordionOpener:checked+h4 label::before {
 										content: "+";
 									}
-
+									
 									.accordionOpener:checked+h3+div,
 									.accordionOpener:checked+h4+div {
 										display: none;
 									}
-
-									.accordionOpener:checked+h3+div+.user-spacer,
-									.accordionOpener:checked+h4+div+.user-spacer {
-										display: none;
-									}
 								</style>
-								<h1>Тестирование элементов форм</h1>
-								<!--===============form clear===============-->
+								<h1>Forms</h1>
+								<!--===============forms clear===============-->
 								<input type="checkbox" class="accordionOpener" id="0_01">
 								<h3>
 									<label class="mark" for="0_01"></label>
-									<a href="#hash-formElementClearExample" id="hash-formElementClearExample" class="hashAnchor"><span class="mark">Поля форм без оберток. Элементы идут один за другим. (recommended)</span></a>
+									<a href="#hash-formElementClearExample" id="hash-formElementClearExample" class="hashAnchor"><span class="mark">Fields of forms without wrappers (recommended)</span></a>
 								</h3>
-								<div>
-									<form action="#" method="post" class="form-clear">
+								<div class="layout-text">
+									<form action="#" method="post">
 										<div>
-											<div class="layout-text">
-												<input type="checkbox" class="accordionOpener" id="0_01_01">
-												<h4>
-													<label class="mark" for="0_01_01"></label>
-													<a href="#hash-fcInputTypeText" id="hash-fcInputTypeText" class="hashAnchor"><span class="mark">input type=text</span></a>
-												</h4>
-												<div>
-													<label for="form-clear-base">Текстовое поле без js-классов:</label>
-													<input type="text" placeholder="Текстовое поле (placeholder)" id="form-clear-base" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-ph">Текстовое поле с плейсхолдером:</label>
-													<input class="field-effects-js" type="text" placeholder="Текстовое поле (placeholder)" id="form-clear-ph" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-fit">Заполненное текстовое поле:</label>
-													<input class="field-effects-js" type="text" value="Уже есть текст (value)" id="form-clear-fit" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="error" for="form-clear-err">Невалидное текстовое поле:</label>
-													<input class="field-effects-js error" type="text" placeholder="Невалидное поле (placeholder)" id="form-clear-err" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="success" for="form-clear-suc">Валидное текстовое поле:</label>
-													<input class="field-effects-js success" type="text" value="Валидное текстовое поле (value)" placeholder="Валидное текстовое поле (placeholder)" id="form-clear-suc" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-												</div>
+											<input type="checkbox" class="accordionOpener" id="0_01_00">
+											<h4>
+												<label class="mark" for="0_01_00"></label>
+												<a href="#hash-fcInputTypeText" id="hash-fcInputTypeText" class="hashAnchor"><span class="mark">Example input field</span></a>
+											</h4>
+											<div>
+												<label for="id">Label:</label>
+												<input id="id" placeholder="Placeholder" type="text" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+											</div>
+										</div>
+										<div>
+											<input type="checkbox" class="accordionOpener" id="0_01_01">
+											<h4>
+												<label class="mark" for="0_01_01"></label>
+												<a href="#hash-fcInputTypeText" id="hash-fcInputTypeText" class="hashAnchor"><span class="mark">input type=text</span></a>
+											</h4>
+											<div>
+												<label for="form-clear-base">Text input:</label>
+												<input id="form-clear-base" placeholder="Placeholder" type="text" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-ph">Text input - js:</label>
+												<input class="field-effects-js" id="form-clear-ph" placeholder="Placeholder" type="text" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-fit">Text input:</label>
+												<input id="form-clear-fit" type="text" value="Value" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="error" for="form-clear-err">Text input - error:</label>
+												<input class="field-effects-js error" id="form-clear-err" placeholder="Error" type="text" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="success" for="form-clear-suc">Text input - success:</label>
+												<input class="field-effects-js success" id="form-clear-suc" placeholder="Success" type="text" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
 											</div>
 										</div>
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<div class="layout-text">
-												<input type="checkbox" class="accordionOpener" id="0_01_02">
-												<h4>
-													<label class="mark" for="0_01_02"></label>
-													<a href="#hash-fcInputTypeOther" id="hash-fcInputTypeOther" class="hashAnchor"><span class="mark">input other type</span></a>
-												</h4>
-												<div class="form-columnize--3">
-													<!--=======================email============================-->
-													<!--===================================================-->
-													<label for="form-clear-email-base">email поле без js-классов:</label>
-													<input type="email" placeholder="email поле (placeholder)" id="form-clear-email-base" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-email-ph">email поле с плейсхолдером:</label>
-													<input class="field-effects-js" type="email" placeholder="email поле (placeholder)" id="form-clear-email-ph" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-email-fit">Заполненное email поле:</label>
-													<input class="field-effects-js" type="email" value="Уже есть текст (value)" id="form-clear-email-fit" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="error" for="form-clear-email-err">Невалидное email поле:</label>
-													<input class="field-effects-js error" type="email" placeholder="Невалидное email поле (placeholder)" id="form-clear-email-err" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="success" for="form-clear-email-suc">Валидное email поле:</label>
-													<input class="field-effects-js success" type="email" value="email (value)" placeholder="Валидное email поле (placeholder)" id="form-clear-email-suc" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--=======================password============================-->
-													<!--===================================================-->
-													<label for="form-clear-password-base">password поле без js-классов:</label>
-													<input type="password" placeholder="password поле (placeholder)" id="form-clear-password-base" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-password-ph">password поле с плейсхолдером:</label>
-													<input class="field-effects-js" type="password" placeholder="password поле (placeholder)" id="form-clear-password-ph" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-password-fit">Заполненное password поле:</label>
-													<input class="field-effects-js" type="password" value="password" id="form-clear-password-fit" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="error" for="form-clear-password-err">Невалидное password поле:</label>
-													<input class="field-effects-js error" type="password" placeholder="Невалидное password поле (placeholder)" id="form-clear-password-err" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="success" for="form-clear-password-suc">Валидное password поле:</label>
-													<input class="field-effects-js success" type="password" value="Валидное password поле (value)" placeholder="Валидное password поле (placeholder)" id="form-clear-password-suc" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<!--=======================search============================-->
-													<!--===================================================-->
-													<label for="form-clear-search-base">search поле без js-классов:</label>
-													<input type="search" placeholder="search поле (placeholder)" id="form-clear-search-base" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-search-ph">search поле с плейсхолдером:</label>
-													<input class="field-effects-js" type="search" placeholder="search поле (placeholder)" id="form-clear-search-ph" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-search-fit">Заполненное search поле:</label>
-													<input class="field-effects-js" type="search" value="Уже есть текст (value)" id="form-clear-search-fit" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="error" for="form-clear-search-err">Невалидное search поле:</label>
-													<input class="field-effects-js error" type="search" placeholder="Невалидное search поле (placeholder)" id="form-clear-search-err" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="success" for="form-clear-search-suc">Валидное search поле:</label>
-													<input class="field-effects-js success" type="search" value="Валидное search поле (value)" placeholder="Валидное search поле (placeholder)" id="form-clear-search-suc" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-												</div>
+											<input type="checkbox" class="accordionOpener" id="0_01_02">
+											<h4>
+												<label class="mark" for="0_01_02"></label>
+												<a href="#hash-fcInputTypeOther" id="hash-fcInputTypeOther" class="hashAnchor"><span class="mark">input other type</span></a>
+											</h4>
+											<div class="form-columnize--3">
+												<!--=======================email============================-->
+												<!--===================================================-->
+												<label for="form-clear-email-base">email поле без js-классов:</label>
+												<input type="email" placeholder="email поле (placeholder)" id="form-clear-email-base" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-email-ph">email поле с плейсхолдером:</label>
+												<input class="field-effects-js" type="email" placeholder="email поле (placeholder)" id="form-clear-email-ph" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-email-fit">Заполненное email поле:</label>
+												<input class="field-effects-js" type="email" value="Уже есть текст (value)" id="form-clear-email-fit" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="error" for="form-clear-email-err">Невалидное email поле:</label>
+												<input class="field-effects-js error" type="email" placeholder="Невалидное email поле (placeholder)" id="form-clear-email-err" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="success" for="form-clear-email-suc">Валидное email поле:</label>
+												<input class="field-effects-js success" type="email" value="email (value)" placeholder="Валидное email поле (placeholder)" id="form-clear-email-suc" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--=======================password============================-->
+												<!--===================================================-->
+												<label for="form-clear-password-base">password поле без js-классов:</label>
+												<input type="password" placeholder="password поле (placeholder)" id="form-clear-password-base" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-password-ph">password поле с плейсхолдером:</label>
+												<input class="field-effects-js" type="password" placeholder="password поле (placeholder)" id="form-clear-password-ph" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-password-fit">Заполненное password поле:</label>
+												<input class="field-effects-js" type="password" value="password" id="form-clear-password-fit" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="error" for="form-clear-password-err">Невалидное password поле:</label>
+												<input class="field-effects-js error" type="password" placeholder="Невалидное password поле (placeholder)" id="form-clear-password-err" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="success" for="form-clear-password-suc">Валидное password поле:</label>
+												<input class="field-effects-js success" type="password" value="Валидное password поле (value)" placeholder="Валидное password поле (placeholder)" id="form-clear-password-suc" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<!--=======================search============================-->
+												<!--===================================================-->
+												<label for="form-clear-search-base">search поле без js-классов:</label>
+												<input type="search" placeholder="search поле (placeholder)" id="form-clear-search-base" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-search-ph">search поле с плейсхолдером:</label>
+												<input class="field-effects-js" type="search" placeholder="search поле (placeholder)" id="form-clear-search-ph" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-search-fit">Заполненное search поле:</label>
+												<input class="field-effects-js" type="search" value="Уже есть текст (value)" id="form-clear-search-fit" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="error" for="form-clear-search-err">Невалидное search поле:</label>
+												<input class="field-effects-js error" type="search" placeholder="Невалидное search поле (placeholder)" id="form-clear-search-err" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="success" for="form-clear-search-suc">Валидное search поле:</label>
+												<input class="field-effects-js success" type="search" value="Валидное search поле (value)" placeholder="Валидное search поле (placeholder)" id="form-clear-search-suc" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
 											</div>
 										</div>
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<div class="layout-text">
-												<input type="checkbox" class="accordionOpener" id="0_01_03">
-												<h4>
-													<label class="mark" for="0_01_03"></label>
-													<a href="#hash-fcTextarea" id="hash-fcTextarea" class="hashAnchor"><span class="mark">textarea</span></a>
-												</h4>
-												<div>
-													<label for="form-clear-ta-base">Текстареа без js-классов:</label>
-													<textarea placeholder="Текстареа (placeholder)" id="form-clear-ta-base"></textarea>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-ta-ph">Текстареа с плейсхолдером:</label>
-													<textarea class="field-effects-js" placeholder="Текстовое поле (placeholder)" id="form-clear-ta-ph"></textarea>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-ta-fit">Заполненная текстареа:</label>
-													<textarea class="field-effects-js" id="form-clear-ta-fit">Уже есть текст</textarea>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="error" for="form-clear-ta-err">Невалидная текстареа:</label>
-													<textarea class="field-effects-js error" placeholder="Невалидное поле (placeholder)" id="form-clear-ta-err"></textarea>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="success" for="form-clear-ta-suc">Валидная текстареа:</label>
-													<textarea class="field-effects-js success" placeholder="Валидное текстовое поле (placeholder)" id="form-clear-ta-suc">Валидное текстовое поле</textarea>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-												</div>
+											<input type="checkbox" class="accordionOpener" id="0_01_03">
+											<h4>
+												<label class="mark" for="0_01_03"></label>
+												<a href="#hash-fcTextarea" id="hash-fcTextarea" class="hashAnchor"><span class="mark">textarea</span></a>
+											</h4>
+											<div>
+												<label for="form-clear-ta-base">Текстареа без js-классов:</label>
+												<textarea placeholder="Текстареа (placeholder)" id="form-clear-ta-base"></textarea>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-ta-ph">Текстареа с плейсхолдером:</label>
+												<textarea class="field-effects-js" placeholder="Текстовое поле (placeholder)" id="form-clear-ta-ph"></textarea>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-ta-fit">Заполненная текстареа:</label>
+												<textarea class="field-effects-js" id="form-clear-ta-fit">Уже есть текст</textarea>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="error" for="form-clear-ta-err">Невалидная текстареа:</label>
+												<textarea class="field-effects-js error" placeholder="Невалидное поле (placeholder)" id="form-clear-ta-err"></textarea>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="success" for="form-clear-ta-suc">Валидная текстареа:</label>
+												<textarea class="field-effects-js success" placeholder="Валидное текстовое поле (placeholder)" id="form-clear-ta-suc">Валидное текстовое поле</textarea>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
 											</div>
 										</div>
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<div class="layout-text">
-												<input type="checkbox" class="accordionOpener" id="0_01_04">
-												<h4>
-													<label class="mark" for="0_01_04"></label>
-													<a href="#hash-fcSelectDefault" id="hash-fcSelectDefault" class="hashAnchor"><span class="mark">select (default) (reccomended)</span></a>
-												</h4>
-												<div>
-													<label for="form-clear-select-base">Селект - без js-классов:</label>
-													<select name="select-name" id="form-clear-select-base">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+											<input type="checkbox" class="accordionOpener" id="0_01_08">
+											<h4>
+												<label class="mark" for="0_01_08"></label>
+												<a href="#hash-fcColumnizeCustom" id="hash-fcColumnizeCustom" class="hashAnchor"><span class="mark">в два столбца (ie10+) - N-тип</span></a>
+											</h4>
+											<div class="form-columnize">
+												<label for="form-clear-columnize-01" title="Текстовое поле">Текстовое поле:</label>
+												<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-01" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-columnize-02" title="Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке">Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке</label>
+												<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-02" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-columnize-03">Текстовое поле:</label>
+												<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-03" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-columnize-04">Текстовое поле:</label>
+												<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-04" />
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-columnize-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
+												<select name="select-name" id="form-clear-columnize-05">
+											<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
 <option value="1">Размер</option>
 <option value="2">Вес</option>
 <option value="3">Цвет</option>
@@ -511,13 +531,13 @@
 <option value="6">Контраст</option>
 <option value="7">Сочетание</option>
 <option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-select">Селект - значение не выбрано:</label>
-													<select class="field-effects-js" name="select-name" id="form-clear-select">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+										</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-columnize-06">Селект:</label>
+												<select name="select-name" id="form-clear-columnize-06">
+											<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
 <option value="1">Размер</option>
 <option value="2">Вес</option>
 <option value="3">Цвет</option>
@@ -526,74 +546,56 @@
 <option value="6">Контраст</option>
 <option value="7">Сочетание</option>
 <option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-select-fit">Селект - значение выбрано по умолчанию:</label>
-													<select class="field-effects-js" name="select-name" id="form-clear-select-fit">
-												
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="error" for="form-clear-select-err">Селект - невалидный :</label>
-													<select class="field-effects-js error" name="select-name" id="form-clear-select-err">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="success" for="form-clear-select-suc">Селект - валидный:</label>
-													<select class="field-effects-js success" name="select-name" id="form-clear-select-suc">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-												</div>
+										</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
 											</div>
 										</div>
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<div class="layout-text">
-												<input type="checkbox" class="accordionOpener" id="0_01_05">
-												<h4>
-													<label class="mark" for="0_01_05"></label>
-													<a href="#hash-fcSelectArrDefault" id="hash-fcSelectArrDefault" class="hashAnchor"><span class="mark">select (default) с кастомной стрелкой</span></a>
-												</h4>
-												<div>
-													<div><code class="mark">select</code> необходимо завернуть в <code class="mark">div</code> с классом <code class="mark">.select</code></div>
-													<div>Элементы валидаци поместить в <code class="mark">.select</code> после тэга <code class="mark">select</code></div>
-													<div>Если элементы валидаци поместить после <code class="mark">.select</code>, то классы валидации необходимо добавлять и на <code class="mark">.select</code></div>
-													<div class="user-spacer"></div>
-													<label for="form-clear-select-arr-base">Селект - без js-классов:</label>
-													<div class="select">
-														<select name="select-name" id="form-clear-select-arr-base">
+											<input type="checkbox" class="accordionOpener" id="0_01_09">
+											<h4>
+												<label class="mark" for="0_01_09"></label>
+												<a href="#hash-fcColumnsCustom" id="hash-fcColumnsCustom" class="hashAnchor"><span class="mark">в два столбца - Z-тип</span></a>
+											</h4>
+											<div>
+												<div class="form-row">
+													<div class="input-wrap">
+														<label for="form-clear-columns-01" title="Текстовое поле">Текстовое поле:</label>
+														<input type="text" placeholder="Текстовое поле" id="form-clear-columns-01" />
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<label for="form-clear-columns-02" title="Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке">Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке</label>
+														<input type="text" placeholder="Текстовое поле" id="form-clear-columns-02" />
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="form-row">
+													<div class="input-wrap">
+														<label for="form-clear-columns-03">Текстовое поле:</label>
+														<input type="text" placeholder="Текстовое поле" id="form-clear-columns-03" />
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<label for="form-clear-columns-04">Текстовое поле:</label>
+														<input type="text" placeholder="Текстовое поле" id="form-clear-columns-04" />
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="form-row">
+													<div class="input-wrap">
+														<label for="form-clear-columns-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
+														<select name="select-name" id="form-clear-columns-05">
 													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
 <option value="1">Размер</option>
 <option value="2">Вес</option>
@@ -604,13 +606,13 @@
 <option value="7">Сочетание</option>
 <option value="8">Расстояние</option>
 												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 													<!--===================================================-->
-													<label for="form-clear-select-arr">Селект - значение не выбрано:</label>
-													<div class="select">
-														<select class="field-effects-js" name="select-name" id="form-clear-select-arr">
+													<div class="input-wrap">
+														<label for="form-clear-columns-06">Селект:</label>
+														<select name="select-name" id="form-clear-columns-06">
 													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
 <option value="1">Размер</option>
 <option value="2">Вес</option>
@@ -621,406 +623,39 @@
 <option value="7">Сочетание</option>
 <option value="8">Расстояние</option>
 												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-													<!--===================================================-->
-													<label for="form-clear-select-arr-fit">Селект - значение выбрано по умолчанию:</label>
-													<div class="select">
-														<select class="field-effects-js" name="select-name" id="form-clear-select-arr-fit">
-													
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-													<!--===================================================-->
-													<label class="error" for="form-clear-select-arr-err">Селект - невалидный :</label>
-													<div class="select">
-														<select class="field-effects-js error" name="select-name" id="form-clear-select-arr-err">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-													<!--===================================================-->
-													<label class="success" for="form-clear-select-arr-suc">Селект - валидный:</label>
-													<div class="select">
-														<select class="field-effects-js success" name="select-name" id="form-clear-select-arr-suc">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<!--===================================================-->
-										<div>
-											<div class="layout-text">
-												<input type="checkbox" class="accordionOpener" id="0_01_06">
-												<h4>
-													<label class="mark" for="0_01_06"></label>
-													<a href="#hash-fcSelectCustom" id="hash-fcSelectCustom" class="hashAnchor"><span class="mark">select (custom - select2)</span></a>
-												</h4>
-												<div>
-													<div>На <code class="mark">select</code> добавляем класс <code class="mark">.cselect</code></div>
-													<div class="user-spacer"></div>
-													<label for="form-clear-c-select-base">Селект - без js-классов:</label>
-													<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-base">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-c-select">Селект - значение не выбрано:</label>
-													<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-c-select-fit">Селект - значение выбрано по умолчанию:</label>
-													<select class="cselect field-effects-js" name="select-name" id="form-clear-c-select-fit">
-												
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="error" for="form-clear-c-select-err">Селект - невалидный :</label>
-													<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-err">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="success" for="form-clear-c-select-suc">Селект - валидный:</label>
-													<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-suc">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<!--===================================================-->
-										<div>
-											<div class="layout-text">
-												<input type="checkbox" class="accordionOpener" id="0_01_07">
-												<h4>
-													<label class="mark" for="0_01_07"></label>
-													<a href="#hash-fcMultiselectCustom" id="hash-fcMultiselectCustom" class="hashAnchor"><span class="mark">multiselect (custom - select2)</span></a>
-												</h4>
-												<div>
-													<label for="form-clear-c-mSelect-base">Селект - без js-классов:</label>
-													<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-clear-c-mSelect-base">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-c-mSelect">Селект - значение не выбрано:</label>
-													<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-c-mSelect-fit">Селект - значение выбрано по умолчанию:</label>
-													<select class="cselect field-effects-js" name="select-name" multiple id="form-clear-c-mSelect-fit">
-												<option value="1">Размер</option>
-												<option value="2" selected>Вес</option>
-												<option value="3">Цвет</option>
-												<option value="4">Позицию (расположение)</option>
-												<option value="5">Опшин очень-очень-очень-очень длинный</option>
-												<option value="6">Контраст</option>
-												<option value="7">Сочетание</option>
-												<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="error" for="form-clear-c-mSelect-err">Селект - невалидный :</label>
-													<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-err">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label class="success" for="form-clear-c-mSelect-suc">Селект - валидный:</label>
-													<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-suc">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<!--===================================================-->
-										<div>
-											<div class="layout-text">
-												<input type="checkbox" class="accordionOpener" id="0_01_08">
-												<h4>
-													<label class="mark" for="0_01_08"></label>
-													<a href="#hash-fcColumnizeCustom" id="hash-fcColumnizeCustom" class="hashAnchor"><span class="mark">в два столбца (ie10+) - N-тип</span></a>
-												</h4>
-												<div class="form-columnize">
-													<label for="form-clear-columnize-01" title="Текстовое поле">Текстовое поле:</label>
-													<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-01" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-columnize-02" title="Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке">Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке</label>
-													<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-02" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-columnize-03">Текстовое поле:</label>
-													<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-03" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-columnize-04">Текстовое поле:</label>
-													<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-04" />
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-columnize-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
-													<select name="select-name" id="form-clear-columnize-05">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-													<!--===================================================-->
-													<label for="form-clear-columnize-06">Селект:</label>
-													<select name="select-name" id="form-clear-columnize-06">
-												<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-											</select>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
-												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<!--===================================================-->
-										<div>
-											<div class="layout-text">
-												<input type="checkbox" class="accordionOpener" id="0_01_09">
-												<h4>
-													<label class="mark" for="0_01_09"></label>
-													<a href="#hash-fcColumnsCustom" id="hash-fcColumnsCustom" class="hashAnchor"><span class="mark">в два столбца - Z-тип</span></a>
-												</h4>
-												<div>
-													<div class="form-row">
-														<div class="input-wrap">
-															<label for="form-clear-columns-01" title="Текстовое поле">Текстовое поле:</label>
-															<input type="text" placeholder="Текстовое поле" id="form-clear-columns-01" />
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-														<!--===================================================-->
-														<div class="input-wrap">
-															<label for="form-clear-columns-02" title="Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке">Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке</label>
-															<input type="text" placeholder="Текстовое поле" id="form-clear-columns-02" />
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-													</div>
-													<!--===================================================-->
-													<div class="form-row">
-														<div class="input-wrap">
-															<label for="form-clear-columns-03">Текстовое поле:</label>
-															<input type="text" placeholder="Текстовое поле" id="form-clear-columns-03" />
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-														<!--===================================================-->
-														<div class="input-wrap">
-															<label for="form-clear-columns-04">Текстовое поле:</label>
-															<input type="text" placeholder="Текстовое поле" id="form-clear-columns-04" />
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-													</div>
-													<!--===================================================-->
-													<div class="form-row">
-														<div class="input-wrap">
-															<label for="form-clear-columns-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
-															<select name="select-name" id="form-clear-columns-05">
-														<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-													</select>
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-														<!--===================================================-->
-														<div class="input-wrap">
-															<label for="form-clear-columns-06">Селект:</label>
-															<select name="select-name" id="form-clear-columns-06">
-														<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-													</select>
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-													</div>
-													<!--===================================================-->
-												</div>
+												<!--===================================================-->
 											</div>
 										</div>
 									</form>
 								</div>
-								<!--===============form clear end===============-->
-								<div class="user-spacer"></div>
-								<!--===============form default===============-->
+								<!--===============forms clear end===============-->
+								<!--===============forms default===============-->
 								<input type="checkbox" class="accordionOpener" id="0_02">
 								<h3>
 									<label class="mark" for="0_02"></label>
-									<a href="#hash-formElementExample" id="hash-formElementExample" class="hashAnchor"><span class="mark">Поля форм c обертками (если необходимо)</span></a>
+									<a href="#hash-formElementExample" id="hash-formElementExample" class="hashAnchor"><span class="mark">Fields of forms with wrappers (optional)</span></a>
 								</h3>
-								<div>
+								<div class="layout-text">
 									<form action="#" method="post" class="form-cover">
 										<div>
-											<div class="layout-text">
-												<h4>
-													<a href="#hash-fdInputTypeText" id="hash-fdInputTypeText" class="hashAnchor"><span class="mark">input type=text</span></a>
-												</h4>
+											<input type="checkbox" class="accordionOpener" id="0_02_01">
+											<h4>
+												<label class="mark" for="0_02_01"></label>
+												<a href="#hash-fdInputTypeText" id="hash-fdInputTypeText" class="hashAnchor"><span class="mark">input type=text</span></a>
+											</h4>
+											<div>
 												<div class="input-wrap">
 													<div class="label-holder">
 														<label for="form-cover-base">Текстовое поле без js-классов:</label>
 													</div>
 													<div class="input-holder">
 														<input type="text" placeholder="Текстовое поле (placeholder)" id="form-cover-base" />
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 												<!--===================================================-->
@@ -1030,8 +665,8 @@
 													</div>
 													<div class="input-holder">
 														<input class="field-effects-js" type="text" placeholder="Текстовое поле (placeholder)" id="form-cover-ph" />
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 												<!--===================================================-->
@@ -1041,8 +676,8 @@
 													</div>
 													<div class="input-holder">
 														<input class="field-effects-js" type="text" value="Уже есть текст (value)" id="form-cover-fit" />
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 												<!--===================================================-->
@@ -1052,8 +687,8 @@
 													</div>
 													<div class="input-holder">
 														<input class="field-effects-js error" type="text" placeholder="Невалидное поле (placeholder)" id="form-cover-err" />
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 												<!--===================================================-->
@@ -1063,8 +698,8 @@
 													</div>
 													<div class="input-holder">
 														<input class="field-effects-js success" type="text" value="Валидное текстовое поле (value)" placeholder="Валидное текстовое поле (placeholder)" id="form-cover-suc" />
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 											</div>
@@ -1072,16 +707,18 @@
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<div class="layout-text">
-												<h4>
-													<a href="#hash-fdTextarea" id="hash-fdTextarea" class="hashAnchor"><span class="mark">textarea</span></a>
-												</h4>
+											<input type="checkbox" class="accordionOpener" id="0_02_02">
+											<h4>
+												<label class="mark" for="0_02_02"></label>
+												<a href="#hash-fdTextarea" id="hash-fdTextarea" class="hashAnchor"><span class="mark">textarea</span></a>
+											</h4>
+											<div>
 												<div class="input-wrap">
 													<div class="label-holder"><label for="form-cover-ta-base">Текстареа без js-классов:</label></div>
 													<div class="input-holder">
 														<textarea placeholder="Текстареа (placeholder)" id="form-cover-ta-base"></textarea>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 												<!--===================================================-->
@@ -1091,8 +728,8 @@
 													</div>
 													<div class="input-holder">
 														<textarea class="field-effects-js" placeholder="Текстовое поле (placeholder)" id="form-cover-ta-ph"></textarea>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 												<!--===================================================-->
@@ -1102,8 +739,8 @@
 													</div>
 													<div class="input-holder">
 														<textarea class="field-effects-js" id="form-cover-ta-fit">Уже есть текст</textarea>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 												<!--===================================================-->
@@ -1113,8 +750,8 @@
 													</div>
 													<div class="input-holder">
 														<textarea class="field-effects-js error" placeholder="Невалидное поле (placeholder)" id="form-cover-ta-err"></textarea>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 												<!--===================================================-->
@@ -1124,8 +761,8 @@
 													</div>
 													<div class="input-holder">
 														<textarea class="field-effects-js success" placeholder="Валидное текстовое поле (placeholder)" id="form-cover-ta-suc">Валидное текстовое поле</textarea>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 											</div>
@@ -1133,475 +770,12 @@
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<div class="layout-text">
-												<h4>
-													<a href="#hash-fdSelectDefault" id="hash-fdSelectDefault" class="hashAnchor"><span class="mark">select (default) (рекомендуем)</span></a>
-												</h4>
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select-base">Селект - без js-классов:</label>
-													</div>
-													<div class="input-holder">
-														<select name="select-name" id="form-cover-select-base">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select">Селект - значение не выбрано:</label>
-													</div>
-													<div class="input-holder">
-														<select class="field-effects-js" name="select-name" id="form-cover-select">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select-fit">Селект - значение выбрано по умолчанию:</label>
-													</div>
-													<div class="input-holder">
-														<select class="field-effects-js" name="select-name" id="form-cover-select-fit">
-													
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="error" for="form-cover-select-err">Селект - невалидный :</label>
-													</div>
-													<div class="input-holder">
-														<select class="field-effects-js error" name="select-name" id="form-cover-select-err">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="success" for="form-cover-select-suc">Селект - валидный:</label>
-													</div>
-													<div class="input-holder">
-														<select class="field-effects-js success" name="select-name" id="form-cover-select-suc">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<!--===================================================-->
-										<div>
-											<div class="layout-text">
-												<h4>
-													<a href="#hash-fdSelectArrDefault" id="hash-fdSelectArrDefault" class="hashAnchor"><span class="mark">select (default) с кастомной стрелкой</span></a>
-												</h4>
-												<div><code class="mark">select</code> необходимо завернуть в <code class="mark">div</code> с классом <code class="mark">.select</code></div>
-												<div>Элементы валидаци поместить в <code class="mark">.select</code> после тэга <code class="mark">select</code></div>
-												<div>Если элементы валидаци поместить после <code class="mark">.select</code>, то классы валидации необходимо добавлять и на <code class="mark">.select</code></div>
-												<div class="user-spacer"></div>
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select-arr-base">Селект - без js-классов:</label>
-													</div>
-													<div class="input-holder">
-														<div class="select">
-															<select name="select-name" id="form-cover-select-arr-base">
-														<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-													</select>
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select-arr">Селект - значение не выбрано:</label>
-													</div>
-													<div class="input-holder">
-														<div class="select">
-															<select class="field-effects-js" name="select-name" id="form-cover-select-arr">
-														<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-													</select>
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select-arr-fit">Селект - значение выбрано по умолчанию:</label>
-													</div>
-													<div class="input-holder">
-														<div class="select">
-															<select class="field-effects-js" name="select-name" id="form-cover-select-arr-fit">
-														
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-													</select>
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="error" for="form-cover-select-arr-err">Селект - невалидный :</label>
-													</div>
-													<div class="input-holder">
-														<div class="select">
-															<select class="field-effects-js error" name="select-name" id="form-cover-select-arr-err">
-														<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-													</select>
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="success" for="form-cover-select-arr-suc">Селект - валидный:</label>
-													</div>
-													<div class="input-holder">
-														<div class="select">
-															<select class="field-effects-js success" name="select-name" id="form-cover-select-arr-suc">
-														<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-													</select>
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<!--===================================================-->
-										<div>
-											<div class="layout-text">
-												<h4>
-													<a href="#hash-fdSelectCustom" id="hash-fdSelectCustom" class="hashAnchor"><span class="mark">select (custom - select2)</span></a>
-												</h4>
-												<div>На <code class="mark">select</code> добавляем класс <code class="mark">.cselect</code></div>
-												<div class="user-spacer"></div>
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-c-select-base">Селект - без js-классов:</label>
-													</div>
-													<div class="input-holder">
-														<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-base">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-c-select">Селект - значение не выбрано:</label>
-													</div>
-													<div class="input-holder">
-														<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-c-select-fit">Селект - значение выбрано по умолчанию:</label>
-													</div>
-													<div class="input-holder">
-														<select class="cselect field-effects-js" name="select-name" id="form-cover-c-select-fit">
-													
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="error" for="form-cover-c-select-err">Селект - невалидный :</label>
-													</div>
-													<div class="input-holder">
-														<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-err">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="success" for="form-cover-c-select-suc">Селект - валидный:</label>
-													</div>
-													<div class="input-holder">
-														<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-suc">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<!--===================================================-->
-										<div>
-											<div class="layout-text">
-												<h4>
-													<a href="#hash-fdMultiselectCustom" id="hash-fdMultiselectCustom" class="hashAnchor"><span class="mark">multiselect (custom - select2)</span></a>
-												</h4>
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-c-mSelect-base">Селект - без js-классов:</label>
-													</div>
-													<div class="input-holder">
-														<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-cover-c-mSelect-base">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-c-mSelect">Селект - значение не выбрано:</label>
-													</div>
-													<div class="input-holder">
-														<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-c-mSelect-fit">Селект - значение выбрано по умолчанию:</label>
-													</div>
-													<div class="input-holder">
-														<select class="cselect field-effects-js" name="select-name" multiple id="form-cover-c-mSelect-fit">
-													<option value="1">Размер</option>
-													<option value="2" selected>Вес</option>
-													<option value="3">Цвет</option>
-													<option value="4">Позицию (расположение)</option>
-													<option value="5">Опшин очень-очень-очень-очень длинный</option>
-													<option value="6">Контраст</option>
-													<option value="7">Сочетание</option>
-													<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="error" for="form-cover-c-mSelect-err">Селект - невалидный :</label>
-													</div>
-													<div class="input-holder">
-														<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-err">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="success" for="form-cover-c-mSelect-suc">Селект - валидный:</label>
-													</div>
-													<div class="input-holder">
-														<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-suc">
-													<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-												</select>
-														<div class="error-note">Поле обязательное для заполнения</div>
-														<div class="success-note">Подтверждено</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div>
-											<div class="layout-text">
-												<h4>
-													<a href="#hash-fdColumnsCustom" id="hash-fdColumnsCustom" class="hashAnchor"><span class="mark">в два столбца - Z-тип</span></a>
-												</h4>
+											<input type="checkbox" class="accordionOpener" id="0_02_03">
+											<h4>
+												<label class="mark" for="0_02_03"></label>
+												<a href="#hash-fdColumnsCustom" id="hash-fdColumnsCustom" class="hashAnchor"><span class="mark">в два столбца - Z-тип</span></a>
+											</h4>
+											<div>
 												<div class="form-row">
 													<div class="input-wrap">
 														<div class="label-holder">
@@ -1609,8 +783,8 @@
 														</div>
 														<div class="input-holder">
 															<input type="text" placeholder="Текстовое поле" id="form-cover-columns-01" />
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1620,8 +794,8 @@
 														</div>
 														<div class="input-holder">
 															<input type="text" placeholder="Текстовое поле" id="form-cover-columns-02" />
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
 														</div>
 													</div>
 												</div>
@@ -1633,8 +807,8 @@
 														</div>
 														<div class="input-holder">
 															<input type="text" placeholder="Текстовое поле" id="form-cover-columns-03" />
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1644,8 +818,8 @@
 														</div>
 														<div class="input-holder">
 															<input type="text" placeholder="Текстовое поле" id="form-cover-columns-04" />
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
 														</div>
 													</div>
 												</div>
@@ -1667,8 +841,8 @@
 <option value="7">Сочетание</option>
 <option value="8">Расстояние</option>
 													</select>
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1688,23 +862,869 @@
 <option value="7">Сочетание</option>
 <option value="8">Расстояние</option>
 													</select>
-															<div class="error-note">Поле обязательное для заполнения</div>
-															<div class="success-note">Подтверждено</div>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
 														</div>
 													</div>
 												</div>
-												<!--===================================================-->
 											</div>
 										</div>
 									</form>
 								</div>
-								<!--===============form default end===============-->
-								<div class="user-spacer"></div>
-								<!--===============checkbox and radio===============-->
+								<!--===============forms default end===============-->
+								<!--===============selects===============-->
 								<input type="checkbox" class="accordionOpener" id="0_03">
 								<h3>
 									<label class="mark" for="0_03"></label>
-									<a href="#hash-formCheckboxExample" id="hash-formCheckboxExample" class="hashAnchor"><span class="mark">Чекбоксы и Радиобаттоны</span></a>
+									<a href="#hash-selectsDef" id="hash-selectsDef" class="hashAnchor"><span class="mark">Selects (without js customization)</span></a>
+								</h3>
+								<div class="layout-text">
+									<form action="#" method="post">
+										<div>
+											<input type="checkbox" class="accordionOpener" id="0_03_01">
+											<h4>
+												<label class="mark" for="0_03_01"></label>
+												<a href="#hash-fcSelectDefault" id="hash-fcSelectDefault" class="hashAnchor"><span class="mark">Selects without a wrapper. Default arrow (recommended)</span></a>
+											</h4>
+											<div>
+												<label for="form-clear-select-base">Селект - без js-классов:</label>
+												<select name="select-name" id="form-clear-select-base">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-select">Селект - значение не выбрано:</label>
+												<select class="field-effects-js" name="select-name" id="form-clear-select">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-select-fit">Селект - значение выбрано по умолчанию:</label>
+												<select class="field-effects-js" name="select-name" id="form-clear-select-fit">
+				
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="error" for="form-clear-select-err">Селект - невалидный :</label>
+												<select class="field-effects-js error" name="select-name" id="form-clear-select-err">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="success" for="form-clear-select-suc">Селект - валидный:</label>
+												<select class="field-effects-js success" name="select-name" id="form-clear-select-suc">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+											</div>
+										</div>
+										<!--===================================================-->
+										<!--===================================================-->
+										<div>
+											<input type="checkbox" class="accordionOpener" id="0_03_02">
+											<h4>
+												<label class="mark" for="0_03_02"></label>
+												<a href="#hash-fcSelectArrDefault" id="hash-fcSelectArrDefault" class="hashAnchor"><span class="mark">Selects without a wrapper. Custom arrow</span></a>
+											</h4>
+											<div>
+												<div><code class="mark">select</code> необходимо завернуть в <code class="mark">div</code> с классом <code class="mark">.select</code></div>
+												<div>Элементы валидаци поместить в <code class="mark">.select</code> после тэга <code class="mark">select</code></div>
+												<div>Если элементы валидаци поместить после <code class="mark">.select</code>, то классы валидации необходимо добавлять и на <code class="mark">.select</code></div>
+												<div class="user-spacer"></div>
+												<label for="form-clear-select-arr-base">Селект - без js-классов:</label>
+												<div class="select">
+													<select name="select-name" id="form-clear-select-arr-base">
+					<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+				</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+												</div>
+												<!--===================================================-->
+												<label for="form-clear-select-arr">Селект - значение не выбрано:</label>
+												<div class="select">
+													<select class="field-effects-js" name="select-name" id="form-clear-select-arr">
+					<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+				</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+												</div>
+												<!--===================================================-->
+												<label for="form-clear-select-arr-fit">Селект - значение выбрано по умолчанию:</label>
+												<div class="select">
+													<select class="field-effects-js" name="select-name" id="form-clear-select-arr-fit">
+					
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+				</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+												</div>
+												<!--===================================================-->
+												<label class="error" for="form-clear-select-arr-err">Селект - невалидный :</label>
+												<div class="select">
+													<select class="field-effects-js error" name="select-name" id="form-clear-select-arr-err">
+					<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+				</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+												</div>
+												<!--===================================================-->
+												<label class="success" for="form-clear-select-arr-suc">Селект - валидный:</label>
+												<div class="select">
+													<select class="field-effects-js success" name="select-name" id="form-clear-select-arr-suc">
+					<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+				</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+												</div>
+											</div>
+										</div>
+										<!--===================================================-->
+										<!--===================================================-->
+										<div>
+											<input type="checkbox" class="accordionOpener" id="0_03_03">
+											<h4>
+												<label class="mark" for="0_03_03"></label>
+												<a href="#hash-fdSelectDefault" id="hash-fdSelectDefault" class="hashAnchor"><span class="mark">Select has a wrapper. Default arrow</span></a>
+											</h4>
+											<div>
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-select-base">Селект - без js-классов:</label>
+													</div>
+													<div class="input-holder">
+														<select name="select-name" id="form-cover-select-base">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-select">Селект - значение не выбрано:</label>
+													</div>
+													<div class="input-holder">
+														<select class="field-effects-js" name="select-name" id="form-cover-select">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-select-fit">Селект - значение выбрано по умолчанию:</label>
+													</div>
+													<div class="input-holder">
+														<select class="field-effects-js" name="select-name" id="form-cover-select-fit">
+						
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label class="error" for="form-cover-select-err">Селект - невалидный :</label>
+													</div>
+													<div class="input-holder">
+														<select class="field-effects-js error" name="select-name" id="form-cover-select-err">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label class="success" for="form-cover-select-suc">Селект - валидный:</label>
+													</div>
+													<div class="input-holder">
+														<select class="field-effects-js success" name="select-name" id="form-cover-select-suc">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--===================================================-->
+										<!--===================================================-->
+										<div>
+											<input type="checkbox" class="accordionOpener" id="0_03_04">
+											<h4>
+												<label class="mark" for="0_03_04"></label>
+												<a href="#hash-fdSelectArrDefault" id="hash-fdSelectArrDefault" class="hashAnchor"><span class="mark">Select has a wrapper. Custom arrow</span></a>
+											</h4>
+											<div>
+												<div><code class="mark">select</code> необходимо завернуть в <code class="mark">div</code> с классом <code class="mark">.select</code></div>
+												<div>Элементы валидаци поместить в <code class="mark">.select</code> после тэга <code class="mark">select</code></div>
+												<div>Если элементы валидаци поместить после <code class="mark">.select</code>, то классы валидации необходимо добавлять и на <code class="mark">.select</code></div>
+												<div class="user-spacer"></div>
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-select-arr-base">Селект - без js-классов:</label>
+													</div>
+													<div class="input-holder">
+														<div class="select">
+															<select name="select-name" id="form-cover-select-arr-base">
+							<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+						</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-select-arr">Селект - значение не выбрано:</label>
+													</div>
+													<div class="input-holder">
+														<div class="select">
+															<select class="field-effects-js" name="select-name" id="form-cover-select-arr">
+							<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+						</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-select-arr-fit">Селект - значение выбрано по умолчанию:</label>
+													</div>
+													<div class="input-holder">
+														<div class="select">
+															<select class="field-effects-js" name="select-name" id="form-cover-select-arr-fit">
+							
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+						</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label class="error" for="form-cover-select-arr-err">Селект - невалидный :</label>
+													</div>
+													<div class="input-holder">
+														<div class="select">
+															<select class="field-effects-js error" name="select-name" id="form-cover-select-arr-err">
+							<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+						</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label class="success" for="form-cover-select-arr-suc">Селект - валидный:</label>
+													</div>
+													<div class="input-holder">
+														<div class="select">
+															<select class="field-effects-js success" name="select-name" id="form-cover-select-arr-suc">
+							<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+						</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!--===============selects end===============-->
+								<!--===============custom selects - select2===============-->
+								<input type="checkbox" class="accordionOpener" id="0_04">
+								<h3>
+									<label class="mark" for="0_04"></label>
+									<a href="#hash-select2" id="hash-select2" class="hashAnchor"><span class="mark">Select2 - Selects (with js customization)</span></a>
+								</h3>
+								<div class="layout-text">
+									<form action="#" method="post">
+										<div>
+											<input type="checkbox" class="accordionOpener" id="0_04_01">
+											<h4>
+												<label class="mark" for="0_04_01"></label>
+												<a href="#hash-fcSelectCustom" id="hash-fcSelectCustom" class="hashAnchor"><span class="mark">Select2. Without a wrapper</span></a>
+											</h4>
+											<div>
+												<div>На <code class="mark">select</code> добавляем класс <code class="mark">.cselect</code></div>
+												<div class="user-spacer"></div>
+												<label for="form-clear-c-select-base">Селект - без js-классов:</label>
+												<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-base">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-c-select">Селект - значение не выбрано:</label>
+												<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-c-select-fit">Селект - значение выбрано по умолчанию:</label>
+												<select class="cselect field-effects-js" name="select-name" id="form-clear-c-select-fit">
+				
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="error" for="form-clear-c-select-err">Селект - невалидный :</label>
+												<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-err">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="success" for="form-clear-c-select-suc">Селект - валидный:</label>
+												<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-suc">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+											</div>
+										</div>
+										<!--===================================================-->
+										<!--===================================================-->
+										<div>
+											<input type="checkbox" class="accordionOpener" id="0_04_02">
+											<h4>
+												<label class="mark" for="0_04_02"></label>
+												<a href="#hash-fcMultiselectCustom" id="hash-fcMultiselectCustom" class="hashAnchor"><span class="mark">Select2. Multiselect. Without a wrapper</span></a>
+											</h4>
+											<div>
+												<label for="form-clear-c-mSelect-base">Селект - без js-классов:</label>
+												<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-clear-c-mSelect-base">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-c-mSelect">Селект - значение не выбрано:</label>
+												<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label for="form-clear-c-mSelect-fit">Селект - значение выбрано по умолчанию:</label>
+												<select class="cselect field-effects-js" name="select-name" multiple id="form-clear-c-mSelect-fit">
+				<option value="1">Размер</option>
+				<option value="2" selected>Вес</option>
+				<option value="3">Цвет</option>
+				<option value="4">Позицию (расположение)</option>
+				<option value="5">Опшин очень-очень-очень-очень длинный</option>
+				<option value="6">Контраст</option>
+				<option value="7">Сочетание</option>
+				<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="error" for="form-clear-c-mSelect-err">Селект - невалидный :</label>
+												<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-err">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+												<!--===================================================-->
+												<label class="success" for="form-clear-c-mSelect-suc">Селект - валидный:</label>
+												<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-suc">
+				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+			</select>
+												<div class="error-note">Error text</div>
+												<div class="success-note">Success text</div>
+											</div>
+										</div>
+										<!--===================================================-->
+										<!--===================================================-->
+										<div>
+											<input type="checkbox" class="accordionOpener" id="0_04_03">
+											<h4>
+												<label class="mark" for="0_04_03"></label>
+												<a href="#hash-fdSelectCustom" id="hash-fdSelectCustom" class="hashAnchor"><span class="mark">Select2. It has a wrapper</span></a>
+											</h4>
+											<div>
+												<div>На <code class="mark">select</code> добавляем класс <code class="mark">.cselect</code></div>
+												<div class="user-spacer"></div>
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-c-select-base">Селект - без js-классов:</label>
+													</div>
+													<div class="input-holder">
+														<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-base">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-c-select">Селект - значение не выбрано:</label>
+													</div>
+													<div class="input-holder">
+														<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-c-select-fit">Селект - значение выбрано по умолчанию:</label>
+													</div>
+													<div class="input-holder">
+														<select class="cselect field-effects-js" name="select-name" id="form-cover-c-select-fit">
+						
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label class="error" for="form-cover-c-select-err">Селект - невалидный :</label>
+													</div>
+													<div class="input-holder">
+														<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-err">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label class="success" for="form-cover-c-select-suc">Селект - валидный:</label>
+													</div>
+													<div class="input-holder">
+														<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-suc">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--===================================================-->
+										<!--===================================================-->
+										<div>
+											<input type="checkbox" class="accordionOpener" id="0_04_04">
+											<h4>
+												<label class="mark" for="0_04_04"></label>
+												<a href="#hash-fdMultiselectCustom" id="hash-fdMultiselectCustom" class="hashAnchor"><span class="mark">Select2. It has a wrapper. Multiselect</span></a>
+											</h4>
+											<div>
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-c-mSelect-base">Селект - без js-классов:</label>
+													</div>
+													<div class="input-holder">
+														<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-cover-c-mSelect-base">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-c-mSelect">Селект - значение не выбрано:</label>
+													</div>
+													<div class="input-holder">
+														<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label for="form-cover-c-mSelect-fit">Селект - значение выбрано по умолчанию:</label>
+													</div>
+													<div class="input-holder">
+														<select class="cselect field-effects-js" name="select-name" multiple id="form-cover-c-mSelect-fit">
+						<option value="1">Размер</option>
+						<option value="2" selected>Вес</option>
+						<option value="3">Цвет</option>
+						<option value="4">Позицию (расположение)</option>
+						<option value="5">Опшин очень-очень-очень-очень длинный</option>
+						<option value="6">Контраст</option>
+						<option value="7">Сочетание</option>
+						<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label class="error" for="form-cover-c-mSelect-err">Селект - невалидный :</label>
+													</div>
+													<div class="input-holder">
+														<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-err">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+												<!--===================================================-->
+												<div class="input-wrap">
+													<div class="label-holder">
+														<label class="success" for="form-cover-c-mSelect-suc">Селект - валидный:</label>
+													</div>
+													<div class="input-holder">
+														<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-suc">
+						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
+<option value="1">Размер</option>
+<option value="2">Вес</option>
+<option value="3">Цвет</option>
+<option value="4">Позицию (расположение)</option>
+<option value="5">Опшин очень-очень-очень-очень длинный</option>
+<option value="6">Контраст</option>
+<option value="7">Сочетание</option>
+<option value="8">Расстояние</option>
+					</select>
+														<div class="error-note">Error text</div>
+														<div class="success-note">Success text</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!--===============selects end===============-->
+								<!--===============checkbox and radio===============-->
+								<input type="checkbox" class="accordionOpener" id="0_05">
+								<h3>
+									<label class="mark" for="0_05"></label>
+									<a href="#hash-formCheckboxExample" id="hash-formCheckboxExample" class="hashAnchor"><span class="mark">Checkboxes and Radio Buttons</span></a>
 								</h3>
 								<div class="layout-text">
 									<form action="#" method="post">
@@ -1825,11 +1845,10 @@
 									</form>
 								</div>
 								<!--===============checkbox and radio end===============-->
-								<div class="user-spacer"></div>
 								<!--===============user form===============-->
-								<input type="checkbox" class="accordionOpener" id="0_04">
+								<input type="checkbox" class="accordionOpener" id="0_06">
 								<h3>
-									<label class="mark" for="0_04"></label>
+									<label class="mark" for="0_06"></label>
 									<a href="#hash-userFormExample" id="hash-userFormExample" class="hashAnchor"><span class="mark">Форма обратной связи</span></a>
 								</h3>
 								<div class="user-form">
@@ -1842,8 +1861,8 @@
 												</div>
 												<div class="input-holder">
 													<input type="text" id="user-form-example__name-field">
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
 												</div>
 											</div>
 											<div class="input-wrap">
@@ -1852,8 +1871,8 @@
 												</div>
 												<div class="input-holder">
 													<input type="email" id="user-form-example__email-field">
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
 												</div>
 											</div>
 											<div class="input-wrap">
@@ -1862,8 +1881,8 @@
 												</div>
 												<div class="input-holder">
 													<textarea id="user-form-example__message-field"></textarea>
-													<div class="error-note">Поле обязательное для заполнения</div>
-													<div class="success-note">Подтверждено</div>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
 												</div>
 											</div>
 											<div class="input-wrap">
@@ -1884,7 +1903,7 @@
 														<input type="text" id="user-form-example__captcha-field">
 														<span class="error-note">Введите текст на картинке для защиты от спама</span>
 														<div class="error-note">Введите текст на картинке для защиты от спама</div>
-														<div class="success-note">Подтверждено</div>
+														<div class="success-note">Success text</div>
 													</div>
 												</div>
 											</div>
@@ -2002,15 +2021,15 @@
 									transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 									user-select: none;
 								}
-
+								
 								.navigationByTypographyElements[data-toggle="hide"] {
 									width: 42px;
 								}
-
+								
 								.navigationByTypographyElements[data-to-left] {
 									transform: translateX(calc(-100vw + 240px + 60px));
 								}
-
+								
 								.navigationByTypographyElements ul {
 									display: block;
 									list-style: none;
@@ -2020,29 +2039,29 @@
 									overflow-y: auto;
 									padding: 0 20px 18px;
 								}
-
+								
 								.navigationByTypographyElements ul::-webkit-scrollbar {
 									width: 0.4em;
 								}
-
+								
 								.navigationByTypographyElements ul::-webkit-scrollbar-track {
 									-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 								}
-
+								
 								.navigationByTypographyElements ul::-webkit-scrollbar-thumb {
 									background-color: darkgrey;
 									outline: 1px solid slategrey;
 								}
-
+								
 								.navigationByTypographyElements ul li {
 									margin-bottom: 12px;
 									/*counter-increment: items;*/
 								}
-
+								
 								.navigationByTypographyElements ul li:last-child {
 									margin: 0;
 								}
-
+								
 								.navigationByTypographyElements ul li::before {
 									/*content: counter(items) '. ';*/
 									color: tomato;
@@ -2055,32 +2074,32 @@
 									width: 6px;
 									background-color: tomato;
 								}
-
+								
 								.navigationByTypographyElements ul .navigationByTypographySubItem {
 									font-size: 0.8em;
 									padding-left: 15px;
 								}
-
+								
 								.navigationByTypographyElements ul .navigationByTypographySubItem::before {
 									border-radius: 50%;
 									margin-top: 4px;
 								}
-
+								
 								.navigationByTypographyElements ul a {
 									color: darkslategray;
 									text-decoration: none;
 									padding-top: 5px;
 								}
-
+								
 								.navigationByTypographyElements ul a:hover {
 									text-decoration: underline;
 								}
-
+								
 								h3,
 								h4 {
 									position: relative;
 								}
-
+								
 								h3 a,
 								h4 a {
 									display: inline-block;
@@ -2090,30 +2109,30 @@
 									-webkit-transition: border-color 0.2s;
 									transition: border-color 0.2s;
 								}
-
+								
 								h3 a span,
 								h4 a span {
 									text-decoration: underline;
 								}
-
+								
 								h4 a {
 									border-bottom-color: #909090;
 								}
-
+								
 								h4 a .mark {
 									color: #909090;
 								}
-
+								
 								h4 .hashAnchor::before {
 									width: 18px;
 									height: 18px;
 									top: 6px;
 								}
-
+								
 								.hashAnchor:hover::before {
 									opacity: 0.5;
 								}
-
+								
 								.navigationByTypographyOpener {
 									position: relative;
 									display: block;
@@ -2124,13 +2143,13 @@
 									font-weight: bold;
 									text-align: center;
 								}
-
+								
 								.navigationByTypographyElements[data-toggle="hide"] .navigationByTypographyOpener {
 									font-size: 0;
 									line-height: 0;
 									padding: 11px 5px;
 								}
-
+								
 								.navigationByTypographyOpener::after {
 									content: '-';
 									display: block;
@@ -2147,19 +2166,19 @@
 									-ms-transform: translate(0, -50%);
 									transform: translate(0, -50%);
 								}
-
+								
 								.navigationByTypographyElements[data-toggle="hide"] .navigationByTypographyOpener::after {
 									right: 3px;
 								}
-
+								
 								.navigationByTypographyOpener:hover::after {
 									background-color: rgba(0, 0, 0, 0.4);
 								}
-
+								
 								[data-toggle*="hide"] .navigationByTypographyOpener::after {
 									content: '+';
 								}
-
+								
 								.navigationByTypographyToLeft {
 									position: absolute;
 									top: 3px;
@@ -2174,11 +2193,11 @@
 									background-color: rgba(0, 0, 0, 0.2);
 									z-index: 5;
 								}
-
+								
 								.navigationByTypographyToLeft:hover {
 									background-color: rgba(0, 0, 0, 0.4);
 								}
-
+								
 								.navigationByTypographyToLeft:before {
 									content: '<';
 									display: inline-block;
@@ -2186,7 +2205,7 @@
 									line-height: 16px;
 									letter-spacing: normal;
 								}
-
+								
 								[data-to-left] .navigationByTypographyToLeft:before {
 									content: '>';
 								}
@@ -2243,9 +2262,9 @@
 								<!--developer-->
 								<div class="developer">
 									<a href="http://astronim.by/" target="_blank">
-								<span class="developer__label">Разработка сайта <i>—</i></span>
-								<span class="developer__logo">Astronim*Support</span>
-							</a>
+										<span class="developer__label">Разработка сайта <i>—</i></span>
+										<span class="developer__logo">Astronim*Support</span>
+									</a>
 								</div>
 								<!--developer end-->
 							</div>

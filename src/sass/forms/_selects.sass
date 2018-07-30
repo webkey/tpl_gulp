@@ -1,0 +1,80 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* select
+//select
+	.#{$user-content} &, .select &
+		display: block
+		width: 100%
+
+.#{$user-content}, .select
+	select
+		+selectSelection
+		display: block
+		position: relative
+		overflow: hidden
+		text-overflow: ''
+		cursor: pointer
+		white-space: nowrap
+
+		// Стили для текста полей ввода прописываем отдельно через миксин,
+		// чтобы была возможность добавить медиа развилки через тот же миксин
+		&
+			+selects-font
+
+.#{$user-content} select, .select
+	+forms-space
+
+	&:last-child
+		margin-bottom: 0
+
+.input-wrap
+	select, .select
+		margin-bottom: 0
+
+// Select with a custom arrow
+.select
+	position: relative
+
+	select
+		padding-right: 40px
+
+// States
+.#{$user-content} select, .select
+
+	//form hover
+	&:hover
+		border-color: $form-border-focus-color
+
+	//form focus
+	&:focus
+		border-color: $form-border-focus-color
+		cursor: text
+
+	// has value (js)
+	&.input--has-value
+		+form-has-value
+
+	//form success
+	&.success
+		+form-success
+
+	//form error placeholder
+	+placeholder
+		color: $form-success-color
+
+	//form error
+	&.error
+		+form-error
+
+	//form error placeholder
+	&.error
+		+placeholder
+			color: $form-error-color
+
+	// on focus (js)
+	&.input--focus
+		+form-on-focus
+
+/* select end

@@ -1,5 +1,5 @@
 @@include('_tpl_layout_head.html', {
-	"title": "Тестирование элементов форм",
+	"title": "Forms",
 	"pageClass": ""
 })
 
@@ -21,19 +21,17 @@
 
 					<div class="layout-article">
 						<style>
-							form.form-clear > div{
-								padding-top: 20px;
-								padding-bottom: 1px;
+							form > div{
+								padding-top: 40px;
+								padding-bottom: 40px;
+								border-top: 1px dashed #ffa43f;
 							}
-							form.form-clear > div:nth-child(odd){
-								background-color: #e5e5e5;
-							}
-							form.form-clear > div:nth-child(even){
-								background-color: whitesmoke;
+							form > div:first-child{
+								padding-top: 0;
+								border: none;
 							}
 							h3, h4{
 								position: relative;
-								margin-right: 20px;
 								padding-right: 40px !important;
 							}
 							h3 label, h4 label{
@@ -67,52 +65,116 @@
 							.accordionOpener:checked + h4 + div{
 								display: none;
 							}
-							.accordionOpener:checked + h3 + div + .user-spacer,
-							.accordionOpener:checked + h4 + div + .user-spacer{
-								display: none;
-							}
 						</style>
 
-						<h1>Тестирование элементов форм</h1>
+						<h1>Forms</h1>
 
-						<!--===============form clear===============-->
+						<!--===============forms clear===============-->
 						@@include('_tpl_title-anchor.html', {
 							"taId": "formElementClearExample",
-							"taText": "Поля форм без оберток. Элементы идут один за другим. (recommended)",
+							"taText": "Fields of forms without wrappers (recommended)",
 							"openerId": "0_01"
 						})
-						<div>
-							<form action="#" method="post" class="form-clear">
+						<div class="layout-text">
+							<form action="#" method="post">
 								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-											"taTag": "h4",
-											"taId": "fcInputTypeText",
-											"taText": "input type=text",
-											"openerId": "0_01_01"
-										})
+									@@include('_tpl_title-anchor.html', {
+										"taTag": "h4",
+										"taId": "fcInputTypeText",
+										"taText": "Example input field",
+										"openerId": "0_01_00"
+									})
 
-										<div>
-											<label for="form-clear-base">Текстовое поле без js-классов:</label>
-											<input type="text" placeholder="Текстовое поле (placeholder)" id="form-clear-base"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-ph">Текстовое поле с плейсхолдером:</label>
-											<input class="field-effects-js" type="text" placeholder="Текстовое поле (placeholder)" id="form-clear-ph"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-fit">Заполненное текстовое поле:</label>
-											<input class="field-effects-js" type="text" value="Уже есть текст (value)" id="form-clear-fit"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="error" for="form-clear-err">Невалидное текстовое поле:</label>
-											<input class="field-effects-js error" type="text" placeholder="Невалидное поле (placeholder)" id="form-clear-err"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="success" for="form-clear-suc">Валидное текстовое поле:</label>
-											<input class="field-effects-js success" type="text" value="Валидное текстовое поле (value)" placeholder="Валидное текстовое поле (placeholder)" id="form-clear-suc"/>
-											@@include('_tpl_forms_form-validation.html')
-										</div>
+									<div>
+										@@loop("_tpl_forms_input.html", [{
+												"wrap": "",
+												"type": "text",
+												"value": "",
+												"ph": "Placeholder",
+												"id": "id",
+												"classes": "",
+												"label": "Label:",
+												"labelClasses": "",
+												"important": "",
+												"readonly": "",
+												"disabled": ""
+											}
+										])
+									</div>
+								</div>
+								<div>
+									@@include('_tpl_title-anchor.html', {
+										"taTag": "h4",
+										"taId": "fcInputTypeText",
+										"taText": "input type=text",
+										"openerId": "0_01_01"
+									})
+
+									<div>
+
+										@@loop("_tpl_forms_input.html", [
+											{
+												"wrap": "",
+												"type": "text",
+												"value": "",
+												"ph": "Placeholder",
+												"id": "form-clear-base",
+												"classes": "",
+												"label": "Text input:",
+												"labelClasses": "",
+												"important": "",
+												"readonly": "",
+												"disabled": ""
+											},{
+												"wrap": "",
+												"type": "text",
+												"ph": "Placeholder",
+												"value": "",
+												"id": "form-clear-ph",
+												"classes": "field-effects-js",
+												"label": "Text input - js:",
+												"labelClasses": "",
+												"important": "",
+												"readonly": "",
+												"disabled": ""
+											},{
+												"wrap": "",
+												"type": "text",
+												"value": "Value",
+												"ph": "",
+												"id": "form-clear-fit",
+												"classes": "",
+												"label": "Text input:",
+												"labelClasses": "",
+												"important": "",
+												"readonly": "",
+												"disabled": ""
+											},{
+												"wrap": "",
+												"type": "text",
+												"value": "",
+												"ph": "Error",
+												"id": "form-clear-err",
+												"classes": "field-effects-js error",
+												"label": "Text input - error:",
+												"labelClasses": "error",
+												"important": "",
+												"readonly": "",
+												"disabled": ""
+											},{
+												"wrap": "",
+												"type": "text",
+												"value": "",
+												"ph": "Success",
+												"id": "form-clear-suc",
+												"classes": "field-effects-js success",
+												"label": "Text input - success:",
+												"labelClasses": "success",
+												"important": "",
+												"readonly": "",
+												"disabled": ""
+											}
+										])
 									</div>
 								</div>
 
@@ -120,83 +182,82 @@
 								<!--===================================================-->
 
 								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-											"taTag": "h4",
-											"taId": "fcInputTypeOther",
-											"taText": "input other type",
-											"openerId": "0_01_02"
-										})
+									@@include('_tpl_title-anchor.html', {
+										"taTag": "h4",
+										"taId": "fcInputTypeOther",
+										"taText": "input other type",
+										"openerId": "0_01_02"
+									})
 
-										<div class="form-columnize--3">
-											<!--=======================email============================-->
-											<!--===================================================-->
-											<label for="form-clear-email-base">email поле без js-классов:</label>
-											<input type="email" placeholder="email поле (placeholder)" id="form-clear-email-base"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-email-ph">email поле с плейсхолдером:</label>
-											<input class="field-effects-js" type="email" placeholder="email поле (placeholder)" id="form-clear-email-ph"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-email-fit">Заполненное email поле:</label>
-											<input class="field-effects-js" type="email" value="Уже есть текст (value)" id="form-clear-email-fit"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="error" for="form-clear-email-err">Невалидное email поле:</label>
-											<input class="field-effects-js error" type="email" placeholder="Невалидное email поле (placeholder)" id="form-clear-email-err"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="success" for="form-clear-email-suc">Валидное email поле:</label>
-											<input class="field-effects-js success" type="email" value="email (value)" placeholder="Валидное email поле (placeholder)" id="form-clear-email-suc"/>
-											@@include('_tpl_forms_form-validation.html')
 
-											<!--=======================password============================-->
-											<!--===================================================-->
+									<div class="form-columnize--3">
+										<!--=======================email============================-->
+										<!--===================================================-->
+										<label for="form-clear-email-base">email поле без js-классов:</label>
+										<input type="email" placeholder="email поле (placeholder)" id="form-clear-email-base"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-email-ph">email поле с плейсхолдером:</label>
+										<input class="field-effects-js" type="email" placeholder="email поле (placeholder)" id="form-clear-email-ph"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-email-fit">Заполненное email поле:</label>
+										<input class="field-effects-js" type="email" value="Уже есть текст (value)" id="form-clear-email-fit"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label class="error" for="form-clear-email-err">Невалидное email поле:</label>
+										<input class="field-effects-js error" type="email" placeholder="Невалидное email поле (placeholder)" id="form-clear-email-err"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label class="success" for="form-clear-email-suc">Валидное email поле:</label>
+										<input class="field-effects-js success" type="email" value="email (value)" placeholder="Валидное email поле (placeholder)" id="form-clear-email-suc"/>
+										@@include('_tpl_forms_form-validation.html')
 
-											<label for="form-clear-password-base">password поле без js-классов:</label>
-											<input type="password" placeholder="password поле (placeholder)" id="form-clear-password-base"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-password-ph">password поле с плейсхолдером:</label>
-											<input class="field-effects-js" type="password" placeholder="password поле (placeholder)" id="form-clear-password-ph"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-password-fit">Заполненное password поле:</label>
-											<input class="field-effects-js" type="password" value="password" id="form-clear-password-fit"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="error" for="form-clear-password-err">Невалидное password поле:</label>
-											<input class="field-effects-js error" type="password" placeholder="Невалидное password поле (placeholder)" id="form-clear-password-err"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="success" for="form-clear-password-suc">Валидное password поле:</label>
-											<input class="field-effects-js success" type="password" value="Валидное password поле (value)" placeholder="Валидное password поле (placeholder)" id="form-clear-password-suc"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
+										<!--=======================password============================-->
+										<!--===================================================-->
 
-											<!--=======================search============================-->
-											<!--===================================================-->
-											<label for="form-clear-search-base">search поле без js-классов:</label>
-											<input type="search" placeholder="search поле (placeholder)" id="form-clear-search-base"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-search-ph">search поле с плейсхолдером:</label>
-											<input class="field-effects-js" type="search" placeholder="search поле (placeholder)" id="form-clear-search-ph"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-search-fit">Заполненное search поле:</label>
-											<input class="field-effects-js" type="search" value="Уже есть текст (value)" id="form-clear-search-fit"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="error" for="form-clear-search-err">Невалидное search поле:</label>
-											<input class="field-effects-js error" type="search" placeholder="Невалидное search поле (placeholder)" id="form-clear-search-err"/>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="success" for="form-clear-search-suc">Валидное search поле:</label>
-											<input class="field-effects-js success" type="search" value="Валидное search поле (value)" placeholder="Валидное search поле (placeholder)" id="form-clear-search-suc"/>
-											@@include('_tpl_forms_form-validation.html')
-										</div>
+										<label for="form-clear-password-base">password поле без js-классов:</label>
+										<input type="password" placeholder="password поле (placeholder)" id="form-clear-password-base"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-password-ph">password поле с плейсхолдером:</label>
+										<input class="field-effects-js" type="password" placeholder="password поле (placeholder)" id="form-clear-password-ph"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-password-fit">Заполненное password поле:</label>
+										<input class="field-effects-js" type="password" value="password" id="form-clear-password-fit"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label class="error" for="form-clear-password-err">Невалидное password поле:</label>
+										<input class="field-effects-js error" type="password" placeholder="Невалидное password поле (placeholder)" id="form-clear-password-err"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label class="success" for="form-clear-password-suc">Валидное password поле:</label>
+										<input class="field-effects-js success" type="password" value="Валидное password поле (value)" placeholder="Валидное password поле (placeholder)" id="form-clear-password-suc"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+
+										<!--=======================search============================-->
+										<!--===================================================-->
+										<label for="form-clear-search-base">search поле без js-классов:</label>
+										<input type="search" placeholder="search поле (placeholder)" id="form-clear-search-base"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-search-ph">search поле с плейсхолдером:</label>
+										<input class="field-effects-js" type="search" placeholder="search поле (placeholder)" id="form-clear-search-ph"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-search-fit">Заполненное search поле:</label>
+										<input class="field-effects-js" type="search" value="Уже есть текст (value)" id="form-clear-search-fit"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label class="error" for="form-clear-search-err">Невалидное search поле:</label>
+										<input class="field-effects-js error" type="search" placeholder="Невалидное search поле (placeholder)" id="form-clear-search-err"/>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label class="success" for="form-clear-search-suc">Валидное search поле:</label>
+										<input class="field-effects-js success" type="search" value="Валидное search поле (value)" placeholder="Валидное search поле (placeholder)" id="form-clear-search-suc"/>
+										@@include('_tpl_forms_form-validation.html')
 									</div>
 								</div>
 
@@ -204,35 +265,33 @@
 								<!--===================================================-->
 
 								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-											"taTag": "h4",
-											"taId": "fcTextarea",
-											"taText": "textarea",
-											"openerId": "0_01_03"
-										})
+									@@include('_tpl_title-anchor.html', {
+										"taTag": "h4",
+										"taId": "fcTextarea",
+										"taText": "textarea",
+										"openerId": "0_01_03"
+									})
 
-										<div>
-											<label for="form-clear-ta-base">Текстареа без js-классов:</label>
-											<textarea placeholder="Текстареа (placeholder)" id="form-clear-ta-base"></textarea>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-ta-ph">Текстареа с плейсхолдером:</label>
-											<textarea class="field-effects-js" placeholder="Текстовое поле (placeholder)" id="form-clear-ta-ph"></textarea>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-ta-fit">Заполненная текстареа:</label>
-											<textarea class="field-effects-js" id="form-clear-ta-fit">Уже есть текст</textarea>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="error" for="form-clear-ta-err">Невалидная текстареа:</label>
-											<textarea class="field-effects-js error" placeholder="Невалидное поле (placeholder)" id="form-clear-ta-err"></textarea>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="success" for="form-clear-ta-suc">Валидная текстареа:</label>
-											<textarea class="field-effects-js success" placeholder="Валидное текстовое поле (placeholder)" id="form-clear-ta-suc">Валидное текстовое поле</textarea>
-											@@include('_tpl_forms_form-validation.html')
-										</div>
+									<div>
+										<label for="form-clear-ta-base">Текстареа без js-классов:</label>
+										<textarea placeholder="Текстареа (placeholder)" id="form-clear-ta-base"></textarea>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-ta-ph">Текстареа с плейсхолдером:</label>
+										<textarea class="field-effects-js" placeholder="Текстовое поле (placeholder)" id="form-clear-ta-ph"></textarea>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-ta-fit">Заполненная текстареа:</label>
+										<textarea class="field-effects-js" id="form-clear-ta-fit">Уже есть текст</textarea>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label class="error" for="form-clear-ta-err">Невалидная текстареа:</label>
+										<textarea class="field-effects-js error" placeholder="Невалидное поле (placeholder)" id="form-clear-ta-err"></textarea>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label class="success" for="form-clear-ta-suc">Валидная текстареа:</label>
+										<textarea class="field-effects-js success" placeholder="Валидное текстовое поле (placeholder)" id="form-clear-ta-suc">Валидное текстовое поле</textarea>
+										@@include('_tpl_forms_form-validation.html')
 									</div>
 								</div>
 
@@ -240,46 +299,41 @@
 								<!--===================================================-->
 
 								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-											"taTag": "h4",
-											"taId": "fcSelectDefault",
-											"taText": "select (default) (reccomended)",
-											"openerId": "0_01_04"
-										})
+									@@include('_tpl_title-anchor.html', {
+										"taTag": "h4",
+										"taId": "fcColumnizeCustom",
+										"taText": "в два столбца (ie10+) - N-тип",
+										"openerId": "0_01_08"
+									})
 
-										<div>
-
-											<label for="form-clear-select-base">Селект - без js-классов:</label>
-											<select name="select-name" id="form-clear-select-base">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-select">Селект - значение не выбрано:</label>
-											<select class="field-effects-js" name="select-name" id="form-clear-select">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-select-fit">Селект - значение выбрано по умолчанию:</label>
-											<select class="field-effects-js" name="select-name" id="form-clear-select-fit">
-												@@include('_tpl_forms_form-select-options.html', {"placeholder":"false"})
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="error" for="form-clear-select-err">Селект - невалидный :</label>
-											<select class="field-effects-js error" name="select-name" id="form-clear-select-err">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="success" for="form-clear-select-suc">Селект - валидный:</label>
-											<select class="field-effects-js success" name="select-name" id="form-clear-select-suc">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-										</div>
+									<div class="form-columnize">
+										<label for="form-clear-columnize-01" title="Текстовое поле">Текстовое поле:</label>
+										<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-01" />
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-columnize-02" title="Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке">Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке</label>
+										<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-02" />
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-columnize-03">Текстовое поле:</label>
+										<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-03" />
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-columnize-04">Текстовое поле:</label>
+										<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-04" />
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-columnize-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
+										<select name="select-name" id="form-clear-columnize-05">
+											@@include('_tpl_forms_form-select-options.html')
+										</select>
+										@@include('_tpl_forms_form-validation.html')
+										<!--===================================================-->
+										<label for="form-clear-columnize-06">Селект:</label>
+										<select name="select-name" id="form-clear-columnize-06">
+											@@include('_tpl_forms_form-select-options.html')
+										</select>
+										@@include('_tpl_forms_form-validation.html')
 									</div>
 								</div>
 
@@ -287,290 +341,85 @@
 								<!--===================================================-->
 
 								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-											"taTag": "h4",
-											"taId": "fcSelectArrDefault",
-											"taText": "select (default) с кастомной стрелкой",
-											"openerId": "0_01_05"
-										})
+									@@include('_tpl_title-anchor.html', {
+										"taTag": "h4",
+										"taId": "fcColumnsCustom",
+										"taText": "в два столбца - Z-тип",
+										"openerId": "0_01_09"
+									})
 
-										<div>
-											<div><code class="mark">select</code> необходимо завернуть в <code class="mark">div</code> с классом <code class="mark">.select</code></div>
-											<div>Элементы валидаци поместить в <code class="mark">.select</code> после тэга <code class="mark">select</code></div>
-											<div>Если элементы валидаци поместить после <code class="mark">.select</code>, то классы валидации необходимо добавлять и на <code class="mark">.select</code></div>
-											<div class="user-spacer"></div>
-
-											<label for="form-clear-select-arr-base">Селект - без js-классов:</label>
-											<div class="select">
-												<select name="select-name" id="form-clear-select-arr-base">
+									<div>
+										<div class="form-row">
+											<div class="input-wrap">
+												<label for="form-clear-columns-01" title="Текстовое поле">Текстовое поле:</label>
+												<input type="text" placeholder="Текстовое поле" id="form-clear-columns-01" />
+												@@include('_tpl_forms_form-validation.html')
+											</div>
+											<!--===================================================-->
+											<div class="input-wrap">
+												<label for="form-clear-columns-02" title="Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке">Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке</label>
+												<input type="text" placeholder="Текстовое поле" id="form-clear-columns-02" />
+												@@include('_tpl_forms_form-validation.html')
+											</div>
+										</div>
+										<!--===================================================-->
+										<div class="form-row">
+											<div class="input-wrap">
+												<label for="form-clear-columns-03">Текстовое поле:</label>
+												<input type="text" placeholder="Текстовое поле" id="form-clear-columns-03" />
+												@@include('_tpl_forms_form-validation.html')
+											</div>
+											<!--===================================================-->
+											<div class="input-wrap">
+												<label for="form-clear-columns-04">Текстовое поле:</label>
+												<input type="text" placeholder="Текстовое поле" id="form-clear-columns-04" />
+												@@include('_tpl_forms_form-validation.html')
+											</div>
+										</div>
+										<!--===================================================-->
+										<div class="form-row">
+											<div class="input-wrap">
+												<label for="form-clear-columns-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
+												<select name="select-name" id="form-clear-columns-05">
 													@@include('_tpl_forms_form-select-options.html')
 												</select>
 												@@include('_tpl_forms_form-validation.html')
 											</div>
 											<!--===================================================-->
-											<label for="form-clear-select-arr">Селект - значение не выбрано:</label>
-											<div class="select">
-												<select class="field-effects-js" name="select-name" id="form-clear-select-arr">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-											<!--===================================================-->
-											<label for="form-clear-select-arr-fit">Селект - значение выбрано по умолчанию:</label>
-											<div class="select">
-												<select class="field-effects-js" name="select-name" id="form-clear-select-arr-fit">
-													@@include('_tpl_forms_form-select-options.html', {"placeholder":"false"})
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-											<!--===================================================-->
-											<label class="error" for="form-clear-select-arr-err">Селект - невалидный :</label>
-											<div class="select">
-												<select class="field-effects-js error" name="select-name" id="form-clear-select-arr-err">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-											<!--===================================================-->
-											<label class="success" for="form-clear-select-arr-suc">Селект - валидный:</label>
-											<div class="select">
-												<select class="field-effects-js success" name="select-name" id="form-clear-select-arr-suc">
+											<div class="input-wrap">
+												<label for="form-clear-columns-06">Селект:</label>
+												<select name="select-name" id="form-clear-columns-06">
 													@@include('_tpl_forms_form-select-options.html')
 												</select>
 												@@include('_tpl_forms_form-validation.html')
 											</div>
 										</div>
+										<!--===================================================-->
 									</div>
 								</div>
 
-								<!--===================================================-->
-								<!--===================================================-->
-
-								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-											"taTag": "h4",
-											"taId": "fcSelectCustom",
-											"taText": "select (custom - select2)",
-											"openerId": "0_01_06"
-										})
-
-										<div>
-											<div>На <code class="mark">select</code> добавляем класс <code class="mark">.cselect</code></div>
-											<div class="user-spacer"></div>
-
-											<label for="form-clear-c-select-base">Селект - без js-классов:</label>
-											<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-base">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-c-select">Селект - значение не выбрано:</label>
-											<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-c-select-fit">Селект - значение выбрано по умолчанию:</label>
-											<select class="cselect field-effects-js" name="select-name" id="form-clear-c-select-fit">
-												@@include('_tpl_forms_form-select-options.html', {"placeholder":"false"})
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="error" for="form-clear-c-select-err">Селект - невалидный :</label>
-											<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-err">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="success" for="form-clear-c-select-suc">Селект - валидный:</label>
-											<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-suc">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-										</div>
-									</div>
-								</div>
-								<!--===================================================-->
-								<!--===================================================-->
-
-								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-											"taTag": "h4",
-											"taId": "fcMultiselectCustom",
-											"taText": "multiselect (custom - select2)",
-											"openerId": "0_01_07"
-										})
-
-										<div>
-											<label for="form-clear-c-mSelect-base">Селект - без js-классов:</label>
-											<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-clear-c-mSelect-base">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-c-mSelect">Селект - значение не выбрано:</label>
-											<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-c-mSelect-fit">Селект - значение выбрано по умолчанию:</label>
-											<select class="cselect field-effects-js" name="select-name" multiple id="form-clear-c-mSelect-fit">
-												<option value="1">Размер</option>
-												<option value="2" selected>Вес</option>
-												<option value="3">Цвет</option>
-												<option value="4">Позицию (расположение)</option>
-												<option value="5">Опшин очень-очень-очень-очень длинный</option>
-												<option value="6">Контраст</option>
-												<option value="7">Сочетание</option>
-												<option value="8">Расстояние</option>
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="error" for="form-clear-c-mSelect-err">Селект - невалидный :</label>
-											<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-err">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label class="success" for="form-clear-c-mSelect-suc">Селект - валидный:</label>
-											<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-suc">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-										</div>
-									</div>
-								</div>
-
-								<!--===================================================-->
-								<!--===================================================-->
-
-								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-											"taTag": "h4",
-											"taId": "fcColumnizeCustom",
-											"taText": "в два столбца (ie10+) - N-тип",
-											"openerId": "0_01_08"
-										})
-										<div class="form-columnize">
-											<label for="form-clear-columnize-01" title="Текстовое поле">Текстовое поле:</label>
-											<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-01" />
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-columnize-02" title="Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке">Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке</label>
-											<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-02" />
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-columnize-03">Текстовое поле:</label>
-											<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-03" />
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-columnize-04">Текстовое поле:</label>
-											<input type="text" placeholder="Текстовое поле" id="form-clear-columnize-04" />
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-columnize-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
-											<select name="select-name" id="form-clear-columnize-05">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-											<!--===================================================-->
-											<label for="form-clear-columnize-06">Селект:</label>
-											<select name="select-name" id="form-clear-columnize-06">
-												@@include('_tpl_forms_form-select-options.html')
-											</select>
-											@@include('_tpl_forms_form-validation.html')
-										</div>
-									</div>
-								</div>
-
-								<!--===================================================-->
-								<!--===================================================-->
-
-								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-											"taTag": "h4",
-											"taId": "fcColumnsCustom",
-											"taText": "в два столбца - Z-тип",
-											"openerId": "0_01_09"
-										})
-										<div>
-											<div class="form-row">
-												<div class="input-wrap">
-													<label for="form-clear-columns-01" title="Текстовое поле">Текстовое поле:</label>
-													<input type="text" placeholder="Текстовое поле" id="form-clear-columns-01" />
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<label for="form-clear-columns-02" title="Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке">Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке</label>
-													<input type="text" placeholder="Текстовое поле" id="form-clear-columns-02" />
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-											</div>
-											<!--===================================================-->
-											<div class="form-row">
-												<div class="input-wrap">
-													<label for="form-clear-columns-03">Текстовое поле:</label>
-													<input type="text" placeholder="Текстовое поле" id="form-clear-columns-03" />
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<label for="form-clear-columns-04">Текстовое поле:</label>
-													<input type="text" placeholder="Текстовое поле" id="form-clear-columns-04" />
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-											</div>
-											<!--===================================================-->
-											<div class="form-row">
-												<div class="input-wrap">
-													<label for="form-clear-columns-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
-													<select name="select-name" id="form-clear-columns-05">
-														@@include('_tpl_forms_form-select-options.html')
-													</select>
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<label for="form-clear-columns-06">Селект:</label>
-													<select name="select-name" id="form-clear-columns-06">
-														@@include('_tpl_forms_form-select-options.html')
-													</select>
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-											</div>
-											<!--===================================================-->
-										</div>
-									</div>
-								</div>
 							</form>
 						</div>
-						<!--===============form clear end===============-->
+						<!--===============forms clear end===============-->
 
-						<div class="user-spacer"></div>
-
-						<!--===============form default===============-->
+						<!--===============forms default===============-->
 						@@include('_tpl_title-anchor.html', {
 							"taId": "formElementExample",
-							"taText": "Поля форм c обертками (если необходимо)",
+							"taText": "Fields of forms with wrappers (optional)",
 							"openerId": "0_02"
 						})
-						<div>
+
+						<div class="layout-text">
 							<form action="#" method="post" class="form-cover">
 								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
+									@@include('_tpl_title-anchor.html', {
 										"taTag": "h4",
 										"taId": "fdInputTypeText",
-										"taText": "input type=text"
-										})
+										"taText": "input type=text",
+										"openerId": "0_02_01"
+									})
 
+									<div>
 										<div class="input-wrap">
 											<div class="label-holder">
 												<label for="form-cover-base">Текстовое поле без js-классов:</label>
@@ -578,10 +427,6 @@
 											<div class="input-holder">
 												<input type="text" placeholder="Текстовое поле (placeholder)" id="form-cover-base"/>
 												@@include('_tpl_forms_form-validation.html')
-												<!--@@include('_tpl_forms_form-validation.html', {
-													"errorNote": "",
-													"successNote": ""
-												})-->
 											</div>
 										</div>
 										<!--===================================================-->
@@ -631,13 +476,14 @@
 								<!--===================================================-->
 
 								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
+									@@include('_tpl_title-anchor.html', {
 										"taTag": "h4",
 										"taId": "fdTextarea",
-										"taText": "textarea"
-										})
+										"taText": "textarea",
+										"openerId": "0_02_02"
+									})
 
+									<div>
 										<div class="input-wrap">
 											<div class="label-holder"><label for="form-cover-ta-base">Текстареа без js-классов:</label></div>
 											<div class="input-holder">
@@ -645,7 +491,6 @@
 												@@include('_tpl_forms_form-validation.html')
 											</div>
 										</div>
-
 										<!--===================================================-->
 										<div class="input-wrap">
 											<div class="label-holder">
@@ -693,325 +538,13 @@
 								<!--===================================================-->
 
 								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-										"taTag": "h4",
-										"taId": "fdSelectDefault",
-										"taText": "select (default) (рекомендуем)"
-										})
-
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-select-base">Селект - без js-классов:</label>
-											</div>
-											<div class="input-holder">
-												<select name="select-name" id="form-cover-select-base">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-select">Селект - значение не выбрано:</label>
-											</div>
-											<div class="input-holder">
-												<select class="field-effects-js" name="select-name" id="form-cover-select">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-select-fit">Селект - значение выбрано по умолчанию:</label>
-											</div>
-											<div class="input-holder">
-												<select class="field-effects-js" name="select-name" id="form-cover-select-fit">
-													@@include('_tpl_forms_form-select-options.html', {"placeholder":"false"})
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="error" for="form-cover-select-err">Селект - невалидный :</label>
-											</div>
-											<div class="input-holder">
-												<select class="field-effects-js error" name="select-name" id="form-cover-select-err">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="success" for="form-cover-select-suc">Селект - валидный:</label>
-											</div>
-											<div class="input-holder">
-												<select class="field-effects-js success" name="select-name" id="form-cover-select-suc">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!--===================================================-->
-								<!--===================================================-->
-
-								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-										"taTag": "h4",
-										"taId": "fdSelectArrDefault",
-										"taText": "select (default) с кастомной стрелкой"
-										})
-
-										<div><code class="mark">select</code> необходимо завернуть в <code class="mark">div</code> с классом <code class="mark">.select</code></div>
-										<div>Элементы валидаци поместить в <code class="mark">.select</code> после тэга <code class="mark">select</code></div>
-										<div>Если элементы валидаци поместить после <code class="mark">.select</code>, то классы валидации необходимо добавлять и на <code class="mark">.select</code></div>
-										<div class="user-spacer"></div>
-
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-select-arr-base">Селект - без js-классов:</label>
-											</div>
-											<div class="input-holder">
-												<div class="select">
-													<select name="select-name" id="form-cover-select-arr-base">
-														@@include('_tpl_forms_form-select-options.html')
-													</select>
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-select-arr">Селект - значение не выбрано:</label>
-											</div>
-											<div class="input-holder">
-												<div class="select">
-													<select class="field-effects-js" name="select-name" id="form-cover-select-arr">
-														@@include('_tpl_forms_form-select-options.html')
-													</select>
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-select-arr-fit">Селект - значение выбрано по умолчанию:</label>
-											</div>
-											<div class="input-holder">
-												<div class="select">
-													<select class="field-effects-js" name="select-name" id="form-cover-select-arr-fit">
-														@@include('_tpl_forms_form-select-options.html', {"placeholder":"false"})
-													</select>
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="error" for="form-cover-select-arr-err">Селект - невалидный :</label>
-											</div>
-											<div class="input-holder">
-												<div class="select">
-													<select class="field-effects-js error" name="select-name" id="form-cover-select-arr-err">
-														@@include('_tpl_forms_form-select-options.html')
-													</select>
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="success" for="form-cover-select-arr-suc">Селект - валидный:</label>
-											</div>
-											<div class="input-holder">
-												<div class="select">
-													<select class="field-effects-js success" name="select-name" id="form-cover-select-arr-suc">
-														@@include('_tpl_forms_form-select-options.html')
-													</select>
-													@@include('_tpl_forms_form-validation.html')
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!--===================================================-->
-								<!--===================================================-->
-
-								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-										"taTag": "h4",
-										"taId": "fdSelectCustom",
-										"taText": "select (custom - select2)"
-										})
-
-										<div>На <code class="mark">select</code> добавляем класс <code class="mark">.cselect</code></div>
-										<div class="user-spacer"></div>
-
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-c-select-base">Селект - без js-классов:</label>
-											</div>
-											<div class="input-holder">
-												<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-base">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-c-select">Селект - значение не выбрано:</label>
-											</div>
-											<div class="input-holder">
-												<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-c-select-fit">Селект - значение выбрано по умолчанию:</label>
-											</div>
-											<div class="input-holder">
-												<select class="cselect field-effects-js" name="select-name" id="form-cover-c-select-fit">
-													@@include('_tpl_forms_form-select-options.html', {"placeholder":"false"})
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="error" for="form-cover-c-select-err">Селект - невалидный :</label>
-											</div>
-											<div class="input-holder">
-												<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-err">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="success" for="form-cover-c-select-suc">Селект - валидный:</label>
-											</div>
-											<div class="input-holder">
-												<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-suc">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--===================================================-->
-								<!--===================================================-->
-
-								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
-										"taTag": "h4",
-										"taId": "fdMultiselectCustom",
-										"taText": "multiselect (custom - select2)"
-										})
-
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-c-mSelect-base">Селект - без js-классов:</label>
-											</div>
-											<div class="input-holder">
-												<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-cover-c-mSelect-base">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-c-mSelect">Селект - значение не выбрано:</label>
-											</div>
-											<div class="input-holder">
-												<select class="cselect field-effects-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-c-mSelect-fit">Селект - значение выбрано по умолчанию:</label>
-											</div>
-											<div class="input-holder">
-												<select class="cselect field-effects-js" name="select-name" multiple id="form-cover-c-mSelect-fit">
-													<option value="1">Размер</option>
-													<option value="2" selected>Вес</option>
-													<option value="3">Цвет</option>
-													<option value="4">Позицию (расположение)</option>
-													<option value="5">Опшин очень-очень-очень-очень длинный</option>
-													<option value="6">Контраст</option>
-													<option value="7">Сочетание</option>
-													<option value="8">Расстояние</option>
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="error" for="form-cover-c-mSelect-err">Селект - невалидный :</label>
-											</div>
-											<div class="input-holder">
-												<select class="cselect field-effects-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-err">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="success" for="form-cover-c-mSelect-suc">Селект - валидный:</label>
-											</div>
-											<div class="input-holder">
-												<select class="cselect field-effects-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-suc">
-													@@include('_tpl_forms_form-select-options.html')
-												</select>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div>
-									<div class="layout-text">
-										@@include('_tpl_title-anchor.html', {
+									@@include('_tpl_title-anchor.html', {
 										"taTag": "h4",
 										"taId": "fdColumnsCustom",
-										"taText": "в два столбца - Z-тип"
-										})
+										"taText": "в два столбца - Z-тип",
+										"openerId": "0_02_03"
+									})
+									<div>
 										<div class="form-row">
 											<div class="input-wrap">
 												<div class="label-holder">
@@ -1081,33 +614,51 @@
 												</div>
 											</div>
 										</div>
-										<!--===================================================-->
 									</div>
 								</div>
 							</form>
 						</div>
-						<!--===============form default end===============-->
+						<!--===============forms default end===============-->
 
-						<div class="user-spacer"></div>
+						<!--===============selects===============-->
+						@@include('_tpl_title-anchor.html', {
+							"taId": "selectsDef",
+							"taText": "Selects (without js customization)",
+							"openerId": "0_03"
+						})
+
+						<div class="layout-text">
+							@@include('_tpl_forms_selects.html')
+						</div>
+						<!--===============selects end===============-->
+
+						<!--===============custom selects - select2===============-->
+						@@include('_tpl_title-anchor.html', {
+							"taId": "select2",
+							"taText": "Select2 - Selects (with js customization)",
+							"openerId": "0_04"
+						})
+						<div class="layout-text">
+							@@include('_tpl_forms_select2.html')
+						</div>
+						<!--===============selects end===============-->
 
 						<!--===============checkbox and radio===============-->
 						@@include('_tpl_title-anchor.html', {
 							"taId": "formCheckboxExample",
-							"taText": "Чекбоксы и Радиобаттоны",
-							"openerId": "0_03"
+							"taText": "Checkboxes and Radio Buttons",
+							"openerId": "0_05"
 						})
 						<div class="layout-text">
 							@@include('_tpl_forms_checkbox-and-radio.html')
 						</div>
 						<!--===============checkbox and radio end===============-->
 
-						<div class="user-spacer"></div>
-
 						<!--===============user form===============-->
 						@@include('_tpl_title-anchor.html', {
 							"taId": "userFormExample",
 							"taText": "Форма обратной связи",
-							"openerId": "0_04"
+							"openerId": "0_06"
 						})
 						@@include('_tpl_forms_user-form.html', {
 							"title": "Задать вопрос"
