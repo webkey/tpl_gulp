@@ -38,11 +38,10 @@ function printShow() {
 }
 
 /**
- * !toggle class for input on focus
+ * !Toggle class on a form elements on focus
  * */
-function inputToggleFocusClass() {
-	// use for the "focus" state
-	var $inputs = $('.field-effects-js');
+function inputFocusClass() {
+	var $inputs = $('.field-js');
 
 	if ($inputs.length) {
 		var $fieldWrap = $('.input-wrap');
@@ -53,37 +52,31 @@ function inputToggleFocusClass() {
 			var $currentField = $(this);
 			var $currentFieldWrap = $currentField.closest($fieldWrap);
 
-			// add class on input
 			$currentField.addClass(classFocus);
-			// add class on label
 			$currentField.prev('label').addClass(classFocus);
 			$currentField.closest($selectWrap).prev('label').addClass(classFocus);
-			// add class on wrapper
 			$currentFieldWrap.addClass(classFocus);
-			// add class on label in wrapper
 			$currentFieldWrap.find('label').addClass(classFocus);
 
 		}).blur(function () {
 			var $currentField = $(this);
 			var $currentFieldWrap = $currentField.closest($fieldWrap);
 
-			// remove class on input
 			$currentField.removeClass(classFocus);
-			// remove class on label
 			$currentField.prev('label').removeClass(classFocus);
 			$currentField.closest($selectWrap).prev('label').removeClass(classFocus);
-			// remove class on wrapper
 			$currentFieldWrap.removeClass(classFocus);
-			// remove class on label in wrapper
 			$currentFieldWrap.find('label').removeClass(classFocus);
 
 		});
 	}
 }
 
+/**
+ * !Toggle class on a form elements if this one has a value
+ * */
 function inputHasValueClass() {
-	// use for the "has-value" state
-	var $inputs = $('.field-effects-js');
+	var $inputs = $('.field-js');
 
 	if ($inputs.length) {
 		var $fieldWrap = $('.input-wrap');
@@ -104,77 +97,21 @@ function inputHasValueClass() {
 
 			//first element of the select must have a value empty ("")
 			if ($currentField.val().length === 0) {
-				// remove class on input
 				$currentField.removeClass(classHasValue);
-				// remove class on label
 				$currentField.prev('label').removeClass(classHasValue);
 				$currentField.closest($selectWrap).prev('label').removeClass(classHasValue);
-				// remove class on wrapper
 				$currentFieldWrap.removeClass(classHasValue);
-				// remove class on label in wrapper
 				$currentFieldWrap.find('label').removeClass(classHasValue);
 			} else if (!$currentField.hasClass(classHasValue)) {
-				// add class on input
 				$currentField.addClass(classHasValue);
-				// add class on label
 				$currentField.prev('label').addClass(classHasValue);
 				$currentField.closest($selectWrap).prev('label').addClass(classHasValue);
-				// add class on wrapper
 				$currentFieldWrap.addClass(classHasValue);
-				// add class on label in wrapper
 				$currentFieldWrap.find('label').addClass(classHasValue);
 			}
 		}
 	}
 }
-
-function inputFilledClass() {
-	// use if the "focus" state and the "has-value" state are the same
-	var $fieldWrap = $('.field-effects-js');
-
-	if ($fieldWrap.length) {
-		var $inputsAll = $fieldWrap.find('input[type="email"], input[type="search"], :text, textarea, select');
-		var _classFilled = 'input--filled';
-
-		$inputsAll.focus(function () {
-			var $thisField = $(this);
-
-			$thisField
-				.closest($fieldWrap)
-				.addClass(_classFilled);
-
-		}).blur(function () {
-			var $thisField = $(this);
-
-			if ($thisField.val() === '') {
-				$thisField
-					.closest($fieldWrap)
-					.removeClass(_classFilled);
-			}
-		});
-
-		function switchHasValue() {
-			var $currentField = $(this);
-			var $currentFieldWrap = $currentField.closest($fieldWrap);
-
-			$currentFieldWrap.removeClass(_classFilled);
-
-			//first element of the select must have a value empty ("")
-			if ($currentField.val() !== '') {
-				$currentFieldWrap.addClass(_classFilled);
-			}
-		}
-
-		$.each($inputsAll, function () {
-			switchHasValue.call(this);
-		});
-
-		$inputsAll.on('change', function () {
-			switchHasValue.call(this);
-		});
-	}
-}
-/*toggle class for input on focus end*/
 
 /**
  * !Initial custom select for cross-browser styling
@@ -263,57 +200,33 @@ function slidersInit() {
 }
 
 /**
- * !Testing form validation (for example). Do not use on release!
+ * !Form validation
  * */
-function formSuccessExample() {
-	var $form = $('.user-form form');
-
-	if ( $form.length ) {
-
-		$form.submit(function (event) {
-			var $thisForm = $(this);
-
-			if ($thisForm.parent().hasClass('success-form')) return;
-
-			event.preventDefault();
-
-			testValidateForm($thisForm);
-		});
-
-		// $(':text, input[type="email"], textarea', $form).on('keyup change', function () {
-		// 	var $form = $(this).closest('form');
-		// 	if ($form.parent().hasClass('error-form')) {
-		// 		testValidateForm($form);
-		// 	}
-		// })
-
-	}
-
-	function testValidateForm(form) {
-		var $thisFormWrap = form.parent();
-
-		var $inputs = $(':text, input[type="email"], input[type="password"], textarea', form);
-
-		var inputsLength = $inputs.length;
-		var inputsHasValueLength = $inputs.filter(function () {
-			return $(this).val().length;
-		}).length;
-
-		$thisFormWrap.toggleClass('error-form', inputsLength !== inputsHasValueLength);
-		$thisFormWrap.toggleClass('success-form', inputsLength === inputsHasValueLength);
-
-		$.each($inputs, function () {
-			var $thisInput = $(this);
-			var thisInputVal = $thisInput.val();
-			var $thisInputWrap = $thisInput.parent();
-
-			$thisInput.toggleClass('error', !thisInputVal.length);
-			$thisInput.toggleClass('success', !!thisInputVal.length);
-
-			$thisInputWrap.toggleClass('error', !thisInputVal.length);
-			$thisInputWrap.toggleClass('success', !!thisInputVal.length);
-		});
-	}
+function formValidation() {
+	$('.user-form form').validate({
+		errorClass: "error",
+		validClass: "success",
+		errorElement: false,
+		errorPlacement: function(error,element) {
+			return true;
+		},
+		highlight: function(element, errorClass, successClass) {
+			$(element)
+				.removeClass(successClass)
+				.addClass(errorClass)
+				.closest('form').find('label[for="' + $(element).attr('id') + '"]')
+				.removeClass(successClass)
+				.addClass(errorClass);
+		},
+		unhighlight: function(element, errorClass, successClass) {
+			$(element)
+				.removeClass(errorClass)
+				.addClass(successClass)
+				.closest('form').find('label[for="' + $(element).attr('id') + '"]')
+				.removeClass(errorClass)
+				.addClass(successClass);
+		}
+	});
 }
 
 /**
@@ -331,12 +244,11 @@ $(window).on('debouncedresize', function () {
 $(document).ready(function () {
 	placeholderInit();
 	printShow();
-	inputToggleFocusClass();
+	inputFocusClass();
 	inputHasValueClass();
-	// inputFilledClass();
 	customSelect($('select.cselect'));
 	slidersInit();
 	objectFitImages(); // object-fit-images initial
 
-	formSuccessExample();
+	formValidation();
 });

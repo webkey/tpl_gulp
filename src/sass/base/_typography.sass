@@ -274,6 +274,32 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 
 /* columnize end
 
+/* columns
+$columns-gap: 2em
+.columns
+	+clear
+
+.column
+	float: left
+	width: calc(50% - #{round($columns-gap/2)})
+	margin: 0 round($columns-gap/2)
+
+	+media('<mob-lg')
+		float: none
+		width: auto
+		margin: 0 0 5rem
+
+		&:last-child
+			margin-bottom: 0
+
+	&:nth-child(odd)
+		margin-left: 0
+
+	&:nth-child(even)
+		margin-right: 0
+
+/* columns end
+
 .#{$user-content}
 	@each $tags in h2, h3, h4, h5
 		p + #{$tags},

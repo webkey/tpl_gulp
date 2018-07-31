@@ -1,13 +1,13 @@
 <div class="user-form">
 	<div class="layout-text">
 		<div class="form-title">@@title</div>
-		<form action="#" method="post">
+		<form action="#!" method="post">
 			<div class="input-wrap">
 				<div class="label-holder">
 					<label for="user-form-example__name-field">Имя<span class="form-mark">*</span></label>
 				</div>
 				<div class="input-holder">
-					<input type="text" id="user-form-example__name-field">
+					<input type="text" id="user-form-example__name-field" name="user-form-example__name-field" required>
 					@@include('_tpl_forms_form-validation.html')
 				</div>
 			</div>
@@ -16,7 +16,7 @@
 					<label for="user-form-example__email-field">E-mail<span class="form-mark">*</span></label>
 				</div>
 				<div class="input-holder">
-					<input type="email" id="user-form-example__email-field">
+					<input type="email" id="user-form-example__email-field" name="user-form-example__email-field" required>
 					@@include('_tpl_forms_form-validation.html')
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 					<label for="user-form-example__message-field">Сообщение<span class="form-mark">*</span></label>
 				</div>
 				<div class="input-holder">
-					<textarea id="user-form-example__message-field"></textarea>
+					<textarea id="user-form-example__message-field" name="user-form-example__message-field" required></textarea>
 					@@include('_tpl_forms_form-validation.html')
 				</div>
 			</div>
@@ -34,7 +34,7 @@
 					<span class="label">Прикрепить файл</span>
 				</div>
 				<div class="input-holder upload-file__container">
-					<input class="upload-file" name="files[]" type="file" multiple="multiple">
+					<input class="upload-file" name="files[]" type="file" multiple="multiple" required>
 				</div>
 			</div>
 			<div class="input-wrap">
