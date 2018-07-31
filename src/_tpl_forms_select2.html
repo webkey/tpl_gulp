@@ -13,33 +13,33 @@
 
 			<label for="form-clear-c-select-base">Селект - без js-классов:</label>
 			<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-base">
-				@@include('_tpl_forms_form-select-options.html')
+				@@include('_tpl_forms_options.html')
 			</select>
-			@@include('_tpl_forms_form-validation.html')
+			@@include('_tpl_forms_valid.html')
 			<!--===================================================-->
 			<label for="form-clear-c-select">Селект - значение не выбрано:</label>
 			<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select">
-				@@include('_tpl_forms_form-select-options.html')
+				@@include('_tpl_forms_options.html')
 			</select>
-			@@include('_tpl_forms_form-validation.html')
+			@@include('_tpl_forms_valid.html')
 			<!--===================================================-->
 			<label for="form-clear-c-select-fit">Селект - значение выбрано по умолчанию:</label>
 			<select class="cselect field-js" name="select-name" id="form-clear-c-select-fit">
-				@@include('_tpl_forms_form-select-options.html', {"placeholder":"false"})
+				@@include('_tpl_forms_options.html', {"placeholder":"false"})
 			</select>
-			@@include('_tpl_forms_form-validation.html')
+			@@include('_tpl_forms_valid.html')
 			<!--===================================================-->
 			<label class="error" for="form-clear-c-select-err">Селект - невалидный :</label>
 			<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-err">
-				@@include('_tpl_forms_form-select-options.html')
+				@@include('_tpl_forms_options.html')
 			</select>
-			@@include('_tpl_forms_form-validation.html')
+			@@include('_tpl_forms_valid.html')
 			<!--===================================================-->
 			<label class="success" for="form-clear-c-select-suc">Селект - валидный:</label>
 			<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-suc">
-				@@include('_tpl_forms_form-select-options.html')
+				@@include('_tpl_forms_options.html')
 			</select>
-			@@include('_tpl_forms_form-validation.html')
+			@@include('_tpl_forms_valid.html')
 		</div>
 	</div>
 
@@ -57,15 +57,15 @@
 		<div>
 			<label for="form-clear-c-mSelect-base">Селект - без js-классов:</label>
 			<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-clear-c-mSelect-base">
-				@@include('_tpl_forms_form-select-options.html')
+				@@include('_tpl_forms_options.html')
 			</select>
-			@@include('_tpl_forms_form-validation.html')
+			@@include('_tpl_forms_valid.html')
 			<!--===================================================-->
 			<label for="form-clear-c-mSelect">Селект - значение не выбрано:</label>
 			<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect">
-				@@include('_tpl_forms_form-select-options.html')
+				@@include('_tpl_forms_options.html')
 			</select>
-			@@include('_tpl_forms_form-validation.html')
+			@@include('_tpl_forms_valid.html')
 			<!--===================================================-->
 			<label for="form-clear-c-mSelect-fit">Селект - значение выбрано по умолчанию:</label>
 			<select class="cselect field-js" name="select-name" multiple id="form-clear-c-mSelect-fit">
@@ -78,19 +78,19 @@
 				<option value="7">Сочетание</option>
 				<option value="8">Расстояние</option>
 			</select>
-			@@include('_tpl_forms_form-validation.html')
+			@@include('_tpl_forms_valid.html')
 			<!--===================================================-->
 			<label class="error" for="form-clear-c-mSelect-err">Селект - невалидный :</label>
 			<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-err">
-				@@include('_tpl_forms_form-select-options.html')
+				@@include('_tpl_forms_options.html')
 			</select>
-			@@include('_tpl_forms_form-validation.html')
+			@@include('_tpl_forms_valid.html')
 			<!--===================================================-->
 			<label class="success" for="form-clear-c-mSelect-suc">Селект - валидный:</label>
 			<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-suc">
-				@@include('_tpl_forms_form-select-options.html')
+				@@include('_tpl_forms_options.html')
 			</select>
-			@@include('_tpl_forms_form-validation.html')
+			@@include('_tpl_forms_valid.html')
 		</div>
 	</div>
 
@@ -115,9 +115,9 @@
 				</div>
 				<div class="input-holder">
 					<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-base">
-						@@include('_tpl_forms_form-select-options.html')
+						@@include('_tpl_forms_options.html')
 					</select>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<!--===================================================-->
@@ -127,9 +127,9 @@
 				</div>
 				<div class="input-holder">
 					<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select">
-						@@include('_tpl_forms_form-select-options.html')
+						@@include('_tpl_forms_options.html')
 					</select>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<!--===================================================-->
@@ -139,9 +139,9 @@
 				</div>
 				<div class="input-holder">
 					<select class="cselect field-js" name="select-name" id="form-cover-c-select-fit">
-						@@include('_tpl_forms_form-select-options.html', {"placeholder":"false"})
+						@@include('_tpl_forms_options.html', {"placeholder":"false"})
 					</select>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<!--===================================================-->
@@ -151,9 +151,9 @@
 				</div>
 				<div class="input-holder">
 					<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-err">
-						@@include('_tpl_forms_form-select-options.html')
+						@@include('_tpl_forms_options.html')
 					</select>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<!--===================================================-->
@@ -163,9 +163,9 @@
 				</div>
 				<div class="input-holder">
 					<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-suc">
-						@@include('_tpl_forms_form-select-options.html')
+						@@include('_tpl_forms_options.html')
 					</select>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 		</div>
@@ -189,9 +189,9 @@
 				</div>
 				<div class="input-holder">
 					<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-cover-c-mSelect-base">
-						@@include('_tpl_forms_form-select-options.html')
+						@@include('_tpl_forms_options.html')
 					</select>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<!--===================================================-->
@@ -201,9 +201,9 @@
 				</div>
 				<div class="input-holder">
 					<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect">
-						@@include('_tpl_forms_form-select-options.html')
+						@@include('_tpl_forms_options.html')
 					</select>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<!--===================================================-->
@@ -222,7 +222,7 @@
 						<option value="7">Сочетание</option>
 						<option value="8">Расстояние</option>
 					</select>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<!--===================================================-->
@@ -232,9 +232,9 @@
 				</div>
 				<div class="input-holder">
 					<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-err">
-						@@include('_tpl_forms_form-select-options.html')
+						@@include('_tpl_forms_options.html')
 					</select>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<!--===================================================-->
@@ -244,9 +244,9 @@
 				</div>
 				<div class="input-holder">
 					<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-suc">
-						@@include('_tpl_forms_form-select-options.html')
+						@@include('_tpl_forms_options.html')
 					</select>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 		</div>

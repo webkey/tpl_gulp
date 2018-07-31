@@ -8,7 +8,7 @@
 				</div>
 				<div class="input-holder">
 					<input type="text" id="user-form-example__name-field" name="user-form-example__name-field" required>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<div class="input-wrap">
@@ -17,7 +17,7 @@
 				</div>
 				<div class="input-holder">
 					<input type="email" id="user-form-example__email-field" name="user-form-example__email-field" required>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<div class="input-wrap">
@@ -26,7 +26,7 @@
 				</div>
 				<div class="input-holder">
 					<textarea id="user-form-example__message-field" name="user-form-example__message-field" required></textarea>
-					@@include('_tpl_forms_form-validation.html')
+					@@include('_tpl_forms_valid.html')
 				</div>
 			</div>
 			<div class="input-wrap">
@@ -46,7 +46,7 @@
 						<img src="img/captcha.jpg" alt="captcha" />
 						<input type="text" id="user-form-example__captcha-field">
 						<span class="error-note">Введите текст на картинке для защиты от спама</span>
-						@@include('_tpl_forms_form-validation.html', {"errorNote": "Введите текст на картинке для защиты от спама"})
+						@@include('_tpl_forms_valid.html', {"errorNote": "Введите текст на картинке для защиты от спама"})
 					</div>
 				</div>
 			</div>

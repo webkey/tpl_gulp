@@ -255,27 +255,37 @@
 						<div class="content user-content">
 							<div class="layout-article">
 								<style>
+									h3+div {
+										border-bottom: 2px solid #ffa43f;
+										padding-top: 40px;
+										padding-bottom: 40px;
+									}
+
 									form>div:not(.input-wrap):not(.form-row):not(.form-footer) {
 										padding-top: 40px;
 										padding-bottom: 40px;
 										border-top: 1px dashed #ffa43f;
 									}
-									
+
 									form>div:not(.input-wrap):not(.form-row):not(.form-footer):first-child {
 										padding-top: 0;
 										border: none;
 									}
-									
+
+									form>div:not(.input-wrap):not(.form-row):not(.form-footer):last-child {
+										padding-bottom: 0;
+									}
+
 									h3,
 									h4 {
 										position: relative;
 										padding-right: 40px !important;
 									}
-									
+
 									h3 {
 										margin-top: 3rem;
 									}
-									
+
 									h3 label,
 									h4 label {
 										position: absolute;
@@ -293,7 +303,7 @@
 										-ms-user-select: none;
 										user-select: none;
 									}
-									
+
 									h3 label::before,
 									h4 label::before {
 										content: "–";
@@ -304,36 +314,36 @@
 										text-align: center;
 										top: -1px;
 									}
-									
+
 									.accordionOpener:checked+h3,
 									.accordionOpener:checked+h4 {
 										margin-bottom: 0;
 									}
-									
+
 									.accordionOpener:checked+h3 label::before,
 									.accordionOpener:checked+h4 label::before {
 										content: "+";
 									}
-									
+
 									.accordionOpener:checked+h3+div,
 									.accordionOpener:checked+h4+div {
 										display: none;
 									}
 								</style>
 								<h1>Forms</h1>
-								<!--===============forms clear===============-->
+								<!--===============forms default===============-->
 								<input type="checkbox" class="accordionOpener" id="0_01">
 								<h3>
 									<label class="mark" for="0_01"></label>
-									<a href="#hash-formElementClearExample" id="hash-formElementClearExample" class="hashAnchor"><span class="mark">Fields of forms without wrappers (recommended)</span></a>
+									<a href="#hash-formElementsDef" id="hash-formElementsDef" class="hashAnchor"><span class="mark">Fields of forms without wrappers (recommended)</span></a>
 								</h3>
 								<div class="layout-text">
 									<form action="#" method="post">
 										<div>
-											<input type="checkbox" class="accordionOpener" id="0_01_00">
+											<input type="checkbox" class="accordionOpener" id="0_01_tpl">
 											<h4>
-												<label class="mark" for="0_01_00"></label>
-												<a href="#hash-fcInputTypeTextExpl" id="hash-fcInputTypeTextExpl" class="hashAnchor"><span class="mark">Example input field</span></a>
+												<label class="mark" for="0_01_tpl"></label>
+												<a href="#hash-inputTextTpl" id="hash-inputTextTpl" class="hashAnchor"><span class="mark">Example input field</span></a>
 											</h4>
 											<div>
 												<label for="id">Label: <span class="form-mark">*</span></label>
@@ -343,11 +353,13 @@
 												<!--===================================================-->
 											</div>
 										</div>
+										<!--===================================================-->
+										<!--===================================================-->
 										<div>
-											<input type="checkbox" class="accordionOpener" id="0_01_01">
+											<input type="checkbox" class="accordionOpener" id="0_01_text">
 											<h4>
-												<label class="mark" for="0_01_01"></label>
-												<a href="#hash-fcInputTypeText" id="hash-fcInputTypeText" class="hashAnchor"><span class="mark">Input type 'text'</span></a>
+												<label class="mark" for="0_01_text"></label>
+												<a href="#hash-inputText" id="hash-inputText" class="hashAnchor"><span class="mark">Input type 'text'</span></a>
 											</h4>
 											<div class="columns">
 												<div class="column">
@@ -415,100 +427,10 @@
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<input type="checkbox" class="accordionOpener" id="0_01_02" checked>
+											<input type="checkbox" class="accordionOpener" id="0_01_textarea">
 											<h4>
-												<label class="mark" for="0_01_02"></label>
-												<a href="#hash-fcInputTypeOther" id="hash-fcInputTypeOther" class="hashAnchor"><span class="mark">input other type</span></a>
-											</h4>
-											<div class="form-columnize--3">
-												<!--=======================email============================-->
-												<!--===================================================-->
-												<label for="f-email-base">email поле без js-классов:</label>
-												<input type="email" placeholder="email поле (placeholder)" id="f-email-base" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label for="f-email-ph">email поле с плейсхолдером:</label>
-												<input class="field-js" type="email" placeholder="email поле (placeholder)" id="f-email-ph" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label for="f-email-fit">Заполненное email поле:</label>
-												<input class="field-js" type="email" value="Уже есть текст (value)" id="f-email-fit" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label class="error" for="f-email-err">Невалидное email поле:</label>
-												<input class="field-js error" type="email" placeholder="Невалидное email поле (placeholder)" id="f-email-err" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label class="success" for="f-email-suc">Валидное email поле:</label>
-												<input class="field-js success" type="email" value="email (value)" placeholder="Валидное email поле (placeholder)" id="f-email-suc" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--=======================password============================-->
-												<!--===================================================-->
-												<label for="f-password-base">password поле без js-классов:</label>
-												<input type="password" placeholder="password поле (placeholder)" id="f-password-base" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label for="f-password-ph">password поле с плейсхолдером:</label>
-												<input class="field-js" type="password" placeholder="password поле (placeholder)" id="f-password-ph" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label for="f-password-fit">Заполненное password поле:</label>
-												<input class="field-js" type="password" value="password" id="f-password-fit" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label class="error" for="f-password-err">Невалидное password поле:</label>
-												<input class="field-js error" type="password" placeholder="Невалидное password поле (placeholder)" id="f-password-err" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label class="success" for="f-password-suc">Валидное password поле:</label>
-												<input class="field-js success" type="password" value="Валидное password поле (value)" placeholder="Валидное password поле (placeholder)" id="f-password-suc" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<!--=======================search============================-->
-												<!--===================================================-->
-												<label for="f-search-base">search поле без js-классов:</label>
-												<input type="search" placeholder="search поле (placeholder)" id="f-search-base" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label for="f-search-ph">search поле с плейсхолдером:</label>
-												<input class="field-js" type="search" placeholder="search поле (placeholder)" id="f-search-ph" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label for="f-search-fit">Заполненное search поле:</label>
-												<input class="field-js" type="search" value="Уже есть текст (value)" id="f-search-fit" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label class="error" for="f-search-err">Невалидное search поле:</label>
-												<input class="field-js error" type="search" placeholder="Невалидное search поле (placeholder)" id="f-search-err" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label class="success" for="f-search-suc">Валидное search поле:</label>
-												<input class="field-js success" type="search" value="Валидное search поле (value)" placeholder="Валидное search поле (placeholder)" id="f-search-suc" />
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-											</div>
-										</div>
-										<!--===================================================-->
-										<!--===================================================-->
-										<div>
-											<input type="checkbox" class="accordionOpener" id="0_01_03" checked>
-											<h4>
-												<label class="mark" for="0_01_03"></label>
-												<a href="#hash-fcTextarea" id="hash-fcTextarea" class="hashAnchor"><span class="mark">textarea</span></a>
+												<label class="mark" for="0_01_textarea"></label>
+												<a href="#hash-textareaDef" id="hash-textareaDef" class="hashAnchor"><span class="mark">Textarea</span></a>
 											</h4>
 											<div class="columns">
 												<div class="column">
@@ -575,574 +497,1377 @@
 										</div>
 									</form>
 								</div>
-								<!--===============forms clear end===============-->
-								<!--===============forms default===============-->
+								<!--===============forms default end===============-->
+								<!--===============forms with wrapper===============-->
 								<input type="checkbox" class="accordionOpener" id="0_02">
 								<h3>
 									<label class="mark" for="0_02"></label>
-									<a href="#hash-formElementExample" id="hash-formElementExample" class="hashAnchor"><span class="mark">Fields of forms with wrappers (optional)</span></a>
+									<a href="#hash-formElementsWrap" id="hash-formElementsWrap" class="hashAnchor"><span class="mark">Fields of forms with wrappers (optional)</span></a>
 								</h3>
 								<div class="layout-text">
 									<form action="#" method="post">
 										<div>
-											<input type="checkbox" class="accordionOpener" id="0_02_01">
+											<input type="checkbox" class="accordionOpener" id="0_02_text">
 											<h4>
-												<label class="mark" for="0_02_01"></label>
-												<a href="#hash-fdInputTypeText" id="hash-fdInputTypeText" class="hashAnchor"><span class="mark">input type=text</span></a>
+												<label class="mark" for="0_02_text"></label>
+												<a href="#hash-inputTextWrap" id="hash-inputTextWrap" class="hashAnchor"><span class="mark">Input type 'text'</span></a>
 											</h4>
-											<div>
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-base">Текстовое поле без js-классов:</label>
+											<div class="columns">
+												<div class="column">
+													<p><b>Without js</b></p>
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-base">Text input:</label></div>
+														<div class="input-holder">
+															<input id="f-wrap-base" name="f-wrap-base" placeholder="Placeholder" type="text" />
+														</div>
 													</div>
-													<div class="input-holder">
-														<input type="text" placeholder="Текстовое поле (placeholder)" id="form-cover-base" />
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-base-disabled">Text input - disabled:</label></div>
+														<div class="input-holder">
+															<input id="f-wrap-base-disabled" name="f-wrap-base-disabled" placeholder="Placeholder" type="text" disabled />
+														</div>
 													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-fit">Text input - has value:</label></div>
+														<div class="input-holder">
+															<input id="f-wrap-fit" name="f-wrap-fit" placeholder="Value placeholder" type="text" value="Value" />
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-fit-disabled">Text input - has value - disabled:</label></div>
+														<div class="input-holder">
+															<input id="f-wrap-fit-disabled" name="f-wrap-fit-disabled" placeholder="Value placeholder disabled" type="text" value="Value disabled" disabled />
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-validation">Text input - validation: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<input id="f-wrap-validation" name="f-wrap-validation" placeholder="Validation" type="text" />
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="error" for="f-wrap-err">Text input - error: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<input class="error" id="f-wrap-err" name="f-wrap-err" placeholder="Error" type="text" />
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="success" for="f-wrap-suc">Text input - success: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<input class="success" id="f-wrap-suc" name="f-wrap-suc" placeholder="Success" type="text" />
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+													<!--===================================================-->
 												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-ph">Текстовое поле с плейсхолдером:</label>
+												<div class="column">
+													<p><b>With js</b></p>
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-base-js">Text input:</label></div>
+														<div class="input-holder">
+															<input class="field-js" id="f-wrap-base-js" name="f-wrap-base-js" placeholder="Placeholder" type="text" />
+														</div>
 													</div>
-													<div class="input-holder">
-														<input class="field-js" type="text" placeholder="Текстовое поле (placeholder)" id="form-cover-ph" />
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-base-disabled-js">Text input - disabled:</label></div>
+														<div class="input-holder">
+															<input class="field-js" id="f-wrap-base-disabled-js" name="f-wrap-base-disabled-js" placeholder="Placeholder" type="text" disabled />
+														</div>
 													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-fit">Заполненное текстовое поле:</label>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-fit-js">Text input - has value:</label></div>
+														<div class="input-holder">
+															<input class="field-js" id="f-wrap-fit-js" name="f-wrap-fit-js" placeholder="Value placeholder" type="text" value="Value" />
+														</div>
 													</div>
-													<div class="input-holder">
-														<input class="field-js" type="text" value="Уже есть текст (value)" id="form-cover-fit" />
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-fit-disabled-js">Text input - has value - disabled:</label></div>
+														<div class="input-holder">
+															<input class="field-js" id="f-wrap-fit-disabled-js" name="f-wrap-fit-disabled-js" placeholder="Value placeholder disabled" type="text" value="Value disabled" disabled />
+														</div>
 													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="error" for="form-cover-err">Невалидное текстовое поле:</label>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-validation-js">Text input - validation: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<input class="field-js" id="f-wrap-validation-js" name="f-wrap-validation-js" placeholder="Validation" type="text" />
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
 													</div>
-													<div class="input-holder">
-														<input class="field-js error" type="text" placeholder="Невалидное поле (placeholder)" id="form-cover-err" />
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="error" for="f-wrap-err-js">Text input - error: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<input class="field-js error" id="f-wrap-err-js" name="f-wrap-err-js" placeholder="Error" type="text" />
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
 													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="success" for="form-cover-suc">Валидное текстовое поле:</label>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="success" for="f-wrap-suc-js">Text input - success: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<input class="field-js success" id="f-wrap-suc-js" name="f-wrap-suc-js" placeholder="Success" type="text" />
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
 													</div>
-													<div class="input-holder">
-														<input class="field-js success" type="text" value="Валидное текстовое поле (value)" placeholder="Валидное текстовое поле (placeholder)" id="form-cover-suc" />
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
-													</div>
+													<!--===================================================-->
 												</div>
 											</div>
 										</div>
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<input type="checkbox" class="accordionOpener" id="0_02_02">
+											<input type="checkbox" class="accordionOpener" id="0_02_textarea">
 											<h4>
-												<label class="mark" for="0_02_02"></label>
-												<a href="#hash-fdTextarea" id="hash-fdTextarea" class="hashAnchor"><span class="mark">textarea</span></a>
+												<label class="mark" for="0_02_textarea"></label>
+												<a href="#hash-textareaWrap" id="hash-textareaWrap" class="hashAnchor"><span class="mark">Textarea</span></a>
 											</h4>
-											<div>
-												<div class="input-wrap">
-													<div class="label-holder"><label for="form-cover-ta-base">Текстареа без js-классов:</label></div>
-													<div class="input-holder">
-														<textarea placeholder="Текстареа (placeholder)" id="form-cover-ta-base"></textarea>
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+											<div class="columns">
+												<div class="column">
+													<p><b>Without js</b></p>
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-ta-base">Textarea:</label></div>
+														<div class="input-holder">
+															<textarea id="f-wrap-ta-base" name="f-wrap-ta-base" placeholder="Placeholder"></textarea>
+														</div>
 													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-ta-base-disabled">Textarea - disabled:</label></div>
+														<div class="input-holder">
+															<textarea id="f-wrap-ta-base-disabled" name="f-wrap-ta-base-disabled" placeholder="Placeholder" disabled></textarea>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-ta-fit">Textarea - has value:</label></div>
+														<div class="input-holder">
+															<textarea id="f-wrap-ta-fit" name="f-wrap-ta-fit" placeholder="Value placeholder">Value</textarea>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-ta-fit-disabled">Textarea - has value - disabled:</label></div>
+														<div class="input-holder">
+															<textarea id="f-wrap-ta-fit-disabled" name="f-wrap-ta-fit-disabled" placeholder="Value placeholder disabled" disabled>Value disabled</textarea>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-ta-validation">Textarea - validation: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<textarea id="f-wrap-ta-validation" name="f-wrap-ta-validation" placeholder="Validation"></textarea>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="error" for="f-wrap-ta-err">Textarea - error: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<textarea class="error" id="f-wrap-ta-err" name="f-wrap-ta-err" placeholder="Error"></textarea>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="success" for="f-wrap-ta-suc">Textarea - success: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<textarea class="success" id="f-wrap-ta-suc" name="f-wrap-ta-suc" placeholder="Success"></textarea>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+													<!--===================================================-->
 												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-ta-ph">Текстареа с плейсхолдером:</label>
+												<div class="column">
+													<p><b>With js</b></p>
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-ta-base-js">Textarea:</label></div>
+														<div class="input-holder">
+															<textarea class="field-js" id="f-wrap-ta-base-js" name="f-wrap-ta-base-js" placeholder="Placeholder"></textarea>
+														</div>
 													</div>
-													<div class="input-holder">
-														<textarea class="field-js" placeholder="Текстовое поле (placeholder)" id="form-cover-ta-ph"></textarea>
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-ta-base-disabled-js">Textarea - disabled:</label></div>
+														<div class="input-holder">
+															<textarea class="field-js" id="f-wrap-ta-base-disabled-js" name="f-wrap-ta-base-disabled-js" placeholder="Placeholder" disabled></textarea>
+														</div>
 													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-ta-fit">Заполненная текстареа:</label>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-ta-fit-js">Textarea - has value:</label></div>
+														<div class="input-holder">
+															<textarea class="field-js" id="f-wrap-ta-fit-js" name="f-wrap-ta-fit-js" placeholder="Value placeholder">Value</textarea>
+														</div>
 													</div>
-													<div class="input-holder">
-														<textarea class="field-js" id="form-cover-ta-fit">Уже есть текст</textarea>
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-ta-fit-disabled-js">Textarea - has value - disabled:</label></div>
+														<div class="input-holder">
+															<textarea class="field-js" id="f-wrap-ta-fit-disabled-js" name="f-wrap-ta-fit-disabled-js" placeholder="Value placeholder disabled" disabled>Value disabled</textarea>
+														</div>
 													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="error" for="form-cover-ta-err">Невалидная текстареа:</label>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="f-wrap-ta-validation-js">Textarea - validation: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<textarea class="field-js" id="f-wrap-ta-validation-js" name="f-wrap-ta-validation-js" placeholder="Validation"></textarea>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
 													</div>
-													<div class="input-holder">
-														<textarea class="field-js error" placeholder="Невалидное поле (placeholder)" id="form-cover-ta-err"></textarea>
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="error" for="f-wrap-ta-err-js">Textarea - error: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<textarea class="field-js error" id="f-wrap-ta-err-js" name="f-wrap-ta-err-js" placeholder="Error"></textarea>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
 													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="success" for="form-cover-ta-suc">Валидная текстареа:</label>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="success" for="f-wrap-ta-suc-js">Textarea - success: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<textarea class="field-js success" id="f-wrap-ta-suc-js" name="f-wrap-ta-suc-js" placeholder="Success"></textarea>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
 													</div>
-													<div class="input-holder">
-														<textarea class="field-js success" placeholder="Валидное текстовое поле (placeholder)" id="form-cover-ta-suc">Валидное текстовое поле</textarea>
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
-													</div>
+													<!--===================================================-->
 												</div>
 											</div>
 										</div>
 									</form>
 								</div>
-								<!--===============forms default end===============-->
+								<!--===============forms with wrapper end===============-->
 								<!--===============selects===============-->
 								<input type="checkbox" class="accordionOpener" id="0_03">
 								<h3>
 									<label class="mark" for="0_03"></label>
-									<a href="#hash-selectsDef" id="hash-selectsDef" class="hashAnchor"><span class="mark">Selects (without js customization)</span></a>
+									<a href="#hash-selectsDefGroup" id="hash-selectsDefGroup" class="hashAnchor"><span class="mark">Selects (without js customization)</span></a>
 								</h3>
 								<div class="layout-text">
 									<form action="#" method="post">
 										<div>
-											<input type="checkbox" class="accordionOpener" id="0_03_01">
+											<input type="checkbox" class="accordionOpener" id="0_03_tpl">
 											<h4>
-												<label class="mark" for="0_03_01"></label>
-												<a href="#hash-fcSelectDefault" id="hash-fcSelectDefault" class="hashAnchor"><span class="mark">Selects without a wrapper. Default arrow (recommended)</span></a>
+												<label class="mark" for="0_03_tpl"></label>
+												<a href="#hash-selectTpl" id="hash-selectTpl" class="hashAnchor"><span class="mark">Example template of select</span></a>
 											</h4>
 											<div>
-												<label for="form-clear-select-base">Селект - без js-классов:</label>
-												<select name="select-name" id="form-clear-select-base">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-			</select>
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
+												<label for="s-id">Label:</label>
+												<select class="field-js" id="s-id" name="s-id">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
 												<!--===================================================-->
-												<label for="form-clear-select">Селект - значение не выбрано:</label>
-												<select class="field-js" name="select-name" id="form-clear-select">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-			</select>
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label for="form-clear-select-fit">Селект - значение выбрано по умолчанию:</label>
-												<select class="field-js" name="select-name" id="form-clear-select-fit">
-				
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-			</select>
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label class="error" for="form-clear-select-err">Селект - невалидный :</label>
-												<select class="field-js error" name="select-name" id="form-clear-select-err">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-			</select>
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
-												<!--===================================================-->
-												<label class="success" for="form-clear-select-suc">Селект - валидный:</label>
-												<select class="field-js success" name="select-name" id="form-clear-select-suc">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-			</select>
-												<div class="error-note">Error text</div>
-												<div class="success-note">Success text</div>
 											</div>
 										</div>
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<input type="checkbox" class="accordionOpener" id="0_03_02">
+											<input type="checkbox" class="accordionOpener" id="0_03_default">
 											<h4>
-												<label class="mark" for="0_03_02"></label>
-												<a href="#hash-fcSelectArrDefault" id="hash-fcSelectArrDefault" class="hashAnchor"><span class="mark">Selects without a wrapper. Custom arrow</span></a>
+												<label class="mark" for="0_03_default"></label>
+												<a href="#hash-selectsDef" id="hash-selectsDef" class="hashAnchor"><span class="mark">Selects without a wrapper. Default arrow (recommended)</span></a>
+											</h4>
+											<div class="columns">
+												<div class="column">
+													<p><b>Without js</b></p>
+													<label for="s-base">Select:</label>
+													<select id="s-base" name="s-base">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<!--===================================================-->
+													<label for="s-base-disabled">Select - disabled:</label>
+													<select id="s-base-disabled" name="s-base-disabled" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<!--===================================================-->
+													<label for="s-fit">Select - selected:</label>
+													<select id="s-fit" name="s-fit">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2" selected>Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<!--===================================================-->
+													<label for="s-fit-disabled">Select - selected - disabled:</label>
+													<select id="s-fit-disabled" name="s-fit-disabled" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<!--===================================================-->
+													<label for="s-validation">Select - validation: <span class="form-mark">*</span></label>
+													<select id="s-validation" name="s-validation">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<label class="error" for="s-err">Select - error: <span class="form-mark">*</span></label>
+													<select class="error" id="s-err" name="s-err">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<label class="success" for="s-suc">Select - success: <span class="form-mark">*</span></label>
+													<select class="success" id="s-suc" name="s-suc">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+													<!--===================================================-->
+												</div>
+												<div class="column">
+													<p><b>With js</b></p>
+													<label for="s-base-js">Select:</label>
+													<select class="field-js" id="s-base-js" name="s-base-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<!--===================================================-->
+													<label for="s-base-disabled-js">Select - disabled:</label>
+													<select class="field-js" id="s-base-disabled-js" name="s-base-disabled-js" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<!--===================================================-->
+													<label for="s-fit-js">Select - selected:</label>
+													<select class="field-js" id="s-fit-js" name="s-fit-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2" selected>Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<!--===================================================-->
+													<label for="s-fit-disabled-js">Select - selected - disabled:</label>
+													<select class="field-js" id="s-fit-disabled-js" name="s-fit-disabled-js" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<!--===================================================-->
+													<label for="s-validation-js">Select - validation: <span class="form-mark">*</span></label>
+													<select class="field-js" id="s-validation-js" name="s-validation-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<label class="error" for="s-err-js">Select - error: <span class="form-mark">*</span></label>
+													<select class="field-js error" id="s-err-js" name="s-err-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<label class="success" for="s-suc-js">Select - success: <span class="form-mark">*</span></label>
+													<select class="field-js success" id="s-suc-js" name="s-suc-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+													<div class="error-note">Error text</div>
+													<div class="success-note">Success text</div>
+													<!--===================================================-->
+												</div>
+											</div>
+										</div>
+										<!--===================================================-->
+										<!--===================================================-->
+										<div>
+											<input type="checkbox" class="accordionOpener" id="0_03_arrows">
+											<h4>
+												<label class="mark" for="0_03_arrows"></label>
+												<a href="#hash-selectsArrows" id="hash-selectsArrows" class="hashAnchor"><span class="mark">Selects without a wrapper. Custom arrow</span></a>
 											</h4>
 											<div>
 												<div><code class="mark">select</code> необходимо завернуть в <code class="mark">div</code> с классом <code class="mark">.select</code></div>
 												<div>Элементы валидаци поместить в <code class="mark">.select</code> после тэга <code class="mark">select</code></div>
 												<div>Если элементы валидаци поместить после <code class="mark">.select</code>, то классы валидации необходимо добавлять и на <code class="mark">.select</code></div>
 												<div class="user-spacer"></div>
-												<label for="form-clear-select-arr-base">Селект - без js-классов:</label>
-												<div class="select">
-													<select name="select-name" id="form-clear-select-arr-base">
-					<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-				</select>
-													<div class="error-note">Error text</div>
-													<div class="success-note">Success text</div>
-												</div>
-												<!--===================================================-->
-												<label for="form-clear-select-arr">Селект - значение не выбрано:</label>
-												<div class="select">
-													<select class="field-js" name="select-name" id="form-clear-select-arr">
-					<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-				</select>
-													<div class="error-note">Error text</div>
-													<div class="success-note">Success text</div>
-												</div>
-												<!--===================================================-->
-												<label for="form-clear-select-arr-fit">Селект - значение выбрано по умолчанию:</label>
-												<div class="select">
-													<select class="field-js" name="select-name" id="form-clear-select-arr-fit">
-					
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-				</select>
-													<div class="error-note">Error text</div>
-													<div class="success-note">Success text</div>
-												</div>
-												<!--===================================================-->
-												<label class="error" for="form-clear-select-arr-err">Селект - невалидный :</label>
-												<div class="select">
-													<select class="field-js error" name="select-name" id="form-clear-select-arr-err">
-					<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-				</select>
-													<div class="error-note">Error text</div>
-													<div class="success-note">Success text</div>
-												</div>
-												<!--===================================================-->
-												<label class="success" for="form-clear-select-arr-suc">Селект - валидный:</label>
-												<div class="select">
-													<select class="field-js success" name="select-name" id="form-clear-select-arr-suc">
-					<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-				</select>
-													<div class="error-note">Error text</div>
-													<div class="success-note">Success text</div>
+												<div class="columns">
+													<div class="column">
+														<p><b>Without js</b></p>
+														<label for="sm-base">Select:</label>
+														<div class="select">
+															<select id="sm-base" name="sm-base">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
+														<!--===================================================-->
+														<label for="sm-base-disabled">Select - disabled:</label>
+														<div class="select">
+															<select id="sm-base-disabled" name="sm-base-disabled" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
+														<!--===================================================-->
+														<label for="sm-fit">Select - selected:</label>
+														<div class="select">
+															<select id="sm-fit" name="sm-fit">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2" selected>Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
+														<!--===================================================-->
+														<label for="sm-fit-disabled">Select - selected - disabled:</label>
+														<div class="select">
+															<select id="sm-fit-disabled" name="sm-fit-disabled" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
+														<!--===================================================-->
+														<label for="sm-validation">Select - validation: <span class="form-mark">*</span></label>
+														<div class="select">
+															<select id="sm-validation" name="sm-validation">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+														<!--===================================================-->
+														<label class="error" for="sm-err">Select - error: <span class="form-mark">*</span></label>
+														<div class="select">
+															<select class="error" id="sm-err" name="sm-err">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+														<!--===================================================-->
+														<label class="success" for="sm-suc">Select - success: <span class="form-mark">*</span></label>
+														<div class="select">
+															<select class="success" id="sm-suc" name="sm-suc">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+														<!--===================================================-->
+													</div>
+													<div class="column">
+														<p><b>With js</b></p>
+														<label for="sm-base-js">Select:</label>
+														<div class="select">
+															<select class="field-js" id="sm-base-js" name="sm-base-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
+														<!--===================================================-->
+														<label for="sm-base-disabled-js">Select - disabled:</label>
+														<div class="select">
+															<select class="field-js" id="sm-base-disabled-js" name="sm-base-disabled-js" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
+														<!--===================================================-->
+														<label for="sm-fit-js">Select - selected:</label>
+														<div class="select">
+															<select class="field-js" id="sm-fit-js" name="sm-fit-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2" selected>Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
+														<!--===================================================-->
+														<label for="sm-fit-disabled-js">Select - selected - disabled:</label>
+														<div class="select">
+															<select class="field-js" id="sm-fit-disabled-js" name="sm-fit-disabled-js" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
+														<!--===================================================-->
+														<label for="sm-validation-js">Select - validation: <span class="form-mark">*</span></label>
+														<div class="select">
+															<select class="field-js" id="sm-validation-js" name="sm-validation-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+														<!--===================================================-->
+														<label class="error" for="sm-err-js">Select - error: <span class="form-mark">*</span></label>
+														<div class="select">
+															<select class="field-js error" id="sm-err-js" name="sm-err-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+														<!--===================================================-->
+														<label class="success" for="sm-suc-js">Select - success: <span class="form-mark">*</span></label>
+														<div class="select">
+															<select class="field-js success" id="sm-suc-js" name="sm-suc-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+														<!--===================================================-->
+													</div>
 												</div>
 											</div>
 										</div>
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<input type="checkbox" class="accordionOpener" id="0_03_03">
+											<input type="checkbox" class="accordionOpener" id="0_03_default_wrap">
 											<h4>
-												<label class="mark" for="0_03_03"></label>
-												<a href="#hash-fdSelectDefault" id="hash-fdSelectDefault" class="hashAnchor"><span class="mark">Select has a wrapper. Default arrow</span></a>
+												<label class="mark" for="0_03_default_wrap"></label>
+												<a href="#hash-selectsDefWrap" id="hash-selectsDefWrap" class="hashAnchor"><span class="mark">Select has a wrapper. Default arrow</span></a>
 											</h4>
-											<div>
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select-base">Селект - без js-классов:</label>
+											<div class="columns">
+												<div class="column">
+													<p><b>Without js</b></p>
+													<div class="input-wrap">
+														<div class="label-holder"><label for="sw-base">Select:</label></div>
+														<div class="input-holder">
+															<select id="sw-base" name="sw-base">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
 													</div>
-													<div class="input-holder">
-														<select name="select-name" id="form-cover-select-base">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-					</select>
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="sw-base-disabled">Select - disabled:</label></div>
+														<div class="input-holder">
+															<select id="sw-base-disabled" name="sw-base-disabled" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
 													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="sw-fit">Select - selected:</label></div>
+														<div class="input-holder">
+															<select id="sw-fit" name="sw-fit">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2" selected>Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="sw-fit-disabled">Select - selected - disabled:</label></div>
+														<div class="input-holder">
+															<select id="sw-fit-disabled" name="sw-fit-disabled" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="sw-validation">Select - validation: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<select id="sw-validation" name="sw-validation">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="error" for="sw-err">Select - error: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<select class="error" id="sw-err" name="sw-err">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="success" for="sw-suc">Select - success: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<select class="success" id="sw-suc" name="sw-suc">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
+													</div>
+													<!--===================================================-->
 												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select">Селект - значение не выбрано:</label>
+												<div class="column">
+													<p><b>With js</b></p>
+													<div class="input-wrap">
+														<div class="label-holder"><label for="sw-base-js">Select:</label></div>
+														<div class="input-holder">
+															<select class="field-js" id="sw-base-js" name="sw-base-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
 													</div>
-													<div class="input-holder">
-														<select class="field-js" name="select-name" id="form-cover-select">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-					</select>
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="sw-base-disabled-js">Select - disabled:</label></div>
+														<div class="input-holder">
+															<select class="field-js" id="sw-base-disabled-js" name="sw-base-disabled-js" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
 													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select-fit">Селект - значение выбрано по умолчанию:</label>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="sw-fit-js">Select - selected:</label></div>
+														<div class="input-holder">
+															<select class="field-js" id="sw-fit-js" name="sw-fit-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2" selected>Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
 													</div>
-													<div class="input-holder">
-														<select class="field-js" name="select-name" id="form-cover-select-fit">
-						
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-					</select>
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="sw-fit-disabled-js">Select - selected - disabled:</label></div>
+														<div class="input-holder">
+															<select class="field-js" id="sw-fit-disabled-js" name="sw-fit-disabled-js" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+														</div>
 													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="error" for="form-cover-select-err">Селект - невалидный :</label>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label for="sw-validation-js">Select - validation: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<select class="field-js" id="sw-validation-js" name="sw-validation-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
 													</div>
-													<div class="input-holder">
-														<select class="field-js error" name="select-name" id="form-cover-select-err">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-					</select>
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="error" for="sw-err-js">Select - error: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<select class="field-js error" id="sw-err-js" name="sw-err-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
 													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="success" for="form-cover-select-suc">Селект - валидный:</label>
+													<!--===================================================-->
+													<div class="input-wrap">
+														<div class="label-holder"><label class="success" for="sw-suc-js">Select - success: <span class="form-mark">*</span></label></div>
+														<div class="input-holder">
+															<select class="field-js success" id="sw-suc-js" name="sw-suc-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+															<div class="error-note">Error text</div>
+															<div class="success-note">Success text</div>
+														</div>
 													</div>
-													<div class="input-holder">
-														<select class="field-js success" name="select-name" id="form-cover-select-suc">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-					</select>
-														<div class="error-note">Error text</div>
-														<div class="success-note">Success text</div>
-													</div>
+													<!--===================================================-->
 												</div>
 											</div>
 										</div>
 										<!--===================================================-->
 										<!--===================================================-->
 										<div>
-											<input type="checkbox" class="accordionOpener" id="0_03_04">
+											<input type="checkbox" class="accordionOpener" id="0_03_arrows_wrap">
 											<h4>
-												<label class="mark" for="0_03_04"></label>
-												<a href="#hash-fdSelectArrDefault" id="hash-fdSelectArrDefault" class="hashAnchor"><span class="mark">Select has a wrapper. Custom arrow</span></a>
+												<label class="mark" for="0_03_arrows_wrap"></label>
+												<a href="#hash-selectsArrowsWrap" id="hash-selectsArrowsWrap" class="hashAnchor"><span class="mark">Select has a wrapper. Custom arrow</span></a>
 											</h4>
 											<div>
 												<div><code class="mark">select</code> необходимо завернуть в <code class="mark">div</code> с классом <code class="mark">.select</code></div>
 												<div>Элементы валидаци поместить в <code class="mark">.select</code> после тэга <code class="mark">select</code></div>
 												<div>Если элементы валидаци поместить после <code class="mark">.select</code>, то классы валидации необходимо добавлять и на <code class="mark">.select</code></div>
 												<div class="user-spacer"></div>
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select-arr-base">Селект - без js-классов:</label>
-													</div>
-													<div class="input-holder">
-														<div class="select">
-															<select name="select-name" id="form-cover-select-arr-base">
-							<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-						</select>
-															<div class="error-note">Error text</div>
-															<div class="success-note">Success text</div>
+												<div class="columns">
+													<div class="column">
+														<p><b>Without js</b></p>
+														<div class="input-wrap">
+															<div class="label-holder"><label for="smw-base">Select:</label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select id="smw-base" name="smw-base">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																</div>
+															</div>
 														</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select-arr">Селект - значение не выбрано:</label>
-													</div>
-													<div class="input-holder">
-														<div class="select">
-															<select class="field-js" name="select-name" id="form-cover-select-arr">
-							<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-						</select>
-															<div class="error-note">Error text</div>
-															<div class="success-note">Success text</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label for="smw-base-disabled">Select - disabled:</label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select id="smw-base-disabled" name="smw-base-disabled" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																</div>
+															</div>
 														</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label for="form-cover-select-arr-fit">Селект - значение выбрано по умолчанию:</label>
-													</div>
-													<div class="input-holder">
-														<div class="select">
-															<select class="field-js" name="select-name" id="form-cover-select-arr-fit">
-							
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-						</select>
-															<div class="error-note">Error text</div>
-															<div class="success-note">Success text</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label for="smw-fit">Select - selected:</label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select id="smw-fit" name="smw-fit">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2" selected>Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																</div>
+															</div>
 														</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="error" for="form-cover-select-arr-err">Селект - невалидный :</label>
-													</div>
-													<div class="input-holder">
-														<div class="select">
-															<select class="field-js error" name="select-name" id="form-cover-select-arr-err">
-							<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-						</select>
-															<div class="error-note">Error text</div>
-															<div class="success-note">Success text</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label for="smw-fit-disabled">Select - selected - disabled:</label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select id="smw-fit-disabled" name="smw-fit-disabled" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																</div>
+															</div>
 														</div>
-													</div>
-												</div>
-												<!--===================================================-->
-												<div class="input-wrap">
-													<div class="label-holder">
-														<label class="success" for="form-cover-select-arr-suc">Селект - валидный:</label>
-													</div>
-													<div class="input-holder">
-														<div class="select">
-															<select class="field-js success" name="select-name" id="form-cover-select-arr-suc">
-							<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
-						</select>
-															<div class="error-note">Error text</div>
-															<div class="success-note">Success text</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label for="smw-validation">Select - validation: <span class="form-mark">*</span></label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select id="smw-validation" name="smw-validation">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																	<div class="error-note">Error text</div>
+																	<div class="success-note">Success text</div>
+																</div>
+															</div>
 														</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label class="error" for="smw-err">Select - error: <span class="form-mark">*</span></label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select class="error" id="smw-err" name="smw-err">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																	<div class="error-note">Error text</div>
+																	<div class="success-note">Success text</div>
+																</div>
+															</div>
+														</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label class="success" for="smw-suc">Select - success: <span class="form-mark">*</span></label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select class="success" id="smw-suc" name="smw-suc">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																	<div class="error-note">Error text</div>
+																	<div class="success-note">Success text</div>
+																</div>
+															</div>
+														</div>
+														<!--===================================================-->
+													</div>
+													<div class="column">
+														<p><b>With js</b></p>
+														<div class="input-wrap">
+															<div class="label-holder"><label for="smw-base-js">Select:</label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select class="field-js" id="smw-base-js" name="smw-base-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																</div>
+															</div>
+														</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label for="smw-base-disabled-js">Select - disabled:</label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select class="field-js" id="smw-base-disabled-js" name="smw-base-disabled-js" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																</div>
+															</div>
+														</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label for="smw-fit-js">Select - selected:</label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select class="field-js" id="smw-fit-js" name="smw-fit-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2" selected>Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																</div>
+															</div>
+														</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label for="smw-fit-disabled-js">Select - selected - disabled:</label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select class="field-js" id="smw-fit-disabled-js" name="smw-fit-disabled-js" disabled>
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																</div>
+															</div>
+														</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label for="smw-validation-js">Select - validation: <span class="form-mark">*</span></label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select class="field-js" id="smw-validation-js" name="smw-validation-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																	<div class="error-note">Error text</div>
+																	<div class="success-note">Success text</div>
+																</div>
+															</div>
+														</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label class="error" for="smw-err-js">Select - error: <span class="form-mark">*</span></label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select class="field-js error" id="smw-err-js" name="smw-err-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																	<div class="error-note">Error text</div>
+																	<div class="success-note">Success text</div>
+																</div>
+															</div>
+														</div>
+														<!--===================================================-->
+														<div class="input-wrap">
+															<div class="label-holder"><label class="success" for="smw-suc-js">Select - success: <span class="form-mark">*</span></label></div>
+															<div class="input-holder">
+																<div class="select">
+																	<select class="field-js success" id="smw-suc-js" name="smw-suc-js">
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
+</select>
+																	<div class="error-note">Error text</div>
+																	<div class="success-note">Success text</div>
+																</div>
+															</div>
+														</div>
+														<!--===================================================-->
 													</div>
 												</div>
 											</div>
@@ -1154,7 +1879,7 @@
 								<input type="checkbox" class="accordionOpener" id="0_04">
 								<h3>
 									<label class="mark" for="0_04"></label>
-									<a href="#hash-select2" id="hash-select2" class="hashAnchor"><span class="mark">Select2 - Selects (with js customization)</span></a>
+									<a href="#hash-select2Group" id="hash-select2Group" class="hashAnchor"><span class="mark">Select2 - Selects (with js customization)</span></a>
 								</h3>
 								<div class="layout-text">
 									<form action="#" method="post">
@@ -1169,30 +1894,34 @@
 												<div class="user-spacer"></div>
 												<label for="form-clear-c-select-base">Селект - без js-классов:</label>
 												<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-base">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+				
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 			</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label for="form-clear-c-select">Селект - значение не выбрано:</label>
 												<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+				
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 			</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
@@ -1200,44 +1929,48 @@
 												<label for="form-clear-c-select-fit">Селект - значение выбрано по умолчанию:</label>
 												<select class="cselect field-js" name="select-name" id="form-clear-c-select-fit">
 				
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 			</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label class="error" for="form-clear-c-select-err">Селект - невалидный :</label>
 												<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-err">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+				
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 			</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label class="success" for="form-clear-c-select-suc">Селект - валидный:</label>
 												<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-suc">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+				
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 			</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
@@ -1254,30 +1987,34 @@
 											<div>
 												<label for="form-clear-c-mSelect-base">Селект - без js-классов:</label>
 												<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-clear-c-mSelect-base">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+				
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 			</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label for="form-clear-c-mSelect">Селект - значение не выбрано:</label>
 												<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+				
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 			</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
@@ -1298,30 +2035,34 @@
 												<!--===================================================-->
 												<label class="error" for="form-clear-c-mSelect-err">Селект - невалидный :</label>
 												<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-err">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+				
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 			</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label class="success" for="form-clear-c-mSelect-suc">Селект - валидный:</label>
 												<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-suc">
-				<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+				
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 			</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
@@ -1344,15 +2085,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-base">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+						
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 					</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
@@ -1365,15 +2108,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+						
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 					</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
@@ -1387,14 +2132,14 @@
 													<div class="input-holder">
 														<select class="cselect field-js" name="select-name" id="form-cover-c-select-fit">
 						
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 					</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
@@ -1407,15 +2152,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-err">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+						
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 					</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
@@ -1428,15 +2175,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-suc">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+						
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 					</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
@@ -1459,15 +2208,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-cover-c-mSelect-base">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+						
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 					</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
@@ -1480,15 +2231,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+						
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 					</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
@@ -1521,15 +2274,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-err">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+						
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 					</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
@@ -1542,15 +2297,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-suc">
-						<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+						
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 					</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
@@ -1730,15 +2487,17 @@
 											<div class="input-wrap">
 												<label for="f-columns-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
 												<select name="select-name" id="f-columns-05">
-											<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+											
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 										</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
@@ -1747,15 +2506,17 @@
 											<div class="input-wrap">
 												<label for="f-columns-06">Селект:</label>
 												<select name="select-name" id="f-columns-06">
-											<!--Важно! У первого опшина value должен быть равен ""--><option value="">- Выбрать -</option>
-<option value="1">Размер</option>
-<option value="2">Вес</option>
-<option value="3">Цвет</option>
-<option value="4">Позицию (расположение)</option>
-<option value="5">Опшин очень-очень-очень-очень длинный</option>
-<option value="6">Контраст</option>
-<option value="7">Сочетание</option>
-<option value="8">Расстояние</option>
+											
+<!--Important! First option should have value ""-->
+<option value="">-Choose one of the options-</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+<option value="6">Option 6</option>
+<option value="7">Option 7</option>
+<option value="8">Option 8</option>
 										</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
@@ -1941,15 +2702,15 @@
 									transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 									user-select: none;
 								}
-								
+
 								.navigationByTypographyElements[data-toggle="hide"] {
 									width: 42px;
 								}
-								
+
 								.navigationByTypographyElements[data-to-left] {
 									transform: translateX(calc(-100vw + 240px + 60px));
 								}
-								
+
 								.navigationByTypographyElements ul {
 									display: block;
 									list-style: none;
@@ -1959,29 +2720,29 @@
 									overflow-y: auto;
 									padding: 0 20px 18px;
 								}
-								
+
 								.navigationByTypographyElements ul::-webkit-scrollbar {
 									width: 0.4em;
 								}
-								
+
 								.navigationByTypographyElements ul::-webkit-scrollbar-track {
 									-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 								}
-								
+
 								.navigationByTypographyElements ul::-webkit-scrollbar-thumb {
 									background-color: darkgrey;
 									outline: 1px solid slategrey;
 								}
-								
+
 								.navigationByTypographyElements ul li {
 									margin-bottom: 12px;
 									/*counter-increment: items;*/
 								}
-								
+
 								.navigationByTypographyElements ul li:last-child {
 									margin: 0;
 								}
-								
+
 								.navigationByTypographyElements ul li::before {
 									/*content: counter(items) '. ';*/
 									color: tomato;
@@ -1994,32 +2755,32 @@
 									width: 6px;
 									background-color: tomato;
 								}
-								
+
 								.navigationByTypographyElements ul .navigationByTypographySubItem {
 									font-size: 0.8em;
 									padding-left: 15px;
 								}
-								
+
 								.navigationByTypographyElements ul .navigationByTypographySubItem::before {
 									border-radius: 50%;
 									margin-top: 4px;
 								}
-								
+
 								.navigationByTypographyElements ul a {
 									color: darkslategray;
 									text-decoration: none;
 									padding-top: 5px;
 								}
-								
+
 								.navigationByTypographyElements ul a:hover {
 									text-decoration: underline;
 								}
-								
+
 								h3,
 								h4 {
 									position: relative;
 								}
-								
+
 								h3 a,
 								h4 a {
 									display: inline-block;
@@ -2029,30 +2790,30 @@
 									-webkit-transition: border-color 0.2s;
 									transition: border-color 0.2s;
 								}
-								
+
 								h3 a span,
 								h4 a span {
 									text-decoration: underline;
 								}
-								
+
 								h4 a {
 									border-bottom-color: #909090;
 								}
-								
+
 								h4 a .mark {
 									color: #909090;
 								}
-								
+
 								h4 .hashAnchor::before {
 									width: 18px;
 									height: 18px;
 									top: 6px;
 								}
-								
+
 								.hashAnchor:hover::before {
 									opacity: 0.5;
 								}
-								
+
 								.navigationByTypographyOpener {
 									position: relative;
 									display: block;
@@ -2063,13 +2824,13 @@
 									font-weight: bold;
 									text-align: center;
 								}
-								
+
 								.navigationByTypographyElements[data-toggle="hide"] .navigationByTypographyOpener {
 									font-size: 0;
 									line-height: 0;
 									padding: 11px 5px;
 								}
-								
+
 								.navigationByTypographyOpener::after {
 									content: '-';
 									display: block;
@@ -2086,19 +2847,19 @@
 									-ms-transform: translate(0, -50%);
 									transform: translate(0, -50%);
 								}
-								
+
 								.navigationByTypographyElements[data-toggle="hide"] .navigationByTypographyOpener::after {
 									right: 3px;
 								}
-								
+
 								.navigationByTypographyOpener:hover::after {
 									background-color: rgba(0, 0, 0, 0.4);
 								}
-								
+
 								[data-toggle*="hide"] .navigationByTypographyOpener::after {
 									content: '+';
 								}
-								
+
 								.navigationByTypographyToLeft {
 									position: absolute;
 									top: 3px;
@@ -2113,11 +2874,11 @@
 									background-color: rgba(0, 0, 0, 0.2);
 									z-index: 5;
 								}
-								
+
 								.navigationByTypographyToLeft:hover {
 									background-color: rgba(0, 0, 0, 0.4);
 								}
-								
+
 								.navigationByTypographyToLeft:before {
 									content: '<';
 									display: inline-block;
@@ -2125,7 +2886,7 @@
 									line-height: 16px;
 									letter-spacing: normal;
 								}
-								
+
 								[data-to-left] .navigationByTypographyToLeft:before {
 									content: '>';
 								}
@@ -2182,9 +2943,9 @@
 								<!--developer-->
 								<div class="developer">
 									<a href="http://astronim.by/" target="_blank">
-										<span class="developer__label">Разработка сайта <i>—</i></span>
-										<span class="developer__logo">Astronim*Support</span>
-									</a>
+								<span class="developer__label">Разработка сайта <i>—</i></span>
+								<span class="developer__logo">Astronim*Support</span>
+							</a>
 								</div>
 								<!--developer end-->
 							</div>

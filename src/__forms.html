@@ -21,6 +21,11 @@
 
 					<div class="layout-article">
 						<style>
+							h3 + div {
+								border-bottom: 2px solid #ffa43f;
+								padding-top: 40px;
+								padding-bottom: 40px;
+							}
 							form > div:not(.input-wrap):not(.form-row):not(.form-footer){
 								padding-top: 40px;
 								padding-bottom: 40px;
@@ -29,6 +34,9 @@
 							form > div:not(.input-wrap):not(.form-row):not(.form-footer):first-child{
 								padding-top: 0;
 								border: none;
+							}
+							form > div:not(.input-wrap):not(.form-row):not(.form-footer):last-child{
+								padding-bottom: 0;
 							}
 							h3, h4{
 								position: relative;
@@ -78,20 +86,21 @@
 
 						<h1>Forms</h1>
 
-						<!--===============forms clear===============-->
+						<!--===============forms default===============-->
 						@@include('_tpl_title-anchor.html', {
-							"taId": "formElementClearExample",
+							"taId": "formElementsDef",
 							"taText": "Fields of forms without wrappers (recommended)",
 							"openerId": "0_01"
 						})
+
 						<div class="layout-text">
 							<form action="#" method="post">
 								<div>
 									@@include('_tpl_title-anchor.html', {
 										"taTag": "h4",
-										"taId": "fcInputTypeTextExpl",
+										"taId": "inputTextTpl",
 										"taText": "Example input field",
-										"openerId": "0_01_00"
+										"openerId": "0_01_tpl"
 									})
 
 									<div>
@@ -114,12 +123,16 @@
 										])
 									</div>
 								</div>
+
+								<!--===================================================-->
+								<!--===================================================-->
+								
 								<div>
 									@@include('_tpl_title-anchor.html', {
 										"taTag": "h4",
-										"taId": "fcInputTypeText",
+										"taId": "inputText",
 										"taText": "Input type 'text'",
-										"openerId": "0_01_01"
+										"openerId": "0_01_text"
 									})
 
 									<div class="columns">
@@ -175,7 +188,6 @@
 												}
 											])
 										</div>
-
 										<div class="column">
 											<p><b>With js</b></p>
 											@@loop("_tpl_forms_field.html", [
@@ -235,101 +247,17 @@
 										</div>
 									</div>
 								</div>
-
+								
 								<!--===================================================-->
 								<!--===================================================-->
 
 								<div>
 									@@include('_tpl_title-anchor.html', {
 										"taTag": "h4",
-										"taId": "fcInputTypeOther",
-										"taText": "input other type",
-										"openerId": "0_01_02",
-										"checked": "true"
-									})
-
-
-									<div class="form-columnize--3">
-										<!--=======================email============================-->
-										<!--===================================================-->
-										<label for="f-email-base">email поле без js-классов:</label>
-										<input type="email" placeholder="email поле (placeholder)" id="f-email-base"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label for="f-email-ph">email поле с плейсхолдером:</label>
-										<input class="field-js" type="email" placeholder="email поле (placeholder)" id="f-email-ph"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label for="f-email-fit">Заполненное email поле:</label>
-										<input class="field-js" type="email" value="Уже есть текст (value)" id="f-email-fit"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label class="error" for="f-email-err">Невалидное email поле:</label>
-										<input class="field-js error" type="email" placeholder="Невалидное email поле (placeholder)" id="f-email-err"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label class="success" for="f-email-suc">Валидное email поле:</label>
-										<input class="field-js success" type="email" value="email (value)" placeholder="Валидное email поле (placeholder)" id="f-email-suc"/>
-										@@include('_tpl_forms_form-validation.html')
-
-										<!--=======================password============================-->
-										<!--===================================================-->
-
-										<label for="f-password-base">password поле без js-классов:</label>
-										<input type="password" placeholder="password поле (placeholder)" id="f-password-base"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label for="f-password-ph">password поле с плейсхолдером:</label>
-										<input class="field-js" type="password" placeholder="password поле (placeholder)" id="f-password-ph"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label for="f-password-fit">Заполненное password поле:</label>
-										<input class="field-js" type="password" value="password" id="f-password-fit"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label class="error" for="f-password-err">Невалидное password поле:</label>
-										<input class="field-js error" type="password" placeholder="Невалидное password поле (placeholder)" id="f-password-err"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label class="success" for="f-password-suc">Валидное password поле:</label>
-										<input class="field-js success" type="password" value="Валидное password поле (value)" placeholder="Валидное password поле (placeholder)" id="f-password-suc"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-
-										<!--=======================search============================-->
-										<!--===================================================-->
-										<label for="f-search-base">search поле без js-классов:</label>
-										<input type="search" placeholder="search поле (placeholder)" id="f-search-base"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label for="f-search-ph">search поле с плейсхолдером:</label>
-										<input class="field-js" type="search" placeholder="search поле (placeholder)" id="f-search-ph"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label for="f-search-fit">Заполненное search поле:</label>
-										<input class="field-js" type="search" value="Уже есть текст (value)" id="f-search-fit"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label class="error" for="f-search-err">Невалидное search поле:</label>
-										<input class="field-js error" type="search" placeholder="Невалидное search поле (placeholder)" id="f-search-err"/>
-										@@include('_tpl_forms_form-validation.html')
-										<!--===================================================-->
-										<label class="success" for="f-search-suc">Валидное search поле:</label>
-										<input class="field-js success" type="search" value="Валидное search поле (value)" placeholder="Валидное search поле (placeholder)" id="f-search-suc"/>
-										@@include('_tpl_forms_form-validation.html')
-									</div>
-								</div>
-
-								<!--===================================================-->
-								<!--===================================================-->
-
-								<div>
-									@@include('_tpl_title-anchor.html', {
-										"taTag": "h4",
-										"taId": "fcTextarea",
-										"taText": "textarea",
-										"openerId": "0_01_03",
-										"checked": "true"
+										"taId": "textareaDef",
+										"taText": "Textarea",
+										"openerId": "0_01_textarea",
+										"checked": ""
 									})
 
 									<div class="columns">
@@ -444,14 +372,13 @@
 										</div>
 									</div>
 								</div>
-
 							</form>
 						</div>
-						<!--===============forms clear end===============-->
+						<!--===============forms default end===============-->
 
-						<!--===============forms default===============-->
+						<!--===============forms with wrapper===============-->
 						@@include('_tpl_title-anchor.html', {
-							"taId": "formElementExample",
+							"taId": "formElementsWrap",
 							"taText": "Fields of forms with wrappers (optional)",
 							"openerId": "0_02"
 						})
@@ -461,60 +388,134 @@
 								<div>
 									@@include('_tpl_title-anchor.html', {
 										"taTag": "h4",
-										"taId": "fdInputTypeText",
-										"taText": "input type=text",
-										"openerId": "0_02_01"
+										"taId": "inputTextWrap",
+										"taText": "Input type 'text'",
+										"openerId": "0_02_text"
 									})
 
-									<div>
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-base">Текстовое поле без js-классов:</label>
-											</div>
-											<div class="input-holder">
-												<input type="text" placeholder="Текстовое поле (placeholder)" id="form-cover-base"/>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
+									<div class="columns">
+										<div class="column">
+											<p><b>Without js</b></p>
+											@@loop("_tpl_forms_field.html", [
+												{
+													"wrap": "true",
+													"type": "text",
+													"ph": "Placeholder",
+													"id": "f-wrap-base",
+													"label": "Text input:"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"ph": "Placeholder",
+													"id": "f-wrap-base-disabled",
+													"label": "Text input - disabled:",
+													"disabled": "true"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"value": "Value",
+													"ph": "Value placeholder",
+													"id": "f-wrap-fit",
+													"label": "Text input - has value:"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"value": "Value disabled",
+													"ph": "Value placeholder disabled",
+													"id": "f-wrap-fit-disabled",
+													"label": "Text input - has value - disabled:",
+													"disabled": "true"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"ph": "Validation",
+													"id": "f-wrap-validation",
+													"label": "Text input - validation:",
+													"valid": "true"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"ph": "Error",
+													"id": "f-wrap-err",
+													"classes": "error",
+													"label": "Text input - error:",
+													"labelClasses": "error",
+													"valid": "true"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"ph": "Success",
+													"id": "f-wrap-suc",
+													"classes": "success",
+													"label": "Text input - success:",
+													"labelClasses": "success",
+													"valid": "true"
+												}
+											])
 										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-ph">Текстовое поле с плейсхолдером:</label>
-											</div>
-											<div class="input-holder">
-												<input class="field-js" type="text" placeholder="Текстовое поле (placeholder)" id="form-cover-ph"/>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-fit">Заполненное текстовое поле:</label>
-											</div>
-											<div class="input-holder">
-												<input class="field-js" type="text" value="Уже есть текст (value)" id="form-cover-fit"/>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="error" for="form-cover-err">Невалидное текстовое поле:</label>
-											</div>
-											<div class="input-holder">
-												<input class="field-js error" type="text" placeholder="Невалидное поле (placeholder)" id="form-cover-err"/>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="success" for="form-cover-suc">Валидное текстовое поле:</label>
-											</div>
-											<div class="input-holder">
-												<input class="field-js success" type="text" value="Валидное текстовое поле (value)" placeholder="Валидное текстовое поле (placeholder)" id="form-cover-suc"/>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
+										<div class="column">
+											<p><b>With js</b></p>
+											@@loop("_tpl_forms_field.html", [
+												{
+													"wrap": "true",
+													"type": "text",
+													"ph": "Placeholder",
+													"id": "f-wrap-base-js",
+													"classes": "field-js",
+													"label": "Text input:"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"ph": "Placeholder",
+													"id": "f-wrap-base-disabled-js",
+													"classes": "field-js",
+													"label": "Text input - disabled:",
+													"disabled": "true"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"value": "Value",
+													"ph": "Value placeholder",
+													"id": "f-wrap-fit-js",
+													"classes": "field-js",
+													"label": "Text input - has value:"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"value": "Value disabled",
+													"ph": "Value placeholder disabled",
+													"id": "f-wrap-fit-disabled-js",
+													"classes": "field-js",
+													"label": "Text input - has value - disabled:",
+													"disabled": "true"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"ph": "Validation",
+													"id": "f-wrap-validation-js",
+													"classes": "field-js",
+													"label": "Text input - validation:",
+													"valid": "true"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"ph": "Error",
+													"id": "f-wrap-err-js",
+													"classes": "field-js error",
+													"label": "Text input - error:",
+													"labelClasses": "error",
+													"valid": "true"
+												},{
+													"wrap": "true",
+													"type": "text",
+													"ph": "Success",
+													"id": "f-wrap-suc-js",
+													"classes": "field-js success",
+													"label": "Text input - success:",
+													"labelClasses": "success",
+													"valid": "true"
+												}
+											])
 										</div>
 									</div>
 								</div>
@@ -525,68 +526,145 @@
 								<div>
 									@@include('_tpl_title-anchor.html', {
 										"taTag": "h4",
-										"taId": "fdTextarea",
-										"taText": "textarea",
-										"openerId": "0_02_02"
+										"taId": "textareaWrap",
+										"taText": "Textarea",
+										"openerId": "0_02_textarea",
+										"checked": ""
 									})
 
-									<div>
-										<div class="input-wrap">
-											<div class="label-holder"><label for="form-cover-ta-base">Текстареа без js-классов:</label></div>
-											<div class="input-holder">
-												<textarea placeholder="Текстареа (placeholder)" id="form-cover-ta-base"></textarea>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
+									<div class="columns">
+										<div class="column">
+											<p><b>Without js</b></p>
+											@@loop("_tpl_forms_field.html", [
+												{
+													"wrap": "true",
+													"type": "textarea",
+													"ph": "Placeholder",
+													"id": "f-wrap-ta-base",
+													"label": "Textarea:"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"ph": "Placeholder",
+													"id": "f-wrap-ta-base-disabled",
+													"label": "Textarea - disabled:",
+													"disabled": "true"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"value": "Value",
+													"ph": "Value placeholder",
+													"id": "f-wrap-ta-fit",
+													"label": "Textarea - has value:"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"value": "Value disabled",
+													"ph": "Value placeholder disabled",
+													"id": "f-wrap-ta-fit-disabled",
+													"label": "Textarea - has value - disabled:",
+													"disabled": "true"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"ph": "Validation",
+													"id": "f-wrap-ta-validation",
+													"label": "Textarea - validation:",
+													"valid": "true"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"ph": "Error",
+													"id": "f-wrap-ta-err",
+													"classes": "error",
+													"label": "Textarea - error:",
+													"labelClasses": "error",
+													"valid": "true"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"ph": "Success",
+													"id": "f-wrap-ta-suc",
+													"classes": "success",
+													"label": "Textarea - success:",
+													"labelClasses": "success",
+													"valid": "true"
+												}
+											])
 										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-ta-ph">Текстареа с плейсхолдером:</label>
-											</div>
-											<div class="input-holder">
-												<textarea class="field-js" placeholder="Текстовое поле (placeholder)" id="form-cover-ta-ph"></textarea>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label for="form-cover-ta-fit">Заполненная текстареа:</label>
-											</div>
-											<div class="input-holder">
-												<textarea class="field-js" id="form-cover-ta-fit">Уже есть текст</textarea>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="error" for="form-cover-ta-err">Невалидная текстареа:</label>
-											</div>
-											<div class="input-holder">
-												<textarea class="field-js error" placeholder="Невалидное поле (placeholder)" id="form-cover-ta-err"></textarea>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
-										</div>
-										<!--===================================================-->
-										<div class="input-wrap">
-											<div class="label-holder">
-												<label class="success" for="form-cover-ta-suc">Валидная текстареа:</label>
-											</div>
-											<div class="input-holder">
-												<textarea class="field-js success" placeholder="Валидное текстовое поле (placeholder)" id="form-cover-ta-suc">Валидное текстовое поле</textarea>
-												@@include('_tpl_forms_form-validation.html')
-											</div>
+										<div class="column">
+											<p><b>With js</b></p>
+											@@loop("_tpl_forms_field.html", [
+												{
+													"wrap": "true",
+													"type": "textarea",
+													"ph": "Placeholder",
+													"id": "f-wrap-ta-base-js",
+													"classes": "field-js",
+													"label": "Textarea:"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"ph": "Placeholder",
+													"id": "f-wrap-ta-base-disabled-js",
+													"classes": "field-js",
+													"label": "Textarea - disabled:",
+													"disabled": "true"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"value": "Value",
+													"ph": "Value placeholder",
+													"id": "f-wrap-ta-fit-js",
+													"classes": "field-js",
+													"label": "Textarea - has value:"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"value": "Value disabled",
+													"ph": "Value placeholder disabled",
+													"id": "f-wrap-ta-fit-disabled-js",
+													"classes": "field-js",
+													"label": "Textarea - has value - disabled:",
+													"disabled": "true"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"ph": "Validation",
+													"id": "f-wrap-ta-validation-js",
+													"classes": "field-js",
+													"label": "Textarea - validation:",
+													"valid": "true"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"ph": "Error",
+													"id": "f-wrap-ta-err-js",
+													"classes": "field-js error",
+													"label": "Textarea - error:",
+													"labelClasses": "error",
+													"valid": "true"
+												},{
+													"wrap": "true",
+													"type": "textarea",
+													"ph": "Success",
+													"id": "f-wrap-ta-suc-js",
+													"classes": "field-js success",
+													"label": "Textarea - success:",
+													"labelClasses": "success",
+													"valid": "true"
+												}
+											])
 										</div>
 									</div>
 								</div>
 							</form>
 						</div>
-						<!--===============forms default end===============-->
+						<!--===============forms with wrapper end===============-->
 
 						<!--===============selects===============-->
 						@@include('_tpl_title-anchor.html', {
-							"taId": "selectsDef",
+							"taId": "selectsDefGroup",
 							"taText": "Selects (without js customization)",
 							"openerId": "0_03"
 						})
@@ -598,7 +676,7 @@
 
 						<!--===============custom selects - select2===============-->
 						@@include('_tpl_title-anchor.html', {
-							"taId": "select2",
+							"taId": "select2Group",
 							"taText": "Select2 - Selects (with js customization)",
 							"openerId": "0_04"
 						})
@@ -614,7 +692,7 @@
 							"openerId": "0_05"
 						})
 						<div class="layout-text">
-							@@include('_tpl_forms_checkbox-and-radio.html')
+							@@include('_tpl_forms_checks.html')
 						</div>
 						<!--===============checkbox and radio end===============-->
 
@@ -630,13 +708,13 @@
 									<div class="input-wrap">
 										<label for="f-columns-01" title="Текстовое поле">Текстовое поле:</label>
 										<input type="text" placeholder="Текстовое поле" id="f-columns-01" />
-										@@include('_tpl_forms_form-validation.html')
+										@@include('_tpl_forms_valid.html')
 									</div>
 									<!--===================================================-->
 									<div class="input-wrap">
 										<label for="f-columns-02" title="Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке">Сладкая точка — это обычно точка, в которой большинство штрихов соответствуют пиксельной сетке — пиксельные шрифты, если вы помните их, работали только в этой сладкой точке</label>
 										<input type="text" placeholder="Текстовое поле" id="f-columns-02" />
-										@@include('_tpl_forms_form-validation.html')
+										@@include('_tpl_forms_valid.html')
 									</div>
 								</div>
 								<!--===================================================-->
@@ -644,13 +722,13 @@
 									<div class="input-wrap">
 										<label for="f-columns-03">Текстовое поле:</label>
 										<input type="text" placeholder="Текстовое поле" id="f-columns-03" />
-										@@include('_tpl_forms_form-validation.html')
+										@@include('_tpl_forms_valid.html')
 									</div>
 									<!--===================================================-->
 									<div class="input-wrap">
 										<label for="f-columns-04">Текстовое поле:</label>
 										<input type="text" placeholder="Текстовое поле" id="f-columns-04" />
-										@@include('_tpl_forms_form-validation.html')
+										@@include('_tpl_forms_valid.html')
 									</div>
 								</div>
 								<!--===================================================-->
@@ -658,17 +736,17 @@
 									<div class="input-wrap">
 										<label for="f-columns-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
 										<select name="select-name" id="f-columns-05">
-											@@include('_tpl_forms_form-select-options.html')
+											@@include('_tpl_forms_options.html')
 										</select>
-										@@include('_tpl_forms_form-validation.html')
+										@@include('_tpl_forms_valid.html')
 									</div>
 									<!--===================================================-->
 									<div class="input-wrap">
 										<label for="f-columns-06">Селект:</label>
 										<select name="select-name" id="f-columns-06">
-											@@include('_tpl_forms_form-select-options.html')
+											@@include('_tpl_forms_options.html')
 										</select>
-										@@include('_tpl_forms_form-validation.html')
+										@@include('_tpl_forms_valid.html')
 									</div>
 								</div>
 								<!--===================================================-->
