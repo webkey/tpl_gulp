@@ -43,19 +43,13 @@ h1, h2, h3, h4, h5, h6
 			text-decoration: underline
 
 h1
-	+font($font-size-h1, $line-height-h1)
-
-	+media('<mob-lg')
-		+font($font-size-h1--sm, $line-height-h1--sm)
+	+font-h1
 
 h2
-	+font($font-size-h2, $line-height-h2)
-
-	+media('<mob-lg')
-		+font($font-size-h2--sm, $line-height-h2--sm)
+	+font-h2
 
 h3
-	+font($font-size-h3, $line-height-h3)
+	+font-h3
 
 h4
 	+font($font-size-h4, $line-height-h4)
@@ -240,7 +234,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		display: block
 		padding: $bottom-space 0 0
 		margin: 0
-		+font($font-size--sm, $line-height--sm)
+		+font($font-size--small, $line-height--small)
 
 /* content img end
 
@@ -305,7 +299,7 @@ $columns-gap: 2em
 		p + #{$tags},
 		ul + #{$tags},
 		ol + #{$tags}
-			margin-top: round-float($bottom-space--md, 1)
+			margin-top: round-float($bottom-space--medium, 1)
 
 /* list
 .#{$user-content}
@@ -487,12 +481,12 @@ table
 /* user spacer
 .user-spacer
 	display: block
-	height: $bottom-space--lg
+	height: $bottom-space--large
 	+font(0, 0)
 	+clear
 
 	+media('<desk-lg')
-		height: $bottom-space--ml
+		height: $bottom-space--middle
 
 /* user spacer end
 
@@ -515,7 +509,7 @@ table
 	text-decoration: none
 
 	+media('<desk-lg')
-		margin-bottom: $bottom-space--ml
+		margin-bottom: $bottom-space--middle
 
 	+media('<tab-lg')
 		display: none

@@ -3,77 +3,34 @@
 @import ../../libs/include-media/dist/include-media
 
 /* user form
-.form-title
-	display: block
-	+font-alt-bold
-	+font($font-size-h2, $line-height-h2)
-	color: $title-color
-	text-align: center
-	margin-bottom: $bottom-space--md
-
 .user-form
-	background: $bg-color-alt
-	+padding-vertical((nth($text-layout-space, 1)))
 	margin-bottom: $bottom-space
-	border: solid $border-color
-	border-width: 1px 0
 
 	&:last-child
 		margin-bottom: 0
 
-	+media('<tab-lg')
-		+padding-vertical((nth($text-layout-space--md, 1)))
+	.form-title
+		display: block
+		+font-alt-bold
+		color: $title-color
+		text-align: center
+		margin-bottom: $bottom-space
 
-	+media('<mob-lg')
-		+padding-vertical((nth($text-layout-space--sm, 1)))
+		// font size
+		&
+			+font-h2
 
 	form
 		display: block
 
 	.input-wrap
-		margin-bottom: 50px
+		&:last-child
+			margin-bottom: 0
 
 	textarea
 		height: 130px
 		max-height: 130px
 		resize: none
-
-	.captcha
-		+display-inline-block-top
-		+clear-spacing
-		position: relative // Важно! Для позицирования отметки подтверждения полей формы
-		z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
-
-		+clear
-
-		img
-			$margin-right: 20px
-			display: inline-block
-			vertical-align: middle
-			max-width: calc(50%)
-			margin-right: $margin-right
-
-			& + input
-				display: inline-block
-				vertical-align: middle
-				width: 200px
-
-		+media('<tab-lg')
-			img
-				display: block
-				max-width: none
-				margin-bottom: $bottom-space--sm
-
-				& + input
-					display: block
-					max-width: none
-					width: 100%
-
-	.form-footer
-		+clear
-
-		+media('<mob-lg')
-			padding-top: $bottom-space--sm
 
 	.form-buttons
 		float: left
@@ -83,12 +40,18 @@
 			float: none
 			margin: 0
 
-		.btn-submit
-			width: 200px
+		[class*="btn-"]
+			+media('<mob-lg')
+				display: block
+				width: 100%
+				margin-top: $bottom-space--small
+
+				&:first-child
+					margin-top: 0
 
 	.form-note
 		overflow: hidden
-		min-height: 50px
+		min-height: $btn-height
 		+clear-spacing
 		line-height: 25px
 
@@ -102,8 +65,8 @@
 		display: inline-block
 		vertical-align: middle
 		width: calc(100% - 6px)
-		+font($font-size--sm, $line-height--sm)
-		letter-spacing: normal
+		+font($font-size--small, $line-height--small)
+		letter-spacing: $letter-spacing
 
 /* user form end
 
@@ -229,7 +192,7 @@
 	margin-bottom: $bottom-space
 
 	+media('<tab-lg')
-		margin-bottom: $bottom-space--lg
+		margin-bottom: $bottom-space--large
 
 .images-slider__list, .slick-dotted.images-slider__list
 	padding-bottom: $bottom-space
@@ -357,10 +320,10 @@
 /* breadcrumbs
 .breadcrumbs
 	color: $text-color-light
-	margin-bottom: $bottom-space--lg
+	margin-bottom: $bottom-space--large
 
 	+media('<desk-lg')
-		margin-bottom: $bottom-space--ml
+		margin-bottom: $bottom-space--middle
 
 	&:last-child
 		margin-bottom: 0
@@ -380,7 +343,7 @@
 
 	cursor: default
 	overflow: hidden
-	+font($font-size--sm, $line-height--sm)
+	+font($font-size--small, $line-height--small)
 
 	.layout-article &
 		max-width: none
@@ -465,7 +428,7 @@
 
 /* feature list
 .feature-list
-	margin-bottom: $bottom-space--md
+	margin-bottom: $bottom-space--medium
 
 	&:last-child
 		margin-bottom: 0
@@ -480,7 +443,7 @@
 .feature-list__img
 	float: left
 	width: 25%
-	margin: 0.3em $bottom-space $bottom-space--sm 0
+	margin: 0.3em $bottom-space $bottom-space--small 0
 
 	+media("<mob-lg")
 		width: auto
@@ -491,7 +454,7 @@
 	overflow: hidden
 
 	h3, p
-		margin-bottom: $bottom-space--sm
+		margin-bottom: $bottom-space--small
 
 		&:last-child
 			margin-bottom: 0

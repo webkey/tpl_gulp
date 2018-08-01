@@ -45,12 +45,13 @@
 
 // максимальная ширина текстовых элементов на внутренней (текстовой) странице
 .max-wrap-text
-	max-width: #{$text-layout-width + (nth($text-layout-space, 2))*2}
+	//max-width: #{$text-layout-width + (nth($text-layout-space, 2))*2}
+	max-width: $text-layout-width
 
-	+media('<tab-lg')
+	//+media('<tab-lg')
 		max-width: #{$text-layout-width + (nth($text-layout-space--md, 2))*2}
 
-	+media('<tab-sm')
+	//+media('<tab-sm')
 		max-width: #{$text-layout-width + (nth($text-layout-space--sm, 2))*2}
 
 // выравнивание текстовых элементов на внутренней (текстовой) странице
@@ -70,12 +71,13 @@
 
 // максимальная ширина альтернативных элементов на внутренней (текстовой) странице
 .max-wrap-flood
-	max-width: #{$flood-layout-width + (nth($text-layout-space, 2))*2}
+	//max-width: #{$flood-layout-width + (nth($text-layout-space, 2))*2}
+	max-width: $flood-layout-width
 
-	+media('<tab-lg')
+	//+media('<tab-lg')
 		max-width: #{$flood-layout-width + (nth($text-layout-space--md, 2))*2}
 
-	+media('<tab-sm')
+	//+media('<tab-sm')
 		max-width: #{$flood-layout-width + (nth($text-layout-space--mob, 2))*2}
 
 // выравнивание альтернативных элементов на внутренней (текстовой) странице
@@ -114,6 +116,11 @@
 
 	p, ul, ol, h1, h2, h3, h4, h5, h6, hr
 		max-width: none
+
+// выравнивание по центру блочных элементов
+.push-auto
+	margin-left: auto
+	margin-right: auto
 
 // лэяут страницы
 .wrapper

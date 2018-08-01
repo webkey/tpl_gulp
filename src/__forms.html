@@ -757,12 +757,12 @@
 						<!--===============user form===============-->
 						@@include('_tpl_title-anchor.html', {
 							"taId": "userFormExample",
-							"taText": "Форма обратной связи",
+							"taText": "Validation form",
 							"openerId": "0_07"
 						})
-						@@include('_tpl_forms_user-form.html', {
-							"title": "Задать вопрос"
-						})
+						<div>
+							@@include('_tpl_forms_user-form.html', { "title": "Title of Form" })
+						</div>
 						<!--===============user form end===============-->
 					</div>
 
