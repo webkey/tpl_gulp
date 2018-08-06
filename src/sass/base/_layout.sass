@@ -2,6 +2,17 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
+html
+	font-size: 62.5%
+
+	// блокировка скролла
+	&.css-scroll-fixed:not(.open-only-mob)
+		+scroll-blocked
+
+	&.css-scroll-fixed.open-only-mob
+		+media('<tab-lg')
+			+scroll-blocked
+
 /* === LAYOUT ===
 .max-wrap
 	max-width: #{$page-layout-width +  nth($page-layout-space, 2)*2}
@@ -130,7 +141,8 @@
 	align-items: stretch
 	margin: 0 auto
 	//min-height: 100vh
-	min-height: 100%
+	//min-height: 100% // not support ie
+	height: 100%
 	overflow: hidden
 	position: relative
 
@@ -235,7 +247,7 @@
 	background-color: white
 	border: 1px solid $border-color
 	padding: 2rem
-	width: 320px
+	width: $page-layout-min
 	opacity: 0
 	visibility: hidden
 	z-index: 10

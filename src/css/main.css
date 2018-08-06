@@ -387,20 +387,6 @@ table {
 /*======================================================*/
 /* TYPOGRAPHY */
 /*======================================================*/
-html {
-	font-size: 62.5%;
-}
-
-html.css-scroll-fixed {
-	width: 100% !important;
-	height: 100% !important;
-	max-width: 100% !important;
-	max-height: 100% !important;
-	margin: 0 !important;
-	padding: 0 !important;
-	overflow: hidden !important;
-}
-
 body {
 	position: relative;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -3243,6 +3229,32 @@ form .success + .select2 + .error-note + .success-note {
 /*======================================================*/
 /* PARTIALS */
 /*======================================================*/
+html {
+	font-size: 62.5%;
+}
+
+html.css-scroll-fixed:not(.open-only-mob) {
+	width: 100% !important;
+	height: 100% !important;
+	max-width: 100% !important;
+	max-height: 100% !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+}
+
+@media (max-width: 991px) {
+	html.css-scroll-fixed.open-only-mob {
+		width: 100% !important;
+		height: 100% !important;
+		max-width: 100% !important;
+		max-height: 100% !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+	}
+}
+
 /* === LAYOUT === */
 .max-wrap {
 	max-width: 1960px;
@@ -3417,7 +3429,7 @@ form .success + .select2 + .error-note + .success-note {
 	    -ms-flex-align: stretch;
 	        align-items: stretch;
 	margin: 0 auto;
-	min-height: 100%;
+	height: 100%;
 	overflow: hidden;
 	position: relative;
 }

@@ -2,19 +2,12 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-html
-	font-size: 62.5%
-
-	// блокировка скролла
-	&.css-scroll-fixed
-		+scroll-blocked()
-
 body
 	position: relative
 	+font-normal
 	+font($font-size, $line-height)
 	color: $text-color
-	min-width: 320px
+	min-width: $page-layout-min
 	background: $bg-color url(../../img/empty.png) no-repeat left top fixed
 
 	// выделение текста
