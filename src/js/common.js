@@ -19,9 +19,6 @@ $(window).resize(function () {
 var TOUCH = Modernizr.touchevents;
 var DESKTOP = !TOUCH;
 
-console.log("TOUCH: ", TOUCH);
-console.log("DESKTOP: ", DESKTOP);
-
 /**
  * !Add placeholder for old browsers
  * */
