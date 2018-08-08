@@ -1,5 +1,5 @@
 /**
- * !resize only width
+ * !Resize only width
  * */
 var resizeByWidth = true;
 
@@ -14,14 +14,16 @@ $(window).resize(function () {
 });
 
 /**
- * !device detected
+ * !Detected touchscreen devices
  * */
-var DESKTOP = device.desktop();
-var MOBILE = device.mobile();
-var TABLET = device.tablet();
+var TOUCH = Modernizr.touchevents;
+var DESKTOP = !TOUCH;
+
+console.log("TOUCH: ", TOUCH);
+console.log("DESKTOP: ", DESKTOP);
 
 /**
- *  Add placeholder for old browsers
+ * !Add placeholder for old browsers
  * */
 function placeholderInit() {
 	$('[placeholder]').placeholder();
