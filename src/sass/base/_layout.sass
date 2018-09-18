@@ -15,7 +15,10 @@ html
 
 /* === LAYOUT ===
 .max-wrap
-	max-width: #{$page-layout-width +  nth($page-layout-space, 2)*2}
+	max-width: $page-layout-width
+
+	&.layout
+		max-width: #{$page-layout-width +  nth($page-layout-space, 2)*2}
 
 .layout
 	+padding-horizontal(nth($page-layout-space, 2))
