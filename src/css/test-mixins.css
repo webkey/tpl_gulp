@@ -62,8 +62,9 @@
 	max-height: none;
 	height: 100%;
 	width: 100%;
-	-ms-transform: translate(-50%, -50%);
-	    transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 	-webkit-backface-visibility: hidden;
 	        backface-visibility: hidden;
 	-o-object-fit: cover;
@@ -93,8 +94,9 @@
 	max-height: none;
 	height: 100%;
 	width: 100%;
-	-ms-transform: translate(-50%, -50%);
-	    transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 	-webkit-backface-visibility: hidden;
 	        backface-visibility: hidden;
 	-o-object-fit: contain;
@@ -350,8 +352,9 @@
 	max-width: 90%;
 	width: 240px;
 	height: 50px;
-	-ms-transform: rotate(45deg);
-	    transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	        transform: rotate(45deg);
 }
 
 .mx-font {
