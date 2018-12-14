@@ -39,7 +39,9 @@
 </head>
 
 <body>
-	<noscript><div class="no-js-warning">Для корректной работы сайта <b>включите JavaScript</b> в браузере</div></noscript>
+	<noscript>
+		<div class="no-js-warning">Для корректной работы сайта <b>включите JavaScript</b> в браузере</div>
+	</noscript>
 	<!--[if lt IE 9]> <div class="browserupgrade"><p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p></div> <![endif]-->
 	<!-- >>> head.tpl END <<< -->
 	<div class="wrapper">
@@ -49,15 +51,15 @@
 				<div class="header__holder">
 					<!--logo-->
 					<strong class="logo">
-				<a href="index.html" title="Project Name">Project Name</a>
-				<img style="display: none;" src="img/logo.png" alt="Project Name">
-			</strong>
+						<a href="index.html" title="Project Name">Project Name</a>
+						<img style="display: none;" src="img/logo.png" alt="Project Name">
+					</strong>
 					<!--logo end-->
 					<!--navigation-->
 					<div class="nav-wrap">
 						<nav class="nav">
 							<!--(1) START nav FIRST level-->
-							<ul class="nav__list nav-js">
+							<ul class="nav__list reset-list nav-js">
 								<!--nav item start-->
 								<li class="has-drop">
 									<div class="nav__tab nav__tab-js">
@@ -255,81 +257,68 @@
 						<div class="content user-content">
 							<div class="layout-article">
 								<style>
-									h3+div {
-										border-bottom: 2px solid #ffa43f;
-										padding-top: 40px;
-										padding-bottom: 40px;
-									}
-									
-									form>div:not(.input-wrap):not(.form-row):not(.form-footer) {
-										padding-top: 40px;
-										padding-bottom: 40px;
-										border-top: 1px dashed #ffa43f;
-									}
-									
-									form>div:not(.input-wrap):not(.form-row):not(.form-footer):first-child {
-										padding-top: 0;
-										border: none;
-									}
-									
-									form>div:not(.input-wrap):not(.form-row):not(.form-footer):last-child {
-										padding-bottom: 0;
-									}
-									
-									h3,
-									h4 {
-										position: relative;
-										padding-right: 40px !important;
-									}
-									
-									h3 {
-										margin-top: 3rem;
-									}
-									
-									h3 label,
-									h4 label {
-										position: absolute;
-										right: 0;
-										top: 50%;
-										display: block;
-										float: right;
-										width: 30px;
-										height: 30px;
-										border: 1px solid #000;
-										cursor: pointer;
-										margin: -15px 0 0;
-										-webkit-user-select: none;
-										-moz-user-select: none;
-										-ms-user-select: none;
-										user-select: none;
-									}
-									
-									h3 label::before,
-									h4 label::before {
-										content: "–";
-										position: relative;
-										display: block;
-										font-size: 24px;
-										line-height: 1;
-										text-align: center;
-										top: -1px;
-									}
-									
-									.accordionOpener:checked+h3,
-									.accordionOpener:checked+h4 {
-										margin-bottom: 0;
-									}
-									
-									.accordionOpener:checked+h3 label::before,
-									.accordionOpener:checked+h4 label::before {
-										content: "+";
-									}
-									
-									.accordionOpener:checked+h3+div,
-									.accordionOpener:checked+h4+div {
-										display: none;
-									}
-								</style>
+									h3 + div {
+								border-bottom: 2px solid #ffa43f;
+								padding-top: 40px;
+								padding-bottom: 40px;
+							}
+							form > div:not(.input-wrap):not(.form-row):not(.form-footer){
+								padding-top: 40px;
+								padding-bottom: 40px;
+								border-top: 1px dashed #ffa43f;
+							}
+							form > div:not(.input-wrap):not(.form-row):not(.form-footer):first-child{
+								padding-top: 0;
+								border: none;
+							}
+							form > div:not(.input-wrap):not(.form-row):not(.form-footer):last-child{
+								padding-bottom: 0;
+							}
+							h3, h4{
+								position: relative;
+								padding-right: 40px !important;
+							}
+							h3{
+								margin-top: 3rem;
+							}
+							h3 label, h4 label{
+								position: absolute;
+								right: 0;
+								top: 50%;
+								display: block;
+								float: right;
+								width: 30px;
+								height: 30px;
+								border: 1px solid #000;
+								cursor: pointer;
+								margin: -15px 0 0;
+								-webkit-user-select: none;
+								-moz-user-select: none;
+								-ms-user-select: none;
+								user-select: none;
+							}
+							h3 label::before, h4 label::before{
+								content: "–";
+								position: relative;
+								display: block;
+								font-size: 24px;
+								line-height: 1;
+								text-align: center;
+								top: -1px;
+							}
+							.accordionOpener:checked + h3,
+							.accordionOpener:checked + h4{
+								margin-bottom: 0;
+							}
+							.accordionOpener:checked + h3 label::before,
+							.accordionOpener:checked + h4 label::before{
+								content: "+";
+							}
+							.accordionOpener:checked + h3 + div,
+							.accordionOpener:checked + h4 + div{
+								display: none;
+							}
+						</style>
 								<h1>Forms</h1>
 								<!--===============forms default===============-->
 								<input type="checkbox" class="accordionOpener" id="0_01">
@@ -778,17 +767,17 @@
 											<div>
 												<label for="s-id">Label:</label>
 												<select class="field-js" id="s-id" name="s-id">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<!--===================================================-->
 											</div>
 										</div>
@@ -805,105 +794,105 @@
 													<p><b>Without js</b></p>
 													<label for="s-base">Select:</label>
 													<select id="s-base" name="s-base">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<!--===================================================-->
 													<label for="s-base-disabled">Select - disabled:</label>
 													<select id="s-base-disabled" name="s-base-disabled" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<!--===================================================-->
 													<label for="s-fit">Select - selected:</label>
 													<select id="s-fit" name="s-fit">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2" selected>Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2" selected>Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<!--===================================================-->
 													<label for="s-fit-disabled">Select - selected - disabled:</label>
 													<select id="s-fit-disabled" name="s-fit-disabled" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<!--===================================================-->
 													<label for="s-validation">Select - validation: <span class="form-mark">*</span></label>
 													<select id="s-validation" name="s-validation">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<div class="error-note">Error text</div>
 													<div class="success-note">Success text</div>
 													<!--===================================================-->
 													<label class="error" for="s-err">Select - error: <span class="form-mark">*</span></label>
 													<select class="error" id="s-err" name="s-err">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<div class="error-note">Error text</div>
 													<div class="success-note">Success text</div>
 													<!--===================================================-->
 													<label class="success" for="s-suc">Select - success: <span class="form-mark">*</span></label>
 													<select class="success" id="s-suc" name="s-suc">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<div class="error-note">Error text</div>
 													<div class="success-note">Success text</div>
 													<!--===================================================-->
@@ -912,105 +901,105 @@
 													<p><b>With js</b></p>
 													<label for="s-base-js">Select:</label>
 													<select class="field-js" id="s-base-js" name="s-base-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<!--===================================================-->
 													<label for="s-base-disabled-js">Select - disabled:</label>
 													<select class="field-js" id="s-base-disabled-js" name="s-base-disabled-js" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<!--===================================================-->
 													<label for="s-fit-js">Select - selected:</label>
 													<select class="field-js" id="s-fit-js" name="s-fit-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2" selected>Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2" selected>Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<!--===================================================-->
 													<label for="s-fit-disabled-js">Select - selected - disabled:</label>
 													<select class="field-js" id="s-fit-disabled-js" name="s-fit-disabled-js" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<!--===================================================-->
 													<label for="s-validation-js">Select - validation: <span class="form-mark">*</span></label>
 													<select class="field-js" id="s-validation-js" name="s-validation-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<div class="error-note">Error text</div>
 													<div class="success-note">Success text</div>
 													<!--===================================================-->
 													<label class="error" for="s-err-js">Select - error: <span class="form-mark">*</span></label>
 													<select class="field-js error" id="s-err-js" name="s-err-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<div class="error-note">Error text</div>
 													<div class="success-note">Success text</div>
 													<!--===================================================-->
 													<label class="success" for="s-suc-js">Select - success: <span class="form-mark">*</span></label>
 													<select class="field-js success" id="s-suc-js" name="s-suc-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+														<!--Important! First option should have value ""-->
+														<option value="">-Choose one of the options-</option>
+														<option value="1">Option 1</option>
+														<option value="2">Option 2</option>
+														<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+														<option value="4">Option 4</option>
+														<option value="5">Option 5</option>
+														<option value="6">Option 6</option>
+														<option value="7">Option 7</option>
+														<option value="8">Option 8</option>
+													</select>
 													<div class="error-note">Error text</div>
 													<div class="success-note">Success text</div>
 													<!--===================================================-->
@@ -1036,81 +1025,81 @@
 														<label for="sm-base">Select:</label>
 														<div class="select">
 															<select id="sm-base" name="sm-base">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 														<!--===================================================-->
 														<label for="sm-base-disabled">Select - disabled:</label>
 														<div class="select">
 															<select id="sm-base-disabled" name="sm-base-disabled" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 														<!--===================================================-->
 														<label for="sm-fit">Select - selected:</label>
 														<div class="select">
 															<select id="sm-fit" name="sm-fit">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2" selected>Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2" selected>Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 														<!--===================================================-->
 														<label for="sm-fit-disabled">Select - selected - disabled:</label>
 														<div class="select">
 															<select id="sm-fit-disabled" name="sm-fit-disabled" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 														<!--===================================================-->
 														<label for="sm-validation">Select - validation: <span class="form-mark">*</span></label>
 														<div class="select">
 															<select id="sm-validation" name="sm-validation">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1118,17 +1107,17 @@
 														<label class="error" for="sm-err">Select - error: <span class="form-mark">*</span></label>
 														<div class="select">
 															<select class="error" id="sm-err" name="sm-err">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1136,17 +1125,17 @@
 														<label class="success" for="sm-suc">Select - success: <span class="form-mark">*</span></label>
 														<div class="select">
 															<select class="success" id="sm-suc" name="sm-suc">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1157,81 +1146,81 @@
 														<label for="sm-base-js">Select:</label>
 														<div class="select">
 															<select class="field-js" id="sm-base-js" name="sm-base-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 														<!--===================================================-->
 														<label for="sm-base-disabled-js">Select - disabled:</label>
 														<div class="select">
 															<select class="field-js" id="sm-base-disabled-js" name="sm-base-disabled-js" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 														<!--===================================================-->
 														<label for="sm-fit-js">Select - selected:</label>
 														<div class="select">
 															<select class="field-js" id="sm-fit-js" name="sm-fit-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2" selected>Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2" selected>Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 														<!--===================================================-->
 														<label for="sm-fit-disabled-js">Select - selected - disabled:</label>
 														<div class="select">
 															<select class="field-js" id="sm-fit-disabled-js" name="sm-fit-disabled-js" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 														<!--===================================================-->
 														<label for="sm-validation-js">Select - validation: <span class="form-mark">*</span></label>
 														<div class="select">
 															<select class="field-js" id="sm-validation-js" name="sm-validation-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1239,17 +1228,17 @@
 														<label class="error" for="sm-err-js">Select - error: <span class="form-mark">*</span></label>
 														<div class="select">
 															<select class="field-js error" id="sm-err-js" name="sm-err-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1257,17 +1246,17 @@
 														<label class="success" for="sm-suc-js">Select - success: <span class="form-mark">*</span></label>
 														<div class="select">
 															<select class="field-js success" id="sm-suc-js" name="sm-suc-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1291,17 +1280,17 @@
 														<div class="label-holder"><label for="sw-base">Select:</label></div>
 														<div class="input-holder">
 															<select id="sw-base" name="sw-base">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1309,17 +1298,17 @@
 														<div class="label-holder"><label for="sw-base-disabled">Select - disabled:</label></div>
 														<div class="input-holder">
 															<select id="sw-base-disabled" name="sw-base-disabled" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1327,17 +1316,17 @@
 														<div class="label-holder"><label for="sw-fit">Select - selected:</label></div>
 														<div class="input-holder">
 															<select id="sw-fit" name="sw-fit">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2" selected>Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2" selected>Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1345,17 +1334,17 @@
 														<div class="label-holder"><label for="sw-fit-disabled">Select - selected - disabled:</label></div>
 														<div class="input-holder">
 															<select id="sw-fit-disabled" name="sw-fit-disabled" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1363,17 +1352,17 @@
 														<div class="label-holder"><label for="sw-validation">Select - validation: <span class="form-mark">*</span></label></div>
 														<div class="input-holder">
 															<select id="sw-validation" name="sw-validation">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1383,17 +1372,17 @@
 														<div class="label-holder"><label class="error" for="sw-err">Select - error: <span class="form-mark">*</span></label></div>
 														<div class="input-holder">
 															<select class="error" id="sw-err" name="sw-err">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1403,17 +1392,17 @@
 														<div class="label-holder"><label class="success" for="sw-suc">Select - success: <span class="form-mark">*</span></label></div>
 														<div class="input-holder">
 															<select class="success" id="sw-suc" name="sw-suc">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1426,17 +1415,17 @@
 														<div class="label-holder"><label for="sw-base-js">Select:</label></div>
 														<div class="input-holder">
 															<select class="field-js" id="sw-base-js" name="sw-base-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1444,17 +1433,17 @@
 														<div class="label-holder"><label for="sw-base-disabled-js">Select - disabled:</label></div>
 														<div class="input-holder">
 															<select class="field-js" id="sw-base-disabled-js" name="sw-base-disabled-js" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1462,17 +1451,17 @@
 														<div class="label-holder"><label for="sw-fit-js">Select - selected:</label></div>
 														<div class="input-holder">
 															<select class="field-js" id="sw-fit-js" name="sw-fit-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2" selected>Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2" selected>Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1480,17 +1469,17 @@
 														<div class="label-holder"><label for="sw-fit-disabled-js">Select - selected - disabled:</label></div>
 														<div class="input-holder">
 															<select class="field-js" id="sw-fit-disabled-js" name="sw-fit-disabled-js" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 														</div>
 													</div>
 													<!--===================================================-->
@@ -1498,17 +1487,17 @@
 														<div class="label-holder"><label for="sw-validation-js">Select - validation: <span class="form-mark">*</span></label></div>
 														<div class="input-holder">
 															<select class="field-js" id="sw-validation-js" name="sw-validation-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1518,17 +1507,17 @@
 														<div class="label-holder"><label class="error" for="sw-err-js">Select - error: <span class="form-mark">*</span></label></div>
 														<div class="input-holder">
 															<select class="field-js error" id="sw-err-js" name="sw-err-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1538,17 +1527,17 @@
 														<div class="label-holder"><label class="success" for="sw-suc-js">Select - success: <span class="form-mark">*</span></label></div>
 														<div class="input-holder">
 															<select class="field-js success" id="sw-suc-js" name="sw-suc-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																<!--Important! First option should have value ""-->
+																<option value="">-Choose one of the options-</option>
+																<option value="1">Option 1</option>
+																<option value="2">Option 2</option>
+																<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																<option value="4">Option 4</option>
+																<option value="5">Option 5</option>
+																<option value="6">Option 6</option>
+																<option value="7">Option 7</option>
+																<option value="8">Option 8</option>
+															</select>
 															<div class="error-note">Error text</div>
 															<div class="success-note">Success text</div>
 														</div>
@@ -1578,17 +1567,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select id="smw-base" name="smw-base">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																</div>
 															</div>
 														</div>
@@ -1598,17 +1587,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select id="smw-base-disabled" name="smw-base-disabled" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																</div>
 															</div>
 														</div>
@@ -1618,17 +1607,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select id="smw-fit" name="smw-fit">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2" selected>Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2" selected>Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																</div>
 															</div>
 														</div>
@@ -1638,17 +1627,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select id="smw-fit-disabled" name="smw-fit-disabled" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																</div>
 															</div>
 														</div>
@@ -1658,17 +1647,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select id="smw-validation" name="smw-validation">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																	<div class="error-note">Error text</div>
 																	<div class="success-note">Success text</div>
 																</div>
@@ -1680,17 +1669,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select class="error" id="smw-err" name="smw-err">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																	<div class="error-note">Error text</div>
 																	<div class="success-note">Success text</div>
 																</div>
@@ -1702,17 +1691,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select class="success" id="smw-suc" name="smw-suc">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																	<div class="error-note">Error text</div>
 																	<div class="success-note">Success text</div>
 																</div>
@@ -1727,17 +1716,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select class="field-js" id="smw-base-js" name="smw-base-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																</div>
 															</div>
 														</div>
@@ -1747,17 +1736,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select class="field-js" id="smw-base-disabled-js" name="smw-base-disabled-js" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																</div>
 															</div>
 														</div>
@@ -1767,17 +1756,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select class="field-js" id="smw-fit-js" name="smw-fit-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2" selected>Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2" selected>Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																</div>
 															</div>
 														</div>
@@ -1787,17 +1776,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select class="field-js" id="smw-fit-disabled-js" name="smw-fit-disabled-js" disabled>
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3" selected>Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																</div>
 															</div>
 														</div>
@@ -1807,17 +1796,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select class="field-js" id="smw-validation-js" name="smw-validation-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																	<div class="error-note">Error text</div>
 																	<div class="success-note">Success text</div>
 																</div>
@@ -1829,17 +1818,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select class="field-js error" id="smw-err-js" name="smw-err-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																	<div class="error-note">Error text</div>
 																	<div class="success-note">Success text</div>
 																</div>
@@ -1851,17 +1840,17 @@
 															<div class="input-holder">
 																<div class="select">
 																	<select class="field-js success" id="smw-suc-js" name="smw-suc-js">
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-</select>
+																		<!--Important! First option should have value ""-->
+																		<option value="">-Choose one of the options-</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+																		<option value="4">Option 4</option>
+																		<option value="5">Option 5</option>
+																		<option value="6">Option 6</option>
+																		<option value="7">Option 7</option>
+																		<option value="8">Option 8</option>
+																	</select>
 																	<div class="error-note">Error text</div>
 																	<div class="success-note">Success text</div>
 																</div>
@@ -1894,84 +1883,79 @@
 												<div class="user-spacer"></div>
 												<label for="form-clear-c-select-base">Селект - без js-классов:</label>
 												<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-base">
-				
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-			</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label for="form-clear-c-select">Селект - значение не выбрано:</label>
 												<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select">
-				
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-			</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label for="form-clear-c-select-fit">Селект - значение выбрано по умолчанию:</label>
 												<select class="cselect field-js" name="select-name" id="form-clear-c-select-fit">
-				
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-			</select>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label class="error" for="form-clear-c-select-err">Селект - невалидный :</label>
 												<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-err">
-				
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-			</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label class="success" for="form-clear-c-select-suc">Селект - валидный:</label>
 												<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-suc">
-				
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-			</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 											</div>
@@ -1987,83 +1971,79 @@
 											<div>
 												<label for="form-clear-c-mSelect-base">Селект - без js-классов:</label>
 												<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-clear-c-mSelect-base">
-				
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-			</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label for="form-clear-c-mSelect">Селект - значение не выбрано:</label>
 												<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect">
-				
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-			</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label for="form-clear-c-mSelect-fit">Селект - значение выбрано по умолчанию:</label>
 												<select class="cselect field-js" name="select-name" multiple id="form-clear-c-mSelect-fit">
-				<option value="1">Размер</option>
-				<option value="2" selected>Вес</option>
-				<option value="3">Цвет</option>
-				<option value="4">Позицию (расположение)</option>
-				<option value="5">Опшин очень-очень-очень-очень длинный</option>
-				<option value="6">Контраст</option>
-				<option value="7">Сочетание</option>
-				<option value="8">Расстояние</option>
-			</select>
+													<option value="1">Размер</option>
+													<option value="2" selected>Вес</option>
+													<option value="3">Цвет</option>
+													<option value="4">Позицию (расположение)</option>
+													<option value="5">Опшин очень-очень-очень-очень длинный</option>
+													<option value="6">Контраст</option>
+													<option value="7">Сочетание</option>
+													<option value="8">Расстояние</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label class="error" for="form-clear-c-mSelect-err">Селект - невалидный :</label>
 												<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-err">
-				
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-			</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 												<!--===================================================-->
 												<label class="success" for="form-clear-c-mSelect-suc">Селект - валидный:</label>
 												<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-clear-c-mSelect-suc">
-				
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-			</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 											</div>
@@ -2085,18 +2065,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-base">
-						
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-					</select>
+															<!--Important! First option should have value ""-->
+															<option value="">-Choose one of the options-</option>
+															<option value="1">Option 1</option>
+															<option value="2">Option 2</option>
+															<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+															<option value="4">Option 4</option>
+															<option value="5">Option 5</option>
+															<option value="6">Option 6</option>
+															<option value="7">Option 7</option>
+															<option value="8">Option 8</option>
+														</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
 													</div>
@@ -2108,18 +2087,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select">
-						
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-					</select>
+															<!--Important! First option should have value ""-->
+															<option value="">-Choose one of the options-</option>
+															<option value="1">Option 1</option>
+															<option value="2">Option 2</option>
+															<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+															<option value="4">Option 4</option>
+															<option value="5">Option 5</option>
+															<option value="6">Option 6</option>
+															<option value="7">Option 7</option>
+															<option value="8">Option 8</option>
+														</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
 													</div>
@@ -2131,16 +2109,15 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js" name="select-name" id="form-cover-c-select-fit">
-						
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-					</select>
+															<option value="1">Option 1</option>
+															<option value="2">Option 2</option>
+															<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+															<option value="4">Option 4</option>
+															<option value="5">Option 5</option>
+															<option value="6">Option 6</option>
+															<option value="7">Option 7</option>
+															<option value="8">Option 8</option>
+														</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
 													</div>
@@ -2152,18 +2129,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-err">
-						
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-					</select>
+															<!--Important! First option should have value ""-->
+															<option value="">-Choose one of the options-</option>
+															<option value="1">Option 1</option>
+															<option value="2">Option 2</option>
+															<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+															<option value="4">Option 4</option>
+															<option value="5">Option 5</option>
+															<option value="6">Option 6</option>
+															<option value="7">Option 7</option>
+															<option value="8">Option 8</option>
+														</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
 													</div>
@@ -2175,18 +2151,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" id="form-cover-c-select-suc">
-						
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-					</select>
+															<!--Important! First option should have value ""-->
+															<option value="">-Choose one of the options-</option>
+															<option value="1">Option 1</option>
+															<option value="2">Option 2</option>
+															<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+															<option value="4">Option 4</option>
+															<option value="5">Option 5</option>
+															<option value="6">Option 6</option>
+															<option value="7">Option 7</option>
+															<option value="8">Option 8</option>
+														</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
 													</div>
@@ -2208,18 +2183,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect" data-placeholder="- Выберите несколько вариантов -" name="select-name" multiple id="form-cover-c-mSelect-base">
-						
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-					</select>
+															<!--Important! First option should have value ""-->
+															<option value="">-Choose one of the options-</option>
+															<option value="1">Option 1</option>
+															<option value="2">Option 2</option>
+															<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+															<option value="4">Option 4</option>
+															<option value="5">Option 5</option>
+															<option value="6">Option 6</option>
+															<option value="7">Option 7</option>
+															<option value="8">Option 8</option>
+														</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
 													</div>
@@ -2231,18 +2205,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect">
-						
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-					</select>
+															<!--Important! First option should have value ""-->
+															<option value="">-Choose one of the options-</option>
+															<option value="1">Option 1</option>
+															<option value="2">Option 2</option>
+															<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+															<option value="4">Option 4</option>
+															<option value="5">Option 5</option>
+															<option value="6">Option 6</option>
+															<option value="7">Option 7</option>
+															<option value="8">Option 8</option>
+														</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
 													</div>
@@ -2254,15 +2227,15 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js" name="select-name" multiple id="form-cover-c-mSelect-fit">
-						<option value="1">Размер</option>
-						<option value="2" selected>Вес</option>
-						<option value="3">Цвет</option>
-						<option value="4">Позицию (расположение)</option>
-						<option value="5">Опшин очень-очень-очень-очень длинный</option>
-						<option value="6">Контраст</option>
-						<option value="7">Сочетание</option>
-						<option value="8">Расстояние</option>
-					</select>
+															<option value="1">Размер</option>
+															<option value="2" selected>Вес</option>
+															<option value="3">Цвет</option>
+															<option value="4">Позицию (расположение)</option>
+															<option value="5">Опшин очень-очень-очень-очень длинный</option>
+															<option value="6">Контраст</option>
+															<option value="7">Сочетание</option>
+															<option value="8">Расстояние</option>
+														</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
 													</div>
@@ -2274,18 +2247,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-err">
-						
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-					</select>
+															<!--Important! First option should have value ""-->
+															<option value="">-Choose one of the options-</option>
+															<option value="1">Option 1</option>
+															<option value="2">Option 2</option>
+															<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+															<option value="4">Option 4</option>
+															<option value="5">Option 5</option>
+															<option value="6">Option 6</option>
+															<option value="7">Option 7</option>
+															<option value="8">Option 8</option>
+														</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
 													</div>
@@ -2297,18 +2269,17 @@
 													</div>
 													<div class="input-holder">
 														<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" multiple id="form-cover-c-mSelect-suc">
-						
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-					</select>
+															<!--Important! First option should have value ""-->
+															<option value="">-Choose one of the options-</option>
+															<option value="1">Option 1</option>
+															<option value="2">Option 2</option>
+															<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+															<option value="4">Option 4</option>
+															<option value="5">Option 5</option>
+															<option value="6">Option 6</option>
+															<option value="7">Option 7</option>
+															<option value="8">Option 8</option>
+														</select>
 														<div class="error-note">Error text</div>
 														<div class="success-note">Success text</div>
 													</div>
@@ -2355,31 +2326,31 @@
 												<ul class="checkbox-list reset-list">
 													<li>
 														<label class="check-label">
-						<input type="checkbox" name="testCheckboxInside" />
-						<i>&nbsp;</i>
-						<span>Отличный способ для выделения самого важного в тексте – использование контрастных шрифтов</span>
-					</label>
+															<input type="checkbox" name="testCheckboxInside" />
+															<i>&nbsp;</i>
+															<span>Отличный способ для выделения самого важного в тексте – использование контрастных шрифтов</span>
+														</label>
 													</li>
 													<li>
 														<label class="check-label">
-						<input type="checkbox" name="testCheckboxInsideChecked" checked />
-						<i>&nbsp;</i>
-						<span>Checked</span>
-					</label>
+															<input type="checkbox" name="testCheckboxInsideChecked" checked />
+															<i>&nbsp;</i>
+															<span>Checked</span>
+														</label>
 													</li>
 													<li>
 														<label class="check-label">
-						<input type="checkbox" name="testCheckboxInsideDisabled" disabled />
-						<i>&nbsp;</i>
-						<span>Disabled</span>
-					</label>
+															<input type="checkbox" name="testCheckboxInsideDisabled" disabled />
+															<i>&nbsp;</i>
+															<span>Disabled</span>
+														</label>
 													</li>
 													<li>
 														<label class="check-label">
-						<input type="checkbox" name="testCheckboxInsideCheckedDisabled" checked disabled />
-						<i>&nbsp;</i>
-						<span>Checked & Disabled</span>
-					</label>
+															<input type="checkbox" name="testCheckboxInsideCheckedDisabled" checked disabled />
+															<i>&nbsp;</i>
+															<span>Checked & Disabled</span>
+														</label>
 													</li>
 												</ul>
 											</div>
@@ -2411,31 +2382,31 @@
 												<ul class="radio-list reset-list">
 													<li>
 														<label class="radio-label">
-						<input type="radio" name="testRadioInside" />
-						<i>&nbsp;</i>
-						<span>Male</span>
-					</label>
+															<input type="radio" name="testRadioInside" />
+															<i>&nbsp;</i>
+															<span>Male</span>
+														</label>
 													</li>
 													<li>
 														<label class="radio-label">
-						<input type="radio" name="testRadioInside" checked />
-						<i>&nbsp;</i>
-						<span>Female</span>
-					</label>
+															<input type="radio" name="testRadioInside" checked />
+															<i>&nbsp;</i>
+															<span>Female</span>
+														</label>
 													</li>
 													<li>
 														<label class="radio-label">
-						<input type="radio" name="testRadioInsideDisabled" disabled />
-						<i>&nbsp;</i>
-						<span>Disabled</span>
-					</label>
+															<input type="radio" name="testRadioInsideDisabled" disabled />
+															<i>&nbsp;</i>
+															<span>Disabled</span>
+														</label>
 													</li>
 													<li>
 														<label class="radio-label">
-						<input type="radio" name="testRadioInsideCheckedDisabled" checked disabled />
-						<i>&nbsp;</i>
-						<span>Checked & Disabled</span>
-					</label>
+															<input type="radio" name="testRadioInsideCheckedDisabled" checked disabled />
+															<i>&nbsp;</i>
+															<span>Checked & Disabled</span>
+														</label>
 													</li>
 												</ul>
 											</div>
@@ -2487,18 +2458,17 @@
 											<div class="input-wrap">
 												<label for="f-columns-05" title="Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.">Как результат, вам не стоит делать текст по центру больше двух или трех раз на общее количество текста.</label>
 												<select name="select-name" id="f-columns-05">
-											
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-										</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 											</div>
@@ -2506,18 +2476,17 @@
 											<div class="input-wrap">
 												<label for="f-columns-06">Селект:</label>
 												<select name="select-name" id="f-columns-06">
-											
-<!--Important! First option should have value ""-->
-<option value="">-Choose one of the options-</option>
-<option value="1">Option 1</option>
-<option value="2">Option 2</option>
-<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-<option value="4">Option 4</option>
-<option value="5">Option 5</option>
-<option value="6">Option 6</option>
-<option value="7">Option 7</option>
-<option value="8">Option 8</option>
-										</select>
+													<!--Important! First option should have value ""-->
+													<option value="">-Choose one of the options-</option>
+													<option value="1">Option 1</option>
+													<option value="2">Option 2</option>
+													<option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
+													<option value="4">Option 4</option>
+													<option value="5">Option 5</option>
+													<option value="6">Option 6</option>
+													<option value="7">Option 7</option>
+													<option value="8">Option 8</option>
+												</select>
 												<div class="error-note">Error text</div>
 												<div class="success-note">Success text</div>
 											</div>
@@ -2610,8 +2579,9 @@
 								}
 
 								var nav = document.createElement('div');
-								var list = document.createElement('ul');
 								nav.className = "navigationByTypographyElements";
+								var list = document.createElement('ul');
+								list.className = "reset-list";
 								document.body.appendChild(nav);
 								nav.appendChild(list);
 
@@ -2698,85 +2668,66 @@
 									transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 									user-select: none;
 								}
-								
+
 								.navigationByTypographyElements[data-toggle="hide"] {
 									width: 42px;
 								}
-								
+
 								.navigationByTypographyElements[data-to-left] {
 									transform: translateX(calc(-100vw + 240px + 60px));
 								}
-								
+
 								.navigationByTypographyElements ul {
 									display: block;
-									list-style: none;
+									list-style: circle;
 									margin: 0;
 									height: calc(100vh - 100px);
 									overflow-x: hidden;
 									overflow-y: auto;
 									padding: 0 20px 18px;
 								}
-								
+
 								.navigationByTypographyElements ul::-webkit-scrollbar {
 									width: 0.4em;
 								}
-								
+
 								.navigationByTypographyElements ul::-webkit-scrollbar-track {
 									-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 								}
-								
+
 								.navigationByTypographyElements ul::-webkit-scrollbar-thumb {
 									background-color: darkgrey;
 									outline: 1px solid slategrey;
 								}
-								
+
 								.navigationByTypographyElements ul li {
 									margin-bottom: 12px;
-									/*counter-increment: items;*/
 								}
-								
+
 								.navigationByTypographyElements ul li:last-child {
 									margin: 0;
 								}
-								
-								.navigationByTypographyElements ul li::before {
-									/*content: counter(items) '. ';*/
-									color: tomato;
-									content: '';
-									display: inline-block;
-									vertical-align: top;
-									margin-top: 7px;
-									margin-right: 8px;
-									height: 6px;
-									width: 6px;
-									background-color: tomato;
-								}
-								
+
 								.navigationByTypographyElements ul .navigationByTypographySubItem {
 									font-size: 0.8em;
 									padding-left: 15px;
 								}
-								
-								.navigationByTypographyElements ul .navigationByTypographySubItem::before {
-									border-radius: 50%;
-									margin-top: 4px;
-								}
-								
+
 								.navigationByTypographyElements ul a {
 									color: darkslategray;
 									text-decoration: none;
 									padding-top: 5px;
 								}
-								
+
 								.navigationByTypographyElements ul a:hover {
 									text-decoration: underline;
 								}
-								
+
 								h3,
 								h4 {
 									position: relative;
 								}
-								
+
 								h3 a,
 								h4 a {
 									display: inline-block;
@@ -2786,30 +2737,30 @@
 									-webkit-transition: border-color 0.2s;
 									transition: border-color 0.2s;
 								}
-								
+
 								h3 a span,
 								h4 a span {
 									text-decoration: underline;
 								}
-								
+
 								h4 a {
 									border-bottom-color: #909090;
 								}
-								
+
 								h4 a .mark {
 									color: #909090;
 								}
-								
+
 								h4 .hashAnchor::before {
 									width: 18px;
 									height: 18px;
 									top: 6px;
 								}
-								
+
 								.hashAnchor:hover::before {
 									opacity: 0.5;
 								}
-								
+
 								.navigationByTypographyOpener {
 									position: relative;
 									display: block;
@@ -2820,13 +2771,13 @@
 									font-weight: bold;
 									text-align: center;
 								}
-								
+
 								.navigationByTypographyElements[data-toggle="hide"] .navigationByTypographyOpener {
 									font-size: 0;
 									line-height: 0;
 									padding: 11px 5px;
 								}
-								
+
 								.navigationByTypographyOpener::after {
 									content: '-';
 									display: block;
@@ -2843,19 +2794,19 @@
 									-ms-transform: translate(0, -50%);
 									transform: translate(0, -50%);
 								}
-								
+
 								.navigationByTypographyElements[data-toggle="hide"] .navigationByTypographyOpener::after {
 									right: 3px;
 								}
-								
+
 								.navigationByTypographyOpener:hover::after {
 									background-color: rgba(0, 0, 0, 0.4);
 								}
-								
+
 								[data-toggle*="hide"] .navigationByTypographyOpener::after {
 									content: '+';
 								}
-								
+
 								.navigationByTypographyToLeft {
 									position: absolute;
 									top: 3px;
@@ -2870,11 +2821,11 @@
 									background-color: rgba(0, 0, 0, 0.2);
 									z-index: 5;
 								}
-								
+
 								.navigationByTypographyToLeft:hover {
 									background-color: rgba(0, 0, 0, 0.4);
 								}
-								
+
 								.navigationByTypographyToLeft:before {
 									content: '<';
 									display: inline-block;
@@ -2882,7 +2833,7 @@
 									line-height: 16px;
 									letter-spacing: normal;
 								}
-								
+
 								[data-to-left] .navigationByTypographyToLeft:before {
 									content: '>';
 								}

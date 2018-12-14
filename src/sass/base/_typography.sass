@@ -191,8 +191,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .hide-text
 	+hide-text
 
-/* content img
-
+/*content img
 .layout-article
 	& > img, .imgc
 		text-align: center
@@ -229,9 +228,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		margin: 0
 		+font($font-size--small, $line-height--small)
 
-/* content img end
+/*content img end
 
-/* columnize
+/*columnize
 .columnize, .columnize--3, .columnize--4
 	column-count: 2
 	column-gap: 2em
@@ -259,9 +258,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+media('<tab-sm')
 		column-count: 1
 
-/* columnize end
+/*columnize end
 
-/* columns
+/*columns
 $columns-gap: 2em
 .columns
 	+clear
@@ -285,81 +284,83 @@ $columns-gap: 2em
 	&:nth-child(even)
 		margin-right: 0
 
-/* columns end
+/*columns end
 
 .#{$user-content}
 	@each $tags in h2, h3, h4, h5
 		p + #{$tags},
 		ul + #{$tags},
-		ol + #{$tags}
-			margin-top: round-float($bottom-space--medium, 1)
+		ol + #{$tags},
+		hr + #{$tags},
+		table + #{$tags},
+		.table-auto + #{$tags}
+			margin-top: $bottom-space * 2
 
-/* list
-.#{$user-content}
-	//list
-	ul, ol
-		margin: 0 0 $bottom-space
-		padding: 0
-		list-style: none
-
-		li
-			padding-left: $list-space
-			margin: 0 0 round($bottom-space*0.5)
-			position: relative
-
-	ul > li::before
-		content: ''
-		display: block
-		float: left
-		+size(0)
-		margin: 0.4em 0 -0.5em -#{$list-space}
-		border: solid transparent
-			width: 5px 0 5px 9px
-			left-color: $base-color
-
-	ol
-		counter-reset: section
-
-		& > li
-			counter-increment: section
-			height: 1%
-			overflow: hidden
-
-			&::before
-				position: relative
-				display: inline-block
-				text-align: left
-				+font-alt-bold
-				color: $base-color
-				content: counter(section)
-				padding: 0 4px 0 0
-				min-width: $list-space
-				margin-left: -#{$list-space}
-
-	ul, ol
-		ul, ol
-			margin: round($bottom-space*0.5) 0
-
-/* list reset
-.reset-list,
-.#{$user-content} .reset-list
+/*list
+ul#{$no-custom-list},
+ol#{$no-custom-list}
+	margin: 0 0 $bottom-space
+	padding: 0
 	list-style: none
 
 	li
-		&, &:first-child
-			padding: 0
+		padding-left: $list-space
+		margin: 0 0 round($bottom-space*0.5)
+		position: relative
 
-			&::before
-				content: none
+ul#{$no-custom-list}
+	& > li
+		&::before
+			content: ''
+			display: block
+			float: left
+			+size(0)
+			margin: 0.4em 0 -0.5em -#{$list-space}
+			border: solid transparent
+				width: 5px 0 5px 9px
+				left-color: $base-color
 
-/* list reset end
-/* list end
+ol#{$no-custom-list}
+	counter-reset: section
 
-/* table
+	& > li
+		counter-increment: section
+		height: 1%
+		overflow: hidden
+
+		&::before
+			position: relative
+			display: inline-block
+			text-align: left
+			+font-alt-bold
+			color: $base-color
+			content: counter(section)
+			padding: 0 4px 0 0
+			min-width: $list-space
+			margin-left: -#{$list-space}
+
+ul#{$no-custom-list},
+ol#{$no-custom-list}
+	ul,
+	ol
+		margin: round-float($bottom-space*0.5, 1) 0
+
+// Выравнивать по центру,
+// если список лежит непостредственно в контейнере текстовой страницы (статьи)
+.layout-article
+	ul#{$no-custom-list},
+	ol#{$no-custom-list}
+		margin-left: auto
+		margin-right: auto
+
+/*list end
+
+/*table
 table
 	border-collapse: collapse
 	border-spacing: 0
 	width: auto
+	margin-bottom: $bottom-space
 
 	td, th
 		+font($font-size, $line-height)
@@ -379,99 +380,90 @@ table
 		width: auto
 		min-width: 100%
 
-.#{$user-content}
-	table
-		margin-bottom: $bottom-space
+.tbl
+	border: none
 
-	.table-auto table
-		margin-bottom: 0
+	td, th
+		color: $text-color
+		background-color: $bg-color
+		border: 0 solid $base-color
+		+font(1.4rem, 1.5)
 
-	.tbl
-		border: none
+		&:first-child, &:first-child
+			border-left-width: 1px
 
-		td, th
-			color: $text-color
-			background-color: $bg-color
-			border: 0 solid $base-color
-			+font(1.4rem, 1.5)
+		&:last-child, &:last-child
+			border-right-width: 1px
 
-			&:first-child, &:first-child
-				border-left-width: 1px
-
-			&:last-child, &:last-child
-				border-right-width: 1px
-
-		tr:last-child
-			td
-				border-bottom-width: 0
-
+	tr:last-child
 		td
-			border-top-width: 1px
+			border-bottom-width: 0
 
-		tbody tr:first-child td
-			border-top-width: 0
+	td
+		border-top-width: 1px
 
-		tbody tr:nth-child(even) td
-			background: $base-color
-			color: $bg-color
+	tbody tr:first-child td
+		border-top-width: 0
 
-		th, thead td
-			+font-bold
-			font-size: 1.6rem
+	tbody tr:nth-child(even) td
+		background: $base-color
+		color: $bg-color
+
+	th, thead td
+		+font-bold
+		font-size: 1.6rem
+		text-align: left
+
+	th, thead td, tfoot td
+		background: $base-color
+		color: $bg-color
+		border-color: $base-color
+		border-top-width: 0
+
+/*table end
+
+/*blockquote
+blockquote
+	display: block
+	margin: 0 0 $bottom-space
+	padding: 0
+	background-color: white
+
+	q
+		display: block
+		margin: 0
+		padding: 0 0 10px
+		+font-normal
+		+font(round-float($font-size*1.25, 1), $line-height)
+		color: $text-color
+		text-align: center
+
+		&::before, &::after
+			+pseudo($pos: relative)
+			+font(4rem, 1)
 			text-align: left
 
-		th, thead td, tfoot td
-			background: $base-color
-			color: $bg-color
-			border-color: $base-color
-			border-top-width: 0
+		&::before
+			content: '«'
+			padding-left: 17%
+			padding-bottom: 10px
 
-/* table end
-
-/* blockquote
-.#{$user-content}
-
-	blockquote
-		display: block
-		margin: 0 0 $bottom-space
-		padding: 0
-		background-color: white
-
-		q
-			display: block
-			margin: 0
-			padding: 0 0 10px
-			font-family: $font-alt
-			+font(round-float($font-size*1.25, 1), $line-height)
-			color: $text-color
-			text-align: center
-
-			&::before, &::after
-				+pseudo($pos: relative)
-				+font(4rem, 1)
-				text-align: left
-
-			&::before
-				content: '«'
-				padding-left: 17%
-				padding-bottom: 10px
-
-			&::after
-				content: '»'
-				text-align: right
-				padding-right: 18.5%
-				padding-top: 8px
-
-		cite
+		&::after
+			content: '»'
 			text-align: right
-			display: block
-			margin-left: auto
-			+font($font-size, $line-height)
-			color: $text-color-light
+			padding-right: 18.5%
+			padding-top: 8px
 
-/* blockquote end
+	cite
+		text-align: right
+		display: block
+		margin-left: auto
+		+font($font-size, $line-height)
+		color: $text-color-light
 
-/* user spacer
+/*blockquote end
+
+/*user spacer
 .user-spacer
 	display: block
 	height: $bottom-space--large
@@ -481,17 +473,17 @@ table
 	+media('<desk-lg')
 		height: $bottom-space--middle
 
-/* user spacer end
+/*user spacer end
 
-/* datetime
+/*datetime
 .datetime
 	display: block
 	font-style: normal
 	margin-bottom: $bottom-space
 
-/* datetime end
+/*datetime end
 
-/* view print
+/*view print
 .view-print
 	+display-inline-block-top
 	padding: 6px 12px
@@ -524,4 +516,4 @@ table
 		display: inline-block
 		vertical-align: middle
 
-/* view print end
+/*view print end

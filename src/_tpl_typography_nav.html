@@ -11,8 +11,9 @@
 	}
 
 	var nav = document.createElement('div');
-	var list = document.createElement('ul');
 	nav.className = "navigationByTypographyElements";
+	var list = document.createElement('ul');
+	list.className = "reset-list";
 	document.body.appendChild(nav);
 	nav.appendChild(list);
 
@@ -107,7 +108,7 @@
 	}
 	.navigationByTypographyElements ul{
 		display: block;
-		list-style: none;
+		list-style: circle;
 		margin: 0;
 		height: calc(100vh - 100px);
 		overflow-x: hidden;
@@ -126,30 +127,13 @@
 	}
 	.navigationByTypographyElements ul li{
 		margin-bottom: 12px;
-		/*counter-increment: items;*/
 	}
 	.navigationByTypographyElements ul li:last-child{
 		margin: 0;
 	}
-	.navigationByTypographyElements ul li::before{
-		/*content: counter(items) '. ';*/
-		color: tomato;
-		content: '';
-		display: inline-block;
-		vertical-align: top;
-		margin-top: 7px;
-		margin-right: 8px;
-		height: 6px;
-		width: 6px;
-		background-color: tomato;
-	}
 	.navigationByTypographyElements ul .navigationByTypographySubItem{
 		font-size: 0.8em;
 		padding-left: 15px;
-	}
-	.navigationByTypographyElements ul .navigationByTypographySubItem::before{
-		border-radius: 50%;
-		margin-top: 4px;
 	}
 	.navigationByTypographyElements ul a{
 		color: darkslategray;
