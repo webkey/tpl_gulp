@@ -1,39 +1,41 @@
 'use strict';
 
-var gulp = require('gulp'), // Подключаем Gulp
-	sass = require('gulp-sass'), // Подключаем Sass пакет https://github.com/dlmanning/gulp-sass
-	browserSync = require('browser-sync').create(), // Подключаем Browser Sync
-	reload = browserSync.reload,
-	concat = require('gulp-concat'), // Подключаем gulp-concat (для конкатенации файлов)
-	uglify = require('gulp-uglifyjs'), // Подключаем gulp-uglifyjs (для сжатия JS)
-	cssnano = require('gulp-cssnano'), // Подключаем пакет для минификации CSS
-	concatCss = require('gulp-concat-css'),
-	rename = require('gulp-rename'), // Подключаем библиотеку для переименования файлов
-	del = require('del'), // Подключаем библиотеку для удаления файлов и папок
-	imagemin = require('gulp-imagemin'), // Подключаем библиотеку для работы с изображениями
-	pngquant = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
-	cache = require('gulp-cache'), // Подключаем библиотеку кеширования
-	autoprefixer = require('gulp-autoprefixer'), // Подключаем библиотеку для автоматического добавления префиксов
-	sourcemaps = require('gulp-sourcemaps'), // Подключаем Source Map для дебагинга sass-файлов https://github.com/floridoo/gulp-sourcemaps
-	fileinclude = require('gulp-file-include'),
-	markdown = require('markdown'),
-	htmlbeautify = require('gulp-html-beautify'), // Причесываем
-	fs = require('fs'),
-	modernizr = require('modernizr'), // For compiling modernizr.min.js
-	config = require('./modernizr-config'), // Path to modernizr-config.json
-	replace = require('gulp-string-replace'),
-	strip = require('gulp-strip-comments'), // Удалить комментарии
-	stripCssComments = require('gulp-strip-css-comments'), // Удалить комментарии (css)
-	removeEmptyLines = require('gulp-remove-empty-lines'), // Удалить пустые строки
-	revts = require('gulp-rev-timestamp'), // Дабавить версии к подключаемым файлам
-	beautify = require('gulp-beautify') // Причесать js
-	;
+var gulp = require('gulp') // Подключение Gulp
+	, sass = require('gulp-sass') // Подключение Sass пакет https://github.com/dlmanning/gulp-sass
+	, browserSync = require('browser-sync').create() // Подключение Browser Sync
+	, reload = browserSync.reload
+	, concat = require('gulp-concat') // Подключение gulp-concat (для конкатенации файлов)
+	, uglify = require('gulp-uglifyjs')// Подключение gulp-uglifyjs (для сжатия JS)
+	, cssnano = require('gulp-cssnano')// Подключение пакет для минификации CSS
+	, concatCss = require('gulp-concat-css')
+	, rename = require('gulp-rename')// Подключение библиотеку для переименования файлов
+	, del = require('del')// Подключение библиотеку для удаления файлов и папок
+	, imagemin = require('gulp-imagemin')// Подключение библиотеку для работы с изображениями
+	, pngquant = require('imagemin-pngquant')// Подключение библиотеку для работы с png
+	, cache = require('gulp-cache')// Подключение библиотеку кеширования
+	, autoprefixer = require('gulp-autoprefixer')// Подключение библиотеку для автоматического добавления префиксов
+	, sourcemaps = require('gulp-sourcemaps')// Подключение Source Map для дебагинга sass-файлов https://github.com/floridoo/gulp-sourcemaps
+	, fileinclude = require('gulp-file-include')
+	, markdown = require('markdown')
+	, htmlbeautify = require('gulp-html-beautify')// Подключение
+	, fs = require('fs')
+	, modernizr = require('modernizr')// For compiling modernizr.min.js
+	, config = require('./modernizr-config')// Path to modernizr-config.json
+	, replace = require('gulp-string-replace')
+	, strip = require('gulp-strip-comments')// Удалить комментарии
+	, stripCssComments = require('gulp-strip-css-comments')// Удалить комментарии (css)
+	, removeEmptyLines = require('gulp-remove-empty-lines')// Удалить пустые строки
+	, revts = require('gulp-rev-timestamp')// Дабавить версии к подключаемым файлам
+	, beautify = require('gulp-beautify')// Причесать js
+	, index = require('gulp-index') // Для создания списка страниц https://www.npmjs.com/package/gulp-index
+;
 
 var path = {
 	'dist': 'dist'
 };
 
-gulp.task('htmlCompilation', function () { // Таск формирования ДОМ страниц
+// Таск формирования ДОМ страниц
+gulp.task('htmlCompilation', function () {
 	return gulp.src(['src/__*.html'])
 		.pipe(fileinclude({
 			filters: {
@@ -50,7 +52,29 @@ gulp.task('htmlCompilation', function () { // Таск формирования 
 		.pipe(gulp.dest('./src/'));
 });
 
-/// Таск для переноса normalize
+// Таск создания списка всех страниц
+gulp.task('html:buildAllPages', ['htmlCompilation'], function() {
+	var pref = "all-pages";
+	return gulp.src(['!src/__*.html', '!src/_tpl_*.html', '!src/_temp_*.html', './src/*.html'])
+		.pipe(index({
+			// written out before index contents
+			'prepend-to-output': () => `<head> <title>All pages</title><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0"><link rel="shortcut icon" href="favicon.ico"></head><body>`,
+			'title': 'All pages',
+			'title-template': (title) =>`<h1 class="` + pref + `__title">${title}</h1>`,
+			'section-template': (sectionContent) => `<section class="` + pref + `__section"> ${sectionContent}</section>`,
+			'section-heading-template': (heading) => `<!--<h2 class="` + pref + `__section-heading">${heading}</h2>-->`,
+			'list-template': (listContent) => `<ul class="` + pref + `__list"> ${listContent}</ul>`,
+			'item-template': (filepath, filename) => `<li class="` + pref + `__item"><a class="` + pref + `__item-link" href="./${filename}">${filename}</a></li>`,
+			'outputFile': './all-pages.html'
+		}))
+		.pipe(htmlbeautify({
+			"indent_with_tabs": true,
+			"max_preserve_newlines": 0
+		}))
+		.pipe(gulp.dest('./src/'));
+});
+
+// Таск для переноса normalize
 gulp.task('normalize', function () {
 	return gulp.src('src/libs/normalize-scss/sass/**/*.+(scss|sass)')
 		.pipe(stripCssComments())
@@ -58,7 +82,8 @@ gulp.task('normalize', function () {
 		.pipe(gulp.dest('src/_temp/'));
 });
 
-gulp.task('sassCompilation', ['normalize'], function () { // Создаем таск для компиляции sass файлов
+// Компиляция sass файлов
+gulp.task('sassCompilation', ['normalize'], function () {
 	return gulp.src('src/sass/**/*.+(scss|sass)') // Берем источник
 		.pipe(sourcemaps.init())
 		.pipe(sass({
@@ -140,8 +165,8 @@ gulp.task('browserSync', function (done) { // Таск browserSync
 	done();
 });
 
-gulp.task('watch', ['createCustomModernizr', 'browserSync', 'htmlCompilation', 'sassCompilation', 'mergeCssLibs', 'copyLibsScriptsToJs'], function () {
-	gulp.watch(['src/_tpl_*.html', 'src/__*.html', 'src/includes/**/*.json', 'src/includes/**/*.svg'], ['htmlCompilation']); // Наблюдение за tpl
+gulp.task('watch', ['createCustomModernizr', 'browserSync', 'html:buildAllPages', 'sassCompilation', 'mergeCssLibs', 'copyLibsScriptsToJs'], function () {
+	gulp.watch(['src/_tpl_*.html', 'src/__*.html', 'src/includes/**/*.json', 'src/includes/**/*.svg'], ['html:buildAllPages']); // Наблюдение за tpl
 	// файлами в папке include
 	gulp.watch('src/sass/**/*.+(scss|sass)', ['sassCompilation']); // Наблюдение за sass файлами в папке sass
 });
@@ -164,7 +189,7 @@ gulp.task('copyImgToDist', function () {
 		.pipe(gulp.dest(path.dist + '/img')); // Выгружаем на продакшен
 });
 
-gulp.task('buildDist', ['cleanDist', 'htmlCompilation', 'copyImgToDist', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
+gulp.task('buildDist', ['cleanDist', 'html:buildAllPages', 'copyImgToDist', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
 
 	gulp.src(['src/ajax/**/*'])
 		.pipe(gulp.dest(path.dist + '/ajax')); // Переносим ajax-файлы в продакшен
