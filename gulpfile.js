@@ -189,17 +189,37 @@ gulp.task('copyImgToDist', function () {
 		.pipe(gulp.dest(path.dist + '/img')); // Выгружаем на продакшен
 });
 
-gulp.task('buildDist', ['cleanDist', 'html:buildAllPages', 'copyImgToDist', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
+/**
+ * Таск для компиляции sass файлов без мапинга.
+ * Специально для релизной версии
+ */
+gulp.task('sassCompilationForDist', function () {
+	return gulp.src('src/sass/**/*.+(scss|sass)')
+		.pipe(sass({
+			outputStyle: 'expanded',
+			indentType: 'tab',
+			indentWidth: 1,
+			precision: 3,
+			linefeed: 'lf'
+		}).on('error', sass.logError))
+		.pipe(replace('../../', '../'))
+		.pipe(replace('@charset "UTF-8";', ''))
+		.pipe(autoprefixer([
+			'last 5 versions', '> 1%', 'ie >= 9', 'and_chr >= 2.3'
+		], {
+			cascade: true
+		}))
+		.pipe(removeEmptyLines()) // Удаление пустыч строки
+		.pipe(gulp.dest(path.dist + '/css'))
+});
+
+gulp.task('buildDist', ['cleanDist', 'html:buildAllPages', 'copyImgToDist', 'sassCompilationForDist', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
 
 	gulp.src(['src/ajax/**/*'])
 		.pipe(gulp.dest(path.dist + '/ajax')); // Переносим ajax-файлы в продакшен
 
 	gulp.src(['src/video/**/*']) // Переносим видеофайлы в продакшен
 		.pipe(gulp.dest(path.dist + '/video'));
-
-	gulp.src(['!src/css/_temp_*.css', 'src/css/*.css']) // Переносим стили в продакшен
-		.pipe(removeEmptyLines()) // Удаляем пустые строки
-		.pipe(gulp.dest(path.dist + '/css'));
 
 	gulp.src('src/fonts/**/*') // Переносим шрифты в продакшен
 		.pipe(gulp.dest(path.dist + '/fonts'));
