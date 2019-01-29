@@ -11,19 +11,10 @@ var gulp = require('gulp'),
  * Create Distribution folder and move files to it
  ************************************************************/
 
-gulp.task('copyImgToDistTpl', function () {
-  return gulp.src(['!src/img/temp/list/**/*', 'src/img/**/*'])
-      .pipe(cache(imagemin({
-        interlaced: true,
-        progressive: true,
-        svgoPlugins: [{removeViewBox: false}],
-        optimizationLevel: 7,
-        use: [pngquant()]
-      })))
-      .pipe(gulp.dest('gulp-project-template/src/img'));
-});
+gulp.task('buildDistTpl', ['cleanDistTpl'], function () {
 
-gulp.task('buildDistTpl', ['cleanDistTpl', 'copyImgToDistTpl'], function () {
+  gulp.src(['src/img/**/*'])
+      .pipe(gulp.dest('gulp-project-template/src/img'));
 
   gulp.src(['!src/sass/test-mixins.sass', '!src/sass/**/normalize.*', 'src/sass/**/*'])
       .pipe(gulp.dest('gulp-project-template/src/sass'));
@@ -63,6 +54,7 @@ gulp.task('buildDistTpl', ['cleanDistTpl', 'copyImgToDistTpl'], function () {
     './.gitignore',
     '!./gulpfile-create-gulp-project-template.js',
     './*.json',
+    '!./modernizr-config--full.json',
     './*.js',
     './*.txt',
     './*.bat'
