@@ -8,13 +8,13 @@
 /// @return {Number} - Значение `$number` возведенно в степень `$exponent`
 
 @function pow($number, $exponent)
-	$value: 1
+  $value: 1
 
-	@if $exponent > 0
-		@for $i from 1 through $exponent
-			$value: $value * $number
+  @if $exponent > 0
+    @for $i from 1 through $exponent
+      $value: $value * $number
 
-	@return $value
+  @return $value
 
 // =============================================================================
 // round-float
@@ -26,8 +26,8 @@
 /// @return {Number} - Значение округленное до `n` знаков после запятой
 
 @function round-float($number, $n)
-	$float: pow(10,$n)
+  $float: pow(10, $n)
 
-	$value: round($number*$float)/$float
+  $value: round($number*$float)/$float
 
-	@return $value
+  @return $value

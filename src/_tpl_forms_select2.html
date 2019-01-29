@@ -1,47 +1,47 @@
 <form action="#" method="post">
-	<div>
-		@@include('_tpl_title-anchor.html', {
-			"taTag": "h4",
-			"taId": "fcSelectCustom",
-			"taText": "Select2. Without a wrapper",
-			"openerId": "0_04_01"
-		})
+  <div>
+    @@include('_tpl_title-anchor.html', {
+      "taTag": "h4",
+      "taId": "fcSelectCustom",
+      "taText": "Select2. Without a wrapper",
+      "openerId": "0_04_01"
+    })
 
-		<div>
-			<div>На <code class="mark">select</code> добавляем класс <code class="mark">.cselect</code></div>
-			<div class="user-spacer"></div>
+    <div>
+      <div>На <code class="mark">select</code> добавляем класс <code class="mark">.cselect</code></div>
+      <div class="user-spacer"></div>
 
-			<label for="form-clear-c-select-base">Селект - без js-классов:</label>
-			<select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-base">
-				@@include('_tpl_forms_options.html')
-			</select>
-			@@include('_tpl_forms_valid.html')
-			<!--===================================================-->
-			<label for="form-clear-c-select">Селект - значение не выбрано:</label>
-			<select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select">
-				@@include('_tpl_forms_options.html')
-			</select>
-			@@include('_tpl_forms_valid.html')
-			<!--===================================================-->
-			<label for="form-clear-c-select-fit">Селект - значение выбрано по умолчанию:</label>
-			<select class="cselect field-js" name="select-name" id="form-clear-c-select-fit">
-				@@include('_tpl_forms_options.html', {"placeholder":"false"})
-			</select>
-			@@include('_tpl_forms_valid.html')
-			<!--===================================================-->
-			<label class="error" for="form-clear-c-select-err">Селект - невалидный :</label>
-			<select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-err">
-				@@include('_tpl_forms_options.html')
-			</select>
-			@@include('_tpl_forms_valid.html')
-			<!--===================================================-->
-			<label class="success" for="form-clear-c-select-suc">Селект - валидный:</label>
-			<select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-suc">
-				@@include('_tpl_forms_options.html')
-			</select>
-			@@include('_tpl_forms_valid.html')
-		</div>
-	</div>
+      <label for="form-clear-c-select-base">Селект - без js-классов:</label>
+      <select class="cselect" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-base">
+        @@include('_tpl_forms_options.html')
+      </select>
+      @@include('_tpl_forms_valid.html')
+      <!--===================================================-->
+      <label for="form-clear-c-select">Селект - значение не выбрано:</label>
+      <select class="cselect field-js" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select">
+        @@include('_tpl_forms_options.html')
+      </select>
+      @@include('_tpl_forms_valid.html')
+      <!--===================================================-->
+      <label for="form-clear-c-select-fit">Селект - значение выбрано по умолчанию:</label>
+      <select class="cselect field-js" name="select-name" id="form-clear-c-select-fit">
+        @@include('_tpl_forms_options.html', {"placeholder":"false"})
+      </select>
+      @@include('_tpl_forms_valid.html')
+      <!--===================================================-->
+      <label class="error" for="form-clear-c-select-err">Селект - невалидный :</label>
+      <select class="cselect field-js error" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-err">
+        @@include('_tpl_forms_options.html')
+      </select>
+      @@include('_tpl_forms_valid.html')
+      <!--===================================================-->
+      <label class="success" for="form-clear-c-select-suc">Селект - валидный:</label>
+      <select class="cselect field-js success" data-placeholder="- Выбрать -" name="select-name" id="form-clear-c-select-suc">
+        @@include('_tpl_forms_options.html')
+      </select>
+      @@include('_tpl_forms_valid.html')
+    </div>
+  </div>
 
 	<!--===================================================-->
 	<!--===================================================-->

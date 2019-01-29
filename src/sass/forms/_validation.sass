@@ -3,39 +3,40 @@
 @import ../../libs/include-media/dist/include-media
 
 .error-note, .success-note
-	float: left
-	position: relative
-	+size(100%, 22px)
-	+font(12px, 22px)
-	letter-spacing: normal // Важно!
-	+truncate(none)
-	display: none
-	margin-top: -#{$form-bottom-space}
+  float: left
+  position: relative
+  +size(100%, 22px)
+  +font(12px, 22px)
+  letter-spacing: normal
+  // Важно!
+  +truncate(none)
+  display: none
+  margin-top: -#{$form-bottom-space}
 
-	+media('<mob-lg')
-		margin-top: -#{$form-bottom-space--mob}
+  +media('<mob-lg')
+    margin-top: -#{$form-bottom-space--mob}
 
-	.input-wrap &, .input-holder &, .select &
-		float: none
-		position: absolute
-		top: 100%
-		margin-top: 0
+  .input-wrap &, .input-holder &, .select &
+    float: none
+    position: absolute
+    top: 100%
+    margin-top: 0
 
 .error-note
-	color: $form-error-color
+  color: $form-error-color
 
-	// нужно выбрать только ближайший элемент ошибки формы (нельзя использовать ~)
-	form .error + &,
-	form .error + .select2 + &
-		display: block
+  // нужно выбрать только ближайший элемент ошибки формы (нельзя использовать ~)
+  form .error + &,
+  form .error + .select2 + &
+    display: block
 
 .success-note
-	color: $form-success-color
+  color: $form-success-color
 
-	// нужно выбрать тольк ближайший элемент подтверждения формы ((нельзя использовать ~))
-	form .success + .error-note + &,
-	form .success + .select2 + .error-note + &
-		display: block
+  // нужно выбрать тольк ближайший элемент подтверждения формы ((нельзя использовать ~))
+  form .success + .error-note + &,
+  form .success + .select2 + .error-note + &
+    display: block
 
 // Если поддтверждение в виде галочки
 //.success-note

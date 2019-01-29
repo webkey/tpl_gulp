@@ -1,20 +1,23 @@
 /* reset
 *, *::after, *::before
-	box-sizing: border-box
+  box-sizing: border-box
+
 body
-	-webkit-font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased
+
 body, html
-	height: 100%
-	width: 100%
+  height: 100%
+  width: 100%
+
 form
-	margin: 0
-	padding: 0
+  margin: 0
+  padding: 0
 //a, input, button,
 //a:focus, input:focus, button:focus
 input, input:focus, textarea, select
-	-webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important
-	-webkit-focus-ring-color: rgba(255, 255, 255, 0) !important
-	outline: none !important
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important
+  outline: none !important
 //*:focus
 	outline: none
 	-moz-outline: 3px solid white !important
@@ -29,29 +32,36 @@ input[type="button"],
 input[type="reset"],
 input[type="number"],
 input[type="range"]
-	//-webkit-appearance: none
-	//-moz-appearance: none
-	appearance: none
-	border-radius: 0
+  //-webkit-appearance: none
+  //-moz-appearance: none
+  appearance: none
+  border-radius: 0
+
 select
-	&[disabled]
-		cursor: default
-	&::-ms-expand
-		display: none
+  &[disabled]
+    cursor: default
+
+  &::-ms-expand
+    display: none
+
 input
-	vertical-align: middle
-	&::-ms-clear
-		display: none
-	&[type="radio"]:focus
-		-moz-outline-radius: 12px !important
-		-moz-outline-offset: 0 !important
-	&[type="checkbox"]:focus
-		-moz-outline-offset: -1px !important
-		-moz-outline: 1px solid #000 !important
+  vertical-align: middle
+
+  &::-ms-clear
+    display: none
+
+  &[type="radio"]:focus
+    -moz-outline-radius: 12px !important
+    -moz-outline-offset: 0 !important
+
+  &[type="checkbox"]:focus
+    -moz-outline-offset: -1px !important
+    -moz-outline: 1px solid #000 !important
+
 input[type="radio"],
 input[type="checkbox"],
 select
-	cursor: pointer
+  cursor: pointer
 
 // followed by an additional reset
 // for normalize

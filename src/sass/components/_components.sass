@@ -4,459 +4,459 @@
 
 /* user form
 .user-form
-	margin-bottom: $bottom-space
+  margin-bottom: $bottom-space
 
-	&:last-child
-		margin-bottom: 0
+  &:last-child
+    margin-bottom: 0
 
-	.form-title
-		display: block
-		+font-alt-bold
-		color: $title-color
-		text-align: center
-		margin-bottom: $bottom-space
+  .form-title
+    display: block
+    +font-alt-bold
+    color: $title-color
+    text-align: center
+    margin-bottom: $bottom-space
 
-		// font size
-		&
-			+font-h2
+    // font size
+    &
+      +font-h2
 
-	form
-		display: block
+  form
+    display: block
 
-	.input-wrap
-		&:last-child
-			margin-bottom: 0
+  .input-wrap
+    &:last-child
+      margin-bottom: 0
 
-	textarea
-		height: 130px
-		max-height: 130px
-		resize: none
+  textarea
+    height: 130px
+    max-height: 130px
+    resize: none
 
-	.form-buttons
-		float: left
-		margin-right: 30px
+  .form-buttons
+    float: left
+    margin-right: 30px
 
-		+media('<mob-lg')
-			float: none
-			margin: 0
+    +media('<mob-lg')
+      float: none
+      margin: 0
 
-		[class*="btn-"]
-			+media('<mob-lg')
-				display: block
-				width: 100%
-				margin-top: $bottom-space--small
+    [class*="btn-"]
+      +media('<mob-lg')
+        display: block
+        width: 100%
+        margin-top: $bottom-space--small
 
-				&:first-child
-					margin-top: 0
+        &:first-child
+          margin-top: 0
 
-	.form-note
-		overflow: hidden
-		min-height: $btn-height
-		+clear-spacing
-		line-height: 25px
+  .form-note
+    overflow: hidden
+    min-height: $btn-height
+    +clear-spacing
+    line-height: 25px
 
-		&::before
-			content: ''
-			display: inline-block
-			vertical-align: middle
-			min-height: inherit
+    &::before
+      content: ''
+      display: inline-block
+      vertical-align: middle
+      min-height: inherit
 
-	.form-note__item
-		display: inline-block
-		vertical-align: middle
-		width: calc(100% - 6px)
-		+font($font-size--small, $line-height--small)
-		letter-spacing: $letter-spacing
+  .form-note__item
+    display: inline-block
+    vertical-align: middle
+    width: calc(100% - 6px)
+    +font($font-size--small, $line-height--small)
+    letter-spacing: $letter-spacing
 
 /* user form end
 
 /* slick sliders
 // slider
 .slick-slide
-	-webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important
-	-webkit-focus-ring-color: rgba(255, 255, 255, 0) !important
-	outline: none !important
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important
+  outline: none !important
 
 // arrows
 .slick-arrow
-	+size(40px)
-	display: block
-	position: absolute
-	border: none
-	border-radius: 0
-	background: none
-	outline: none
-	box-shadow: none
-	opacity: 1
-	z-index: 6
-	transition-property: background, opacity, visibility
-	transition-duration: 0.2s
+  +size(40px)
+  display: block
+  position: absolute
+  border: none
+  border-radius: 0
+  background: none
+  outline: none
+  box-shadow: none
+  opacity: 1
+  z-index: 6
+  transition-property: background, opacity, visibility
+  transition-duration: 0.2s
 
-	.no-touchevents &:hover
-		opacity: 1
-		background: #e6e6e6
+  .no-touchevents &:hover
+    opacity: 1
+    background: #e6e6e6
 
-	&.slick-disabled, .no-touchevents &.slick-disabled
-		opacity: 0.25
-		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25)
-		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25)
-		cursor: default
+  &.slick-disabled, .no-touchevents &.slick-disabled
+    opacity: 0.25
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25)
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25)
+    cursor: default
 
-		&::before
-			opacity: 1
+    &::before
+      opacity: 1
 
-	&::before
-		content: none
+  &::before
+    content: none
 
-	&::after
-		top: 50%
-		content: ""
-		position: absolute
-		opacity: 1
-		pointer-events: none
-		+size(12px)
-		transform: rotate(45deg)
-		border: 0 solid #000
+  &::after
+    top: 50%
+    content: ""
+    position: absolute
+    opacity: 1
+    pointer-events: none
+    +size(12px)
+    transform: rotate(45deg)
+    border: 0 solid #000
 
 .slick-prev
-	left: 0
+  left: 0
 
-	&::after
-		left: 50%
-		border-width: 0 0 2px 2px
-		margin: -6px 0 0 -4px
+  &::after
+    left: 50%
+    border-width: 0 0 2px 2px
+    margin: -6px 0 0 -4px
 
 .slick-next
-	right: 0
+  right: 0
 
-	&::after
-		right: 50%
-		border-width: 2px 2px 0 0
-		margin: -6px -4px 0 0
+  &::after
+    right: 50%
+    border-width: 2px 2px 0 0
+    margin: -6px -4px 0 0
 
 // dots
 .slick-dots
-	margin: 0
-	line-height: 0
+  margin: 0
+  line-height: 0
 
-	.#{$user-content} &
-		margin: 0
-		max-width: none
+  .#{$user-content} &
+    margin: 0
+    max-width: none
 
-	li
-		vertical-align: top
-		width: auto
-		height: auto
-		margin: 0
+  li
+    vertical-align: top
+    width: auto
+    height: auto
+    margin: 0
 
-		&, .#{$user-content} &
-			padding: 4px 10px
-			margin: 0
+    &, .#{$user-content} &
+      padding: 4px 10px
+      margin: 0
 
-			&::before
-				content: none
+      &::before
+        content: none
 
-		button
-			width: 12px
-			height: 12px
-			padding: 0
-			border-radius: 50%
-			background: $base-color
-			position: relative
-			transition-property: background, border, box-shadow, transform
-			transition-duration: 0.6s
+    button
+      width: 12px
+      height: 12px
+      padding: 0
+      border-radius: 50%
+      background: $base-color
+      position: relative
+      transition-property: background, border, box-shadow, transform
+      transition-duration: 0.6s
 
-			&::before
-				content: ''
-				position: absolute
-				left: 2px
-				top: 2px
-				height: 8px
-				width: 8px
-				background: #fff
-				border-radius: 50%
-				opacity: 1
-				box-shadow: 0 2px 3px rgba(0, 0, 0, 0.20)
-				transition-property: transform, opacity
-				transition-duration: $animation-speed
+      &::before
+        content: ''
+        position: absolute
+        left: 2px
+        top: 2px
+        height: 8px
+        width: 8px
+        background: #fff
+        border-radius: 50%
+        opacity: 1
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.20)
+        transition-property: transform, opacity
+        transition-duration: $animation-speed
 
-		&.slick-active button::before
-			opacity: 0
+    &.slick-active button::before
+      opacity: 0
 
 //.no-touchevents &:hover button::before
 /* slick sliders end
 
 /* images slider
 .images-slider
-	position: relative
-	margin-bottom: $bottom-space
+  position: relative
+  margin-bottom: $bottom-space
 
-	+media('<tab-lg')
-		margin-bottom: $bottom-space--large
+  +media('<tab-lg')
+    margin-bottom: $bottom-space--large
 
 .images-slider__list, .slick-dotted.images-slider__list
-	padding-bottom: $bottom-space
-	margin-bottom: 0
-	position: relative
-	z-index: 2
+  padding-bottom: $bottom-space
+  margin-bottom: 0
+  position: relative
+  z-index: 2
 
 .images-slider__item
-	float: none
-	display: inline-block
-	vertical-align: top
-	opacity: 0
-	white-space: normal
-	overflow: hidden
-	position: relative
-	background-color: transparent
+  float: none
+  display: inline-block
+  vertical-align: top
+  opacity: 0
+  white-space: normal
+  overflow: hidden
+  position: relative
+  background-color: transparent
 
-	.slick-initialized &
-		display: block
-		float: left
-		opacity: 1
+  .slick-initialized &
+    display: block
+    float: left
+    opacity: 1
 
-	.no-js &
-		display: block
-		width: 100%
-		opacity: 1
-		margin-bottom: $bottom-space
+  .no-js &
+    display: block
+    width: 100%
+    opacity: 1
+    margin-bottom: $bottom-space
 
-	&::before
-		content: ''
-		display: block
-		+ratio(16, 9)
+  &::before
+    content: ''
+    display: block
+    +ratio(16, 9)
 
-		.no-js &
-			content: none
+    .no-js &
+      content: none
 
-	img
-		position: absolute
-		+position(0)
-		text-align: center
-		max-width: none
-		width: 100%
-		height: 100%
-		+object-fit(contain)
+  img
+    position: absolute
+    +position(0)
+    text-align: center
+    max-width: none
+    width: 100%
+    height: 100%
+    +object-fit(contain)
 
-		.no-js &[data-lazy]
-			display: none
+    .no-js &[data-lazy]
+      display: none
 
-		.no-js &
-			position: relative
-			+position(auto)
-			width: auto
-			height: auto
-			+object-fit(fill)
-			margin-bottom: 1rem
+    .no-js &
+      position: relative
+      +position(auto)
+      width: auto
+      height: auto
+      +object-fit(fill)
+      margin-bottom: 1rem
 
-	.caption
-		display: none
+  .caption
+    display: none
 
-		.no-js &
-			display: block
+    .no-js &
+      display: block
 
 .images-slider
 
-	.slick-arrow
-		right: 0
-		left: auto
-		top: 100%
-		transform: translate(0, 0)
+  .slick-arrow
+    right: 0
+    left: auto
+    top: 100%
+    transform: translate(0, 0)
 
-	.slick-prev
-		right: 40px
+  .slick-prev
+    right: 40px
 
-	// slider counter
-	.slider-counter
-		position: absolute
-		left: 0
-		top: 100%
-		color: $text-color-light
+  // slider counter
+  .slider-counter
+    position: absolute
+    left: 0
+    top: 100%
+    color: $text-color-light
 
-		.slide-curr
-			color: $text-color
+    .slide-curr
+      color: $text-color
 
-	.slick-dots, .#{$user-content} & .slick-dots
-		position: absolute
-		bottom: $bottom-space + 1
+  .slick-dots, .#{$user-content} & .slick-dots
+    position: absolute
+    bottom: $bottom-space + 1
 
-		li
-			+padding-horizontal(7px)
+    li
+      +padding-horizontal(7px)
 
-			button
-				width: 6px
-				height: 6px
-				border-radius: 50%
-				background-color: white
-				opacity: 0.5
-				transition-property: opacity, transform
-				transition-duration: $animation-speed
+      button
+        width: 6px
+        height: 6px
+        border-radius: 50%
+        background-color: white
+        opacity: 0.5
+        transition-property: opacity, transform
+        transition-duration: $animation-speed
 
-				&::before
-					content: none
+        &::before
+          content: none
 
-			&.slick-active button
-				opacity: 1
+      &.slick-active button
+        opacity: 1
 
-			.no-touchevents &:hover button
-				opacity: 1
-				transform: scale(2)
+      .no-touchevents &:hover button
+        opacity: 1
+        transform: scale(2)
 
 /* images slider end
 
 /* flashes
 .flashes
-	padding: 0 90px
+  padding: 0 90px
 
 .flashes__item, .images-slider__item .caption
-	+font(1.4rem, 1.5)
-	color: $text-color-light
+  +font(1.4rem, 1.5)
+  color: $text-color-light
 
-	& > *:last-child
-		margin-bottom: 0
+  & > *:last-child
+    margin-bottom: 0
 
 /* flashes end
 
 /* breadcrumbs
 .breadcrumbs
-	color: $text-color-light
-	margin-bottom: $bottom-space--large
+  color: $text-color-light
+  margin-bottom: $bottom-space--large
 
-	+media('<desk-lg')
-		margin-bottom: $bottom-space--middle
+  +media('<desk-lg')
+    margin-bottom: $bottom-space--middle
 
-	&:last-child
-		margin-bottom: 0
+  &:last-child
+    margin-bottom: 0
 
 .breadcrumbs__list
-	&, .#{$user-content} &
-		padding: 0
-		margin: 0
-		list-style: none
+  &, .#{$user-content} &
+    padding: 0
+    margin: 0
+    list-style: none
 
-		li
-			padding: 0 6px 0 0
-			margin: 0
+    li
+      padding: 0 6px 0 0
+      margin: 0
 
-			&::before, &:first-child::before
-				content: none
+      &::before, &:first-child::before
+        content: none
 
-	cursor: default
-	overflow: hidden
-	+font($font-size--small, $line-height--small)
+  cursor: default
+  overflow: hidden
+  +font($font-size--small, $line-height--small)
 
-	.layout-article &
-		max-width: none
+  .layout-article &
+    max-width: none
 
-	li
-		display: inline
-		position: relative
+  li
+    display: inline
+    position: relative
 
-		&::after
-			display: inline-block
-			vertical-align: baseline
-			content: '•'
-			border: none
-			color: $base-color
-			padding-left: 10px
+    &::after
+      display: inline-block
+      vertical-align: baseline
+      content: '•'
+      border: none
+      color: $base-color
+      padding-left: 10px
 
-		&:last-child::after
-			content: none
+    &:last-child::after
+      content: none
 
-	a
-		padding-top: 0.5em
-		color: $text-color
-		text-decoration: none
-		cursor: pointer
+  a
+    padding-top: 0.5em
+    color: $text-color
+    text-decoration: none
+    cursor: pointer
 
-		span
-			border-bottom: 1px solid rgba(white, 0.3)
+    span
+      border-bottom: 1px solid rgba(white, 0.3)
 
-		.no-touchevents &:hover
-			color: $base-color
+    .no-touchevents &:hover
+      color: $base-color
 
-			span
-				border-color: rgba($base-color, 0.3)
+      span
+        border-color: rgba($base-color, 0.3)
 
 /* breadcrumbs end
 
 /* files links
 .file
-	$file-icon-size: 42px
-	+display-inline-block-top
-	min-height: $file-icon-size
-	padding: 0.5em
-	+font(16px, 20px)
-	color: $text-color
-	text-decoration: none
+  $file-icon-size: 42px
+  +display-inline-block-top
+  min-height: $file-icon-size
+  padding: 0.5em
+  +font(16px, 20px)
+  color: $text-color
+  text-decoration: none
 
-	+clear
+  +clear
 
-	svg
-		float: left
-		+size($file-icon-size)
+  svg
+    float: left
+    +size($file-icon-size)
 
-	& > span, & > em
-		display: block
-		margin-left: #{$file-icon-size}
-		padding-left: 1em
+  & > span, & > em
+    display: block
+    margin-left: #{$file-icon-size}
+    padding-left: 1em
 
-	& > em
-		display: block
-		font-size: 1.4rem
-		color: $text-color-light
+  & > em
+    display: block
+    font-size: 1.4rem
+    color: $text-color-light
 
-	.no-touchevents &:hover
-		background-color: $base-color
+  .no-touchevents &:hover
+    background-color: $base-color
 
-		& > em
-			color: $bg-color
+    & > em
+      color: $bg-color
 
 .st-bg
-	fill: #e2e5e7
+  fill: #e2e5e7
 
 .st-corner
-	fill: #b0b7bd
+  fill: #b0b7bd
 
 .st-shadow
-	fill: #cad1d8
+  fill: #cad1d8
 
 .st-text
-	fill: #fff
+  fill: #fff
 
 /* files links end
 
 /* feature list
 .feature-list
-	margin-bottom: $bottom-space--medium
+  margin-bottom: $bottom-space--medium
 
-	&:last-child
-		margin-bottom: 0
+  &:last-child
+    margin-bottom: 0
 
 .feature-list__item
-	margin-bottom: $bottom-space
-	+clear
+  margin-bottom: $bottom-space
+  +clear
 
-	&:last-child
-		margin-bottom: 0
+  &:last-child
+    margin-bottom: 0
 
 .feature-list__img
-	float: left
-	width: 25%
-	margin: 0.3em $bottom-space $bottom-space--small 0
+  float: left
+  width: 25%
+  margin: 0.3em $bottom-space $bottom-space--small 0
 
-	+media("<mob-lg")
-		width: auto
-		float: none
-		margin-right: 0
+  +media("<mob-lg")
+    width: auto
+    float: none
+    margin-right: 0
 
 .feature-list__content
-	overflow: hidden
+  overflow: hidden
 
-	h3, p
-		margin-bottom: $bottom-space--small
+  h3, p
+    margin-bottom: $bottom-space--small
 
-		&:last-child
-			margin-bottom: 0
+    &:last-child
+      margin-bottom: 0
 
 /* feature list end
