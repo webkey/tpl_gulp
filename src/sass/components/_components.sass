@@ -2,461 +2,267 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/* user form
-.user-form
-  margin-bottom: $bottom-space
 
-  &:last-child
-    margin-bottom: 0
+/* === HEADER ===
+.header
+  background-color: lightgreen
 
-  .form-title
-    display: block
-    +font-alt-bold
-    color: $title-color
-    text-align: center
-    margin-bottom: $bottom-space
-
-    // font size
-    &
-      +font-h2
-
-  form
-    display: block
-
-  .input-wrap
-    &:last-child
-      margin-bottom: 0
-
-  textarea
-    height: 130px
-    max-height: 130px
-    resize: none
-
-  .form-buttons
-    float: left
-    margin-right: 30px
-
-    +media('<mob-lg')
-      float: none
-      margin: 0
-
-    [class*="btn-"]
-      +media('<mob-lg')
-        display: block
-        width: 100%
-        margin-top: $bottom-space--small
-
-        &:first-child
-          margin-top: 0
-
-  .form-note
-    overflow: hidden
-    min-height: $btn-height
-    +clear-spacing
-    line-height: 25px
-
-    &::before
-      content: ''
-      display: inline-block
-      vertical-align: middle
-      min-height: inherit
-
-  .form-note__item
-    display: inline-block
-    vertical-align: middle
-    width: calc(100% - 6px)
-    +font($font-size--small, $line-height--small)
-    letter-spacing: $letter-spacing
-
-/* user form end
-
-/* slick sliders
-// slider
-.slick-slide
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important
-  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important
-  outline: none !important
-
-// arrows
-.slick-arrow
-  +size(40px)
-  display: block
-  position: absolute
-  border: none
-  border-radius: 0
-  background: none
-  outline: none
-  box-shadow: none
-  opacity: 1
-  z-index: 6
-  transition-property: background, opacity, visibility
-  transition-duration: 0.2s
-
-  .no-touchevents &:hover
-    opacity: 1
-    background: #e6e6e6
-
-  &.slick-disabled, .no-touchevents &.slick-disabled
-    opacity: 0.25
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25)
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25)
-    cursor: default
-
-    &::before
-      opacity: 1
-
-  &::before
-    content: none
-
-  &::after
-    top: 50%
-    content: ""
-    position: absolute
-    opacity: 1
-    pointer-events: none
-    +size(12px)
-    transform: rotate(45deg)
-    border: 0 solid #000
-
-.slick-prev
-  left: 0
-
-  &::after
-    left: 50%
-    border-width: 0 0 2px 2px
-    margin: -6px 0 0 -4px
-
-.slick-next
-  right: 0
-
-  &::after
-    right: 50%
-    border-width: 2px 2px 0 0
-    margin: -6px -4px 0 0
-
-// dots
-.slick-dots
-  margin: 0
-  line-height: 0
-
-  .#{$user-content} &
-    margin: 0
-    max-width: none
-
-  li
-    vertical-align: top
-    width: auto
-    height: auto
-    margin: 0
-
-    &, .#{$user-content} &
-      padding: 4px 10px
-      margin: 0
-
-      &::before
-        content: none
-
-    button
-      width: 12px
-      height: 12px
-      padding: 0
-      border-radius: 50%
-      background: $base-color
-      position: relative
-      transition-property: background, border, box-shadow, transform
-      transition-duration: 0.6s
-
-      &::before
-        content: ''
-        position: absolute
-        left: 2px
-        top: 2px
-        height: 8px
-        width: 8px
-        background: #fff
-        border-radius: 50%
-        opacity: 1
-        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.20)
-        transition-property: transform, opacity
-        transition-duration: $animation-speed
-
-    &.slick-active button::before
-      opacity: 0
-
-//.no-touchevents &:hover button::before
-/* slick sliders end
-
-/* images slider
-.images-slider
+.header__holder
   position: relative
-  margin-bottom: $bottom-space
+  padding: 10px 0
+  z-index: 5
+  +clear
 
-  +media('<tab-lg')
-    margin-bottom: $bottom-space--large
-
-.images-slider__list, .slick-dotted.images-slider__list
-  padding-bottom: $bottom-space
-  margin-bottom: 0
+/* logo
+.logo
   position: relative
-  z-index: 2
-
-.images-slider__item
-  float: none
-  display: inline-block
-  vertical-align: top
-  opacity: 0
-  white-space: normal
+  float: left
+  background: url(../../img/logo.png) no-repeat
+  width: 220px
+  height: 85px
+  text-indent: -9999px
   overflow: hidden
-  position: relative
-  background-color: transparent
+  margin: 0 2rem 0 0
+  z-index: 5
 
-  .slick-initialized &
+  a, & > span
     display: block
-    float: left
-    opacity: 1
-
-  .no-js &
-    display: block
-    width: 100%
-    opacity: 1
-    margin-bottom: $bottom-space
-
-  &::before
-    content: ''
-    display: block
-    +ratio(16, 9)
-
-    .no-js &
-      content: none
-
-  img
-    position: absolute
-    +position(0)
-    text-align: center
-    max-width: none
-    width: 100%
     height: 100%
-    +object-fit(contain)
 
-    .no-js &[data-lazy]
-      display: none
+/* logo end
 
-    .no-js &
-      position: relative
-      +position(auto)
-      width: auto
-      height: auto
-      +object-fit(fill)
-      margin-bottom: 1rem
+/* === NAVIGATION ===
+.nav
+  position: relative
 
-  .caption
-    display: none
-
-    .no-js &
-      display: block
-
-.images-slider
-
-  .slick-arrow
-    right: 0
-    left: auto
-    top: 100%
-    transform: translate(0, 0)
-
-  .slick-prev
-    right: 40px
-
-  // slider counter
-  .slider-counter
-    position: absolute
-    left: 0
-    top: 100%
-    color: $text-color-light
-
-    .slide-curr
-      color: $text-color
-
-  .slick-dots, .#{$user-content} & .slick-dots
-    position: absolute
-    bottom: $bottom-space + 1
-
-    li
-      +padding-horizontal(7px)
-
-      button
-        width: 6px
-        height: 6px
-        border-radius: 50%
-        background-color: white
-        opacity: 0.5
-        transition-property: opacity, transform
-        transition-duration: $animation-speed
-
-        &::before
-          content: none
-
-      &.slick-active button
-        opacity: 1
-
-      .no-touchevents &:hover button
-        opacity: 1
-        transform: scale(2)
-
-/* images slider end
-
-/* flashes
-.flashes
-  padding: 0 90px
-
-.flashes__item, .images-slider__item .caption
-  +font(1.4rem, 1.5)
-  color: $text-color-light
-
-  & > *:last-child
-    margin-bottom: 0
-
-/* flashes end
-
-/* breadcrumbs
-.breadcrumbs
-  color: $text-color-light
-  margin-bottom: $bottom-space--large
-
-  +media('<desk-lg')
-    margin-bottom: $bottom-space--middle
-
-  &:last-child
-    margin-bottom: 0
-
-.breadcrumbs__list
-  &, .#{$user-content} &
-    padding: 0
-    margin: 0
-    list-style: none
-
-    li
-      padding: 0 6px 0 0
-      margin: 0
-
-      &::before, &:first-child::before
-        content: none
-
-  cursor: default
-  overflow: hidden
-  +font($font-size--small, $line-height--small)
-
-  .layout-article &
-    max-width: none
+.nav__list
+  list-style: none
+  margin: 0
+  padding: 0
+  +clear
 
   li
-    display: inline
     position: relative
 
-    &::after
-      display: inline-block
-      vertical-align: baseline
-      content: '•'
-      border: none
-      color: $base-color
-      padding-left: 10px
+    &.has-drop
+      padding-right: 2rem
 
-    &:last-child::after
-      content: none
+      .nav__angle
+        position: absolute
+        right: 0
+        top: 50%
+        transform: translate(0, -50%)
+        line-height: 0
+        pointer-events: none
 
   a
-    padding-top: 0.5em
-    color: $text-color
-    text-decoration: none
-    cursor: pointer
+    display: block
 
-    span
-      border-bottom: 1px solid rgba(white, 0.3)
-
-    .no-touchevents &:hover
-      color: $base-color
-
-      span
-        border-color: rgba($base-color, 0.3)
-
-/* breadcrumbs end
-
-/* files links
-.file
-  $file-icon-size: 42px
-  +display-inline-block-top
-  min-height: $file-icon-size
-  padding: 0.5em
-  +font(16px, 20px)
-  color: $text-color
-  text-decoration: none
-
-  +clear
-
-  svg
+  & > li
     float: left
-    +size($file-icon-size)
+    margin-right: 2rem
 
-  & > span, & > em
-    display: block
-    margin-left: #{$file-icon-size}
-    padding-left: 1em
+    &.has-drop > .nav__tab .nav__angle i
+      display: inline-block
+      vertical-align: top
+      +triangle(bottom, tomato, 5px, 2)
 
-  & > em
-    display: block
+.nav__drop
+  position: absolute
+  left: 0
+  top: 100%
+  background-color: white
+  border: 1px solid $border-color
+  padding: 2rem
+  width: $page-layout-min
+  opacity: 0
+  visibility: hidden
+  z-index: 10
+
+  li:hover > &
+    opacity: 1
+    visibility: visible
+
+  li
+    margin-bottom: 1rem
     font-size: 1.4rem
-    color: $text-color-light
+    line-height: 1.5
 
-  .no-touchevents &:hover
-    background-color: $base-color
+    &.has-drop > .nav__tab .nav__angle i
+      display: inline-block
+      vertical-align: top
+      +triangle(right, tomato, 5px, 2)
 
-    & > em
-      color: $bg-color
 
-.st-bg
-  fill: #e2e5e7
+  .nav__drop
+    top: 0
+    left: 100%
 
-.st-corner
-  fill: #b0b7bd
 
-.st-shadow
-  fill: #cad1d8
+/* === CONTENT ===
+.main
+  flex-shrink: 1
+  flex-grow: 1
+  position: relative
+  clear: both
+  z-index: 4
 
-.st-text
-  fill: #fff
-
-/* files links end
-
-/* feature list
-.feature-list
-  margin-bottom: $bottom-space--medium
-
-  &:last-child
-    margin-bottom: 0
-
-.feature-list__item
-  margin-bottom: $bottom-space
+.main__holder
+  width: 100%
   +clear
 
-  &:last-child
-    margin-bottom: 0
-
-.feature-list__img
+.content-wrap
   float: left
-  width: 25%
-  margin: 0.3em $bottom-space $bottom-space--small 0
+  width: 100%
 
-  +media("<mob-lg")
-    width: auto
-    float: none
+.content
+  margin: 0 200px 0 300px
+  min-height: 50px
+
+  background-color: whitesmoke
+
+  +media('<desk-lg')
     margin-right: 0
 
-.feature-list__content
+  +media('<tab-lg')
+    margin-left: 0
+
+
+/* === SIDEBAR ===
+.sidebar
+  display: inline
+  float: left
+  margin: 0 0 0 -100%
+  width: $sidebar-width
+
+  background-color: sandybrown
+
+  +media('<tab-lg')
+    display: none
+
+
+/* === ASIDE ===
+.aside
+  display: inline
+  float: right
+  margin: 0 0 0 -#{$aside-width}
+  width: $aside-width
+  background-color: sandybrown
+
+  +media('<desk-lg')
+    display: none
+
+
+/* === FOOTER ===
+.footer
+  //margin: 0 auto
+  position: relative
+  clear: both
+  z-index: 5
+  +font(16px, round-float(24/16, 3))
+  color: $text-color
+  border-top: 1px solid $border-color
+
+  background-color: lightgreen
+
+.footer__holder
+  overflow: hidden
+  cursor: default
+  padding: $footer-grid-space
+
+/* footer bottom
+.footer-bottom
+  position: relative
+  // обрезать вытянутый маржинами по горизонтале дочерний элемент
   overflow: hidden
 
-  h3, p
-    margin-bottom: $bottom-space--small
+.footer-bottom__holder
+  position: relative
+  display: flex
+  flex-wrap: wrap
+  +margin-horizontal(-#{round(nth($grid-space, 2)/2)})
+  margin-bottom: -#{round(nth($grid-space, 1)/2)}
 
-    &:last-child
-      margin-bottom: 0
+.footer-bottom__col
+  text-align: center
+  +padding-horizontal(round(nth($grid-space, 2)/2))
+  margin-bottom: #{round(nth($grid-space, 1)/2)}
+  // для браузеров не поддерживающих display: flex
+  display: inline-block
+  vertical-align: top
+  width: calc(33.33% - 5px)
 
-/* feature list end
+  +media('<mob-lg')
+    min-width: 100%
+
+  &:first-child
+    +media('>=mob-lg')
+      text-align: left
+
+  &:last-child
+    +media('>=mob-lg')
+      text-align: right
+
+  a
+    color: inherit
+    text-decoration: none
+
+    .no-touchevents &:hover
+      text-decoration: underline
+
+/* footer bottom end
+
+/* developer
+.developer
+  display: inline-block
+
+  a
+    text-decoration: none
+
+    .no-touchevents &:hover
+      text-decoration: none
+
+.developer__label
+  +media('<mob-lg')
+    display: block
+
+  i
+    +media('<mob-lg')
+      display: none
+
+.developer__logo
+  +display-inline-block-top
+  position: relative
+  top: 5px
+  padding-right: 3px
+  +size(154px, 20px)
+  text-align: left
+  text-indent: -9999px
+
+  &::before, &::after
+    +pseudo()
+    +position(0, 0)
+    +size(149px, 16px)
+
+  &::before
+    +pseudo()
+    +position(4px, 4px)
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTA2ODc1N0UwOEJDMTFFNzlCNzhBOUI2REQxMjc4QzgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTA2ODc1N0YwOEJDMTFFNzlCNzhBOUI2REQxMjc4QzgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MDY4NzU3QzA4QkMxMUU3OUI3OEE5QjZERDEyNzhDOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MDY4NzU3RDA4QkMxMUU3OUI3OEE5QjZERDEyNzhDOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnDruBQAAAAkSURBVHjaYmRgYPjPACL+/2cE0YwYAkAGA5jByPgfqwBAgAEAP4gP/bFMMZQAAAAASUVORK5CYII=')
+    background-size: 2px
+
+  //.no-touchevents a:hover
+    transform: translate(0, 1px)
+    filter: blur(2px)
+    opacity: 0.6
+
+  &::after
+    +pseudo()
+    background: #00ef85 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAAgBAMAAABa5liJAAAAMFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaPxwLAAAAD3RSTlMAd7tEIt0R7pkzzIhmqlV9QenDAAAD2klEQVRYw+2WPYsTURSGj5oEs0lMBkUUlMSUWkxwxNKsnV2ihWCVbGXpFwhWs6Io2GT0D2xQsM2KqGUEEUvFwjbxF7irO2ZMsh7PuRvP3Xuv2mhhkRd258zuvc/7bOaDhXnmmedvUi79S1rK2wcqp99XnyzSwVOhib4fBJWl98ciOuS9GsCuQzR5HNLY4akdW1ovDc6OvUCLPS7wPJ5lEKBU6FJJDiezI4Wa6qhCAny4AKwTIiZtgJ3YpLrPAICcNYAi7+ggAHyET7Udw22c4jrQYiQ1pJwFGTRQKnSpJI0xcAbxE+8e4R5Uq+HVajUCwCOHWyM6Qnn05BlWWGs60/K81lmPu7ELELJW+KF+wj8vHEPr5oEeLsuggVKhSyUrE+SzPbx+Fr8CHCwR9h1AFh9DpjdlrVhp6TXFeAPyMWudGfXvJovCMbRqkOp9kUGAUqGBOv3zuEqH3QRwtaB3GaAworqLMWklOLS0kgkUJgjshWQlHEsLGpsyaKCucLVaq4MmUOWvtfw1IiXqlolg57pfMbXq32NoXBMt4ThaC2MZNFAqXK0s1srf1KrSLz8tUn77HZhZIq1PXyyttTAqP+e646P+iyQSjq21M5ZBA6XC1cqNoDHhpzfcXHS18ryv/JVOMkor/dnW6iy3IqrL0C1/ctAUjq1FG2UQoFS4WukEFmIe3uDm0NK6daozbgMM1tTZO9LKY2RqNVdujIHrXsHb2p6hcGyt+lQGDZQKV2vlO+2NaEh1MH5palHu8OkWpUJamXDZ1Kqkx+ukJW954ZhaS2FXBg2UClerfxlSuKp4L9AUx3O9RJ3qTwvKG4ZWubIDN7ZpCcfQengU40gGDZQKV6v1jr6aoPIau+a9lVfCnS1KibUuJpZWiuj6aRGO9ZYf7QcZNFAqHK0sPg2CwTdQyfhTUwvKX7j7mzyJ9IQsmVrgv7S1mGNo7Q0iABk0UCocrRxyJrOzxrqldZEdPk1VQcRaKfQsLQBDSzhFhhZm7wWODAKUCkcrjZyxvAItrRyTLvHGdAysBZ2zrpavtTRngdctbLpaApQKV2uFxXO4CCpv7YuYQhoLOCSB6ZZWI96uNXC0hLObofWpqyVAqXC1+vxmy9JvC68A7ofXLS3obABtvNJewi5rcRtrBUHvUVD7udJfFp5wSOIR7ArPu1oClApHix9EStiFIlJGka3VSPiP5+vcZi1mb/9/y1+1iZrTx888uFoClAobkuWfK+GdIWK8H2ytAl+KrK8ebKUFvqFVsomas6eHeBt+pSVAqRCImyBow2+SCSL4c1wO76r9CTjPPPP8x/kBIrOdsjg4YcgAAAAASUVORK5CYII=') no-repeat center center
+    background-size: auto 16px
+
+    .no-touchevents a:hover &
+      transform: translate(0, -1px)
+
+/* developer end
+
+/* === MAIN ===

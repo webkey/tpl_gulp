@@ -51,11 +51,11 @@
       <div class="max-wrap layout">
         <div class="header__holder">
           <!--logo-->
-          <strong class="logo">
-            <a href="index.html" title="Project Name">Project Name</a>
-            <img style="display: none;" src="img/logo.png" alt="Project Name">
-          </strong>
-          <!--logo end-->
+          <div class="logo">
+            <a href="index.html" title="Перейти на главную">Project Name</a>
+            <img style="display: none;" src="img/logo.png" alt="Print version logotype">
+          </div>
+          <!--/logo-->
           <!--navigation-->
           <div class="nav-wrap">
             <nav class="nav">
@@ -244,7 +244,7 @@
               <!--(1) END nav FIRST level-->
             </nav>
           </div>
-          <!--navigation end-->
+          <!--/navigation-->
         </div>
       </div>
     </header>
@@ -259,67 +259,67 @@
               <div class="layout-article">
                 <style>
                   h3 + div {
-								border-bottom: 2px solid #ffa43f;
-								padding-top: 40px;
-								padding-bottom: 40px;
-							}
-							form > div:not(.input-wrap):not(.form-row):not(.form-footer){
-								padding-top: 40px;
-								padding-bottom: 40px;
-								border-top: 1px dashed #ffa43f;
-							}
-							form > div:not(.input-wrap):not(.form-row):not(.form-footer):first-child{
-								padding-top: 0;
-								border: none;
-							}
-							form > div:not(.input-wrap):not(.form-row):not(.form-footer):last-child{
-								padding-bottom: 0;
-							}
-							h3, h4{
-								position: relative;
-								padding-right: 40px !important;
-							}
-							h3{
-								margin-top: 3rem;
-							}
-							h3 label, h4 label{
-								position: absolute;
-								right: 0;
-								top: 50%;
-								display: block;
-								float: right;
-								width: 30px;
-								height: 30px;
-								border: 1px solid #000;
-								cursor: pointer;
-								margin: -15px 0 0;
-								-webkit-user-select: none;
-								-moz-user-select: none;
-								-ms-user-select: none;
-								user-select: none;
-							}
-							h3 label::before, h4 label::before{
-								content: "–";
-								position: relative;
-								display: block;
-								font-size: 24px;
-								line-height: 1;
-								text-align: center;
-								top: -1px;
-							}
-							.accordionOpener:checked + h3,
-							.accordionOpener:checked + h4{
-								margin-bottom: 0;
-							}
-							.accordionOpener:checked + h3 label::before,
-							.accordionOpener:checked + h4 label::before{
-								content: "+";
-							}
-							.accordionOpener:checked + h3 + div,
-							.accordionOpener:checked + h4 + div{
-								display: none;
-							}
-						</style>
+                border-bottom: 2px solid #ffa43f;
+                padding-top: 40px;
+                padding-bottom: 40px;
+              }
+              form > div:not(.input-wrap):not(.form-row):not(.form-footer){
+                padding-top: 40px;
+                padding-bottom: 40px;
+                border-top: 1px dashed #ffa43f;
+              }
+              form > div:not(.input-wrap):not(.form-row):not(.form-footer):first-child{
+                padding-top: 0;
+                border: none;
+              }
+              form > div:not(.input-wrap):not(.form-row):not(.form-footer):last-child{
+                padding-bottom: 0;
+              }
+              h3, h4{
+                position: relative;
+                padding-right: 40px !important;
+              }
+              h3{
+                margin-top: 3rem;
+              }
+              h3 label, h4 label{
+                position: absolute;
+                right: 0;
+                top: 50%;
+                display: block;
+                float: right;
+                width: 30px;
+                height: 30px;
+                border: 1px solid #000;
+                cursor: pointer;
+                margin: -15px 0 0;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+              }
+              h3 label::before, h4 label::before{
+                content: "–";
+                position: relative;
+                display: block;
+                font-size: 24px;
+                line-height: 1;
+                text-align: center;
+                top: -1px;
+              }
+              .accordionOpener:checked + h3,
+              .accordionOpener:checked + h4{
+                margin-bottom: 0;
+              }
+              .accordionOpener:checked + h3 label::before,
+              .accordionOpener:checked + h4 label::before{
+                content: "+";
+              }
+              .accordionOpener:checked + h3 + div,
+              .accordionOpener:checked + h4 + div{
+                display: none;
+              }
+            </style>
                 <h1>Forms</h1>
                 <!--===============forms default===============-->
                 <input type="checkbox" class="accordionOpener" id="0_01">
