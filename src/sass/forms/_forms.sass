@@ -150,7 +150,7 @@ input, textarea
     +placeholder
       color: $form-text-color--disabled
 
-  &:not([disabled]):not(.error):not(.success):not(.input--has-value)
+  &:not([disabled]):not(.error):not(.success):not(.filled)
     //form hover
     &:hover
       border-color: $form-border-color--focus
@@ -163,14 +163,14 @@ input, textarea
   // has value (js)
   //style for label
   @at-root label
-    &.input--has-value
+    &.filled
       +form-has-value
 
-  &.input--has-value:not([disabled])
+  &.filled:not([disabled])
     +form-has-value
 
   // on focus (js)
-  //&.input--focus
+  &.focused
     +form-on-focus
 
   //form success
@@ -201,7 +201,7 @@ input, textarea
 /* inputs states end
 
 @import checkboxes
-@import selects
+@import select
 @import select2
 @import validation
 @import captcha

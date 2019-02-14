@@ -72,7 +72,7 @@
     +placeholder
       color: $form-text-color--disabled
 
-  &:not([disabled]):not(.error):not(.success):not(.input--has-value)
+  &:not([disabled]):not(.error):not(.success):not(.filled)
     //form hover
     &:hover
       border-color: $form-border-color--focus
@@ -82,24 +82,14 @@
       border-color: $form-border-color--focus
 
   // has value (js)
-  //style for label
-  @at-root label
-    &.input--has-value
-      +form-has-value
-
-  &.input--has-value:not([disabled])
+  &.filled:not([disabled])
     +form-has-value
 
   // on focus (js)
-  //&.input--focus
+  &.focused
     +form-on-focus
 
   //form success
-  //style for label
-  @at-root label
-    &.success
-      +form-success
-
   &.success:not([disabled])
     +form-success
 
@@ -108,10 +98,6 @@
       color: $form-success-color
 
   //form error
-  @at-root label
-    &.error
-      +form-error
-
   &.error:not([disabled])
     +form-error
 

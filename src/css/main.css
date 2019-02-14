@@ -1831,21 +1831,21 @@ input[type="text"][disabled].placeholder, input[type="password"][disabled].place
   color: #bebebe;
 }
 
-input[type="text"]:not([disabled]):not(.error):not(.success):not(.input--has-value):hover, input[type="password"]:not([disabled]):not(.error):not(.success):not(.input--has-value):hover, input[type="email"]:not([disabled]):not(.error):not(.success):not(.input--has-value):hover, input[type="search"]:not([disabled]):not(.error):not(.success):not(.input--has-value):hover, textarea:not([disabled]):not(.error):not(.success):not(.input--has-value):hover {
+input[type="text"]:not([disabled]):not(.error):not(.success):not(.filled):hover, input[type="password"]:not([disabled]):not(.error):not(.success):not(.filled):hover, input[type="email"]:not([disabled]):not(.error):not(.success):not(.filled):hover, input[type="search"]:not([disabled]):not(.error):not(.success):not(.filled):hover, textarea:not([disabled]):not(.error):not(.success):not(.filled):hover {
   border-color: #a6a6a6;
 }
 
-input[type="text"]:not([disabled]):not(.error):not(.success):not(.input--has-value):focus, input[type="password"]:not([disabled]):not(.error):not(.success):not(.input--has-value):focus, input[type="email"]:not([disabled]):not(.error):not(.success):not(.input--has-value):focus, input[type="search"]:not([disabled]):not(.error):not(.success):not(.input--has-value):focus, textarea:not([disabled]):not(.error):not(.success):not(.input--has-value):focus {
+input[type="text"]:not([disabled]):not(.error):not(.success):not(.filled):focus, input[type="password"]:not([disabled]):not(.error):not(.success):not(.filled):focus, input[type="email"]:not([disabled]):not(.error):not(.success):not(.filled):focus, input[type="search"]:not([disabled]):not(.error):not(.success):not(.filled):focus, textarea:not([disabled]):not(.error):not(.success):not(.filled):focus {
   border-color: #a6a6a6;
   cursor: text;
 }
 
-label.input--has-value {
+label.filled {
   color: blueviolet;
   border-color: blueviolet;
 }
 
-input[type="text"].input--has-value:not([disabled]), input[type="password"].input--has-value:not([disabled]), input[type="email"].input--has-value:not([disabled]), input[type="search"].input--has-value:not([disabled]), textarea.input--has-value:not([disabled]) {
+input[type="text"].filled:not([disabled]), input[type="password"].filled:not([disabled]), input[type="email"].filled:not([disabled]), input[type="search"].filled:not([disabled]), textarea.filled:not([disabled]) {
   color: blueviolet;
   border-color: blueviolet;
 }
@@ -2311,20 +2311,20 @@ input[type="radio"]:disabled ~ i::after {
   color: #bebebe;
 }
 
-.user-content select:not([disabled]):not(.error):not(.success):not(.input--has-value):hover, .select:not([disabled]):not(.error):not(.success):not(.input--has-value):hover {
+.user-content select:not([disabled]):not(.error):not(.success):not(.filled):hover, .select:not([disabled]):not(.error):not(.success):not(.filled):hover {
   border-color: #a6a6a6;
 }
 
-.user-content select:not([disabled]):not(.error):not(.success):not(.input--has-value):focus, .select:not([disabled]):not(.error):not(.success):not(.input--has-value):focus {
+.user-content select:not([disabled]):not(.error):not(.success):not(.filled):focus, .select:not([disabled]):not(.error):not(.success):not(.filled):focus {
   border-color: #a6a6a6;
 }
 
-label.input--has-value {
+label.filled {
   color: blueviolet;
   border-color: blueviolet;
 }
 
-.user-content select.input--has-value:not([disabled]), .select.input--has-value:not([disabled]) {
+.user-content select.filled:not([disabled]), .select.filled:not([disabled]) {
   color: blueviolet;
   border-color: blueviolet;
 }
@@ -2571,7 +2571,7 @@ label.error {
   padding: 8px 18px;
 }
 
-.input--has-value + .select2 .select2-selection, .input--has-value + .select2 .select2-selection__rendered, .input--has-value + .select2 .select2-selection__placeholder {
+.filled + .select2 .select2-selection, .filled + .select2 .select2-selection__rendered, .filled + .select2 .select2-selection__placeholder {
   color: blueviolet;
   border-color: blueviolet;
 }
@@ -2586,7 +2586,7 @@ label.error {
   border-color: red;
 }
 
-.input--focus + .select2 .select2-selection, .input--focus + .select2 .select2-selection__rendered, .input--focus + .select2 .select2-selection__placeholder {
+.focused + .select2 .select2-selection, .focused + .select2 .select2-selection__rendered, .focused + .select2 .select2-selection__placeholder {
   border-color: #a6a6a6;
 }
 

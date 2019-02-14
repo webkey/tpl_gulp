@@ -45,7 +45,7 @@ function inputFocusClass() {
   if ($inputs.length) {
     var $fieldWrap = $('.input-wrap');
     var $selectWrap = $('.select');
-    var classFocus = 'input--focus';
+    var classFocus = 'focused';
 
     $inputs.focus(function () {
       var $currentField = $(this);
@@ -80,7 +80,7 @@ function inputHasValueClass() {
   if ($inputs.length) {
     var $fieldWrap = $('.input-wrap');
     var $selectWrap = $('.select');
-    var classHasValue = 'input--has-value';
+    var classHasValue = 'filled';
 
     $.each($inputs, function () {
       switchHasValue.call(this);
