@@ -1850,6 +1850,10 @@ input[type="text"].filled:not([disabled]), input[type="password"].filled:not([di
   border-color: blueviolet;
 }
 
+input[type="text"].focused, input[type="password"].focused, input[type="email"].focused, input[type="search"].focused, textarea.focused {
+  border-color: #a6a6a6;
+}
+
 label.success {
   color: lightseagreen;
   border-color: lightseagreen;
@@ -2319,19 +2323,13 @@ input[type="radio"]:disabled ~ i::after {
   border-color: #a6a6a6;
 }
 
-label.filled {
-  color: blueviolet;
-  border-color: blueviolet;
-}
-
 .user-content select.filled:not([disabled]), .select.filled:not([disabled]) {
   color: blueviolet;
   border-color: blueviolet;
 }
 
-label.success {
-  color: lightseagreen;
-  border-color: lightseagreen;
+.user-content select.focused, .select.focused {
+  border-color: #a6a6a6;
 }
 
 .user-content select.success:not([disabled]), .select.success:not([disabled]) {
@@ -2359,11 +2357,6 @@ label.success {
 
 .user-content select.success:not([disabled]).placeholder, .select.success:not([disabled]).placeholder {
   color: lightseagreen;
-}
-
-label.error {
-  color: red;
-  border-color: red;
 }
 
 .user-content select.error:not([disabled]), .select.error:not([disabled]) {
@@ -3550,14 +3543,15 @@ form .success + .select2 + .error-note + .success-note {
 
 /* logo */
 .logo {
-  position: relative;
   float: left;
-  background: url(../img/logo.png) no-repeat;
-  width: 220px;
-  height: 85px;
-  text-indent: -9999px;
+  position: relative;
   overflow: hidden;
+  width: 85px;
+  height: 85px;
   margin: 0 2rem 0 0;
+  background: url(../img/logo.svg) no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
   z-index: 5;
 }
 
