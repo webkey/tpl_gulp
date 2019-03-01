@@ -43,7 +43,9 @@ gulp.task('buildDistTpl', ['cleanDistTpl'], function () {
   gulp.src([
     '!src/__test-mixins.html',
     'src/__*.html',
-    'src/_tpl_*.html'
+    'src/_tpl_*.html',
+    'src/manifest.webmanifest',
+    'src/*.json'
   ]).pipe(gulp.dest('gulp-project-template/src'));
 
   gulp.src(['src/*.png', 'src/*.ico', 'src/.htaccess'])
