@@ -1,0 +1,24 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+// Form unit
+.form-unit
+  position: relative
+  margin-bottom: $form-bottom-space
+
+  .form-def, .form-radiocheck, .select2
+    margin-bottom: 0
+
+  .error-feedback,
+  .success-feedback
+    margin-top: 0
+    margin-bottom: -#{$validate-feedback-height} // Если предупреждение в одну строку, то оно не отодвигает поле ввода
+
+  select.has-arrow
+    & + .select-arrow
+      margin-top: -#{$form-input-height}
+      +font-size(0, 0)
+
+      +media('<mob')
+        margin-top: -#{$form-input-height}

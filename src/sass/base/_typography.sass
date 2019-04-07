@@ -6,7 +6,7 @@
 body
   *::selection
     background-color: $base-color
-    color: invert($base-color)
+    color: lighten(invert($base-color), 30%)
 
 // Заголовки
 h1, h2, h3, h4, h5, h6,
@@ -38,18 +38,21 @@ h3
   +font-h3
 
 h4
-  +font($font-size-h4, $line-height-h4)
+  +font-size($font-size-h4, $line-height-h4)
 
 h5
-  +font($font-size-h5, $line-height-h5)
+  +font-size($font-size-h5, $line-height-h5)
 
 h6
-  +font($font-size-h6, $line-height-h6)
+  +font-size($font-size-h6, $line-height-h6)
   text-transform: uppercase
 
 p
   padding: 0
   margin: 0 0 $bottom-space
+
+  &:last-child
+    margin-bottom: 0
 
 hr
   line-height: 1px
@@ -99,8 +102,11 @@ table
   width: auto
   margin-bottom: $bottom-space
 
+  &:last-child
+    margin-bottom: 0
+
   td, th
-    +font($font-size, $line-height)
+    +font-size($font-size, $line-height)
     color: inherit
     padding: 8px 15px
     border-color: $text-color
@@ -111,6 +117,9 @@ table
   max-width: 100%
   -webkit-overflow-scrolling: touch
   margin-bottom: $bottom-space
+
+  &:last-child
+    margin-bottom: 0
 
   table
     margin-bottom: 0
@@ -124,7 +133,7 @@ table
     color: $text-color
     background-color: $bg-color
     border: 0 solid $base-color
-    +font(1.4rem, 1.5)
+    +font-size(1.4rem, 1.5)
 
     &:first-child, &:first-child
       border-left-width: 1px
@@ -219,7 +228,7 @@ $columns-gap: 2em
 .user-spacer
   display: block
   height: $bottom-space * 3
-  +font(0, 0)
+  +font-size(0, 0)
   +clear
 
   +media('<desk-s')
@@ -313,13 +322,13 @@ $columns-gap: 2em
       margin: 0
       padding: 0 0 10px
       +font-normal
-      +font(round-float($font-size*1.25, 1), $line-height)
+      +font-size(round-float($font-size*1.25, 1), $line-height)
       color: $text-color
       text-align: center
 
       &::before, &::after
         +pseudo($pos: relative)
-        +font(4rem, 1)
+        +font-size(4rem, 1)
         text-align: left
 
       &::before
@@ -337,7 +346,7 @@ $columns-gap: 2em
       text-align: right
       display: block
       margin-left: auto
-      +font($font-size, $line-height)
+      +font-size($font-size, $line-height)
       color: $text-color-light
 
   // list
@@ -346,6 +355,9 @@ $columns-gap: 2em
     margin: 0 0 $bottom-space
     padding: 0
     list-style: none
+
+    &:last-child
+      margin-bottom: 0
   
     li
       padding-left: $list-space

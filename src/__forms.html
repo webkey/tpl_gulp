@@ -9,39 +9,44 @@
     <!--=== INCLUDE ===-->
     <h2>Templates @@include</h2>
 
-    <h3>Error and Success</h3>
-    <p>
-<pre>include("_tpl_forms_valid.html", {
-  "error": "Текст ошибки",
-  "success": "Текст успешной отправки"
-})</pre>
-    </p>
-
     <h3>Input</h3>
-    <p><pre>
+    <pre>
 include("_tpl_forms_input.html", {
-  "disabled": "false",
-  "id": "id",
   "label": "Label",
-  "placeholder": "Placeholder",
+  "id": "id",
+  "placeholder": "Some placeholder",
   "type": "text",
-  "value": "Has value"
-})
-    </pre></p>
+  "value": "Has value",
+  "disabled": "false"
+})</pre>
+    <pre>&lt;label for="id"&gt;Label: &lt;mark&gt;*&lt;/mark&gt;&lt;/label&gt;
+&lt;input class="form-def" id="id" name="id" type="text" placeholder="Some placeholder" required /&gt;</pre>
+    <br>
 
     <h3>Textarea</h3>
-    <p><pre>
+    <pre>
 include("_tpl_forms_textarea.html", {
-  "disabled": "false",
-  "id": "id",
   "label": "Label",
-  "placeholder": "Placeholder",
-  "value": "Has value"
-})
-    </pre></p>
-    <p>Если нужно проверить отображение с js, добавить в шаблоне класс <strong><code>field-js</code></strong></p>
-    <p>Для проверки отображения валидации, нажать кнопку <strong><code>VALIDATE</code></strong></p>
+  "id": "id",
+  "placeholder": "Some placeholder",
+  "value": "Has value",
+  "disabled": "false"
+})</pre>
+    <pre>&lt;label for="id"&gt;Label: &lt;mark&gt;*&lt;/mark&gt;&lt;/label&gt;
+&lt;textarea class="form-def" id="id" name="id" placeholder="Some placeholder" required&gt;&lt;/textarea&gt;</pre>
+    <br>
 
+    <h3>Error and Success feedback</h3>
+    <pre>include("_tpl_forms_valid.html", {
+  "error": "Error feedback",
+  "success": "Success feedback"
+})</pre>
+    <pre>&lt;span class="error-feedback"&gt;Error feedback&lt;/span&gt;
+&lt;span class="success-feedback"&gt;Success feedback&lt;/span&gt;</pre>
+    <br>
+
+    <p>Если нужно проверить отображение с js классами, добавить в шаблонах класс <strong><code>field-js</code></strong>, например <strong><code>class="form-def field-js"</code></strong><br>
+      Для проверки отображения валидации, нажать кнопку <strong><code>VALIDATE</code></strong></p>
     <hr>
 
 
@@ -54,7 +59,7 @@ include("_tpl_forms_textarea.html", {
       "label": "Default:",
       "id": "inputDefault"
       })
-      @@include("_tpl_forms_valid.html"})
+      @@include("_tpl_forms_valid.html")
 
       <!--=== Disabled ===-->
       @@include("_tpl_forms_input.html", {
@@ -62,7 +67,7 @@ include("_tpl_forms_textarea.html", {
       "id": "inputDisabled",
       "disabled": "true"
       })
-      @@include("_tpl_forms_valid.html"})
+      @@include("_tpl_forms_valid.html")
 
       <!--=== Value ===-->
       @@include("_tpl_forms_input.html", {
@@ -70,7 +75,7 @@ include("_tpl_forms_textarea.html", {
       "id": "inputValue",
       "value": "Has value"
       })
-      @@include("_tpl_forms_valid.html"})
+      @@include("_tpl_forms_valid.html")
 
       <!--=== Value and Disabled ===-->
       @@include("_tpl_forms_input.html", {
@@ -79,9 +84,9 @@ include("_tpl_forms_textarea.html", {
       "value": "Has value",
       "disabled": "true"
       })
-      @@include("_tpl_forms_valid.html"})
+      @@include("_tpl_forms_valid.html")
 
-      <!--=== === ===-->
+      <!--=== === ===--><br>
       @@include("_tpl_btn.html", {"type": "button!", "value": "VALIDATE"})
     </form>
     <br><br>
@@ -95,7 +100,7 @@ include("_tpl_forms_textarea.html", {
       "label": "Default:",
       "id": "textareaDefault"
       })
-      @@include("_tpl_forms_valid.html"})
+      @@include("_tpl_forms_valid.html")
 
       <!--=== Disabled ===-->
       @@include("_tpl_forms_textarea.html", {
@@ -103,7 +108,7 @@ include("_tpl_forms_textarea.html", {
       "id": "textareaDisabled",
       "disabled": "true"
       })
-      @@include("_tpl_forms_valid.html"})
+      @@include("_tpl_forms_valid.html")
 
       <!--=== Value ===-->
       @@include("_tpl_forms_textarea.html", {
@@ -111,7 +116,7 @@ include("_tpl_forms_textarea.html", {
       "id": "textareaValue",
       "value": "Has value"
       })
-      @@include("_tpl_forms_valid.html"})
+      @@include("_tpl_forms_valid.html")
 
       <!--=== Value and Disabled ===-->
       @@include("_tpl_forms_textarea.html", {
@@ -120,18 +125,317 @@ include("_tpl_forms_textarea.html", {
       "value": "Has value",
       "disabled": "true"
       })
-      @@include("_tpl_forms_valid.html"})
+      @@include("_tpl_forms_valid.html")
 
-      <!--=== === ===-->
+      <!--=== === ===--><br>
+      @@include("_tpl_btn.html", {"type": "button!", "value": "VALIDATE"})
+    </form>
+    <br><br>
+    <hr>
+
+
+    <!--=== CHECKBOXES & RADIO BUTTONS ===-->
+    <h2>Checkboxes and Radio buttons</h2>
+    <p>Чекбоксы и кнопки «radio»</p>
+
+    <!--=== CHECKBOXES ===-->
+    <h3>Checkboxes</h3>
+    <form action="#" class="form-validate-js">
+      <!--=== Long label ===-->
+      <label class="form-radiocheck">
+        <input type="checkbox" name="checkbox" />
+        <span>Отличный способ для выделения самого важного в тексте – использование контрастных шрифтов</span>
+      </label>
+      <br>
+      <!--=== Checked ===-->
+      <label class="form-radiocheck">
+        <input type="checkbox" name="checkbox" checked />
+        <span>Checked</span>
+      </label>
+      <br>
+      <!--=== Disabled ===-->
+      <label class="form-radiocheck">
+        <input type="checkbox" name="checkbox" disabled />
+        <span>Disabled</span>
+      </label>
+      <br>
+      <!--=== Checked and disabled ===-->
+      <label class="form-radiocheck">
+        <input type="checkbox" name="checkbox" checked disabled />
+        <span>Checked & Disabled</span>
+      </label>
+      <br>
+      <br>
+
+      <!--=== RADIO BUTTONS ===-->
+      <h3>Radio</h3>
+      <label class="form-radiocheck">
+        <input type="radio" name="testRadioInside" />
+        <span>Male</span>
+      </label>
+      <br>
+      <label class="form-radiocheck">
+        <input type="radio" name="testRadioInside" checked />
+        <span>Female</span>
+      </label>
+      <br>
+      <label class="form-radiocheck">
+        <input type="radio" name="testRadioInsideDisabled" disabled />
+        <span>Disabled</span>
+      </label>
+      <br>
+      <label class="form-radiocheck">
+        <input type="radio" name="testRadioInsideCheckedDisabled" checked disabled />
+        <span>Checked & Disabled</span>
+      </label>
+    </form>
+    <br><br>
+    <hr>
+
+
+    <!--=== SELECT ===-->
+    <h2>Select</h2>
+    <p>Поля выбора</p>
+
+    <!--=== DEFAULT SELECT ===-->
+    <h3>Default select</h3>
+    <pre>include("_tpl_forms_select.html", {
+  "label": "Label:",
+  "id": "id",
+  "disabled": "",
+  "selected": "" // В значении указать value нужного опшина
+})</pre>
+    <pre>&lt;label for="id"&gt;Label: &lt;mark&gt;*&lt;/mark&gt;&lt;/label&gt;
+&lt;select class="form-def" id="id" name="id" required&gt;
+  &lt;!--Important! The first element must have a value of ""--&gt;
+  {{options}}
+&lt;/select&gt;</pre>
+    <form action="#" class="form-validate-js">
+      <!--=== Default ===-->
+      @@include("_tpl_forms_select.html", {
+      "label": "Default:",
+      "id": "selectDefault"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Disabled ===-->
+      @@include("_tpl_forms_select.html", {
+      "label": "Disabled:",
+      "id": "selectDisabled",
+      "disabled": "true"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Selected ===-->
+      @@include("_tpl_forms_select.html", {
+      "label": "Selected:",
+      "id": "selectSelected",
+      "selected": "1"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Selected and Disabled ===-->
+      @@include("_tpl_forms_select.html", {
+      "label": "Selected and Disabled:",
+      "id": "selectSelectedDisabled",
+      "disabled": "true",
+      "selected": "1"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== === ===--><br>
       @@include("_tpl_btn.html", {"type": "button!", "value": "VALIDATE"})
     </form>
     <br><br>
 
+    <!--=== DEFAULT SELECT WITH CUSTOM ARROW ===-->
+    <h3>Default select with custom arrow</h3>
+    <pre>include("_tpl_forms_select.html", {
+  "label": "Label:",
+  "id": "id",
+  "disabled": "",
+  "selected": "", // В значении указать value нужного опшина
+  "arrow": "true"
+})</pre>
+    <pre>&lt;label for="id"&gt;Label: &lt;mark&gt;*&lt;/mark&gt;&lt;/label&gt;
+&lt;select class="form-def has-arrow" id="id" name="id" required&gt;
+  &lt;!--Important! The first element must have a value of ""--&gt;
+  {{options}}
+&lt;/select&gt;
+&lt;div class="select-arrow"&gt;@include("includes/svg/icon-angle.svg")&lt;/div&gt;</pre>
+    <form action="#" class="form-validate-js">
+      <!--=== Default ===-->
+      @@include("_tpl_forms_select.html", {
+      "label": "Default:",
+      "id": "selectArrowDefault",
+      "arrow": "true"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Disabled ===-->
+      @@include("_tpl_forms_select.html", {
+      "label": "Disabled:",
+      "id": "selectArrowDisabled",
+      "disabled": "true",
+      "arrow": "true"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Selected ===-->
+      @@include("_tpl_forms_select.html", {
+      "label": "Selected:",
+      "id": "selectArrowSelected",
+      "selected": "1",
+      "arrow": "true"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Selected and Disabled ===-->
+      @@include("_tpl_forms_select.html", {
+      "label": "Selected and Disabled:",
+      "id": "selectArrowSelectedDisabled",
+      "disabled": "true",
+      "selected": "1",
+      "arrow": "true"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== === ===--><br>
+      @@include("_tpl_btn.html", {"type": "button!", "value": "VALIDATE"})
+    </form>
+    <br><br>
+    <hr>
+
+    <!--=== SELECT 2 ===-->
+    <h3>Select 2</h3>
+    <pre>include("_tpl_forms_select.html", {
+  "label": "Label:",
+  "id": "id",
+  "disabled": "",
+  "selected": "", // В значении указать value нужного опшина
+  "arrow": "true"
+})</pre>
+    <pre>&lt;label for="id"&gt;Label: &lt;mark&gt;*&lt;/mark&gt;&lt;/label&gt;
+&lt;select class="form-def has-arrow" id="id" name="id" required&gt;
+  &lt;!--Important! The first element must have a value of ""--&gt;
+  {{options}}
+&lt;/select&gt;
+&lt;div class="select-arrow"&gt;@include("includes/svg/icon-angle.svg")&lt;/div&gt;</pre>
+    <form action="#" class="form-validate-js">
+      <!--=== Default ===-->
+      @@include("_tpl_forms_select2.html", {
+      "label": "Default:",
+      "id": "select2Default"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Disabled ===-->
+      @@include("_tpl_forms_select2.html", {
+      "label": "Disabled:",
+      "id": "select2Disabled",
+      "disabled": "true"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Default with placeholder ===-->
+      @@include("_tpl_forms_select2.html", {
+      "label": "Default with placeholder:",
+      "id": "select2DefaultWithPlaceholder",
+      "placeholder": "- Placeholder -"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Disabled with placeholder ===-->
+      @@include("_tpl_forms_select2.html", {
+      "label": "Disabled with placeholder:",
+      "id": "select2DisabledWithPlaceholder",
+      "placeholder": "- Placeholder -",
+      "disabled": "true"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Selected ===-->
+      @@include("_tpl_forms_select2.html", {
+      "label": "Selected:",
+      "id": "select2Selected",
+      "selected": "1"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== Selected and Disabled ===-->
+      @@include("_tpl_forms_select2.html", {
+      "label": "Selected and Disabled:",
+      "id": "select2SelectedDisabled",
+      "disabled": "true",
+      "selected": "1"
+      })
+      @@include("_tpl_forms_valid.html")
+
+      <!--=== === ===--><br>
+      @@include("_tpl_btn.html", {"type": "button!", "value": "VALIDATE"})
+    </form>
+    <br><br>
+    <hr>
+
+
+    <!--=== FORM UNIT ===-->
+    <h2>Form unit</h2>
+    <p>Котейнер объединяющий элементы относящиеся к одному <strong>полю ввода</strong>, <strong>селекту</strong>, или <strong>переключателю</strong>.<br>
+    Используется для более правильного расположения элементов форм относительно друг друга.</p>
+    <pre>&lt;div class="form-unit"&gt;
+  {{input}} / {{select}} / {{radiocheck}}
+&lt;/div&gt;</pre>
+    <form action="#" class="form-validate-js">
+      <div class="form-unit">
+        @@include("_tpl_forms_input.html", {
+        "label": "Input:",
+        "id": "unitInputDefault"
+        })
+        @@include("_tpl_forms_valid.html")
+      </div>
+      <div class="form-unit">
+        @@include("_tpl_forms_select.html", {
+        "label": "Default select:",
+        "id": "unitSelectDefault"
+        })
+        @@include("_tpl_forms_valid.html")
+      </div>
+      <div class="form-unit">
+        @@include("_tpl_forms_select.html", {
+        "label": "Default select with custom arrow:",
+        "id": "unitSelectArrowDefault",
+        "arrow": "true"
+        })
+        @@include("_tpl_forms_valid.html")
+      </div>
+
+      <!--=== === ===--><br>
+      @@include("_tpl_btn.html", {"type": "button!", "value": "VALIDATE"})
+    </form>
+    <br><br>
     <hr>
 
 
     <!--=== FORM GROUP ===-->
     <h2>Group</h2>
+    <pre>&lt;div class="form-group"&gt;
+  &lt;div class="form-group__item"&gt;
+    {{input}}
+  &lt;/div&gt;
+  &lt;div class="form-group__item"&gt;
+    {{input}}
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+  &lt;div class="form-group__item"&gt;
+    {{input}}
+  &lt;/div&gt;
+  &lt;div class="form-group__item"&gt;
+    {{input}}
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+    <br>
+
     <form action="#" class="form-validate-js">
       <div class="form-group">
         <div class="form-group__item">
@@ -139,14 +443,14 @@ include("_tpl_forms_textarea.html", {
           "label": "First:",
           "id": "inputGroupFirst"
           })
-          @@include("_tpl_forms_valid.html"})
+          @@include("_tpl_forms_valid.html")
         </div>
         <div class="form-group__item">
           @@include("_tpl_forms_input.html", {
           "label": "Two:",
           "id": "inputGroupTwo"
           })
-          @@include("_tpl_forms_valid.html"})
+          @@include("_tpl_forms_valid.html")
         </div>
       </div>
       <div class="form-group">
@@ -155,78 +459,23 @@ include("_tpl_forms_textarea.html", {
           "label": "Three:",
           "id": "inputGroupThree"
           })
-          @@include("_tpl_forms_valid.html"})
+          @@include("_tpl_forms_valid.html")
         </div>
         <div class="form-group__item">
           @@include("_tpl_forms_input.html", {
           "label": "Four:",
           "id": "inputGroupFour"
           })
-          @@include("_tpl_forms_valid.html"})
+          @@include("_tpl_forms_valid.html")
         </div>
       </div>
 
-      <!--=== === ===-->
+      <!--=== === ===--><br>
       @@include("_tpl_btn.html", {"type": "button!", "value": "VALIDATE"})
     </form>
     <br><br>
 
     <hr>
-
-
-    <!--=== CHECKBOXES & RADIO BUTTONS ===-->
-    <h2>Checkboxes and Radio buttons</h2>
-
-    <!--=== CHECKBOXES ===-->
-    <h3>Checkboxes</h3>
-    <!--=== Long label ===-->
-    <label class="form-custom">
-      <input type="checkbox" name="checkbox" />
-      <span>Отличный способ для выделения самого важного в тексте – использование контрастных шрифтов</span>
-    </label>
-    <br>
-    <!--=== Checked ===-->
-    <label class="form-custom">
-      <input type="checkbox" name="checkbox" checked />
-      <span>Checked</span>
-    </label>
-    <br>
-    <!--=== Disabled ===-->
-    <label class="form-custom">
-      <input type="checkbox" name="checkbox" disabled />
-      <span>Disabled</span>
-    </label>
-    <br>
-    <!--=== Checked and disabled ===-->
-    <label class="form-custom">
-      <input type="checkbox" name="checkbox" checked disabled />
-      <span>Checked & Disabled</span>
-    </label>
-    <br>
-    <br>
-
-    <!--=== RADIO BUTTONS ===-->
-    <h3>Radio</h3>
-    <label class="form-custom">
-      <input type="radio" name="testRadioInside" />
-      <span>Male</span>
-    </label>
-    <br>
-    <label class="form-custom">
-      <input type="radio" name="testRadioInside" checked />
-      <span>Female</span>
-    </label>
-    <br>
-    <label class="form-custom">
-      <input type="radio" name="testRadioInsideDisabled" disabled />
-      <span>Disabled</span>
-    </label>
-    <br>
-    <label class="form-custom">
-      <input type="radio" name="testRadioInsideCheckedDisabled" checked disabled />
-      <span>Checked & Disabled</span>
-    </label>
-    <br>
   </div>
 </main>
 

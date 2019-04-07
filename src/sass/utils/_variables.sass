@@ -214,11 +214,19 @@ $grid-space: 2.8rem 3rem !default
 
 // Buttons
 // ==========================================================================
-$btn-height: 50px !default
+$btn-height: 5rem !default
 $btn-bg-color: $base-color !default
-$btn-bg-hover-color: darken($btn-bg-color, 20%) !default
+$btn-bg-hover-color: invert($base-color) !default
 $btn-text-color: white !default
 $btn-disabled-color: #ccc !default
+
+=btn-disabled()
+  cursor: default !important
+  color: white !important
+  border-color: $btn-disabled-color !important
+  background-color: $btn-disabled-color !important
+  box-shadow: none !important
+  pointer-events: none
 
 
 // Forms
@@ -267,7 +275,7 @@ $form-input-space-vb: ceil(($form-input-height - $form-line-height - $form-borde
 // нижний паддинг округляем в верхнюю сторону
 $form-input-space-h: 18px !default
 $form-bottom-space: 3rem !default
-$form-bottom-space--mob: 2rem !default
+$form-bottom-space--mob: 3rem !default
 
 // Vertical spaces
 =forms-space()
@@ -282,9 +290,11 @@ $checkbox-color: #ff3aa3 !default
 
 // Select
 $select-space-v: 12px !default
-$select-arrow-width: 40px !default
-$select-arrow-height: 100% !default
 $multiple-item-space: 3px !default
+
+// Select custom arrow
+$select-arrow-width: 40px !default
+$select-arrow-height: $form-input-height !default
 
 // Style Selection
 =selectSelection()
@@ -307,13 +317,20 @@ $multiple-item-space: 3px !default
   color: $form-error-color
   border-color: $form-error-color
 
-=form-has-value()
+=filled()
   color: blueviolet
   border-color: blueviolet
 
-=form-on-focus()
+=focused()
   //color: $form-border-focus-color
   border-color: $form-border-color--focus
+
+
+// Form validate feedback
+// ==========================================================================
+$validate-feedback-font-size: 1.2rem
+$validate-feedback-line-height: 1.6rem
+$validate-feedback-height: 2.2rem // Высота предупреждения, если оно занимает одну строку
 
 
 // Animation

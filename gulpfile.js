@@ -64,7 +64,7 @@ gulp.task('htmlCompilation', function () {
  */
 gulp.task('html:buildAllPages', ['htmlCompilation'], function () {
   var pref = "all-pages";
-  return gulp.src(['!src/__*.html', '!src/_tpl_*.html', '!src/_temp_*.html', './src/*.html'])
+  return gulp.src(['!src/all-pages.html', '!src/forms.html', '!src/__*.html', '!src/_tpl_*.html', '!src/_temp_*.html', './src/*.html'])
       .pipe(index({
         // written out before index contents
         'prepend-to-output': () => `<head> <title>All pages</title><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0"><link rel="shortcut icon" href="favicon.ico"></head><body>`,
@@ -153,10 +153,8 @@ gulp.task('createCustomModernizr', function (done) {
  */
 gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () {
   return gulp.src([
-    // 'src/libs/device.js/lib/device.min.js' // определение устройств
     'src/libs/jquery-smartresize/jquery.debouncedresize.js' // "умный" ресайз
     , 'src/libs/jquery-placeholder/jquery.placeholder.min.js' // поддержка плейсхолдера в старых браузерах
-    // , 'src/libs/jquery-form/dist/jquery.form.min.js' // jquery form для работы с ajax
     , 'src/libs/jquery-validation/dist/jquery.validate.min.js' // валидация форм
     , 'src/libs/select2/dist/js/select2.full.min.js' // кастомный селект
     , 'src/libs/select2/dist/js/i18n/ru.js' // локализация для кастомного селекта
@@ -288,7 +286,7 @@ gulp.task('buildDist', ['cleanDist', 'html:buildAllPages', 'copyImgToDist', 'sas
   gulp.src('src/assets/**/*')
       .pipe(gulp.dest(path.dist + '/assets'));
 
-  gulp.src(['!src/__*.html', '!src/_tpl_*.html', '!src/_temp_*.html', 'src/*.html'])
+  gulp.src(['!src/__*.html', '!src/forms.html', '!src/_tpl_*.html', '!src/_temp_*.html', 'src/*.html'])
       .pipe(revts()) // Добавить версии подключаемых файлов. В html добавить ключ ?rev=@@hash в место добавления версии
       .pipe(gulp.dest(path.dist));
 

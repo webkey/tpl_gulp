@@ -5,13 +5,13 @@
 .error-feedback, .success-feedback
   float: left
   position: relative
-  +size(100%, 22px)
-  +font(12px, 22px)
-  letter-spacing: normal
-  // Важно!
-  +truncate(none)
-  display: none
+  width: 100%
+  $space: round-float(($validate-feedback-height - $validate-feedback-line-height) / 2, 1)
   margin-top: -#{$form-bottom-space}
+  padding: #{$space} 0
+  +font-size($validate-feedback-font-size, $validate-feedback-line-height)
+  letter-spacing: normal
+  display: none
 
   +media('<mob')
     margin-top: -#{$form-bottom-space--mob}
@@ -19,21 +19,25 @@
 .error-feedback
   color: $form-error-color
 
-  // нужно выбрать только ближайший элемент ошибки формы (нельзя использовать ~)
+  // Нужно выбрать только ближайший элемент ошибки формы (нельзя использовать ~)
   form .error + &,
   form .error + .select2 + &,
+  form .error + .select-arrow + &,
   form .success + .success-feedback + &,
-  form .success + .select2 + .success-feedback + &
+  form .success + .select2 + .success-feedback + &,
+  form .success + .select-arrow + .success-feedback + &
     display: block
 
 .success-feedback
   color: $form-success-color
 
-  // нужно выбрать только ближайший элемент подтверждения формы ((нельзя использовать ~))
+  // Нужно выбрать только ближайший элемент подтверждения формы (нельзя использовать ~)
   form .success + &,
   form .success + .select2 + &,
+  form .success + .select-arrow + &,
   form .success + .error-feedback + &,
-  form .success + .select2 + .error-feedback + &
+  form .success + .select2 + .error-feedback + &,
+  form .success + .select-arrow + .error-feedback + &
     display: block
 
 // Если поддтверждение в виде галочки
@@ -50,7 +54,7 @@
 	margin-top: -#{$form-bottom-space}
 	margin-left: 4px
 	+size($this-icon-size)
-	+font(0, 0)
+	+font-size(0, 0)
 	letter-spacing: 0
 	backface-visibility: hidden
 	//z-index: -1

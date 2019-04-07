@@ -6,7 +6,7 @@
 .select2
   +forms-space
 
-  .input-wrap &, &:last-child
+  &:last-child
     margin-bottom: 0
 
 .select2-container--default .select2-selection
@@ -132,7 +132,7 @@
 
 .select2-results__options
   +font-normal
-  +font($form-font-size, $form-line-height)
+  +font-size($form-font-size, $form-line-height)
 
 .select2-results__option
   padding: 8px $form-input-space-h
@@ -142,7 +142,7 @@
   .select2-selection, .select2-selection__rendered, .select2-selection__placeholder
 
     .filled + &
-      +form-has-value
+      +filled
 
     .success + &
       +form-success
@@ -151,7 +151,7 @@
       +form-error
 
     .focused + &
-      +form-on-focus
+      +focused
 
   .select2-search__field
     .success + &

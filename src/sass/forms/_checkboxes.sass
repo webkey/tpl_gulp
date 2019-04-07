@@ -8,7 +8,7 @@ $checkbox-check-size: 6px 10px !default
 $radio-check-size: 10px !default
 $checkbox-color: #d8d8d8 !default
 
-.form-custom
+.form-radiocheck
   display: inline-block
   vertical-align: top
   margin-bottom: 0
@@ -68,7 +68,7 @@ $checkbox-color: #d8d8d8 !default
       will-change: $prop
       transition: transform cubic-bezier(0.45, -1.1, 0.45, 2.1) 0.22s, opacity ease-in-out 0.2s
 
-.form-custom
+.form-radiocheck
   input[type="checkbox"]
     & ~ span
       &::before
@@ -106,7 +106,7 @@ $checkbox-color: #d8d8d8 !default
           transform: rotate($rotate) scale($scale)
           transform: rotate($rotate) scale3d($scale, 1)
 
-.form-custom
+.form-radiocheck
   input[type="radio"]
     & ~ span
       &::before

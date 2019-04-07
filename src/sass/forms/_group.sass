@@ -3,13 +3,9 @@
 @import ../../libs/include-media/dist/include-media
 
 // Form group elements
-.input-wrap
-  margin-bottom: $form-bottom-space
-
 $form-group-cols: 2
 $form-group-gap: 4rem
 $form-group-gap-half: round-float($form-group-gap / 2, 1)
-@debug $form-group-gap
 .form-group
   display: flex
   flex-wrap: wrap
@@ -37,12 +33,10 @@ $form-group-gap-half: round-float($form-group-gap / 2, 1)
     max-width: none
     margin-bottom: $form-bottom-space
 
-  .form-def
+  .form-def, .form-radiocheck, .select2
     margin-bottom: 0
 
   .error-feedback,
   .success-feedback
-    float: none
-    position: absolute
-    top: 100%
     margin-top: 0
+    margin-bottom: -#{$validate-feedback-height} // Если предупреждение в одну строку, то оно не отодвигает поле ввода

@@ -32,10 +32,6 @@
   &:last-child
     margin-bottom: 0
 
-.input-wrap
-  select, .select
-    margin-bottom: 0
-
 // Select with a custom arrow
 .select
   position: relative
@@ -83,11 +79,11 @@
 
   // has value (js)
   &.filled:not([disabled])
-    +form-has-value
+    +filled
 
   // on focus (js)
   &.focused
-    +form-on-focus
+    +focused
 
   //form success
   &.success:not([disabled])
@@ -104,3 +100,24 @@
     //form error placeholder
     +placeholder
       color: $form-error-color
+
+// Select has custom arrow
+select.has-arrow
+  appearance: none
+
+  &::-ms-expand
+    display: none
+
+  & + .select-arrow
+    float: right
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    height: $form-input-height
+    width: $select-arrow-width
+    margin-top: calc(-#{$form-bottom-space} - #{$form-input-height})
+    +font-size(0, 0)
+
+    +media('<mob')
+      margin-top: calc(-#{$form-bottom-space--mob} - #{$form-input-height})
