@@ -36,12 +36,12 @@
     float: left
     margin-right: 30px
 
-    +media('<mob-lg')
+    +media('<mob')
       float: none
       margin: 0
 
     [class*="btn-"]
-      +media('<mob-lg')
+      +media('<mob')
         display: block
         width: 100%
         margin-top: $bottom-space--small
@@ -65,7 +65,7 @@
     display: inline-block
     vertical-align: middle
     width: calc(100% - 6px)
-    +font($font-size--small, $line-height--small)
+    +font($font-size, $line-height)
     letter-spacing: $letter-spacing
 
 /* user form end

@@ -4,7 +4,7 @@
 
 /* feature list
 .feature-list
-  margin-bottom: $bottom-space--medium
+  margin-bottom: $bottom-space * 2
 
   &:last-child
     margin-bottom: 0
@@ -19,9 +19,9 @@
 .feature-list__img
   float: left
   width: 25%
-  margin: 0.3em $bottom-space $bottom-space--small 0
+  margin: 0.3em $bottom-space #{round-float($bottom-space * 0.5, 1)} 0
 
-  +media("<mob-lg")
+  +media("<mob")
     width: auto
     float: none
     margin-right: 0
@@ -30,7 +30,7 @@
   overflow: hidden
 
   h3, p
-    margin-bottom: $bottom-space--small
+    margin-bottom: #{round-float($bottom-space * 0.5, 1)}
 
     &:last-child
       margin-bottom: 0

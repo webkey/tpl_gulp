@@ -6,8 +6,8 @@
 // ==========================================================================
 
 // Medium query
-//$breakpoints: ('mob-sm': 320px, 'mob-md': 480px, 'mob-lg': 640px, 'tab-sm': 768px, 'tab-lg': 992px, 'desk-sm': 1200px, 'desk-md': 1366px, 'desk-lg': 1600px, 'desk-hd': 1920px)
-$breakpoints: ('desk-qhd': 2560px, 'desk-hd': 1920px, 'desk-lg': 1600px, 'desk-ml': 1440px, 'desk-md': 1366px, 'desk-sm': 1200px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-sm': 320px)
+$breakpoints: ("desk-l": 2560px, "desk": 1920px, "desk-s": 1600px, "lap-l": 1440px, "lap": 1366px, "lap-s": 1280px, "net": 1200px, "tab": 992px, "tab-s": 768px, "mob": 640px, "mob-s": 480px, "mob-xs": 375px, "mob-xxs": 360px)
+
 
 // Fonts style
 // ==========================================================================
@@ -15,11 +15,6 @@ $font-norm: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Ar
 $font-alt: Georgia, serif !default
 
 // Reset font-weight and font-style
-// Use for font-face
-=font-reset()
-  font:
-    weight: normal
-    style: normal
 
 // Main font
 =font-normal()
@@ -52,179 +47,173 @@ $font-alt: Georgia, serif !default
 // ==========================================================================
 
 $font-size: 1.6rem !default
-$line-height: round-float(2.4rem/$font-size, 2) !default
-// ----------------------------------------------------
-$font-size--small: 1.4rem !default
-$line-height--small: round-float(2.4rem/$font-size--small, 2) !default
-// ----------------------------------------------------
-$font-size--smallest: 1.2rem !default
-$line-height--smallest: round-float(2.0rem/$font-size--smallest, 2) !default
-// ----------------------------------------------------
+$line-height: 2.4rem !default
 $letter-spacing: normal !default
 
 // Heading h1
-$font-size-h1: 4.8rem !default
-$line-height-h1: round-float(6.0rem/$font-size-h1, 2) !default
+$font-size-h1: 4.2rem !default
+$line-height-h1: 5.2rem !default
+$line-height-h1-kef: $line-height-h1 / $font-size-h1
 // ----------------------------------------------------
-$font-size-h1--md: 3.6rem !default
-$line-height-h1--md: round-float(4.8rem/$font-size-h1--md, 2) !default
+$font-size-h1--tab: 3.4rem !default
+$line-height-h1--tab: round-float($font-size-h1--tab * $line-height-h1-kef, 1) !default // Использовать рассчетное значение, если нет в дизайне
 // ----------------------------------------------------
-$font-size-h1--sm: 3.0rem !default
-$line-height-h1--sm: round-float(4.2rem/$font-size-h1--sm, 2) !default
+$font-size-h1--mob: 3.0rem !default
+$line-height-h1--mob: round-float($font-size-h1--mob * $line-height-h1-kef, 1) !default // Использовать рассчетное значение, если нет в дизайне
 // ----------------------------------------------------
 =font-h1()
   font-size: $font-size-h1
   line-height: $line-height-h1
 
-  +media('<tab-lg')
-    font-size: $font-size-h1--md
-    line-height: $line-height-h1--md
+  +media('<tab')
+    font-size: $font-size-h1--tab
+    line-height: $line-height-h1--tab
 
-  +media('<mob-lg')
-    font-size: $font-size-h1--sm
-    line-height: $line-height-h1--sm
+  +media('<mob')
+    font-size: $font-size-h1--mob
+    line-height: $line-height-h1--mob
 
 // Heading h2
-$font-size-h2: round-float($font-size-h1*3.6rem/4.8rem, 1) !default
-$line-height-h2: round-float(4.8rem/3.6rem, 2) !default
+$font-size-h2: 3.0rem !default
+$line-height-h2: 4.2rem !default
+$line-height-h2-kef: $line-height-h2 / $font-size-h2
 // ----------------------------------------------------
-$font-size-h2--md: round-float($font-size-h1--md*0.84, 1) !default
-$line-height-h2--md: round-float(($line-height-h1--md*1.02), 2) !default
+$font-size-h2--tab: 2.8rem !default
+$line-height-h2--tab: round-float($font-size-h2--tab * $line-height-h2-kef, 1) !default // Использовать рассчетное значение, если нет в дизайне
 // ----------------------------------------------------
-$font-size-h2--sm: round-float($font-size-h1--sm*0.87, 1) !default
-$line-height-h2--sm: round-float(($line-height-h1--sm*1.01), 2) !default
+$font-size-h2--mob: 2.4rem !default
+$line-height-h2--mob: round-float($font-size-h2--mob * $line-height-h2-kef, 1) !default // Использовать рассчетное значение, если нет в дизайне
 // ----------------------------------------------------
 =font-h2()
   font-size: $font-size-h2
   line-height: $line-height-h2
 
-  +media('<tab-lg')
-    font-size: $font-size-h2--md
-    line-height: $line-height-h2--md
+  +media('<tab')
+    font-size: $font-size-h2--tab
+    line-height: $line-height-h2--tab
 
-  +media('<mob-lg')
-    font-size: $font-size-h2--sm
-    line-height: $line-height-h2--sm
+  +media('<mob')
+    font-size: $font-size-h2--mob
+    line-height: $line-height-h2--mob
 
 // Heading h3
-$font-size-h3: round-float($font-size-h1*2.4rem/4.8rem, 1) !default
-$line-height-h3: round-float(3.6rem/2.4rem, 2) !default
+$font-size-h3: 2.4rem !default
+$line-height-h3: 3.0rem !default
+$line-height-h3-kef: $line-height-h3 / $font-size-h3
 // ----------------------------------------------------
-$font-size-h3--sm: round-float($font-size-h1--sm*0.73, 1) !default
-$line-height-h3--sm: round-float(($line-height-h1--sm*1.05), 2) !default
+$font-size-h3--tab: 2.2rem !default
+$line-height-h3--tab: round-float($font-size-h3--tab * $line-height-h3-kef, 1) !default // Использовать рассчетное значение, если нет в дизайне
+// ----------------------------------------------------
+$font-size-h3--mob: 1.8rem !default
+$line-height-h3--mob: round-float($font-size-h3--mob * $line-height-h3-kef, 1) !default // Использовать рассчетное значение, если нет в дизайне
+
 // ----------------------------------------------------
 =font-h3()
   font-size: $font-size-h3
   line-height: $line-height-h3
 
-  +media('<mob-lg')
-    font-size: $font-size-h3--sm
-    line-height: $line-height-h3--sm
+  +media('<tab')
+    font-size: $font-size-h3--tab
+    line-height: $line-height-h3--tab
+
+  +media('<mob')
+    font-size: $font-size-h3--mob
+    line-height: $line-height-h3--mob
 
 // Heading h4
-$font-size-h4: round-float($font-size-h1*1.8rem/4.8rem, 1) !default
-$line-height-h4: round-float(3.0rem/1.8rem, 2) !default
+$font-size-h4: $font-size !default
+$line-height-h4: $line-height !default
 
 // Heading h5
 $font-size-h5: $font-size !default
 $line-height-h5: $line-height !default
 
 // Heading h6
-$font-size-h6: round-float($font-size*0.75, 1) !default
-$line-height-h6: round-float($line-height*1.25, 2) !default
+$font-size-h6: $font-size !default
+$line-height-h6: $line-height !default
 
 // Spaces
-$bottom-space: round-float($font-size*$line-height, 1) !default
-$bottom-space--large: round-float($font-size*$line-height*3, 1) !default
-$bottom-space--medium: round-float($font-size*$line-height*2.0, 1) !default
-$bottom-space--middle: round-float($font-size*$line-height*1.5, 1) !default
-$bottom-space--small: round-float($font-size*$line-height*0.75, 1) !default
+$bottom-space: $line-height !default
+$bottom-space--large: $line-height * 3 !default
+$bottom-space--small: round-float($line-height*0.75, 1) !default
 
 
 // Colors
 // ==========================================================================
 
 // Color of brands
-$base-color: #ffa43f !default
-$base-color-alt: lightskyblue !default
+$base-color: #ee6e73 !default
+$base-color-alt: invert($base-color) !default
 // ----------------------------------------------------
-$bg-color: #e5e5e5 !default
+$bg-color: #fff !default
 $bg-color-alt: #f3f3f3 !default
 // ----------------------------------------------------
 $text-color: #262626 !default
-$text-color-light: gray !default
-$title-color: black !default
+$text-color-muted: #6c757d !default
+$text-color-light: #ccc !default
 // ----------------------------------------------------
-$link-color: blue !default
+$title-color: #ee6e73 !default
+// ----------------------------------------------------
+$link-color: #007bff !default
+$focus-color: #0080ff !default
 // ----------------------------------------------------
 $border-color: lightgray !default
 // ----------------------------------------------------
-$mark-color: tomato !default
+$mark-color: #fd0cff !default
+// ----------------------------------------------------
+$success-color: #28a745 !default
+$error-color: #dc3545 !default
+$info-color: #17a2b8 !default
+$warning-color: #ffc107 !default
+$light-color: #f8f9fa !default
+$dark-color: #343a40 !default
 
 
-// Class of typography styles
+// Class for article page / article content / typography
 // ==========================================================================
 // @example Sass - Использование
-// .#{$user-content}
+// .#{$article-content}
 //
 // @example css - Вывод CSS
-// .user-content
-$user-content: user-content !default
+// .article-content
+$article-content: article-content !default
 
 
 // Layout
 // ==========================================================================
 
-// минимальная ширина сайта
-$page-layout-min: 320px !default
-// отступы для всего сайта
-$page-layout-space: 18px 20px !default
-// v h
-// максимальная ширина сайта
-$page-layout-width: 1920px !default
-// минимальные отступы у текствого блока
-$text-layout-space: 50px 60px !default
-// v h
-$text-layout-space--md: 25px 30px !default
-// v h
-$text-layout-space--sm: 13px 15px !default
-// v h
-$text-layout-space--mob: 8px 10px !default
-// v h
-// максимальная ширина текстового блока
-$text-layout-width: 800px !default
-// максимальная ширина текстового блока выходящего за пределы текста
-$flood-layout-width: 1000px !default
-// отступы внутри блочных элементов
-$grid-space: 28px 30px !default
-// v h
-$grid-space--lg: 18px 20px !default
-// v h
-$grid-space--sm: 8px 10px !default
-// v h
-// отступы в дефолтных списках
-$list-space: 30px
+// Минимальная ширина сайта
+$layout-page-min-width: 32rem !default
+// Максимальная ширина сайта
+$layout-page-max-width: 192rem !default
+// Отступы для всего сайта
+$layout-page-space: 3rem 5rem !default
+
+// ---------------------------------------
+// Максимальная ширина текстового блока
+$layout-text-width: 80rem !default
+// Отступы у текствого блока
+$layout-text-space: 2rem 3rem !default
+
+// ---------------------------------------
+// Максимальная ширина элементов выходящих за пределы текста
+$layout-flood-width: 110rem !default
+
+// ---------------------------------------
+// Внутренние отступы
+$grid-space: 2.8rem 3rem !default
 
 
-// Sidebar
+// Header
 // ==========================================================================
-$sidebar-width: 260px !default
-
-
-// Aside
-// ==========================================================================
-$aside-width: 160px !default
 
 
 // Footer
 // ==========================================================================
-$footer-grid-space: 30px 0 !default
-// v h
 
 
 // Buttons
 // ==========================================================================
-
 $btn-height: 50px !default
 $btn-bg-color: $base-color !default
 $btn-bg-hover-color: darken($btn-bg-color, 20%) !default
@@ -235,21 +224,18 @@ $btn-disabled-color: #ccc !default
 // Forms
 // ==========================================================================
 
-// List of inputs
-$inputs-list: 'input[type="text"]', 'input[type="password"]', 'input[type="email"]', 'input[type="search"]', 'textarea'
-
 // Colors of forms
 $form-text-color: $text-color !default
 $form-placeholder-color: lighten($form-text-color, 65%) !default
 $form-bg-color: white !default
 $form-border-color: lighten($form-text-color, 70%) !default
 // validation
-$form-error-color: red !default
-$form-success-color: lightseagreen !default
+$form-error-color: $error-color !default
+$form-success-color: $success-color !default
 // disabled
-$form-text-color--disabled: rgb(190, 190, 190) !default
-$form-bg-color--disabled: rgb(222, 222, 222) !default
-$form-border-color--disabled: rgb(222, 222, 222) !default
+$form-text-color--disabled: #ced4da !default
+$form-bg-color--disabled: #e9ecef !default
+$form-border-color--disabled: #ced4da !default
 // focus
 $form-border-color--focus: darken($form-border-color, 20%) !default
 
@@ -273,9 +259,6 @@ $form-letter-spacing: null !default
 =selects-font()
   +inputs-font
 
-//+media('<mob-lg')
-	font-size: 10px
-
 // Layout of forms
 $form-border-width: 1px !default
 $form-input-space-vt: floor(($form-input-height - $form-line-height - $form-border-width*2)/2) !default
@@ -285,13 +268,12 @@ $form-input-space-vb: ceil(($form-input-height - $form-line-height - $form-borde
 $form-input-space-h: 18px !default
 $form-bottom-space: 3rem !default
 $form-bottom-space--mob: 2rem !default
-$form-gap: 40px !default
 
 // Vertical spaces
 =forms-space()
   margin: 0 0 $form-bottom-space
 
-  +media('<mob-lg')
+  +media('<mob')
     margin: 0 0 $form-bottom-space--mob
 
 // Checkboxes
@@ -338,8 +320,3 @@ $multiple-item-space: 3px !default
 // ==========================================================================
 $animation-speed: 0.2s !default
 $animation-speed-mouseleave: 0.35s !default
-
-// No custom list
-// ==========================================================================
-$no-custom-list-parent: null !default // parent elements of a list
-$no-custom-list: ':not(.reset-list):not(.no-custom):not(.breadcrumbs__list):not(.slick-dots)'

@@ -5,160 +5,60 @@
 html
   font-size: 62.5%
 
-  // блокировка скролла
+  // Блокировать скролла
   &.css-scroll-fixed:not(.open-only-mob)
     +scroll-blocked
 
+  // Не блокировать скролл, если есть класс open-only-mob
   &.css-scroll-fixed.open-only-mob
-    +media('<tab-lg')
+    +media('<tab')
       +scroll-blocked
 
 body
-  position: relative
+  min-width: $layout-page-min-width
   +font-normal
   +font($font-size, $line-height)
   color: $text-color
-  min-width: $page-layout-min
   background: $bg-color url(../../img/empty.png) no-repeat left top fixed
 
-  // выделение текста
-  *::selection
-    background-color: $base-color
-    color: white
+// Отступы по бокам страницы
+// Отступы по бокам основных элементов на странице
+@if nth($layout-page-space, 2) != 0
+  .layout-page-spaces
+    +padding-horizontal(nth($layout-page-space, 2))
 
-.max-wrap
-  max-width: $page-layout-width
-
-  &.layout
-    max-width: #{$page-layout-width +  nth($page-layout-space, 2)*2}
-
-.layout
-  +padding-horizontal(nth($page-layout-space, 2))
+// Выравнивание сайта и его максимальная ширина
+// Выравнивание основных элементов и их максимальная ширина
+.layout-page
+  max-width: $layout-page-max-width
+  box-sizing: content-box
   +push-auto
 
-// выравнивание текстовых элементов на странице статьи (контент обернут в .layout-article)
-// и их максимальная ширина
-.layout-article
-  padding: $text-layout-space
+// Отступы по бокам текстовых элементов
+@if nth($layout-page-space, 2) != 0
+  .layout-text-spaces
+    +padding-horizontal(nth($layout-page-space, 2))
 
-  +media('<tab-lg')
-    padding: $text-layout-space--md
-
-  +media('<tab-sm')
-    padding: $text-layout-space--sm
-
-  & > p, & > ul, & > ol, & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > hr, & > blockquote, & > .layout-text, .imgc figcaption
-    max-width: $text-layout-width
-    +padding-horizontal(0)
-    +push-auto
-
-  .layout-flood
-    max-width: $flood-layout-width
-    +padding-horizontal(0)
-    +push-auto
-
-  // элеметы без отступов по бокам
-  // минусовые маржины по горизонтале имеют значение только внутри .layout-article
-  .layout-full-width, .layout-wide
-
-    +margin-horizontal(-#{nth($text-layout-space, 2)})
-
-    +media('<tab-lg')
-      +margin-horizontal(-#{nth($text-layout-space--md, 2)})
-
-    +media('<tab-sm')
-      +margin-horizontal(-#{nth($text-layout-space--sm, 2)})
-
-// максимальная ширина текстовых элементов на внутренней (текстовой) странице
-.max-wrap-text
-  //max-width: #{$text-layout-width + (nth($text-layout-space, 2))*2}
-  max-width: $text-layout-width
-
-//+media('<tab-lg')
-  max-width: #{$text-layout-width + (nth($text-layout-space--md, 2))*2}
-
-//+media('<tab-sm')
-  max-width: #{$text-layout-width + (nth($text-layout-space--sm, 2))*2}
-
-// выравнивание текстовых элементов на внутренней (текстовой) странице
-// и их максимальная ширина
+// Выравнивание текстовых элементов и их максимальная ширина
 .layout-text
-  max-width: #{$text-layout-width + (nth($text-layout-space, 2))*2}
-  +padding-horizontal(nth($text-layout-space, 2))
+  max-width: $layout-text-width
+  box-sizing: content-box
   +push-auto
 
-  +media('<tab-lg')
-    max-width: #{$text-layout-width + (nth($text-layout-space--md, 2))*2}
-    +padding-horizontal(nth($text-layout-space--md, 2))
-
-  +media('<tab-sm')
-    max-width: #{$text-layout-width + (nth($text-layout-space--sm, 2))*2}
-    +padding-horizontal(nth($text-layout-space--sm, 2))
-
-// максимальная ширина альтернативных элементов на внутренней (текстовой) странице
-.max-wrap-flood
-  //max-width: #{$flood-layout-width + (nth($text-layout-space, 2))*2}
-  max-width: $flood-layout-width
-
-//+media('<tab-lg')
-  max-width: #{$flood-layout-width + (nth($text-layout-space--md, 2))*2}
-
-//+media('<tab-sm')
-  max-width: #{$flood-layout-width + (nth($text-layout-space--mob, 2))*2}
-
-// выравнивание альтернативных элементов на внутренней (текстовой) странице
-// и их максимальная ширина
+// Выравнивание элементов выходящих за пределы текста
 .layout-flood
-  max-width: #{$flood-layout-width + (nth($text-layout-space, 2))*2}
-  +padding-horizontal((nth($text-layout-space, 2)))
+  max-width: $layout-text-width
+  box-sizing: content-box
   +push-auto
 
-  +media('<tab-lg')
-    max-width: #{$flood-layout-width + (nth($text-layout-space--md, 2))*2}
-    +padding-horizontal((nth($text-layout-space--md, 2)))
-
-  +media('<tab-sm')
-    max-width: #{$flood-layout-width + (nth($text-layout-space--sm, 2))*2}
-    +padding-horizontal((nth($text-layout-space--sm, 2)))
-
-  p, ul, ol, h1, h2, h3, h4, h5, h6, hr
-    max-width: none
-
-// элеметы с отступами по бокам
-.layout-wide
-  +padding-horizontal((nth($text-layout-space, 2)))
-
-  +media('<tab-lg')
-    +padding-horizontal((nth($text-layout-space--md, 2)))
-
-  +media('<tab-sm')
-    +padding-horizontal((nth($text-layout-space--sm, 2)))
-
-  p, ul, ol, h1, h2, h3, h4, h5, h6, hr
-    max-width: none
-
-// элеметы без отступов по бокам
-.layout-full-width
-
-  p, ul, ol, h1, h2, h3, h4, h5, h6, hr
-    max-width: none
-
-// выравнивание по центру блочных элементов
-.push-auto
-  margin-left: auto
-  margin-right: auto
-
-// лэяут страницы
-.wrapper
+// Прижать футер к низу страницы
+// На html, body необходимо задать высоту 100% (Задано в reset.sass)
+body
   display: flex
   flex-direction: column
-  justify-content: space-between
-  align-items: stretch
-  margin: 0 auto
-  //min-height: 100vh
-  //min-height: 100% // not support ie
-  //height: 100%
-  //overflow: hidden
-  //height: 100vh
-  min-height: 100vh
-  position: relative
+
+.main
+  flex-shrink: 0
+
+.footer
+  margin-top: auto

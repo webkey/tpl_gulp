@@ -5,8 +5,6 @@
 
 <link rel="stylesheet" href="css/test-mixins.css">
 
-@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "START" })
-
 <!--HEADER-->
 @@include('_tpl_layout_header.html', {
 	"currentItem": "Тестирование примесей и функций"
@@ -14,12 +12,12 @@
 <!--HEADER end-->
 
 <!--MAIN-->
-<div class="main">
-  <div class="max-wrap layout">
+<main class="main" role="main">
+  <div class="layout-page layout-page-spaces">
     <div class="main__holder">
       <!--CONTENT-->
       <div class="content-wrap">
-        <div class="content user-content">
+        <div class="content article-content">
           <div class="layout-text">
             <h1>Тестирование примесей</h1>
             <section class="section">
@@ -147,19 +145,13 @@
         </div>
       </div>
       <!--CONTENT end-->
-
-      <!--SIDEBAR-->
-      @@include('_tpl_layout_sidebar.html')
-      <!--SIDEBAR-->
     </div>
   </div>
-</div>
+</main>
 <!--MAIN end-->
 
 <!--FOOTER-->
 @@include('_tpl_layout_footer.html')
 <!--FOOTER end-->
-
-@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END" })
 
 @@include('_tpl_layout_foot.html')

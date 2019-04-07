@@ -2,13 +2,13 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/* select
+// Select
 //select
-	.#{$user-content} &, .select &
+	.#{$article-content} &, .select &
 		display: block
 		width: 100%
 
-.#{$user-content}, .select, .#{$user-content} .select
+.#{$article-content}, .select, .#{$article-content} .select
   select
     +selectSelection
     display: block
@@ -23,10 +23,10 @@
     &
       +selects-font
 
-.#{$user-content} select
+.#{$article-content} select
   padding-right: 0
 
-.#{$user-content} select, .select
+.#{$article-content} select, .select
   +forms-space
 
   &:last-child
@@ -61,7 +61,7 @@
     padding-right: 40px
 
 // States
-.#{$user-content} select, .select
+.#{$article-content} select, .select
 
   &[disabled]
     cursor: default
@@ -104,5 +104,3 @@
     //form error placeholder
     +placeholder
       color: $form-error-color
-
-/* select end

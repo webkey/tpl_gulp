@@ -2,7 +2,7 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-.error-note, .success-note
+.error-feedback, .success-feedback
   float: left
   position: relative
   +size(100%, 22px)
@@ -13,33 +13,31 @@
   display: none
   margin-top: -#{$form-bottom-space}
 
-  +media('<mob-lg')
+  +media('<mob')
     margin-top: -#{$form-bottom-space--mob}
 
-  .input-wrap &, .input-holder &, .select &
-    float: none
-    position: absolute
-    top: 100%
-    margin-top: 0
-
-.error-note
+.error-feedback
   color: $form-error-color
 
   // нужно выбрать только ближайший элемент ошибки формы (нельзя использовать ~)
   form .error + &,
-  form .error + .select2 + &
+  form .error + .select2 + &,
+  form .success + .success-feedback + &,
+  form .success + .select2 + .success-feedback + &
     display: block
 
-.success-note
+.success-feedback
   color: $form-success-color
 
-  // нужно выбрать тольк ближайший элемент подтверждения формы ((нельзя использовать ~))
-  form .success + .error-note + &,
-  form .success + .select2 + .error-note + &
+  // нужно выбрать только ближайший элемент подтверждения формы ((нельзя использовать ~))
+  form .success + &,
+  form .success + .select2 + &,
+  form .success + .error-feedback + &,
+  form .success + .select2 + .error-feedback + &
     display: block
 
 // Если поддтверждение в виде галочки
-//.success-note
+//.success-feedback.md
 	$this-icon-size: 16px
 	$this-icon-lines-width: 11px
 	$this-icon-lines-height: 3px
@@ -59,24 +57,24 @@
 	pointer-events: none
 	display: none
 
-	+media('<mob-lg')
+	+media('<mob')
 		margin-top: -#{$form-bottom-space--mob}
 
 	.input-wrap &, .select &
 		float: none
 		position: absolute
 		top: round($form-input-height*0.5)
-		margin: -#{round($this-icon-size*0.5)} 0 0 #{round(((nth($text-layout-space, 2)) - $this-icon-size)*0.1)}
+		margin: -#{round($this-icon-size*0.5)} 0 0 #{round(((nth($layout-text-space, 2)) - $this-icon-size)*0.1)}
 
-	+media('<tab-lg')
-		margin-left: #{round(((nth($text-layout-space--md, 2)) - $this-icon-size)*0.1)}
+	+media('<tab')
+		margin-left: #{round(((nth($layout-text-space--md, 2)) - $this-icon-size)*0.1)}
 
-	+media('<tab-sm')
-		margin-left: #{round(((nth($text-layout-space--sm, 2)) - $this-icon-size)*0.1)}
+	+media('<tab-s')
+		margin-left: #{round(((nth($layout-text-space--sm, 2)) - $this-icon-size)*0.1)}
 
 	// нужно выбрать тольк ближайший элемент подтверждения формы ((нельзя использовать ~))
-	form .success + .error-note + &,
-	form .success + .select2 + .error-note + &
+	form .success + .error-feedback.md + &,
+	form .success + .select2 + .error-feedback.md + &
 		display: block
 
 	&::before, &::after
