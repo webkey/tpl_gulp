@@ -44,12 +44,13 @@ gulp.task('buildDistTpl', ['cleanDistTpl'], function () {
     '!src/__test-mixins.html',
     'src/__*.html',
     'src/_tpl_*.html',
+    'src/*.png',
+    'src/*.jpg',
+    'src/*.ico',
+    'src/*.htaccess',
     'src/manifest.webmanifest',
     'src/*.json'
   ]).pipe(gulp.dest('gulp-project-template/src'));
-
-  gulp.src(['src/*.png', 'src/*.ico', 'src/.htaccess'])
-      .pipe(gulp.dest('gulp-project-template/src'));
 
   gulp.src([
     './.bowerrc',
