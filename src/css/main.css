@@ -432,8 +432,8 @@ body {
 }
 
 .layout-text-spaces {
-  padding-right: 5rem;
-  padding-left: 5rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
 }
 
 .layout-text {
@@ -457,12 +457,19 @@ body {
       flex-direction: column;
 }
 
+.header {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
 .main {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
 
 .footer {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   margin-top: auto;
 }
 
